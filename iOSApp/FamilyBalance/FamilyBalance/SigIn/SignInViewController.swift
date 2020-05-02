@@ -27,8 +27,20 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //-------------------------------------------------------------временно
+        navigationController?.navigationBar.isHidden = true
+        self.viewModel = SignInViewModel()
+        
+        self.setUpBindings()
     }
     
+    private func setUpBindings() {
+        guard let viewModel = self.viewModel else { return }
+        
+        
+        
+        
+    }
     
 }
 
