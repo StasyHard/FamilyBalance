@@ -166,8 +166,8 @@
 			children = (
 				56444DE924599FDD00BB6BAE /* Main.storyboard */,
 				56444DE724599FDD00BB6BAE /* SignInViewController.swift */,
-				5673755E245D8CB300DD02FB /* LoginModel.swift */,
 				5673755C245D70C100DD02FB /* SignInViewModel.swift */,
+				5673755E245D8CB300DD02FB /* LoginModel.swift */,
 			);
 			path = SigIn;
 			sourceTree = "<group>";
