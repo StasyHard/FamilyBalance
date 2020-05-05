@@ -17,6 +17,8 @@ enum SingInError {
 
 class SignInViewModel {
     
+    let service = Servise()
+    
     let email = BehaviorSubject<String>(value: "")
     let password = BehaviorSubject<String>(value: "")
     let isSignInActive = BehaviorSubject<Bool>(value: true)
@@ -30,42 +32,33 @@ class SignInViewModel {
         Observable
             .combineLatest(email, password)
             .take(1)
-            .do(onNext: { [weak self] (email, password) in
-                if email.isEmpty {
-                    self?.error.onNext(.emailIsEmptyError)
-                }
-                if password.isEmpty {
-                    self?.error.onNext(.passwordIsEmptyError)
-                }
-            })
+            //            .do(onNext: { [weak self] (email, password) in
+            //                if email.isEmpty {
+            //                    self?.error.onNext(.emailIsEmptyError)
+            //                }
+            //                if password.isEmpty {
+            //                    self?.error.onNext(.passwordIsEmptyError)
+            //                }
+            //            })
             .filter { !$0.isEmpty && !$1.isEmpty }
-//            .flatMapLatest { email, password in
-//                print(email)
-//                print(password)
-//                Observable.of(1)
-//                //service.signgIn(email, password)
-//        }
-       .subscribe {
-
+            .map { email, password in
+                LoginModel(email: email, password: password)
         }
+//        .flatMapLatest {
+//            service.signgIn($0)
+//        }
+        .subscribe(
+            onNext: { [weak self] _ in
+                self?.isLoading.onNext(false)
+            },
+            onError: { [weak self] error in
+                self?.isLoading.onNext(false)
+        })
+            .disposed(by: self.disposeBag)
         
-
-
-//            .subscribe (
-//                {
-//
-//                    self.isLoading.onNext(false)
-//                    //TODO сохранить токен и перейти на следующий экран
-//            },
-//                {
-//                    self.isLoading.onNext(false)
-//                    self.isSignInActive.onNext(true)
-//                    //TODO обработать ошибку
-//            })
-        self.isLoading.onNext(true)
-        self.isSignInActive.onNext(false)
-        
-        
+//        self.isLoading.onNext(true)
+//        self.isSignInActive.onNext(false)
+    
         print("signIn")
     }
     
