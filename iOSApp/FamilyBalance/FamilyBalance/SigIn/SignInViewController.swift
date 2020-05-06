@@ -77,7 +77,7 @@ class SignInViewController: UIViewController {
     }
     
     private func showTextFieldError(_ textField: UITextField) {
-        textField.layer.borderColor = UIColor.red.cgColor
+        textField.layer.borderColor = UIColor.AppColors.textFieldErrorBorderColor.cgColor
     }
     
 }
@@ -89,11 +89,10 @@ extension SignInViewController: UITextFieldDelegate {
             showTextFieldError(textField)
         }
     }
-    
-    //Вызывается каждый раз при изменении текста, а нужно чтоб только при начале редактирования
+
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        if  textField.layer.borderColor == UIColor.red.cgColor {
-            textField.layer.borderColor = UIColor.blue.cgColor
+        if  textField.layer.borderColor == UIColor.AppColors.textFieldErrorBorderColor.cgColor {
+            textField.layer.borderColor = UIColor.AppColors.textFieldBorderColor.cgColor
         }
     }
     
