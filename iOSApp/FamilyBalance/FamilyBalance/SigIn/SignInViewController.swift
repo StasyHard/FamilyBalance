@@ -20,22 +20,21 @@ class SignInViewController: UIViewController {
     @IBOutlet private weak var emailTextField: BlueStrokeTextField!
     @IBOutlet private weak var passwordTextField: BlueStrokeTextField!
     @IBOutlet private weak var logInButton: UIButton!
-
+    
     //MARK: - Private properties
     private let disposeBag = DisposeBag()
     
     
     //MARK: - IBAction
     @IBAction private func signInTapped(_ sender: UIButton) {
-        if let emailInput = emailTextField.text, emailInput.isEmpty {
-            showTextFieldError(emailTextField)
+        guard let emailInput = emailTextField.text, !emailInput.isEmpty,
+            let passwordInput = passwordTextField.text, !passwordInput.isEmpty
+            else {
+                checkInputData(emailTextField)
+                checkInputData(passwordTextField)
+                return
         }
-        if let passwordInput = passwordTextField.text, passwordInput.isEmpty {
-            showTextFieldError(passwordTextField)
-        }
-        else {
-            viewModel?.signIn(emailTextField.text!, passwordTextField.text!)
-        }
+        viewModel?.signIn(emailInput, passwordInput)
     }
     
     override func viewDidLoad() {
@@ -48,7 +47,8 @@ class SignInViewController: UIViewController {
         setupViews()
         observeViewModel()
     }
-
+    
+    //MARK: - Private metods
     private func setupViews() {
         emailTextField.delegate = self
         passwordTextField.delegate = self
@@ -76,8 +76,11 @@ class SignInViewController: UIViewController {
         print("showProgressView")
     }
     
-    private func showTextFieldError(_ textField: UITextField) {
-        textField.layer.borderColor = UIColor.AppColors.textFieldErrorBorderColor.cgColor
+    private func checkInputData(_ textField: BlueStrokeTextField) {
+        if let textInput = textField.text, textInput.isEmpty {
+            textField.setError()
+            textField.resignFirstResponder()
+        }
     }
     
 }
@@ -86,17 +89,15 @@ class SignInViewController: UIViewController {
 extension SignInViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         if let textInput = textField.text, textInput.isEmpty {
-            showTextFieldError(textField)
+            let textField = textField as? BlueStrokeTextField
+            textField?.setError()
         }
     }
-
+    
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        if  textField.layer.borderColor == UIColor.AppColors.textFieldErrorBorderColor.cgColor {
-            textField.layer.borderColor = UIColor.AppColors.textFieldBorderColor.cgColor
-        }
+        let textField = textField as? BlueStrokeTextField
+        textField?.textChanged()
     }
-    
-    
     
 }
 

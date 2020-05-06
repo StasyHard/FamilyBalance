@@ -9,19 +9,34 @@
 import UIKit
 
 class BlueStrokeTextField: UITextField {
+    
+    private var error = false
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        layer.borderWidth = 1.0
-        layer.borderColor = UIColor.blue.cgColor
+        setupUI()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        
+        setupUI()
+    }
+    
+    private func setupUI() {
         layer.borderWidth = 1.0
-        layer.borderColor = UIColor.blue.cgColor
+        layer.borderColor = UIColor.AppColors.textFieldBorderColor.cgColor
+    }
+    
+    func textChanged(){
+        if error == true {
+            layer.borderColor = UIColor.AppColors.textFieldBorderColor.cgColor
+            error = false
+        }
+    }
+    
+    func setError() {
+        error = true
+        layer.borderColor = UIColor.AppColors.textFieldErrorBorderColor.cgColor
     }
 
     
