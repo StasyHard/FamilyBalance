@@ -7,10 +7,12 @@
 //
 
 import Foundation
+import RxSwift
 
-class Servise {
+class Service {
     
-    func signgIn(_ loginModel: LoginModel) {
-        print(loginModel)
+    func signgIn(_ loginModel: LoginModel) -> Observable<LoginModel> {
+        return Observable.of(loginModel)
     }
+    
 }

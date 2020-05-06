@@ -12,17 +12,31 @@ import RxCocoa
 
 class SignInViewController: UIViewController {
     
-    //MARK: - IBOutlet
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var logInButton: UIButton!
     
     //MARK: - Open properties
     var viewModel: SignInViewModel?
     
+    //MARK: - IBOutlet
+    @IBOutlet private weak var emailTextField: BlueStrokeTextField!
+    @IBOutlet private weak var passwordTextField: BlueStrokeTextField!
+    @IBOutlet private weak var logInButton: UIButton!
+
     //MARK: - Private properties
     private let disposeBag = DisposeBag()
     
+    
+    //MARK: - IBAction
+    @IBAction private func signInTapped(_ sender: UIButton) {
+        if let emailInput = emailTextField.text, emailInput.isEmpty {
+            showTextFieldError(emailTextField)
+        }
+        if let passwordInput = passwordTextField.text, passwordInput.isEmpty {
+            showTextFieldError(passwordTextField)
+        }
+        else {
+            viewModel?.signIn(emailTextField.text!, passwordTextField.text!)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,33 +45,19 @@ class SignInViewController: UIViewController {
         navigationController?.navigationBar.isHidden = true
         viewModel = SignInViewModel()
         
-        setUpBindings()
-        setUpCallbacks()
+        setupViews()
+        observeViewModel()
+    }
+
+    private func setupViews() {
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
     }
     
-    private func setUpBindings() {
+    private func observeViewModel() {
         guard let viewModel = self.viewModel else { return }
-     
-        emailTextField.rx.text.orEmpty
-            .bind(to: viewModel.email)
-            .disposed(by: self.disposeBag)
-        
-        passwordTextField.rx.text.orEmpty
-            .bind(to: viewModel.password)
-            .disposed(by: self.disposeBag)
-        
-        
-        logInButton.rx.tap
-            .bind { [weak self] in self?.viewModel?.signIn() }
-            .disposed(by: self.disposeBag)
-        
-    }
-    
-    private func setUpCallbacks() {
-        guard let viewModel = self.viewModel else { return }
-        
         viewModel.isSignInActive
-            .bind { [weak self] in self?.handleIsSignInActive(isActive: $0) }
+            .bind { [weak self] in self?.handlerIsSignInActive(isActive: $0) }
             .disposed(by: self.disposeBag)
         
         viewModel.isLoading
@@ -66,7 +66,7 @@ class SignInViewController: UIViewController {
             .disposed(by: self.disposeBag)
     }
     
-    private func handleIsSignInActive(isActive: Bool) {
+    private func handlerIsSignInActive(isActive: Bool) {
         self.logInButton.isEnabled = isActive
         self.emailTextField.isEnabled = isActive
         self.passwordTextField.isEnabled = isActive
@@ -75,5 +75,29 @@ class SignInViewController: UIViewController {
     private func showProgressView() {
         print("showProgressView")
     }
+    
+    private func showTextFieldError(_ textField: UITextField) {
+        textField.layer.borderColor = UIColor.red.cgColor
+    }
+    
+}
+
+//MARK: - UITextFieldDelegate
+extension SignInViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if let textInput = textField.text, textInput.isEmpty {
+            showTextFieldError(textField)
+        }
+    }
+    
+    //Вызывается каждый раз при изменении текста, а нужно чтоб только при начале редактирования
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        if  textField.layer.borderColor == UIColor.red.cgColor {
+            textField.layer.borderColor = UIColor.blue.cgColor
+        }
+    }
+    
+    
+    
 }
 

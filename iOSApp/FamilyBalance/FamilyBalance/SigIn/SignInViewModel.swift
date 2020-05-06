@@ -9,57 +9,47 @@
 import Foundation
 import RxSwift
 
-
-enum SingInError {
+enum SignInError {
     case emailIsEmptyError
     case passwordIsEmptyError
 }
 
+
 class SignInViewModel {
     
-    let service = Servise()
+    let service = Service()
     
-    let email = BehaviorSubject<String>(value: "")
-    let password = BehaviorSubject<String>(value: "")
     let isSignInActive = BehaviorSubject<Bool>(value: true)
     let isLoading = BehaviorSubject<Bool>(value: false)
-    let error = PublishSubject<SingInError>()
+    let error = PublishSubject<SignInError>()
     
     private let disposeBag = DisposeBag()
     
     
-    func signIn() {
-        Observable
-            .combineLatest(email, password)
-            .take(1)
-            //            .do(onNext: { [weak self] (email, password) in
-            //                if email.isEmpty {
-            //                    self?.error.onNext(.emailIsEmptyError)
-            //                }
-            //                if password.isEmpty {
-            //                    self?.error.onNext(.passwordIsEmptyError)
-            //                }
-            //            })
-            .filter { !$0.isEmpty && !$1.isEmpty }
-            .map { email, password in
-                LoginModel(email: email, password: password)
-        }
-//        .flatMapLatest {
-//            service.signgIn($0)
-//        }
-        .subscribe(
-            onNext: { [weak self] _ in
-                self?.isLoading.onNext(false)
-            },
-            onError: { [weak self] error in
-                self?.isLoading.onNext(false)
-        })
-            .disposed(by: self.disposeBag)
+    func signIn(_ email: String, _ password: String) {
+        checkSignInErrors(email, password)
+       
+        if email.isEmpty || password.isEmpty { return }
         
-//        self.isLoading.onNext(true)
-//        self.isSignInActive.onNext(false)
+        service.signgIn(LoginModel(email: email, password: password))
+            .subscribe(
+                onNext: { [weak self] result in
+                    self?.isLoading.onNext(false)
+                },
+                onError: { [weak self] error in
+                    self?.isLoading.onNext(false)
+            })
+            .disposed(by: self.disposeBag)
+    }
     
-        print("signIn")
+    func checkSignInErrors(_ email: String, _ password: String) {
+        if email.isEmpty {
+            error.onNext(.emailIsEmptyError)
+        }
+        
+        if password.isEmpty {
+            error.onNext(.passwordIsEmptyError)
+        }
     }
     
 }
