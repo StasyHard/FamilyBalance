@@ -12,6 +12,7 @@ import RxCocoa
 
 class SignInViewController: UIViewController {
     
+    weak var delegate: SignInViewControllerDelegate?
     
     //MARK: - Open properties
     var viewModel: SignInViewModel?
@@ -35,6 +36,8 @@ class SignInViewController: UIViewController {
                 return
         }
         viewModel?.signIn(emailInput, passwordInput)
+        
+        delegate?.didSignIn()
     }
     
     override func viewDidLoad() {

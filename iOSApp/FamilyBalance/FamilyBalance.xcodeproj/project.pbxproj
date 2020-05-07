@@ -11,7 +11,7 @@
 		56444DE424599FDD00BB6BAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56444DE324599FDD00BB6BAE /* AppDelegate.swift */; };
 		56444DE624599FDD00BB6BAE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56444DE524599FDD00BB6BAE /* SceneDelegate.swift */; };
 		56444DE824599FDD00BB6BAE /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56444DE724599FDD00BB6BAE /* SignInViewController.swift */; };
-		56444DEB24599FDD00BB6BAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56444DE924599FDD00BB6BAE /* Main.storyboard */; };
+		56444DEB24599FDD00BB6BAE /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56444DE924599FDD00BB6BAE /* SignIn.storyboard */; };
 		56444DEE24599FDD00BB6BAE /* FamilyBalance.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56444DEC24599FDD00BB6BAE /* FamilyBalance.xcdatamodeld */; };
 		56444DF024599FDF00BB6BAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56444DEF24599FDF00BB6BAE /* Assets.xcassets */; };
 		56444DF324599FDF00BB6BAE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56444DF124599FDF00BB6BAE /* LaunchScreen.storyboard */; };
@@ -22,6 +22,11 @@
 		5673DD6E24602AC50004EB12 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5673DD6D24602AC50004EB12 /* Service.swift */; };
 		56EB9B992461C73F002F815B /* BlueStrokeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB9B982461C73F002F815B /* BlueStrokeTextField.swift */; };
 		56EB9B9F2462B904002F815B /* UIColor+AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB9B9E2462B904002F815B /* UIColor+AppColors.swift */; };
+		56EB9BBA2463FAE6002F815B /* CostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB9BB92463FAE6002F815B /* CostsViewController.swift */; };
+		56EB9BBC2463FB10002F815B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56EB9BBB2463FB10002F815B /* Main.storyboard */; };
+		56EB9BBE2463FC89002F815B /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB9BBD2463FC89002F815B /* AppCoordinator.swift */; };
+		56EB9BC224640A29002F815B /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB9BC124640A29002F815B /* Storyboard.swift */; };
+		56EB9BC424640E48002F815B /* SignInCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB9BC324640E48002F815B /* SignInCoordinator.swift */; };
 		93BB9012EE610490EC457749 /* libPods-FamilyBalanceTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 79C2BFAE1FD0351DD6FA3095 /* libPods-FamilyBalanceTests.a */; };
 		DD4FAA1F42504B043D97FB56 /* libPods-FamilyBalance.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B57D9B5BC9FF79A225A6425A /* libPods-FamilyBalance.a */; };
 /* End PBXBuildFile section */
@@ -51,7 +56,7 @@
 		56444DE324599FDD00BB6BAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56444DE524599FDD00BB6BAE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		56444DE724599FDD00BB6BAE /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
-		56444DEA24599FDD00BB6BAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		56444DEA24599FDD00BB6BAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SignIn.storyboard; sourceTree = "<group>"; };
 		56444DED24599FDD00BB6BAE /* FamilyBalance.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FamilyBalance.xcdatamodel; sourceTree = "<group>"; };
 		56444DEF24599FDF00BB6BAE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		56444DF224599FDF00BB6BAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -67,6 +72,11 @@
 		5673DD6D24602AC50004EB12 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		56EB9B982461C73F002F815B /* BlueStrokeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueStrokeTextField.swift; sourceTree = "<group>"; };
 		56EB9B9E2462B904002F815B /* UIColor+AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+AppColors.swift"; sourceTree = "<group>"; };
+		56EB9BB92463FAE6002F815B /* CostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostsViewController.swift; sourceTree = "<group>"; };
+		56EB9BBB2463FB10002F815B /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		56EB9BBD2463FC89002F815B /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		56EB9BC124640A29002F815B /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
+		56EB9BC324640E48002F815B /* SignInCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInCoordinator.swift; sourceTree = "<group>"; };
 		66EDDF4F16F91E530F3F6374 /* Pods-FamilyBalance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FamilyBalance.debug.xcconfig"; path = "Target Support Files/Pods-FamilyBalance/Pods-FamilyBalance.debug.xcconfig"; sourceTree = "<group>"; };
 		693C8FB37394743FB359AA70 /* Pods-FamilyBalance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FamilyBalance.release.xcconfig"; path = "Target Support Files/Pods-FamilyBalance/Pods-FamilyBalance.release.xcconfig"; sourceTree = "<group>"; };
 		79C2BFAE1FD0351DD6FA3095 /* libPods-FamilyBalanceTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FamilyBalanceTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,10 +148,12 @@
 		56444DE224599FDD00BB6BAE /* FamilyBalance */ = {
 			isa = PBXGroup;
 			children = (
+				56EB9BC5246416AF002F815B /* Coordinator */,
 				56EB9B9D2462B8C0002F815B /* Application */,
 				56EB9B9C2462B89F002F815B /* Extention */,
 				56EB9B9B2462B75C002F815B /* Model */,
 				56EB9B9A2462B744002F815B /* View */,
+				56EB9BB82463FA94002F815B /* Main */,
 				5673755B245D700700DD02FB /* SigIn */,
 				56444DEF24599FDF00BB6BAE /* Assets.xcassets */,
 				56444DF124599FDF00BB6BAE /* LaunchScreen.storyboard */,
@@ -172,9 +184,10 @@
 		5673755B245D700700DD02FB /* SigIn */ = {
 			isa = PBXGroup;
 			children = (
-				56444DE924599FDD00BB6BAE /* Main.storyboard */,
+				56444DE924599FDD00BB6BAE /* SignIn.storyboard */,
 				56444DE724599FDD00BB6BAE /* SignInViewController.swift */,
 				5673755C245D70C100DD02FB /* SignInViewModel.swift */,
+				56EB9BC324640E48002F815B /* SignInCoordinator.swift */,
 				5673DD6D24602AC50004EB12 /* Service.swift */,
 			);
 			path = SigIn;
@@ -200,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				56EB9B9E2462B904002F815B /* UIColor+AppColors.swift */,
+				56EB9BC124640A29002F815B /* Storyboard.swift */,
 			);
 			path = Extention;
 			sourceTree = "<group>";
@@ -211,6 +225,23 @@
 				56444DE524599FDD00BB6BAE /* SceneDelegate.swift */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		56EB9BB82463FA94002F815B /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				56EB9BB92463FAE6002F815B /* CostsViewController.swift */,
+				56EB9BBB2463FB10002F815B /* Main.storyboard */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		56EB9BC5246416AF002F815B /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				56EB9BBD2463FC89002F815B /* AppCoordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		DD492D5FF358CA70EC3CC168 /* Pods */ = {
@@ -335,7 +366,8 @@
 			files = (
 				56444DF324599FDF00BB6BAE /* LaunchScreen.storyboard in Resources */,
 				56444DF024599FDF00BB6BAE /* Assets.xcassets in Resources */,
-				56444DEB24599FDD00BB6BAE /* Main.storyboard in Resources */,
+				56444DEB24599FDD00BB6BAE /* SignIn.storyboard in Resources */,
+				56EB9BBC2463FB10002F815B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,11 +461,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56EB9BBE2463FC89002F815B /* AppCoordinator.swift in Sources */,
 				56444DE824599FDD00BB6BAE /* SignInViewController.swift in Sources */,
 				5673755F245D8CB300DD02FB /* LoginModel.swift in Sources */,
 				56444DE424599FDD00BB6BAE /* AppDelegate.swift in Sources */,
+				56EB9BC224640A29002F815B /* Storyboard.swift in Sources */,
 				56444DEE24599FDD00BB6BAE /* FamilyBalance.xcdatamodeld in Sources */,
 				5673DD6E24602AC50004EB12 /* Service.swift in Sources */,
+				56EB9BBA2463FAE6002F815B /* CostsViewController.swift in Sources */,
+				56EB9BC424640E48002F815B /* SignInCoordinator.swift in Sources */,
 				56EB9B9F2462B904002F815B /* UIColor+AppColors.swift in Sources */,
 				56EB9B992461C73F002F815B /* BlueStrokeTextField.swift in Sources */,
 				56444DE624599FDD00BB6BAE /* SceneDelegate.swift in Sources */,
@@ -473,12 +509,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		56444DE924599FDD00BB6BAE /* Main.storyboard */ = {
+		56444DE924599FDD00BB6BAE /* SignIn.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				56444DEA24599FDD00BB6BAE /* Base */,
 			);
-			name = Main.storyboard;
+			name = SignIn.storyboard;
 			sourceTree = "<group>";
 		};
 		56444DF124599FDF00BB6BAE /* LaunchScreen.storyboard */ = {
