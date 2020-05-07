@@ -23,6 +23,7 @@ class SignInViewController: UIViewController {
     @IBOutlet private weak var logInButton: UIButton!
     
     //MARK: - Private properties
+    private var loadingView: LoadingView?
     private let disposeBag = DisposeBag()
     
     
@@ -37,7 +38,7 @@ class SignInViewController: UIViewController {
         }
         viewModel?.signIn(emailInput, passwordInput)
         //TODO --------------------------------------------------временно
-        //delegate?.didSignIn()
+        delegate?.didSignIn()
     }
     
     override func viewDidLoad() {
@@ -61,7 +62,7 @@ class SignInViewController: UIViewController {
         
         viewModel.isLoadingObservable
             .filter { $0 }
-            .bind { [weak self] _ in self?.showProgressView() }
+            .bind { [weak self] _ in self?.showLoadingView() }
             .disposed(by: self.disposeBag)
     }
     
@@ -71,8 +72,9 @@ class SignInViewController: UIViewController {
         self.passwordTextField.isEnabled = isActive
     }
     
-    private func showProgressView() {
-        print("showProgressView")
+    private func showLoadingView() {
+        loadingView = LoadingView(inView: view)
+        loadingView?.startLoading()
     }
     
     private func checkInputData(_ textField: BlueStrokeTextField) {
@@ -81,7 +83,6 @@ class SignInViewController: UIViewController {
             textField.resignFirstResponder()
         }
     }
-    
 }
 
 //MARK: - UITextFieldDelegate

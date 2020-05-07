@@ -41,6 +41,7 @@ final class SignInViewModel {
         if email.isEmpty || password.isEmpty { return }
         
         isSignInActive.onNext(false)
+        isLoading.onNext(true)
         
         service.signgIn(LoginModel(email: email, password: password))
             .subscribe(
