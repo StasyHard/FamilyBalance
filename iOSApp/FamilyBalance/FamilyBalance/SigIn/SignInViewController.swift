@@ -37,7 +37,7 @@ class SignInViewController: UIViewController {
         }
         viewModel?.signIn(emailInput, passwordInput)
         //TODO --------------------------------------------------временно
-        delegate?.didSignIn()
+        //delegate?.didSignIn()
     }
     
     override func viewDidLoad() {
@@ -54,11 +54,12 @@ class SignInViewController: UIViewController {
     
     private func observeViewModel() {
         guard let viewModel = self.viewModel else { return }
-        viewModel.isSignInActive
+        
+        viewModel.isSignInActiveObservable
             .bind { [weak self] in self?.handlerIsSignInActive(isActive: $0) }
             .disposed(by: self.disposeBag)
         
-        viewModel.isLoading
+        viewModel.isLoadingObservable
             .filter { $0 }
             .bind { [weak self] _ in self?.showProgressView() }
             .disposed(by: self.disposeBag)

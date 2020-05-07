@@ -17,21 +17,30 @@ enum SignInError {
 //Protocol - servise, signIn
 
 
-class SignInViewModel {
+final class SignInViewModel {
     
+    //MARK: - Open properties
     let service = Service()
     
-    let isSignInActive = BehaviorSubject<Bool>(value: true)
-    let isLoading = BehaviorSubject<Bool>(value: false)
-    let error = PublishSubject<SignInError>()
+    let isSignInActiveObservable: Observable<Bool>
+    let isLoadingObservable: Observable<Bool>
+    
+    //MARK: - Private properties
+    private let isSignInActive = BehaviorSubject<Bool>(value: true)
+    private let isLoading = BehaviorSubject<Bool>(value: false)
     
     private let disposeBag = DisposeBag()
     
+        //MARK: - Init
+    init() {
+        isSignInActiveObservable = isSignInActive
+        isLoadingObservable = isLoading
+    }
     
     func signIn(_ email: String, _ password: String) {
-        checkSignInErrors(email, password)
-       
         if email.isEmpty || password.isEmpty { return }
+        
+        isSignInActive.onNext(false)
         
         service.signgIn(LoginModel(email: email, password: password))
             .subscribe(
@@ -44,14 +53,5 @@ class SignInViewModel {
             .disposed(by: self.disposeBag)
     }
     
-    func checkSignInErrors(_ email: String, _ password: String) {
-        if email.isEmpty {
-            error.onNext(.emailIsEmptyError)
-        }
-        
-        if password.isEmpty {
-            error.onNext(.passwordIsEmptyError)
-        }
-    }
     
 }
