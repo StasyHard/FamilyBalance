@@ -10,14 +10,9 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-
-protocol AuthViewControllerDelegate: AnyObject {
-  func didSignIn()
-}
-
 class SignInViewController: UIViewController {
     
-    weak var delegate: AuthViewControllerDelegate?
+    weak var delegate: SignInViewControllerDelegate?
     
     //MARK: - Open properties
     var viewModel: SignInViewModel?
