@@ -10,8 +10,14 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+
+protocol AuthViewControllerDelegate: AnyObject {
+  func didSignIn()
+}
+
 class SignInViewController: UIViewController {
     
+    weak var delegate: AuthViewControllerDelegate?
     
     //MARK: - Open properties
     var viewModel: SignInViewModel?
@@ -35,6 +41,8 @@ class SignInViewController: UIViewController {
                 return
         }
         viewModel?.signIn(emailInput, passwordInput)
+        
+        delegate?.didSignIn()
     }
     
     override func viewDidLoad() {
