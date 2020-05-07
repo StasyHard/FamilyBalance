@@ -148,8 +148,8 @@
 		56444DE224599FDD00BB6BAE /* FamilyBalance */ = {
 			isa = PBXGroup;
 			children = (
-				56EB9BC5246416AF002F815B /* Coordinator */,
 				56EB9B9D2462B8C0002F815B /* Application */,
+				56EB9BC5246416AF002F815B /* Coordinator */,
 				56EB9B9C2462B89F002F815B /* Extention */,
 				56EB9B9B2462B75C002F815B /* Model */,
 				56EB9B9A2462B744002F815B /* View */,

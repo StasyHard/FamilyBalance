@@ -9,10 +9,10 @@
 import UIKit
 
 protocol SignInViewControllerDelegate: AnyObject {
-  func didSignIn()
+    func didSignIn()
 }
 protocol SignInCoordinatorDelegate: AnyObject {
-  func didAuthenticate()
+    func didAuthenticate()
 }
 
 final class SignInCoordinator: Coordinator {
@@ -20,21 +20,24 @@ final class SignInCoordinator: Coordinator {
     weak var delegate: SignInCoordinatorDelegate?
     
     init(navController: UINavigationController, delegate: SignInCoordinatorDelegate) {
-      self.navController = navController
-      self.delegate = delegate
+        self.navController = navController
+        self.delegate = delegate
     }
     func start() {
-      let signInVC = UIStoryboard.instantiateSignInViewController(delegate: self)
-      signInVC.delegate = self
-      //navController.setViewControllers([signInVC], animated: true)
-      navController.viewControllers = [signInVC]
+        let signInVC = UIStoryboard.instantiateSignInViewController(delegate: self)
+        let viewModel = SignInViewModel()
+        signInVC.viewModel = viewModel
+        signInVC.delegate = self
+        //navController.setViewControllers([signInVC], animated: true)
+        navController.viewControllers = [signInVC]
+        navController.navigationBar.isHidden = true
     }
 }
 
 extension SignInCoordinator: SignInViewControllerDelegate {
     func didSignIn() {
-      // Authenticate via API, etc...
-      delegate?.didAuthenticate()
+        // Authenticate via API, etc...
+        delegate?.didAuthenticate()
     }
 }
 

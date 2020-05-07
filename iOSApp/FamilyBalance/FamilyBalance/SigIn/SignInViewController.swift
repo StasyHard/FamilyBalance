@@ -36,17 +36,12 @@ class SignInViewController: UIViewController {
                 return
         }
         viewModel?.signIn(emailInput, passwordInput)
-        
+        //TODO --------------------------------------------------временно
         delegate?.didSignIn()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //-------------------------------------------------------------временно
-        navigationController?.navigationBar.isHidden = true
-        viewModel = SignInViewModel()
-        
         setupViews()
         observeViewModel()
     }

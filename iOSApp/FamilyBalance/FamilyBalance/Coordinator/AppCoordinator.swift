@@ -19,30 +19,31 @@ final class AppCoordinator: Coordinator {
     
     private var childCoordinators: [Coordinator] = []
     
-    // MARK: - Initializer
+    // MARK: - Init
     init(navController: UINavigationController, window: UIWindow) {
         self.navController = navController
         self.window = window
     }
     
+    //MARK: - Open metods
     func start() {
         window.rootViewController = navController
         window.makeKeyAndVisible()
-        showAuth()
+        //TODO: --------------- открытие экрана в зависимости от того, логин или логаут
+        showSignIn()
     }
     
     // MARK: - Navigation
-    
-    // Перенести логику в дочерний координатор
+    // TODO: -----------------------------Перенести часть логики в дочерний координатор
     private func showMain() {
         let mainVC = UIStoryboard.instantiateMainViewController()
-        //navController.setViewControllers([mainVC], animated: true)
-        navController.viewControllers = [mainVC]
+        navController.setViewControllers([mainVC], animated: false)
         childCoordinators.removeAll { $0 is SignInCoordinator }
     }
     
-    private func showAuth() {
-        let signInCoordinator = SignInCoordinator(navController: navController, delegate: self)
+    private func showSignIn() {
+        let signInCoordinator = SignInCoordinator(navController: navController,
+                                                  delegate: self)
         childCoordinators.append(signInCoordinator)
         signInCoordinator.start()
     }

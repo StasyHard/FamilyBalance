@@ -14,6 +14,8 @@ enum SignInError {
     case passwordIsEmptyError
 }
 
+//Protocol - servise, signIn
+
 
 class SignInViewModel {
     
