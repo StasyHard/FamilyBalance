@@ -10,14 +10,17 @@ import UIKit
 
 class LoadingView: UIView {
     
+    //MARK: - IBOutlet
     @IBOutlet private var contentView: UIView!
     @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     
+    //MARK: - Private properties
     private weak var containerView: UIView?
     
     private let contentViewWidth: CGFloat = 105.0
     private let contentViewHeight: CGFloat = 150.0
     
+    //MARK: - Init
     init(inView view: UIView) {
         super.init(frame: view.bounds)
         self.containerView = view
@@ -33,10 +36,12 @@ class LoadingView: UIView {
         setupViews()
     }
     
+    //MARK: - Open metods
     func startLoading() {
         activityIndicator.startAnimating()
     }
     
+    //MARK: - Private metods
     private func commonInit() {
         Bundle.main.loadNibNamed("LoadingView", owner: self, options: nil)
     }

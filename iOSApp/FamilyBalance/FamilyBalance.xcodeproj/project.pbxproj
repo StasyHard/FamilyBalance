@@ -22,6 +22,7 @@
 		5673DD6E24602AC50004EB12 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5673DD6D24602AC50004EB12 /* Service.swift */; };
 		56C5A29F246430DF00CE5602 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C5A29E246430DF00CE5602 /* LoadingView.swift */; };
 		56C5A2A1246430F500CE5602 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56C5A2A0246430F500CE5602 /* LoadingView.xib */; };
+		56C5A2A32464696900CE5602 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C5A2A22464696900CE5602 /* MainCoordinator.swift */; };
 		56EB9B992461C73F002F815B /* BlueStrokeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB9B982461C73F002F815B /* BlueStrokeTextField.swift */; };
 		56EB9B9F2462B904002F815B /* UIColor+AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB9B9E2462B904002F815B /* UIColor+AppColors.swift */; };
 		56EB9BBA2463FAE6002F815B /* CostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB9BB92463FAE6002F815B /* CostsViewController.swift */; };
@@ -74,6 +75,7 @@
 		5673DD6D24602AC50004EB12 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		56C5A29E246430DF00CE5602 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		56C5A2A0246430F500CE5602 /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
+		56C5A2A22464696900CE5602 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		56EB9B982461C73F002F815B /* BlueStrokeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueStrokeTextField.swift; sourceTree = "<group>"; };
 		56EB9B9E2462B904002F815B /* UIColor+AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+AppColors.swift"; sourceTree = "<group>"; };
 		56EB9BB92463FAE6002F815B /* CostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostsViewController.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 			children = (
 				56EB9BB92463FAE6002F815B /* CostsViewController.swift */,
 				56EB9BBB2463FB10002F815B /* Main.storyboard */,
+				56C5A2A22464696900CE5602 /* MainCoordinator.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -481,6 +484,7 @@
 				56EB9B9F2462B904002F815B /* UIColor+AppColors.swift in Sources */,
 				56EB9B992461C73F002F815B /* BlueStrokeTextField.swift in Sources */,
 				56444DE624599FDD00BB6BAE /* SceneDelegate.swift in Sources */,
+				56C5A2A32464696900CE5602 /* MainCoordinator.swift in Sources */,
 				5673755D245D70C100DD02FB /* SignInViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

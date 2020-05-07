@@ -24,9 +24,8 @@ extension UIStoryboard {
       return mainVC
     }
 
-    static func instantiateSignInViewController(delegate: SignInViewControllerDelegate) -> SignInViewController {
+    static func instantiateSignInViewController() -> SignInViewController {
       let signInVC = signIn.instantiateViewController(withIdentifier: "signInVC") as! SignInViewController
-      signInVC.delegate = delegate
       return signInVC
     }
 }

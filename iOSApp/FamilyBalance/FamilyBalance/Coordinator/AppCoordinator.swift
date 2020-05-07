@@ -36,14 +36,13 @@ final class AppCoordinator: Coordinator {
     // MARK: - Navigation
     // TODO: -----------------------------Перенести часть логики в дочерний координатор
     private func showMain() {
-        let mainVC = UIStoryboard.instantiateMainViewController()
-        navController.setViewControllers([mainVC], animated: false)
+        let mainCoordinator = MainCoordinator(navController: navController)
+        childCoordinators.append(mainCoordinator)
         childCoordinators.removeAll { $0 is SignInCoordinator }
     }
     
     private func showSignIn() {
-        let signInCoordinator = SignInCoordinator(navController: navController,
-                                                  delegate: self)
+        let signInCoordinator = SignInCoordinator(navController: navController)
         childCoordinators.append(signInCoordinator)
         signInCoordinator.start()
     }

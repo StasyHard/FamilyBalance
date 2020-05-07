@@ -11,11 +11,9 @@ import RxSwift
 import RxCocoa
 
 class SignInViewController: UIViewController {
-    
-    weak var delegate: SignInViewControllerDelegate?
-    
+        
     //MARK: - Open properties
-    var viewModel: SignInViewModel?
+    var viewModel: SingInViewModelProtocol?
     
     //MARK: - IBOutlet
     @IBOutlet private weak var emailTextField: BlueStrokeTextField!
@@ -24,8 +22,8 @@ class SignInViewController: UIViewController {
     
     //MARK: - Private properties
     private var loadingView: LoadingView?
-    private let disposeBag = DisposeBag()
     
+    private let disposeBag = DisposeBag()
     
     //MARK: - IBAction
     @IBAction private func signInTapped(_ sender: UIButton) {
@@ -37,8 +35,6 @@ class SignInViewController: UIViewController {
                 return
         }
         viewModel?.signIn(emailInput, passwordInput)
-        //TODO --------------------------------------------------временно
-        delegate?.didSignIn()
     }
     
     override func viewDidLoad() {

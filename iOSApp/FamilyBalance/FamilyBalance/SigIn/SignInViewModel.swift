@@ -9,25 +9,31 @@
 import Foundation
 import RxSwift
 
-enum SignInError {
-    case emailIsEmptyError
-    case passwordIsEmptyError
+protocol SingInViewModelProtocol {
+    var servise: Service { get set }
+    var isSignInActiveObservable: Observable<Bool> { get set }
+    var isLoadingObservable: Observable<Bool> { get set }
+    var didSignInObservable: Observable<Void> { get set}
+    
+    func signIn(_ email: String, _ password: String)
 }
 
 //Protocol - servise, signIn
 
 
-final class SignInViewModel {
+final class SignInViewModel: SingInViewModelProtocol {
     
     //MARK: - Open properties
-    let service = Service()
+    var servise: Service = Service()
     
-    let isSignInActiveObservable: Observable<Bool>
-    let isLoadingObservable: Observable<Bool>
+    var isSignInActiveObservable: Observable<Bool>
+    var isLoadingObservable: Observable<Bool>
+    var didSignInObservable: Observable<Void>
     
     //MARK: - Private properties
     private let isSignInActive = BehaviorSubject<Bool>(value: true)
     private let isLoading = BehaviorSubject<Bool>(value: false)
+    private let didSignIn = PublishSubject<Void>()
     
     private let disposeBag = DisposeBag()
     
@@ -35,15 +41,19 @@ final class SignInViewModel {
     init() {
         isSignInActiveObservable = isSignInActive
         isLoadingObservable = isLoading
+        didSignInObservable = didSignIn
     }
     
+        //MARK: - Open metods
     func signIn(_ email: String, _ password: String) {
-        if email.isEmpty || password.isEmpty { return }
-        
         isSignInActive.onNext(false)
         isLoading.onNext(true)
         
-        service.signgIn(LoginModel(email: email, password: password))
+        didSignIn.onNext(())
+        
+        if email.isEmpty || password.isEmpty { return }
+        
+        servise.signgIn(LoginModel(email: email, password: password))
             .subscribe(
                 onNext: { [weak self] result in
                     self?.isLoading.onNext(false)
