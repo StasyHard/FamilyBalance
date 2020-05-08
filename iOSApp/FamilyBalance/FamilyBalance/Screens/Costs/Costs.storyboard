@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OQB-wQ-Sjz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
@@ -32,19 +32,23 @@
                         <viewLayoutGuide key="safeArea" id="Zkb-Qa-oh8"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="gfZ-NM-hhQ"/>
+                    <connections>
+                        <outlet property="pieChart" destination="IlY-qI-zB1" id="LYg-rg-Siu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GTm-P7-rgg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="515.94202898550725" y="-410.49107142857139"/>
         </scene>
-        <!--View Controller-->
+        <!--Pie Chart View Controller-->
         <scene sceneID="frY-SC-xSD">
             <objects>
-                <viewController id="XtN-BW-VVJ" sceneMemberID="viewController">
+                <viewController id="XtN-BW-VVJ" customClass="PieChartViewController" customModule="FamilyBalance" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fFJ-Tf-ibW">
                         <rect key="frame" x="0.0" y="0.0" width="374" height="198"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="QQG-xN-RoO"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BzL-dL-96e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

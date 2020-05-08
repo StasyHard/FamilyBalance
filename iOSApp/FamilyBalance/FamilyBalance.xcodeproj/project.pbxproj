@@ -21,11 +21,11 @@
 		56444E0924599FDF00BB6BAE /* FamilyBalanceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56444E0824599FDF00BB6BAE /* FamilyBalanceUITests.swift */; };
 		567086B52465888000CD2E2A /* CostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567086B42465888000CD2E2A /* CostsViewModel.swift */; };
 		567086B82465890200CD2E2A /* CostsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567086B72465890200CD2E2A /* CostsCoordinator.swift */; };
-		567086BA2465945700CD2E2A /* GraphVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567086B92465945700CD2E2A /* GraphVC.swift */; };
 		567086BE2465ABEA00CD2E2A /* Costs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 567086BD2465ABEA00CD2E2A /* Costs.storyboard */; };
 		5673755D245D70C100DD02FB /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5673755C245D70C100DD02FB /* SignInViewModel.swift */; };
 		5673755F245D8CB300DD02FB /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5673755E245D8CB300DD02FB /* LoginModel.swift */; };
 		5673DD6E24602AC50004EB12 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5673DD6D24602AC50004EB12 /* Service.swift */; };
+		567E1E332465B90400C50217 /* PieChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567E1E322465B90400C50217 /* PieChartViewController.swift */; };
 		56C5A29F246430DF00CE5602 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C5A29E246430DF00CE5602 /* LoadingView.swift */; };
 		56C5A2A1246430F500CE5602 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56C5A2A0246430F500CE5602 /* LoadingView.xib */; };
 		56C5A2A32464696900CE5602 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C5A2A22464696900CE5602 /* MainCoordinator.swift */; };
@@ -80,11 +80,11 @@
 		56444E0A24599FDF00BB6BAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		567086B42465888000CD2E2A /* CostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostsViewModel.swift; sourceTree = "<group>"; };
 		567086B72465890200CD2E2A /* CostsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostsCoordinator.swift; sourceTree = "<group>"; };
-		567086B92465945700CD2E2A /* GraphVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphVC.swift; sourceTree = "<group>"; };
 		567086BD2465ABEA00CD2E2A /* Costs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Costs.storyboard; sourceTree = "<group>"; };
 		5673755C245D70C100DD02FB /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		5673755E245D8CB300DD02FB /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		5673DD6D24602AC50004EB12 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		567E1E322465B90400C50217 /* PieChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartViewController.swift; sourceTree = "<group>"; };
 		56C5A29E246430DF00CE5602 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		56C5A2A0246430F500CE5602 /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		56C5A2A22464696900CE5602 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
@@ -203,7 +203,7 @@
 			children = (
 				567086BD2465ABEA00CD2E2A /* Costs.storyboard */,
 				56EB9BB92463FAE6002F815B /* CostsViewController.swift */,
-				567086B92465945700CD2E2A /* GraphVC.swift */,
+				567E1E322465B90400C50217 /* PieChartViewController.swift */,
 				567086B42465888000CD2E2A /* CostsViewModel.swift */,
 				567086B72465890200CD2E2A /* CostsCoordinator.swift */,
 			);
@@ -521,11 +521,11 @@
 				56EB9BC224640A29002F815B /* Storyboard.swift in Sources */,
 				56C5A29F246430DF00CE5602 /* LoadingView.swift in Sources */,
 				56444DEE24599FDD00BB6BAE /* FamilyBalance.xcdatamodeld in Sources */,
-				567086BA2465945700CD2E2A /* GraphVC.swift in Sources */,
 				5673DD6E24602AC50004EB12 /* Service.swift in Sources */,
 				567086B82465890200CD2E2A /* CostsCoordinator.swift in Sources */,
 				56EB9BBA2463FAE6002F815B /* CostsViewController.swift in Sources */,
 				56EB9BC424640E48002F815B /* SignInCoordinator.swift in Sources */,
+				567E1E332465B90400C50217 /* PieChartViewController.swift in Sources */,
 				56EB9B9F2462B904002F815B /* UIColor+AppColors.swift in Sources */,
 				56EB9B992461C73F002F815B /* BlueStrokeTextField.swift in Sources */,
 				56444DE624599FDD00BB6BAE /* SceneDelegate.swift in Sources */,
