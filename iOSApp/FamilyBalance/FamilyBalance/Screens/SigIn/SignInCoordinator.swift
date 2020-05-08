@@ -7,10 +7,10 @@ final class SignInCoordinator: Coordinator {
     
     private let navController: UINavigationController
     
+    private let disposeBag = DisposeBag()
+    
     var parentCoordinator: Coordinator?
     var childCoordinators: [Coordinator] = []
-    
-    private let disposeBag = DisposeBag()
     
     //MARK: - Init
     init(navController: UINavigationController) {
@@ -35,7 +35,7 @@ final class SignInCoordinator: Coordinator {
             .bind { [weak self] in
                 guard let `self` = self else { return }
                 //TODO -------------------------------------отправить на app coordinator
-                self.showMainModule()
+                self.didSignIn()
                 self.parentCoordinator?.didFinish(coordinator: self)
         }
         .disposed(by: self.disposeBag)
@@ -48,17 +48,26 @@ final class SignInCoordinator: Coordinator {
         .disposed(by: self.disposeBag)
     }
     
-    private func showMainModule() {
-        let mainCoordinator = MainCoordinator(navController: navController)
-        childCoordinators.append(mainCoordinator)
-        mainCoordinator.start()
-    }
-    
     private func showSignUpModule() {
         print("SignUpModule")
     }
     
+    private func didSignIn() {
+        //TODO: -----------------------------------------Обработать отсутствие листенера
+        let handler: SignInListener? = findHandler()
+        handler?.didSignIn()
+    }
+    
+    // TODO: ----------------------------------------------------- почему не работает???
+    //    private func findListeners(parent: Coordinator) -> SignInListener? {
+    //        if parent is SignInListener {
+    //            let parent = parent as! SignInListener
+    //            return parent
+    //        } else {
+    //            guard let parent = parent.parentCoordinator else { return nil }
+    //            findListener(parent: parent)
+    //            return nil //не должно быть нил
+    //        }
+    //    }
     
 }
-
-

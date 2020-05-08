@@ -1,31 +1,14 @@
-//
-//  AppCoordinator.swift
-//  FamilyBalance
-//
-//  Created by Anastasia Reyngardt on 07.05.2020.
-//  Copyright © 2020 GermanyHome. All rights reserved.
-//
 
 import UIKit
 
-protocol Coordinator: AnyObject {
-    var childCoordinators: [Coordinator] { get set }
-    func start()
-}
-
-extension Coordinator {
-    func didFinish(coordinator: Coordinator) {
-        if let index = childCoordinators.firstIndex(where: { $0 === coordinator }) {
-            self.childCoordinators.remove(at: index)
-        }
-    }
-}
-
 final class AppCoordinator: Coordinator {
+    
+    
     // MARK: - Properties
     private let window: UIWindow
     private let navController: UINavigationController
     
+    var parentCoordinator: Coordinator?
     var childCoordinators: [Coordinator] = []
     
     // MARK: - Init
@@ -38,6 +21,7 @@ final class AppCoordinator: Coordinator {
     func start() {
         window.rootViewController = navController
         window.makeKeyAndVisible()
+        parentCoordinator = nil
         //TODO: --------------- в зависимости от наличия токена открывается экран
         showSignIn()
     }
@@ -56,6 +40,15 @@ final class AppCoordinator: Coordinator {
         signInCoordinator.parentCoordinator = self
         signInCoordinator.start()
     }
+}
+
+//MARK: - SignInListener protocol
+extension AppCoordinator: SignInListener {
+    func didSignIn() {
+        showMain()
+    }
+    
+    
 }
 
 

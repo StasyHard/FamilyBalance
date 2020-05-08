@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4BEFA0F91B78086FC19BD1F8 /* libPods-FamilyBalance-FamilyBalanceUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31D2517A6F6B548CBD590050 /* libPods-FamilyBalance-FamilyBalanceUITests.a */; };
+		56214F51246569C7000CE0BD /* CoordinatorProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56214F50246569C7000CE0BD /* CoordinatorProtocols.swift */; };
+		56214F5324656A7A000CE0BD /* Coordinator + didFinish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56214F5224656A7A000CE0BD /* Coordinator + didFinish.swift */; };
 		56444DE424599FDD00BB6BAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56444DE324599FDD00BB6BAE /* AppDelegate.swift */; };
 		56444DE624599FDD00BB6BAE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56444DE524599FDD00BB6BAE /* SceneDelegate.swift */; };
 		56444DE824599FDD00BB6BAE /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56444DE724599FDD00BB6BAE /* SignInViewController.swift */; };
@@ -55,6 +57,8 @@
 		07EFD6E96F6A8D2351747E70 /* Pods-FamilyBalanceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FamilyBalanceTests.debug.xcconfig"; path = "Target Support Files/Pods-FamilyBalanceTests/Pods-FamilyBalanceTests.debug.xcconfig"; sourceTree = "<group>"; };
 		208D4E0B15A693C18A3339B5 /* Pods-FamilyBalance-FamilyBalanceUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FamilyBalance-FamilyBalanceUITests.debug.xcconfig"; path = "Target Support Files/Pods-FamilyBalance-FamilyBalanceUITests/Pods-FamilyBalance-FamilyBalanceUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		31D2517A6F6B548CBD590050 /* libPods-FamilyBalance-FamilyBalanceUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FamilyBalance-FamilyBalanceUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		56214F50246569C7000CE0BD /* CoordinatorProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocols.swift; sourceTree = "<group>"; };
+		56214F5224656A7A000CE0BD /* Coordinator + didFinish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Coordinator + didFinish.swift"; sourceTree = "<group>"; };
 		56444DE024599FDD00BB6BAE /* FamilyBalance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FamilyBalance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56444DE324599FDD00BB6BAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56444DE524599FDD00BB6BAE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -265,6 +269,8 @@
 			isa = PBXGroup;
 			children = (
 				56EB9BBD2463FC89002F815B /* AppCoordinator.swift */,
+				56214F50246569C7000CE0BD /* CoordinatorProtocols.swift */,
+				56214F5224656A7A000CE0BD /* Coordinator + didFinish.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -501,6 +507,8 @@
 				56EB9B992461C73F002F815B /* BlueStrokeTextField.swift in Sources */,
 				56444DE624599FDD00BB6BAE /* SceneDelegate.swift in Sources */,
 				56C5A2A32464696900CE5602 /* MainCoordinator.swift in Sources */,
+				56214F51246569C7000CE0BD /* CoordinatorProtocols.swift in Sources */,
+				56214F5324656A7A000CE0BD /* Coordinator + didFinish.swift in Sources */,
 				5673755D245D70C100DD02FB /* SignInViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
