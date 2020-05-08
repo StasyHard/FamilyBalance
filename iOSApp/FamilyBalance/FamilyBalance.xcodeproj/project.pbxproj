@@ -22,6 +22,7 @@
 		567086B52465888000CD2E2A /* CostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567086B42465888000CD2E2A /* CostsViewModel.swift */; };
 		567086B82465890200CD2E2A /* CostsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567086B72465890200CD2E2A /* CostsCoordinator.swift */; };
 		567086BA2465945700CD2E2A /* GraphVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567086B92465945700CD2E2A /* GraphVC.swift */; };
+		567086BE2465ABEA00CD2E2A /* Costs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 567086BD2465ABEA00CD2E2A /* Costs.storyboard */; };
 		5673755D245D70C100DD02FB /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5673755C245D70C100DD02FB /* SignInViewModel.swift */; };
 		5673755F245D8CB300DD02FB /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5673755E245D8CB300DD02FB /* LoginModel.swift */; };
 		5673DD6E24602AC50004EB12 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5673DD6D24602AC50004EB12 /* Service.swift */; };
@@ -80,6 +81,7 @@
 		567086B42465888000CD2E2A /* CostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostsViewModel.swift; sourceTree = "<group>"; };
 		567086B72465890200CD2E2A /* CostsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostsCoordinator.swift; sourceTree = "<group>"; };
 		567086B92465945700CD2E2A /* GraphVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphVC.swift; sourceTree = "<group>"; };
+		567086BD2465ABEA00CD2E2A /* Costs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Costs.storyboard; sourceTree = "<group>"; };
 		5673755C245D70C100DD02FB /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		5673755E245D8CB300DD02FB /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		5673DD6D24602AC50004EB12 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
@@ -170,8 +172,6 @@
 				56EB9B9B2462B75C002F815B /* Model */,
 				56EB9B9A2462B744002F815B /* View */,
 				56C5A2A5246562D300CE5602 /* Screens */,
-				56C5A2A62465630700CE5602 /* SignUp */,
-				56EB9BB82463FA94002F815B /* Main */,
 				56444DEF24599FDF00BB6BAE /* Assets.xcassets */,
 				56444DF124599FDF00BB6BAE /* LaunchScreen.storyboard */,
 				56444DF424599FDF00BB6BAE /* Info.plist */,
@@ -201,6 +201,7 @@
 		567086B6246588B400CD2E2A /* Costs */ = {
 			isa = PBXGroup;
 			children = (
+				567086BD2465ABEA00CD2E2A /* Costs.storyboard */,
 				56EB9BB92463FAE6002F815B /* CostsViewController.swift */,
 				567086B92465945700CD2E2A /* GraphVC.swift */,
 				567086B42465888000CD2E2A /* CostsViewModel.swift */,
@@ -225,6 +226,9 @@
 			isa = PBXGroup;
 			children = (
 				5673755B245D700700DD02FB /* SigIn */,
+				56C5A2A62465630700CE5602 /* SignUp */,
+				56EB9BB82463FA94002F815B /* Main */,
+				567086B6246588B400CD2E2A /* Costs */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -277,7 +281,6 @@
 			children = (
 				56EB9BBB2463FB10002F815B /* Main.storyboard */,
 				56C5A2A22464696900CE5602 /* MainCoordinator.swift */,
-				567086B6246588B400CD2E2A /* Costs */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				56444DF324599FDF00BB6BAE /* LaunchScreen.storyboard in Resources */,
 				56444DF024599FDF00BB6BAE /* Assets.xcassets in Resources */,
 				56444DEB24599FDD00BB6BAE /* SignIn.storyboard in Resources */,
+				567086BE2465ABEA00CD2E2A /* Costs.storyboard in Resources */,
 				56EB9BBC2463FB10002F815B /* Main.storyboard in Resources */,
 				56C5A2A1246430F500CE5602 /* LoadingView.xib in Resources */,
 			);
