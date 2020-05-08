@@ -59,5 +59,4 @@ class LoadingView: UIView {
         self.center = containerView.center
         containerView.addSubview(self)
     }
-    
 }

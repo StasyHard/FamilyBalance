@@ -3,15 +3,12 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-protocol SignInCoordinatorDelegate: AnyObject {
-    func didAuthenticate()
-}
-
 final class SignInCoordinator: Coordinator {
     
     private let navController: UINavigationController
-    //private let parentCoordinator: Coordinator?
-    private var childCoordinators: [Coordinator] = []
+    
+    var parentCoordinator: Coordinator?
+    var childCoordinators: [Coordinator] = []
     
     private let disposeBag = DisposeBag()
     
@@ -32,7 +29,10 @@ final class SignInCoordinator: Coordinator {
     private func observeViewModel(_ viewModel: SingInViewModelProtocol) {
         viewModel.didSignInObservable
             .bind { [weak self] in
-                self?.showMainModule()
+                guard let `self` = self else { return }
+                //TODO -------------------------------------отправить на app coordinator
+                self.showMainModule()
+                self.parentCoordinator?.didFinish(coordinator: self)
         }
          .disposed(by: self.disposeBag)
     }

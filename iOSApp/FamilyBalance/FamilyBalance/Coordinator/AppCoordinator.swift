@@ -8,16 +8,25 @@
 
 import UIKit
 
-protocol Coordinator {
+protocol Coordinator: AnyObject {
+    var childCoordinators: [Coordinator] { get set }
     func start()
+}
+
+extension Coordinator {
+    func didFinish(coordinator: Coordinator) {
+        if let index = childCoordinators.firstIndex(where: { $0 === coordinator }) {
+            self.childCoordinators.remove(at: index)
+        }
+    }
 }
 
 final class AppCoordinator: Coordinator {
     // MARK: - Properties
-    private let navController: UINavigationController
     private let window: UIWindow
+    private let navController: UINavigationController
     
-    private var childCoordinators: [Coordinator] = []
+    var childCoordinators: [Coordinator] = []
     
     // MARK: - Init
     init(navController: UINavigationController, window: UIWindow) {
@@ -29,31 +38,24 @@ final class AppCoordinator: Coordinator {
     func start() {
         window.rootViewController = navController
         window.makeKeyAndVisible()
-        //TODO: --------------- открытие экрана в зависимости от того, логин или логаут
+        //TODO: --------------- в зависимости от наличия токена открывается экран
         showSignIn()
     }
     
     // MARK: - Navigation
-    // TODO: -----------------------------Перенести часть логики в дочерний координатор
     private func showMain() {
         let mainCoordinator = MainCoordinator(navController: navController)
         childCoordinators.append(mainCoordinator)
-        childCoordinators.removeAll { $0 is SignInCoordinator }
+        //mainCoordinator.parentCoordinator = self
+        mainCoordinator.start()
     }
     
     private func showSignIn() {
         let signInCoordinator = SignInCoordinator(navController: navController)
         childCoordinators.append(signInCoordinator)
+        signInCoordinator.parentCoordinator = self
         signInCoordinator.start()
     }
-}
-
-extension AppCoordinator: SignInCoordinatorDelegate {
-    func didAuthenticate() {
-        showMain()
-    }
-    
-    
 }
 
 
