@@ -37,6 +37,9 @@ class SignInViewController: UIViewController {
         viewModel?.signIn(emailInput, passwordInput)
     }
     
+    @IBAction func signUpTapped(_ sender: UIButton) {
+        viewModel?.signUp()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()

@@ -39,12 +39,26 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cWe-41-C0e">
+                                <rect key="frame" x="20" y="417" width="374" height="33"/>
+                                <color key="backgroundColor" red="0.0" green="0.1137254902" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <state key="normal" title="Зарегистрироваться">
+                                    <color key="titleColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="signUpTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rSs-3o-skL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="oD5-qg-fFA" firstAttribute="top" secondItem="iLI-vc-ajg" secondAttribute="bottom" constant="8" id="6QG-LR-87z"/>
                             <constraint firstItem="iLI-vc-ajg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="7Ih-ww-eI5"/>
                             <constraint firstItem="TcV-qM-QTK" firstAttribute="top" secondItem="oD5-qg-fFA" secondAttribute="bottom" constant="70" id="Ait-8w-rJJ"/>
+                            <constraint firstItem="cWe-41-C0e" firstAttribute="top" secondItem="TcV-qM-QTK" secondAttribute="bottom" constant="8" id="FHv-al-4tI"/>
+                            <constraint firstItem="cWe-41-C0e" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Jic-EC-D4v"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cWe-41-C0e" secondAttribute="trailing" constant="20" id="O2X-hy-YP9"/>
                             <constraint firstItem="oD5-qg-fFA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="PXu-qQ-O6E"/>
                             <constraint firstItem="iLI-vc-ajg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="180" id="VQM-P8-VPe"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iLI-vc-ajg" secondAttribute="trailing" constant="20" id="VzM-VM-492"/>
@@ -63,7 +77,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="281" y="123"/>
+            <point key="canvasLocation" x="279.71014492753625" y="122.54464285714285"/>
         </scene>
     </scenes>
 </document>
