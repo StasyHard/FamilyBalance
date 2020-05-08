@@ -11,10 +11,9 @@ import RxSwift
 import RxCocoa
 
 class SignInViewController: UIViewController {
-    
-    
+        
     //MARK: - Open properties
-    var viewModel: SignInViewModel?
+    var viewModel: SingInViewModelProtocol?
     
     //MARK: - IBOutlet
     @IBOutlet private weak var emailTextField: BlueStrokeTextField!
@@ -22,8 +21,9 @@ class SignInViewController: UIViewController {
     @IBOutlet private weak var logInButton: UIButton!
     
     //MARK: - Private properties
-    private let disposeBag = DisposeBag()
+    private var loadingView: LoadingView?
     
+    private let disposeBag = DisposeBag()
     
     //MARK: - IBAction
     @IBAction private func signInTapped(_ sender: UIButton) {
@@ -37,13 +37,11 @@ class SignInViewController: UIViewController {
         viewModel?.signIn(emailInput, passwordInput)
     }
     
+    @IBAction func signUpTapped(_ sender: UIButton) {
+        viewModel?.signUp()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //-------------------------------------------------------------временно
-        navigationController?.navigationBar.isHidden = true
-        viewModel = SignInViewModel()
-        
         setupViews()
         observeViewModel()
     }
@@ -56,13 +54,14 @@ class SignInViewController: UIViewController {
     
     private func observeViewModel() {
         guard let viewModel = self.viewModel else { return }
-        viewModel.isSignInActive
+        
+        viewModel.isSignInActiveObservable
             .bind { [weak self] in self?.handlerIsSignInActive(isActive: $0) }
             .disposed(by: self.disposeBag)
         
-        viewModel.isLoading
+        viewModel.isLoadingObservable
             .filter { $0 }
-            .bind { [weak self] _ in self?.showProgressView() }
+            .bind { [weak self] _ in self?.showLoadingView() }
             .disposed(by: self.disposeBag)
     }
     
@@ -72,8 +71,9 @@ class SignInViewController: UIViewController {
         self.passwordTextField.isEnabled = isActive
     }
     
-    private func showProgressView() {
-        print("showProgressView")
+    private func showLoadingView() {
+        loadingView = LoadingView(inView: view)
+        loadingView?.startLoading()
     }
     
     private func checkInputData(_ textField: BlueStrokeTextField) {
@@ -82,7 +82,6 @@ class SignInViewController: UIViewController {
             textField.resignFirstResponder()
         }
     }
-    
 }
 
 //MARK: - UITextFieldDelegate
