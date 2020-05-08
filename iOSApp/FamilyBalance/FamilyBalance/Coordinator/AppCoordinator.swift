@@ -8,7 +8,7 @@ final class AppCoordinator: Coordinator {
     private let window: UIWindow
     private let navController: UINavigationController
     
-    var parentCoordinator: Coordinator?
+    weak var parentCoordinator: Coordinator?
     var childCoordinators: [Coordinator] = []
     
     // MARK: - Init

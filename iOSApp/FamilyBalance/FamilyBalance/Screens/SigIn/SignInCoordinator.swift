@@ -9,7 +9,7 @@ final class SignInCoordinator: Coordinator {
     
     private let disposeBag = DisposeBag()
     
-    var parentCoordinator: Coordinator?
+    weak var parentCoordinator: Coordinator?
     var childCoordinators: [Coordinator] = []
     
     //MARK: - Init

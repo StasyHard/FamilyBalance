@@ -1,16 +1,9 @@
-//
-//  MainCoordinator.swift
-//  FamilyBalance
-//
-//  Created by Anastasia Reyngardt on 07.05.2020.
-//  Copyright © 2020 GermanyHome. All rights reserved.
-//
 
 import UIKit
 
 final class MainCoordinator: Coordinator {
     
-    var parentCoordinator: Coordinator?
+    weak var parentCoordinator: Coordinator?
     var childCoordinators: [Coordinator] = []
     var navController: UINavigationController
     
@@ -21,7 +14,12 @@ final class MainCoordinator: Coordinator {
     func start() {
         let tabbarVC = UIStoryboard.instantiateMainViewController()
         navController.setViewControllers([tabbarVC], animated: false)
-        navController.navigationBar.isHidden = true
+        navController.navigationBar.isHidden = false
+        
+        for children in tabbarVC.children {
+            print(children)
+        }
+        print(navController.viewControllers)
     }
     
     
