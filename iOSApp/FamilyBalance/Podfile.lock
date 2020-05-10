@@ -1,4 +1,7 @@
 PODS:
+  - Charts (3.5.0):
+    - Charts/Core (= 3.5.0)
+  - Charts/Core (3.5.0)
   - RxCocoa (5.1.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
@@ -7,20 +10,23 @@ PODS:
   - RxSwift (5.1.1)
 
 DEPENDENCIES:
+  - Charts
   - RxCocoa
   - RxSwift
 
 SPEC REPOS:
   trunk:
+    - Charts
     - RxCocoa
     - RxRelay
     - RxSwift
 
 SPEC CHECKSUMS:
+  Charts: 40a08591df1f8ad5c223ddedfb1a06da92f24f7c
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
 
-PODFILE CHECKSUM: 97bfab760edbed8fe7fd00f34a421bc22095d6d6
+PODFILE CHECKSUM: 0093f6658cf7f7d2d0d2264677999f312bb0b44d
 
 COCOAPODS: 1.8.4
