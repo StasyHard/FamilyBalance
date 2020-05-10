@@ -14,46 +14,14 @@
                     <view key="view" contentMode="scaleToFill" id="yoX-ul-4pI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IlY-qI-zB1">
-                                <rect key="frame" x="20" y="64" width="374" height="198"/>
-                                <connections>
-                                    <segue destination="XtN-BW-VVJ" kind="embed" id="wI7-jE-1yd"/>
-                                </connections>
-                            </containerView>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="IlY-qI-zB1" firstAttribute="leading" secondItem="Zkb-Qa-oh8" secondAttribute="leading" constant="20" id="TMj-2d-LwI"/>
-                            <constraint firstItem="Zkb-Qa-oh8" firstAttribute="trailing" secondItem="IlY-qI-zB1" secondAttribute="trailing" constant="20" id="TYF-Io-MUc"/>
-                            <constraint firstItem="IlY-qI-zB1" firstAttribute="top" secondItem="Zkb-Qa-oh8" secondAttribute="top" constant="20" id="mj4-YC-4c1"/>
-                            <constraint firstItem="Zkb-Qa-oh8" firstAttribute="bottom" secondItem="IlY-qI-zB1" secondAttribute="bottom" constant="600" id="upg-79-uWC"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Zkb-Qa-oh8"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="gfZ-NM-hhQ"/>
-                    <connections>
-                        <outlet property="pieChart" destination="IlY-qI-zB1" id="LYg-rg-Siu"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GTm-P7-rgg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="515.94202898550725" y="-410.49107142857139"/>
-        </scene>
-        <!--Pie Chart View Controller-->
-        <scene sceneID="frY-SC-xSD">
-            <objects>
-                <viewController id="XtN-BW-VVJ" customClass="PieChartViewController" customModule="FamilyBalance" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="fFJ-Tf-ibW">
-                        <rect key="frame" x="0.0" y="0.0" width="374" height="198"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="QQG-xN-RoO"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BzL-dL-96e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1246" y="-607"/>
         </scene>
     </scenes>
 </document>
