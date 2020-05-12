@@ -5,6 +5,7 @@ target 'FamilyBalance' do
 
   pod 'RxSwift'
   pod 'RxCocoa'
+  pod 'Charts'
 
   # Pods for FamilyBalance
 

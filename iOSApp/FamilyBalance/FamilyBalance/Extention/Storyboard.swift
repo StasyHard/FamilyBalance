@@ -18,6 +18,10 @@ extension UIStoryboard {
       return UIStoryboard(name: "SignIn", bundle: nil)
     }
     
+    private static var costs: UIStoryboard {
+        return UIStoryboard(name: "Costs", bundle: nil)
+    }
+    
     // MARK: - View Controllers
     static func instantiateMainViewController() -> UITabBarController {
       let mainVC = main.instantiateViewController(withIdentifier: "tabBarVC") as! UITabBarController
@@ -27,5 +31,10 @@ extension UIStoryboard {
     static func instantiateSignInViewController() -> SignInViewController {
       let signInVC = signIn.instantiateViewController(withIdentifier: "signInVC") as! SignInViewController
       return signInVC
+    }
+    
+    static func instantiateCostsViewController() -> CostsViewController {
+        let costsVC = costs.instantiateViewController(withIdentifier: "costsVC") as! CostsViewController
+        return costsVC
     }
 }
