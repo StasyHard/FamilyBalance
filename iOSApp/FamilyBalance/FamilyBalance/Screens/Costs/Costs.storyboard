@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Item 1-->
+        <scene sceneID="u25-Lx-iFR">
+            <objects>
+                <viewController storyboardIdentifier="costsVC" id="OQB-wQ-Sjz" customClass="CostsViewController" customModule="FamilyBalance" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yoX-ul-4pI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cta-64-tUV" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="30" y="64" width="354" height="236"/>
+                                <color key="backgroundColor" systemColor="systemGray3Color" red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="cta-64-tUV" secondAttribute="height" multiplier="1.5:1" id="hDx-4Z-9gm"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Zkb-Qa-oh8" firstAttribute="trailing" secondItem="cta-64-tUV" secondAttribute="trailing" constant="30" id="2qA-6Z-3Ce"/>
+                            <constraint firstItem="cta-64-tUV" firstAttribute="leading" secondItem="Zkb-Qa-oh8" secondAttribute="leading" constant="30" id="J0e-Fi-M9q"/>
+                            <constraint firstItem="cta-64-tUV" firstAttribute="top" secondItem="Zkb-Qa-oh8" secondAttribute="top" constant="20" id="NmG-lb-L2l"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Zkb-Qa-oh8"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 1" id="gfZ-NM-hhQ"/>
+                    <connections>
+                        <outlet property="pieChartView" destination="cta-64-tUV" id="XMs-2q-zSh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GTm-P7-rgg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="515.94202898550725" y="-410.49107142857139"/>
+        </scene>
+    </scenes>
+</document>
