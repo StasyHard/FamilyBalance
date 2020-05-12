@@ -21,10 +21,10 @@ final class SignInCoordinator: Coordinator {
     //MARK: - Open metods
     func start() {
         let signInVC = UIStoryboard.instantiateSignInViewController()
+        
         let viewModel = SignInViewModel()
         signInVC.viewModel = viewModel
         navController.setViewControllers([signInVC], animated: false)
-        navController.navigationBar.isHidden = true
         
         observeViewModel(viewModel)
     }

@@ -20,10 +20,16 @@ final class AppCoordinator: Coordinator {
     //MARK: - Open metods
     func start() {
         window.rootViewController = navController
+        navController.isNavigationBarHidden = true
         window.makeKeyAndVisible()
         parentCoordinator = nil
         //TODO: --------------- в зависимости от наличия токена открывается экран
-        showSignIn()
+        if Keys.TOKEN == "" {
+           showSignIn()
+        } else {
+            showMain()
+        }
+        
     }
     
     // MARK: - Navigation

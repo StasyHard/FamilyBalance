@@ -37,7 +37,7 @@ final class SignInViewModel: SingInViewModelProtocol {
     
     private let disposeBag = DisposeBag()
     
-        //MARK: - Init
+    //MARK: - Init
     init() {
         isSignInActiveObservable = isSignInActive
         isLoadingObservable = isLoading
@@ -53,17 +53,19 @@ extension SignInViewModel: SingInViewControllerActions {
     func signIn(_ email: String, _ password: String) {
         isSignInActive.onNext(false)
         isLoading.onNext(true)
-        didSignIn.onNext(())
         
         if email.isEmpty || password.isEmpty { return }
         
-        repository.signgIn(LoginModel(email: email, password: password))
+        let loginModel = LoginModel(email: email, password: password)
+        repository.signgIn(loginModel)
             .subscribe(
-                onNext: { [weak self] result in
-                    self?.isLoading.onNext(false)
+                onSuccess: { [weak self] token in
+                    print(token)
+                    self?.didSignIn.onNext(())
                 },
-                onError: { [weak self] error in
-                    self?.isLoading.onNext(false)
+                onError: { error in
+                    print(error)
+                    _ = error
             })
             .disposed(by: self.disposeBag)
     }
