@@ -25,6 +25,7 @@
 		5673755D245D70C100DD02FB /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5673755C245D70C100DD02FB /* SignInViewModel.swift */; };
 		5673755F245D8CB300DD02FB /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5673755E245D8CB300DD02FB /* LoginModel.swift */; };
 		5673DD6E24602AC50004EB12 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5673DD6D24602AC50004EB12 /* Service.swift */; };
+		567E1E3B246ACAFA00C50217 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567E1E3A246ACAFA00C50217 /* SignInView.swift */; };
 		56C5A29F246430DF00CE5602 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C5A29E246430DF00CE5602 /* LoadingView.swift */; };
 		56C5A2A1246430F500CE5602 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56C5A2A0246430F500CE5602 /* LoadingView.xib */; };
 		56C5A2A32464696900CE5602 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C5A2A22464696900CE5602 /* MainCoordinator.swift */; };
@@ -83,6 +84,7 @@
 		5673755C245D70C100DD02FB /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		5673755E245D8CB300DD02FB /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		5673DD6D24602AC50004EB12 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		567E1E3A246ACAFA00C50217 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		56C5A29E246430DF00CE5602 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		56C5A2A0246430F500CE5602 /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		56C5A2A22464696900CE5602 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 			children = (
 				56444DE924599FDD00BB6BAE /* SignIn.storyboard */,
 				56444DE724599FDD00BB6BAE /* SignInViewController.swift */,
+				567E1E3A246ACAFA00C50217 /* SignInView.swift */,
 				5673755C245D70C100DD02FB /* SignInViewModel.swift */,
 				56EB9BC324640E48002F815B /* SignInCoordinator.swift */,
 				5673DD6D24602AC50004EB12 /* Service.swift */,
@@ -533,6 +536,7 @@
 				56EB9B9F2462B904002F815B /* UIColor+AppColors.swift in Sources */,
 				56EB9B992461C73F002F815B /* BlueStrokeTextField.swift in Sources */,
 				56444DE624599FDD00BB6BAE /* SceneDelegate.swift in Sources */,
+				567E1E3B246ACAFA00C50217 /* SignInView.swift in Sources */,
 				56C5A2A32464696900CE5602 /* MainCoordinator.swift in Sources */,
 				56214F51246569C7000CE0BD /* CoordinatorProtocols.swift in Sources */,
 				56214F5324656A7A000CE0BD /* Coordinator + didFinish.swift in Sources */,
