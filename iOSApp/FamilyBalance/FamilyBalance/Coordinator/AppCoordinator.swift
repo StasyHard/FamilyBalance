@@ -1,8 +1,8 @@
 
 import UIKit
 
+
 final class AppCoordinator: Coordinator {
-    
     
     // MARK: - Properties
     private let window: UIWindow

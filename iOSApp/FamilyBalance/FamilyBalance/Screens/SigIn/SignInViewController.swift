@@ -1,19 +1,13 @@
-//
-//  SignInViewController.swift
-//  FamilyBalance
-//
-//  Created by Anastasia Reyngardt on 29.04.2020.
-//  Copyright © 2020 GermanyHome. All rights reserved.
-//
 
 import UIKit
 import RxSwift
 import RxCocoa
 
+
 class SignInViewController: UIViewController {
     
     //MARK: - Open properties
-    var viewModel: SingInViewModelProtocol?
+    var viewModel: (SingInViewModelProtocol & SingInViewControllerActions)?
     
     
     //MARK: - Private properties

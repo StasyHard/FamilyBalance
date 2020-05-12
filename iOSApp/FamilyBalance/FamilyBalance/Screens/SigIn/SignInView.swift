@@ -1,14 +1,13 @@
 
 import UIKit
 
+
 protocol SignInViewImplementation: class {
     func setProvider(provider: SignInViewActions)
     
     func isSignInActionsActive(_ isActive: Bool)
     func showLoading()
 }
-
-
 
 protocol SignInViewActions: class {
     func signInDidTapped(_ email: String, _ password: String)

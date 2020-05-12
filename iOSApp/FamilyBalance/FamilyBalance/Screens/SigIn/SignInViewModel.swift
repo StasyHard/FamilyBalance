@@ -1,32 +1,28 @@
-//
-//  SignInViewModel.swift
-//  FamilyBalance
-//
-//  Created by Anastasia Reyngardt on 02.05.2020.
-//  Copyright © 2020 GermanyHome. All rights reserved.
-//
 
 import Foundation
 import RxSwift
 
-protocol SingInViewModelProtocol {
-    var servise: Service { get set }
+
+protocol SingInViewModelProtocol: class {
+    var repository: AppRepository { get set }
+    
     var isSignInActiveObservable: Observable<Bool> { get set }
     var isLoadingObservable: Observable<Bool> { get set }
     var didSignInObservable: Observable<Void> { get set}
     var signUpTappedObservable: Observable<Void> { get set}
-    
+}
+
+protocol SingInViewControllerActions: class {
     func signIn(_ email: String, _ password: String)
     func signUp()
 }
 
-//Protocol - servise, signIn
 
 
 final class SignInViewModel: SingInViewModelProtocol {
     
     //MARK: - Open properties
-    var servise: Service = Service()
+    var repository: AppRepository = AppRepository()
     
     var isSignInActiveObservable: Observable<Bool>
     var isLoadingObservable: Observable<Bool>
@@ -49,17 +45,19 @@ final class SignInViewModel: SingInViewModelProtocol {
         signUpTappedObservable = signUpTapped
         
     }
-    
-        //MARK: - Open metods
+}
+
+
+
+extension SignInViewModel: SingInViewControllerActions {
     func signIn(_ email: String, _ password: String) {
         isSignInActive.onNext(false)
         isLoading.onNext(true)
-        
         didSignIn.onNext(())
         
         if email.isEmpty || password.isEmpty { return }
         
-        servise.signgIn(LoginModel(email: email, password: password))
+        repository.signgIn(LoginModel(email: email, password: password))
             .subscribe(
                 onNext: { [weak self] result in
                     self?.isLoading.onNext(false)
@@ -73,6 +71,4 @@ final class SignInViewModel: SingInViewModelProtocol {
     func signUp() {
         signUpTapped.onNext(())
     }
-    
-    
 }

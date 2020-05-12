@@ -11,7 +11,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    var app: AppCoordinator?
+    var appCoordinator: AppCoordinator?
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -21,9 +21,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         
         let navController = UINavigationController()
-        let appCoordinator = AppCoordinator(navController: navController, window: window!)
-        app = appCoordinator
-        appCoordinator.start()
+        let coordinator = AppCoordinator(navController: navController, window: window!)
+        appCoordinator = coordinator
+        
+        
+        appCoordinator?.start()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -24,7 +24,7 @@
 		567086BE2465ABEA00CD2E2A /* Costs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 567086BD2465ABEA00CD2E2A /* Costs.storyboard */; };
 		5673755D245D70C100DD02FB /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5673755C245D70C100DD02FB /* SignInViewModel.swift */; };
 		5673755F245D8CB300DD02FB /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5673755E245D8CB300DD02FB /* LoginModel.swift */; };
-		5673DD6E24602AC50004EB12 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5673DD6D24602AC50004EB12 /* Service.swift */; };
+		5673DD6E24602AC50004EB12 /* AppRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5673DD6D24602AC50004EB12 /* AppRepository.swift */; };
 		567E1E3B246ACAFA00C50217 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567E1E3A246ACAFA00C50217 /* SignInView.swift */; };
 		56C5A29F246430DF00CE5602 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C5A29E246430DF00CE5602 /* LoadingView.swift */; };
 		56C5A2A1246430F500CE5602 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56C5A2A0246430F500CE5602 /* LoadingView.xib */; };
@@ -83,7 +83,7 @@
 		567086BD2465ABEA00CD2E2A /* Costs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Costs.storyboard; sourceTree = "<group>"; };
 		5673755C245D70C100DD02FB /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		5673755E245D8CB300DD02FB /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
-		5673DD6D24602AC50004EB12 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		5673DD6D24602AC50004EB12 /* AppRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRepository.swift; sourceTree = "<group>"; };
 		567E1E3A246ACAFA00C50217 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		56C5A29E246430DF00CE5602 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		56C5A2A0246430F500CE5602 /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
@@ -166,9 +166,9 @@
 		56444DE224599FDD00BB6BAE /* FamilyBalance */ = {
 			isa = PBXGroup;
 			children = (
-				567E1E39246AC2E000C50217 /* Repository */,
 				56EB9B9D2462B8C0002F815B /* Application */,
 				56EB9BC5246416AF002F815B /* Coordinator */,
+				567E1E39246AC2E000C50217 /* Repository */,
 				56EB9B9C2462B89F002F815B /* Extention */,
 				56EB9B9B2462B75C002F815B /* Model */,
 				56EB9B9A2462B744002F815B /* View */,
@@ -218,7 +218,6 @@
 				567E1E3A246ACAFA00C50217 /* SignInView.swift */,
 				5673755C245D70C100DD02FB /* SignInViewModel.swift */,
 				56EB9BC324640E48002F815B /* SignInCoordinator.swift */,
-				5673DD6D24602AC50004EB12 /* Service.swift */,
 			);
 			path = SigIn;
 			sourceTree = "<group>";
@@ -226,6 +225,7 @@
 		567E1E39246AC2E000C50217 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				5673DD6D24602AC50004EB12 /* AppRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -529,7 +529,7 @@
 				56EB9BC224640A29002F815B /* Storyboard.swift in Sources */,
 				56C5A29F246430DF00CE5602 /* LoadingView.swift in Sources */,
 				56444DEE24599FDD00BB6BAE /* FamilyBalance.xcdatamodeld in Sources */,
-				5673DD6E24602AC50004EB12 /* Service.swift in Sources */,
+				5673DD6E24602AC50004EB12 /* AppRepository.swift in Sources */,
 				567086B82465890200CD2E2A /* CostsCoordinator.swift in Sources */,
 				56EB9BBA2463FAE6002F815B /* CostsViewController.swift in Sources */,
 				56EB9BC424640E48002F815B /* SignInCoordinator.swift in Sources */,
