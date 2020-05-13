@@ -1,30 +1,38 @@
 
 import UIKit
 
-final class AppCoordinator: Coordinator {
-    
+
+final class AppCoordinator: BaseCoordirator {
     
     // MARK: - Properties
     private let window: UIWindow
     private let navController: UINavigationController
+
+    private let appRepository: AppRepository
     
-    weak var parentCoordinator: Coordinator?
-    var childCoordinators: [Coordinator] = []
     
     // MARK: - Init
-    init(navController: UINavigationController, window: UIWindow) {
-        self.navController = navController
+    init(window: UIWindow, navController: UINavigationController, appRepository: AppRepository) {
         self.window = window
+        self.navController = navController
+        self.appRepository = appRepository
     }
     
+    
     //MARK: - Open metods
-    func start() {
+    override func start() {
         window.rootViewController = navController
+        navController.isNavigationBarHidden = true
         window.makeKeyAndVisible()
         parentCoordinator = nil
         //TODO: --------------- в зависимости от наличия токена открывается экран
-        showSignIn()
+        if Keys.TOKEN == "" {
+            showSignIn()
+        } else {
+            showMain()
+        }
     }
+    
     
     // MARK: - Navigation
     private func showMain() {
@@ -35,12 +43,14 @@ final class AppCoordinator: Coordinator {
     }
     
     private func showSignIn() {
-        let signInCoordinator = SignInCoordinator(navController: navController)
+        let signInCoordinator = SignInCoordinator(navController: navController, repository: appRepository)
         childCoordinators.append(signInCoordinator)
         signInCoordinator.parentCoordinator = self
         signInCoordinator.start()
     }
 }
+
+
 
 //MARK: - SignInListener protocol
 extension AppCoordinator: SignInListener {

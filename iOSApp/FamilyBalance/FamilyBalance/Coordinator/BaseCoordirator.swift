@@ -1,7 +1,21 @@
 
-import Foundation
+import UIKit
 
-extension Coordinator {
+//Базовый координатор от которого наследуются все координаторы
+class BaseCoordirator: Coordinator {
+    
+    weak var parentCoordinator: BaseCoordirator?
+    var childCoordinators: [BaseCoordirator] = []
+    
+    func start() {
+        print("Will be redefined in childrens")
+    }
+}
+
+
+
+extension BaseCoordirator {
+    
     func didFinish(coordinator: Coordinator) {
         if let index = childCoordinators.firstIndex(where: { $0 === coordinator }) {
             self.childCoordinators.remove(at: index)
@@ -28,7 +42,6 @@ extension Coordinator {
                 currentParent = current.parentCoordinator
             }
         }
-        
         return found
     }
 }

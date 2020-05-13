@@ -1,11 +1,7 @@
 
 import UIKit
 
-class CostsCoordinator: Coordinator {
-    
-    weak var parentCoordinator: Coordinator?
-    
-    var childCoordinators: [Coordinator] = []
+class CostsCoordinator: BaseCoordirator {
     
     private var navController: UINavigationController
     
@@ -13,7 +9,7 @@ class CostsCoordinator: Coordinator {
            self.navController = navController
        }
     
-    func start() {
+    override func start() {
         let costsVC = UIStoryboard.instantiateCostsViewController()
         navController.pushViewController(costsVC, animated: false)
     }

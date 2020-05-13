@@ -3,38 +3,39 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-final class SignInCoordinator: Coordinator {
+
+final class SignInCoordinator: BaseCoordirator {
     
     private let navController: UINavigationController
+    private let repo: Repository
     
     private let disposeBag = DisposeBag()
     
-    weak var parentCoordinator: Coordinator?
-    var childCoordinators: [Coordinator] = []
     
     //MARK: - Init
-    init(navController: UINavigationController) {
+    init(navController: UINavigationController, repository: Repository) {
         self.navController = navController
+        self.repo = repository
     }
     
+    
     //MARK: - Open metods
-    func start() {
+    override func start() {
         let signInVC = UIStoryboard.instantiateSignInViewController()
+        
         let viewModel = SignInViewModel()
         signInVC.viewModel = viewModel
         navController.setViewControllers([signInVC], animated: false)
-        navController.navigationBar.isHidden = true
         
         observeViewModel(viewModel)
     }
     
     //MARK: - Private metods
-    private func observeViewModel(_ viewModel: SingInViewModelProtocol) {
+    private func observeViewModel(_ viewModel: SignInViewModelObservable) {
         
         viewModel.didSignInObservable
             .bind { [weak self] in
                 guard let `self` = self else { return }
-                //TODO -------------------------------------отправить на app coordinator
                 self.didSignIn()
                 self.parentCoordinator?.didFinish(coordinator: self)
         }

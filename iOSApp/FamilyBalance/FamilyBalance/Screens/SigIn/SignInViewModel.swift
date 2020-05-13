@@ -1,32 +1,26 @@
-//
-//  SignInViewModel.swift
-//  FamilyBalance
-//
-//  Created by Anastasia Reyngardt on 02.05.2020.
-//  Copyright © 2020 GermanyHome. All rights reserved.
-//
 
 import Foundation
 import RxSwift
 
-protocol SingInViewModelProtocol {
-    var servise: Service { get set }
+
+protocol SignInViewModelObservable: class {
     var isSignInActiveObservable: Observable<Bool> { get set }
     var isLoadingObservable: Observable<Bool> { get set }
     var didSignInObservable: Observable<Void> { get set}
     var signUpTappedObservable: Observable<Void> { get set}
-    
+}
+
+protocol SignInViewControllerActions: class {
     func signIn(_ email: String, _ password: String)
     func signUp()
 }
 
-//Protocol - servise, signIn
 
 
-final class SignInViewModel: SingInViewModelProtocol {
+final class SignInViewModel: SignInViewModelObservable {
     
     //MARK: - Open properties
-    var servise: Service = Service()
+    private let repository: Repository
     
     var isSignInActiveObservable: Observable<Bool>
     var isLoadingObservable: Observable<Bool>
@@ -41,31 +35,37 @@ final class SignInViewModel: SingInViewModelProtocol {
     
     private let disposeBag = DisposeBag()
     
-        //MARK: - Init
-    init() {
+    //MARK: - Init
+    init(repo: Repository) {
+        self.repository = repo
+        
         isSignInActiveObservable = isSignInActive
         isLoadingObservable = isLoading
         didSignInObservable = didSignIn
         signUpTappedObservable = signUpTapped
         
     }
-    
-        //MARK: - Open metods
+}
+
+
+
+extension SignInViewModel: SignInViewControllerActions {
     func signIn(_ email: String, _ password: String) {
         isSignInActive.onNext(false)
         isLoading.onNext(true)
         
-        didSignIn.onNext(())
-        
         if email.isEmpty || password.isEmpty { return }
         
-        servise.signgIn(LoginModel(email: email, password: password))
+        let loginModel = LoginModel(email: email, password: password)
+        repository.signIn(loginModel)
             .subscribe(
-                onNext: { [weak self] result in
-                    self?.isLoading.onNext(false)
+                onSuccess: { [weak self] token in
+                    print(token)
+                    self?.didSignIn.onNext(())
                 },
-                onError: { [weak self] error in
-                    self?.isLoading.onNext(false)
+                onError: { error in
+                    print(error)
+                    _ = error
             })
             .disposed(by: self.disposeBag)
     }
@@ -73,6 +73,4 @@ final class SignInViewModel: SingInViewModelProtocol {
     func signUp() {
         signUpTapped.onNext(())
     }
-    
-    
 }

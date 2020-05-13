@@ -1,12 +1,6 @@
-//
-//  UIColor+AppColors.swift
-//  FamilyBalance
-//
-//  Created by Anastasia Reyngardt on 06.05.2020.
-//  Copyright © 2020 GermanyHome. All rights reserved.
-//
 
 import UIKit
+
 
 extension UIColor {
     struct AppColors {

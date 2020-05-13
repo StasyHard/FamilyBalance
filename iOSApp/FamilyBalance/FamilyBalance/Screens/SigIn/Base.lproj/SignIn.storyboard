@@ -11,7 +11,7 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="signInVC" id="BYZ-38-t0r" customClass="SignInViewController" customModule="FamilyBalance" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="SignInView" customModule="FamilyBalance" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -28,7 +28,7 @@
                                     <color key="titleColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="signInTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xSv-lj-JNU"/>
+                                    <action selector="signInTapped:" destination="8bC-Xf-vdC" eventType="touchUpInside" id="Y5D-2q-Sfm"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="test@e-mail.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iLI-vc-ajg" customClass="BlueStrokeTextField" customModule="FamilyBalance" customModuleProvider="target">
@@ -47,7 +47,7 @@
                                     <color key="titleColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="signUpTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rSs-3o-skL"/>
+                                    <action selector="signUpTapped:" destination="8bC-Xf-vdC" eventType="touchUpInside" id="Czm-On-Xdv"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -67,13 +67,14 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="oD5-qg-fFA" secondAttribute="trailing" constant="20" id="zJo-Y1-rcG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outlet property="emailTextField" destination="iLI-vc-ajg" id="QRw-j9-CIk"/>
+                            <outlet property="logInButton" destination="TcV-qM-QTK" id="PbG-lv-cr1"/>
+                            <outlet property="passwordTextField" destination="oD5-qg-fFA" id="Nl1-uY-Ubf"/>
+                            <outlet property="signUpButton" destination="cWe-41-C0e" id="27z-sw-88n"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="U1f-6C-AWl"/>
-                    <connections>
-                        <outlet property="emailTextField" destination="iLI-vc-ajg" id="iYe-Uo-kba"/>
-                        <outlet property="logInButton" destination="TcV-qM-QTK" id="D0L-PO-rcT"/>
-                        <outlet property="passwordTextField" destination="oD5-qg-fFA" id="D74-rc-XMJ"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
