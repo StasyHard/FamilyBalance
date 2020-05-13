@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		4BEFA0F91B78086FC19BD1F8 /* libPods-FamilyBalance-FamilyBalanceUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31D2517A6F6B548CBD590050 /* libPods-FamilyBalance-FamilyBalanceUITests.a */; };
+		56184180246C6261006BF368 /* Operations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5618417F246C6261006BF368 /* Operations.storyboard */; };
+		56184182246C62AC006BF368 /* OperationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56184181246C62AC006BF368 /* OperationsViewController.swift */; };
+		56184184246C637E006BF368 /* OperationsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56184183246C637E006BF368 /* OperationsCoordinator.swift */; };
+		56184186246C6527006BF368 /* OperationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56184185246C6527006BF368 /* OperationsView.swift */; };
+		56184188246C655E006BF368 /* OperationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56184187246C655E006BF368 /* OperationsViewModel.swift */; };
 		56214F51246569C7000CE0BD /* CoordinatorProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56214F50246569C7000CE0BD /* CoordinatorProtocols.swift */; };
 		56444DE424599FDD00BB6BAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56444DE324599FDD00BB6BAE /* AppDelegate.swift */; };
 		56444DE624599FDD00BB6BAE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56444DE524599FDD00BB6BAE /* SceneDelegate.swift */; };
@@ -69,6 +74,11 @@
 		07EFD6E96F6A8D2351747E70 /* Pods-FamilyBalanceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FamilyBalanceTests.debug.xcconfig"; path = "Target Support Files/Pods-FamilyBalanceTests/Pods-FamilyBalanceTests.debug.xcconfig"; sourceTree = "<group>"; };
 		208D4E0B15A693C18A3339B5 /* Pods-FamilyBalance-FamilyBalanceUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FamilyBalance-FamilyBalanceUITests.debug.xcconfig"; path = "Target Support Files/Pods-FamilyBalance-FamilyBalanceUITests/Pods-FamilyBalance-FamilyBalanceUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		31D2517A6F6B548CBD590050 /* libPods-FamilyBalance-FamilyBalanceUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FamilyBalance-FamilyBalanceUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5618417F246C6261006BF368 /* Operations.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Operations.storyboard; sourceTree = "<group>"; };
+		56184181246C62AC006BF368 /* OperationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationsViewController.swift; sourceTree = "<group>"; };
+		56184183246C637E006BF368 /* OperationsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationsCoordinator.swift; sourceTree = "<group>"; };
+		56184185246C6527006BF368 /* OperationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationsView.swift; sourceTree = "<group>"; };
+		56184187246C655E006BF368 /* OperationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationsViewModel.swift; sourceTree = "<group>"; };
 		56214F50246569C7000CE0BD /* CoordinatorProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocols.swift; sourceTree = "<group>"; };
 		56444DE024599FDD00BB6BAE /* FamilyBalance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FamilyBalance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56444DE324599FDD00BB6BAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -155,6 +165,25 @@
 				79C2BFAE1FD0351DD6FA3095 /* libPods-FamilyBalanceTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5618417E246C6202006BF368 /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				5618417F246C6261006BF368 /* Operations.storyboard */,
+				56184181246C62AC006BF368 /* OperationsViewController.swift */,
+				56184185246C6527006BF368 /* OperationsView.swift */,
+				56184187246C655E006BF368 /* OperationsViewModel.swift */,
+				56184183246C637E006BF368 /* OperationsCoordinator.swift */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
+		56184189246C6DE0006BF368 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		56444DD724599FDD00BB6BAE = {
@@ -254,7 +283,6 @@
 				5673755B245D700700DD02FB /* SignIn */,
 				56C5A2A62465630700CE5602 /* SignUp */,
 				56EB9BB82463FA94002F815B /* Main */,
-				567086B6246588B400CD2E2A /* Costs */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -313,6 +341,9 @@
 			children = (
 				56EB9BBB2463FB10002F815B /* Main.storyboard */,
 				56C5A2A22464696900CE5602 /* MainCoordinator.swift */,
+				567086B6246588B400CD2E2A /* Costs */,
+				5618417E246C6202006BF368 /* Operations */,
+				56184189246C6DE0006BF368 /* Profile */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -447,6 +478,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56184180246C6261006BF368 /* Operations.storyboard in Resources */,
 				56444DF324599FDF00BB6BAE /* LaunchScreen.storyboard in Resources */,
 				56444DF024599FDF00BB6BAE /* Assets.xcassets in Resources */,
 				56444DEB24599FDD00BB6BAE /* SignIn.storyboard in Resources */,
@@ -551,11 +583,13 @@
 				56444DE824599FDD00BB6BAE /* SignInViewController.swift in Sources */,
 				5673755F245D8CB300DD02FB /* LoginModel.swift in Sources */,
 				56444DE424599FDD00BB6BAE /* AppDelegate.swift in Sources */,
+				56184188246C655E006BF368 /* OperationsViewModel.swift in Sources */,
 				56AADA1B246C4AD100B2CC8F /* SignUpView.swift in Sources */,
 				56EB9BC224640A29002F815B /* Storyboard+instantiate.swift in Sources */,
 				56C5A29F246430DF00CE5602 /* LoadingView.swift in Sources */,
 				56444DEE24599FDD00BB6BAE /* FamilyBalance.xcdatamodeld in Sources */,
 				5673DD6E24602AC50004EB12 /* AppRepository.swift in Sources */,
+				56184182246C62AC006BF368 /* OperationsViewController.swift in Sources */,
 				567086B82465890200CD2E2A /* CostsCoordinator.swift in Sources */,
 				56EB9BBA2463FAE6002F815B /* CostsViewController.swift in Sources */,
 				56AADA19246C4AB600B2CC8F /* CignUpViewController.swift in Sources */,
@@ -571,9 +605,11 @@
 				567E1E3B246ACAFA00C50217 /* SignInView.swift in Sources */,
 				56C5A2A32464696900CE5602 /* MainCoordinator.swift in Sources */,
 				56AADA14246C3BFB00B2CC8F /* BaseCoordirator.swift in Sources */,
+				56184186246C6527006BF368 /* OperationsView.swift in Sources */,
 				56214F51246569C7000CE0BD /* CoordinatorProtocols.swift in Sources */,
 				5673755D245D70C100DD02FB /* SignInViewModel.swift in Sources */,
 				567086B52465888000CD2E2A /* CostsViewModel.swift in Sources */,
+				56184184246C637E006BF368 /* OperationsCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

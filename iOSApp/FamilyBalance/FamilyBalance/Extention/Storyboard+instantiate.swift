@@ -20,6 +20,11 @@ extension UIStoryboard {
         return UIStoryboard(name: "SignUp", bundle: nil)
     }
     
+    private static var historyOperations: UIStoryboard {
+        return UIStoryboard(name: "Operations", bundle: nil)
+    }
+    
+    
     // MARK: - View Controllers init
     static func instantiateMainVC() -> UITabBarController {
       let mainVC = main.instantiateViewController(withIdentifier: "tabBarVC") as! UITabBarController
@@ -40,4 +45,11 @@ extension UIStoryboard {
         let signUpVC = signUp.instantiateViewController(withIdentifier: "signUpVC") as! SignUpViewController
         return signUpVC
     }
+    
+    static func instantiateOperationsVC() -> OperationsViewController {
+        let historyVC = historyOperations.instantiateViewController(withIdentifier: "operationsVC") as! OperationsViewController
+        return historyVC
+    }
+    
 }
+
