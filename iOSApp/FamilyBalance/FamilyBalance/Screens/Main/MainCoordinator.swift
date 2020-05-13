@@ -10,7 +10,7 @@ final class MainCoordinator: BaseCoordirator {
     }
     
     override func start() {
-        let tabbarVC = UIStoryboard.instantiateMainViewController()
+        let tabbarVC = UIStoryboard.instantiateMainVC()
         
         let costsNavController = createCostsNavController()
         

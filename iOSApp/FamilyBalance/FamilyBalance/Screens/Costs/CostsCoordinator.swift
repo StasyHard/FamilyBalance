@@ -10,7 +10,7 @@ class CostsCoordinator: BaseCoordirator {
        }
     
     override func start() {
-        let costsVC = UIStoryboard.instantiateCostsViewController()
+        let costsVC = UIStoryboard.instantiateCostsVC()
         navController.pushViewController(costsVC, animated: false)
     }
     

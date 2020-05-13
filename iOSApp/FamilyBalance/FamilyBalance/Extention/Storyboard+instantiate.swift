@@ -3,7 +3,7 @@ import UIKit
 
 
 extension UIStoryboard {
-    // MARK: - Storyboards
+    // MARK: - Storyboards init
     private static var main: UIStoryboard {
       return UIStoryboard(name: "Main", bundle: nil)
     }
@@ -16,19 +16,28 @@ extension UIStoryboard {
         return UIStoryboard(name: "Costs", bundle: nil)
     }
     
-    // MARK: - View Controllers
-    static func instantiateMainViewController() -> UITabBarController {
+    private static var signUp: UIStoryboard {
+        return UIStoryboard(name: "SignUp", bundle: nil)
+    }
+    
+    // MARK: - View Controllers init
+    static func instantiateMainVC() -> UITabBarController {
       let mainVC = main.instantiateViewController(withIdentifier: "tabBarVC") as! UITabBarController
       return mainVC
     }
 
-    static func instantiateSignInViewController() -> SignInViewController {
+    static func instantiateSignInVC() -> SignInViewController {
       let signInVC = signIn.instantiateViewController(withIdentifier: "signInVC") as! SignInViewController
       return signInVC
     }
     
-    static func instantiateCostsViewController() -> CostsViewController {
+    static func instantiateCostsVC() -> CostsViewController {
         let costsVC = costs.instantiateViewController(withIdentifier: "costsVC") as! CostsViewController
         return costsVC
+    }
+    
+    static func instantiateSignUpVC() -> SignUpViewController {
+        let signUpVC = signUp.instantiateViewController(withIdentifier: "signUpVC") as! SignUpViewController
+        return signUpVC
     }
 }
