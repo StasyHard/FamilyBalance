@@ -7,7 +7,7 @@ import RxCocoa
 class SignInViewController: UIViewController {
     
     //MARK: - Open properties
-    var viewModel: (SingInViewModelProtocol & SingInViewControllerActions)?
+    var viewModel: (SignInViewModelObservable & SignInViewControllerActions)?
     
     
     //MARK: - Private properties

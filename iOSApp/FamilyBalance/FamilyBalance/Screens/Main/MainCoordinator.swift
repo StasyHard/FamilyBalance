@@ -1,17 +1,15 @@
 
 import UIKit
 
-final class MainCoordinator: Coordinator {
+final class MainCoordinator: BaseCoordirator {
     
-    weak var parentCoordinator: Coordinator?
-    var childCoordinators: [Coordinator] = []
     var navController: UINavigationController
     
     init(navController: UINavigationController) {
         self.navController = navController
     }
     
-    func start() {
+    override func start() {
         let tabbarVC = UIStoryboard.instantiateMainViewController()
         
         let costsNavController = createCostsNavController()

@@ -2,12 +2,17 @@
 import Foundation
 import RxSwift
 
+protocol Repository {
+    func signIn(_ loginModel: LoginModel) -> Single<String>
+}
 
-final class AppRepository {
+
+final class AppRepository: Repository {
     
-    let apiClient = ApiClient()
+    private let apiClient = FafilyBalanseApiClient()
+    private let localClient = CoreDataClient()
     
-    func signgIn(_ loginModel: LoginModel) -> Single<String> {
+    func signIn(_ loginModel: LoginModel) -> Single<String> {
         return Single
             .create { single in
                 

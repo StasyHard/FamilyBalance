@@ -2,12 +2,10 @@
 import Foundation
 
 
-class ApiClient {
+class FafilyBalanseApiClient {
     
     func signIn(user: LoginModel, complition: @escaping (String?) -> Void) {
         let token: String? = "Token"
-        
-        Keys.TOKEN = token ?? ""
         
         complition(token)
     }

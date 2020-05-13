@@ -3,26 +3,24 @@ import Foundation
 import RxSwift
 
 
-protocol SingInViewModelProtocol: class {
-    var repository: AppRepository { get set }
-    
+protocol SignInViewModelObservable: class {
     var isSignInActiveObservable: Observable<Bool> { get set }
     var isLoadingObservable: Observable<Bool> { get set }
     var didSignInObservable: Observable<Void> { get set}
     var signUpTappedObservable: Observable<Void> { get set}
 }
 
-protocol SingInViewControllerActions: class {
+protocol SignInViewControllerActions: class {
     func signIn(_ email: String, _ password: String)
     func signUp()
 }
 
 
 
-final class SignInViewModel: SingInViewModelProtocol {
+final class SignInViewModel: SignInViewModelObservable {
     
     //MARK: - Open properties
-    var repository: AppRepository = AppRepository()
+    private let repository: Repository
     
     var isSignInActiveObservable: Observable<Bool>
     var isLoadingObservable: Observable<Bool>
@@ -38,7 +36,9 @@ final class SignInViewModel: SingInViewModelProtocol {
     private let disposeBag = DisposeBag()
     
     //MARK: - Init
-    init() {
+    init(repo: Repository) {
+        self.repository = repo
+        
         isSignInActiveObservable = isSignInActive
         isLoadingObservable = isLoading
         didSignInObservable = didSignIn
@@ -49,7 +49,7 @@ final class SignInViewModel: SingInViewModelProtocol {
 
 
 
-extension SignInViewModel: SingInViewControllerActions {
+extension SignInViewModel: SignInViewControllerActions {
     func signIn(_ email: String, _ password: String) {
         isSignInActive.onNext(false)
         isLoading.onNext(true)
@@ -57,7 +57,7 @@ extension SignInViewModel: SingInViewControllerActions {
         if email.isEmpty || password.isEmpty { return }
         
         let loginModel = LoginModel(email: email, password: password)
-        repository.signgIn(loginModel)
+        repository.signIn(loginModel)
             .subscribe(
                 onSuccess: { [weak self] token in
                     print(token)

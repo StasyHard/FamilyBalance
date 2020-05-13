@@ -11,6 +11,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    var appRepository: Repository?
     var appCoordinator: AppCoordinator?
 
 
@@ -21,10 +22,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         
         let navController = UINavigationController()
-        let coordinator = AppCoordinator(navController: navController, window: window!)
+        let repository = AppRepository()
+        
+        let coordinator = AppCoordinator(window: window!,
+                                         navController: navController,
+                                         appRepository: repository)
+        appRepository = repository
         appCoordinator = coordinator
-        
-        
         appCoordinator?.start()
     }
 
