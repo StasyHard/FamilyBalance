@@ -113,5 +113,17 @@ extension SignInView: UITextFieldDelegate {
         let textField = textField as? BlueStrokeTextField
         textField?.textChanged()
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case emailTextField:
+            passwordTextField.becomeFirstResponder()
+        case passwordTextField:
+            self.endEditing(true)
+        default:
+            self.endEditing(true)
+        }
+        return true
+    }
 }
 

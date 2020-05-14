@@ -18,64 +18,63 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z8N-QN-Ab8">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Family Balanse" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="30k-Vx-fYs">
-                                        <rect key="frame" x="32" y="173.66666666666666" width="311" height="50"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Family Balanse" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFE-d2-19y">
+                                        <rect key="frame" x="70.000000000000014" y="186.66666666666666" width="235.33333333333337" height="37"/>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="40"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.11372549019607843" blue="0.39215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="aFE-d2-19y" secondAttribute="trailing" constant="32" id="2Js-TG-fzj"/>
                                     <constraint firstAttribute="width" secondItem="Z8N-QN-Ab8" secondAttribute="height" multiplier="1:1" id="I96-WJ-aEg"/>
-                                    <constraint firstAttribute="trailing" secondItem="30k-Vx-fYs" secondAttribute="trailing" constant="32" id="jcJ-XE-mAF"/>
-                                    <constraint firstItem="30k-Vx-fYs" firstAttribute="leading" secondItem="Z8N-QN-Ab8" secondAttribute="leading" constant="32" id="lYm-TF-ggs"/>
+                                    <constraint firstItem="aFE-d2-19y" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Z8N-QN-Ab8" secondAttribute="leading" constant="32" id="OUt-RL-d8V"/>
+                                    <constraint firstItem="aFE-d2-19y" firstAttribute="centerX" secondItem="Z8N-QN-Ab8" secondAttribute="centerX" id="Pu1-zj-qZk"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="egf-Oj-AfB" customClass="AuthBackView" customModule="FamilyBalance" customModuleProvider="target">
                                 <rect key="frame" x="32" y="255.66666666666663" width="311" height="311"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="qzx-Ho-35J">
-                                        <rect key="frame" x="16" y="16.000000000000028" width="279" height="120"/>
+                                        <rect key="frame" x="16" y="16.000000000000036" width="279" height="116.66666666666669"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wYW-vD-kre">
-                                                <rect key="frame" x="0.0" y="0.0" width="279" height="56"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="279" height="54.333333333333336"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y75-r7-BKP">
-                                                        <rect key="frame" x="0.0" y="0.0" width="279" height="22"/>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K6d-zR-3gC">
+                                                        <rect key="frame" x="0.0" y="0.0" width="279" height="20.333333333333332"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="test@e-mail.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iLI-vc-ajg" customClass="BlueStrokeTextField" customModule="FamilyBalance" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="22" width="279" height="34"/>
+                                                        <rect key="frame" x="0.0" y="20.333333333333314" width="279" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" textContentType="email"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="R0X-QH-vQH">
-                                                <rect key="frame" x="0.0" y="64" width="279" height="56"/>
+                                                <rect key="frame" x="0.0" y="62.333333333333314" width="279" height="54.333333333333343"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A6j-BK-YJm">
-                                                        <rect key="frame" x="0.0" y="0.0" width="279" height="22"/>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Пароль" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wOR-75-jeg">
+                                                        <rect key="frame" x="0.0" y="0.0" width="279" height="20.333333333333332"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="********" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oD5-qg-fFA" customClass="BlueStrokeTextField" customModule="FamilyBalance" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="22" width="279" height="34"/>
+                                                        <rect key="frame" x="0.0" y="20.333333333333314" width="279" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="password"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8dd-Y0-Gvm">
-                                        <rect key="frame" x="97.666666666666657" y="136.00000000000003" width="116" height="30"/>
+                                        <rect key="frame" x="97.666666666666657" y="132.66666666666666" width="116" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <state key="normal" title="Забыли пароль?"/>
                                     </button>
@@ -126,7 +125,7 @@
                             <constraint firstItem="Z8N-QN-Ab8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="0ef-tH-fdb"/>
                             <constraint firstItem="egf-Oj-AfB" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="BGe-2r-emk"/>
                             <constraint firstItem="egf-Oj-AfB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="ESb-GJ-leI"/>
-                            <constraint firstItem="egf-Oj-AfB" firstAttribute="top" secondItem="30k-Vx-fYs" secondAttribute="bottom" constant="32" id="VjL-gw-xKm"/>
+                            <constraint firstItem="egf-Oj-AfB" firstAttribute="top" secondItem="aFE-d2-19y" secondAttribute="bottom" constant="32" id="V8J-Bl-Knv"/>
                             <constraint firstAttribute="top" secondItem="Z8N-QN-Ab8" secondAttribute="top" id="aZw-fN-ZZO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="egf-Oj-AfB" secondAttribute="trailing" constant="32" id="oq8-In-tjA"/>
                             <constraint firstAttribute="trailing" secondItem="Z8N-QN-Ab8" secondAttribute="trailing" id="sHs-pK-Yrc"/>

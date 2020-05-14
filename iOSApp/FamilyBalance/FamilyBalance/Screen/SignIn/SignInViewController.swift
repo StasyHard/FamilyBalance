@@ -22,6 +22,8 @@ class SignInViewController: UIViewController {
         
         observeViewModel()
         signInView?.setProvider(provider: self)
+        
+        configureDismissKeyboard()
     }
     
     

@@ -17,6 +17,7 @@
 		56184191246D7D1B006BF368 /* AppSizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56184190246D7D1B006BF368 /* AppSizes.swift */; };
 		56184193246D7FBE006BF368 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56184192246D7FBE006BF368 /* AppColors.swift */; };
 		56184197246D8702006BF368 /* BlueRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56184196246D8702006BF368 /* BlueRoundedButton.swift */; };
+		56184199246D8F10006BF368 /* UIViewController + dismissKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56184198246D8F10006BF368 /* UIViewController + dismissKeyboard.swift */; };
 		56214F51246569C7000CE0BD /* CoordinatorProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56214F50246569C7000CE0BD /* CoordinatorProtocols.swift */; };
 		56444DE424599FDD00BB6BAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56444DE324599FDD00BB6BAE /* AppDelegate.swift */; };
 		56444DE624599FDD00BB6BAE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56444DE524599FDD00BB6BAE /* SceneDelegate.swift */; };
@@ -86,6 +87,7 @@
 		56184190246D7D1B006BF368 /* AppSizes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSizes.swift; sourceTree = "<group>"; };
 		56184192246D7FBE006BF368 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		56184196246D8702006BF368 /* BlueRoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueRoundedButton.swift; sourceTree = "<group>"; };
+		56184198246D8F10006BF368 /* UIViewController + dismissKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + dismissKeyboard.swift"; sourceTree = "<group>"; };
 		56214F50246569C7000CE0BD /* CoordinatorProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocols.swift; sourceTree = "<group>"; };
 		56444DE024599FDD00BB6BAE /* FamilyBalance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FamilyBalance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56444DE324599FDD00BB6BAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -379,6 +381,7 @@
 			children = (
 				5618418A246D491F006BF368 /* UIColor */,
 				5618418B246D492D006BF368 /* UIStoryboard */,
+				56184198246D8F10006BF368 /* UIViewController + dismissKeyboard.swift */,
 			);
 			path = Extention;
 			sourceTree = "<group>";
@@ -652,6 +655,7 @@
 				56184193246D7FBE006BF368 /* AppColors.swift in Sources */,
 				56EB9BBA2463FAE6002F815B /* CostsViewController.swift in Sources */,
 				56184191246D7D1B006BF368 /* AppSizes.swift in Sources */,
+				56184199246D8F10006BF368 /* UIViewController + dismissKeyboard.swift in Sources */,
 				56AADA19246C4AB600B2CC8F /* CignUpViewController.swift in Sources */,
 				56EB9BC424640E48002F815B /* SignInCoordinator.swift in Sources */,
 				56AADA1D246C4AE900B2CC8F /* SignUpViewModel.swift in Sources */,
