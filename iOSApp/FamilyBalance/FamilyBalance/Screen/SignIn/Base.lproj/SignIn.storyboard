@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,59 +12,124 @@
             <objects>
                 <viewController storyboardIdentifier="signInVC" id="BYZ-38-t0r" customClass="SignInViewController" customModule="FamilyBalance" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="SignInView" customModule="FamilyBalance" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="********" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oD5-qg-fFA" customClass="BlueStrokeTextField" customModule="FamilyBalance" customModuleProvider="target">
-                                <rect key="frame" x="20" y="272" width="374" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TcV-qM-QTK">
-                                <rect key="frame" x="20" y="376" width="374" height="33"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z8N-QN-Ab8">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Family Balanse" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="30k-Vx-fYs">
+                                        <rect key="frame" x="32" y="173.66666666666666" width="311" height="50"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="40"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.11372549019607843" blue="0.39215686274509803" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <state key="normal" title="Войти">
-                                    <color key="titleColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="signInTapped:" destination="8bC-Xf-vdC" eventType="touchUpInside" id="Y5D-2q-Sfm"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="test@e-mail.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iLI-vc-ajg" customClass="BlueStrokeTextField" customModule="FamilyBalance" customModuleProvider="target">
-                                <rect key="frame" x="20" y="224" width="374" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="BBa-if-Dda"/>
+                                    <constraint firstAttribute="width" secondItem="Z8N-QN-Ab8" secondAttribute="height" multiplier="1:1" id="I96-WJ-aEg"/>
+                                    <constraint firstAttribute="trailing" secondItem="30k-Vx-fYs" secondAttribute="trailing" constant="32" id="jcJ-XE-mAF"/>
+                                    <constraint firstItem="30k-Vx-fYs" firstAttribute="leading" secondItem="Z8N-QN-Ab8" secondAttribute="leading" constant="32" id="lYm-TF-ggs"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cWe-41-C0e">
-                                <rect key="frame" x="20" y="417" width="374" height="33"/>
-                                <color key="backgroundColor" red="0.0" green="0.1137254902" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <state key="normal" title="Зарегистрироваться">
-                                    <color key="titleColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="signUpTapped:" destination="8bC-Xf-vdC" eventType="touchUpInside" id="Czm-On-Xdv"/>
-                                </connections>
-                            </button>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="egf-Oj-AfB" customClass="AuthBackView" customModule="FamilyBalance" customModuleProvider="target">
+                                <rect key="frame" x="32" y="255.66666666666663" width="311" height="311"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="qzx-Ho-35J">
+                                        <rect key="frame" x="16" y="16.000000000000028" width="279" height="120"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wYW-vD-kre">
+                                                <rect key="frame" x="0.0" y="0.0" width="279" height="56"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y75-r7-BKP">
+                                                        <rect key="frame" x="0.0" y="0.0" width="279" height="22"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="test@e-mail.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iLI-vc-ajg" customClass="BlueStrokeTextField" customModule="FamilyBalance" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="22" width="279" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="R0X-QH-vQH">
+                                                <rect key="frame" x="0.0" y="64" width="279" height="56"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A6j-BK-YJm">
+                                                        <rect key="frame" x="0.0" y="0.0" width="279" height="22"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="********" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oD5-qg-fFA" customClass="BlueStrokeTextField" customModule="FamilyBalance" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="22" width="279" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8dd-Y0-Gvm">
+                                        <rect key="frame" x="97.666666666666657" y="136.00000000000003" width="116" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" title="Забыли пароль?"/>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0OL-Us-8ep">
+                                        <rect key="frame" x="16" y="219" width="279" height="76"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TcV-qM-QTK" customClass="BlueRoundedButton" customModule="FamilyBalance" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="279" height="33"/>
+                                                <color key="backgroundColor" red="0.0" green="0.11372549019607843" blue="0.39215686274509803" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <state key="normal" title="Войти">
+                                                    <color key="titleColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="signInTapped:" destination="8bC-Xf-vdC" eventType="touchUpInside" id="Y5D-2q-Sfm"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cWe-41-C0e" customClass="BlueRoundedButton" customModule="FamilyBalance" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="42.999999999999943" width="279" height="33"/>
+                                                <color key="backgroundColor" red="0.0" green="0.1137254902" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <state key="normal" title="Создать профиль">
+                                                    <color key="titleColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="signUpTapped:" destination="8bC-Xf-vdC" eventType="touchUpInside" id="Czm-On-Xdv"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="0OL-Us-8ep" secondAttribute="bottom" constant="16" id="0nb-Df-ZyT"/>
+                                    <constraint firstAttribute="width" secondItem="egf-Oj-AfB" secondAttribute="height" multiplier="1:1" id="3fb-bj-WoJ"/>
+                                    <constraint firstItem="qzx-Ho-35J" firstAttribute="leading" secondItem="egf-Oj-AfB" secondAttribute="leading" constant="16" id="65i-nd-kfB"/>
+                                    <constraint firstItem="0OL-Us-8ep" firstAttribute="leading" secondItem="egf-Oj-AfB" secondAttribute="leading" constant="16" id="8hx-6b-etV"/>
+                                    <constraint firstAttribute="trailing" secondItem="qzx-Ho-35J" secondAttribute="trailing" constant="16" id="AnZ-za-UrM"/>
+                                    <constraint firstItem="8dd-Y0-Gvm" firstAttribute="top" secondItem="qzx-Ho-35J" secondAttribute="bottom" id="AsY-kE-B5Z"/>
+                                    <constraint firstItem="qzx-Ho-35J" firstAttribute="top" secondItem="egf-Oj-AfB" secondAttribute="top" constant="16" id="Loi-0m-GNT"/>
+                                    <constraint firstItem="8dd-Y0-Gvm" firstAttribute="centerX" secondItem="egf-Oj-AfB" secondAttribute="centerX" id="iv2-pR-P35"/>
+                                    <constraint firstAttribute="trailing" secondItem="0OL-Us-8ep" secondAttribute="trailing" constant="16" id="lId-hV-7dx"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="oD5-qg-fFA" firstAttribute="top" secondItem="iLI-vc-ajg" secondAttribute="bottom" constant="8" id="6QG-LR-87z"/>
-                            <constraint firstItem="iLI-vc-ajg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="7Ih-ww-eI5"/>
-                            <constraint firstItem="TcV-qM-QTK" firstAttribute="top" secondItem="oD5-qg-fFA" secondAttribute="bottom" constant="70" id="Ait-8w-rJJ"/>
-                            <constraint firstItem="cWe-41-C0e" firstAttribute="top" secondItem="TcV-qM-QTK" secondAttribute="bottom" constant="8" id="FHv-al-4tI"/>
-                            <constraint firstItem="cWe-41-C0e" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Jic-EC-D4v"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cWe-41-C0e" secondAttribute="trailing" constant="20" id="O2X-hy-YP9"/>
-                            <constraint firstItem="oD5-qg-fFA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="PXu-qQ-O6E"/>
-                            <constraint firstItem="iLI-vc-ajg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="180" id="VQM-P8-VPe"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iLI-vc-ajg" secondAttribute="trailing" constant="20" id="VzM-VM-492"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TcV-qM-QTK" secondAttribute="trailing" constant="20" id="duL-W8-mBl"/>
-                            <constraint firstItem="TcV-qM-QTK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="wEt-xG-N7E"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="oD5-qg-fFA" secondAttribute="trailing" constant="20" id="zJo-Y1-rcG"/>
+                            <constraint firstItem="Z8N-QN-Ab8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="0ef-tH-fdb"/>
+                            <constraint firstItem="egf-Oj-AfB" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="BGe-2r-emk"/>
+                            <constraint firstItem="egf-Oj-AfB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="ESb-GJ-leI"/>
+                            <constraint firstItem="egf-Oj-AfB" firstAttribute="top" secondItem="30k-Vx-fYs" secondAttribute="bottom" constant="32" id="VjL-gw-xKm"/>
+                            <constraint firstAttribute="top" secondItem="Z8N-QN-Ab8" secondAttribute="top" id="aZw-fN-ZZO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="egf-Oj-AfB" secondAttribute="trailing" constant="32" id="oq8-In-tjA"/>
+                            <constraint firstAttribute="trailing" secondItem="Z8N-QN-Ab8" secondAttribute="trailing" id="sHs-pK-Yrc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <connections>
@@ -78,7 +143,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="279.71014492753625" y="122.54464285714285"/>
+            <point key="canvasLocation" x="279.19999999999999" y="121.92118226600985"/>
         </scene>
     </scenes>
 </document>

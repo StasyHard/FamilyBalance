@@ -13,6 +13,10 @@
 		56184184246C637E006BF368 /* OperationsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56184183246C637E006BF368 /* OperationsCoordinator.swift */; };
 		56184186246C6527006BF368 /* OperationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56184185246C6527006BF368 /* OperationsView.swift */; };
 		56184188246C655E006BF368 /* OperationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56184187246C655E006BF368 /* OperationsViewModel.swift */; };
+		5618418F246D7899006BF368 /* AuthBackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5618418E246D7899006BF368 /* AuthBackView.swift */; };
+		56184191246D7D1B006BF368 /* AppSizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56184190246D7D1B006BF368 /* AppSizes.swift */; };
+		56184193246D7FBE006BF368 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56184192246D7FBE006BF368 /* AppColors.swift */; };
+		56184197246D8702006BF368 /* BlueRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56184196246D8702006BF368 /* BlueRoundedButton.swift */; };
 		56214F51246569C7000CE0BD /* CoordinatorProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56214F50246569C7000CE0BD /* CoordinatorProtocols.swift */; };
 		56444DE424599FDD00BB6BAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56444DE324599FDD00BB6BAE /* AppDelegate.swift */; };
 		56444DE624599FDD00BB6BAE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56444DE524599FDD00BB6BAE /* SceneDelegate.swift */; };
@@ -43,7 +47,6 @@
 		56C5A2A1246430F500CE5602 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56C5A2A0246430F500CE5602 /* LoadingView.xib */; };
 		56C5A2A32464696900CE5602 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C5A2A22464696900CE5602 /* MainCoordinator.swift */; };
 		56EB9B992461C73F002F815B /* BlueStrokeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB9B982461C73F002F815B /* BlueStrokeTextField.swift */; };
-		56EB9B9F2462B904002F815B /* UIColor+AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB9B9E2462B904002F815B /* UIColor+AppColors.swift */; };
 		56EB9BBA2463FAE6002F815B /* CostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB9BB92463FAE6002F815B /* CostsViewController.swift */; };
 		56EB9BBC2463FB10002F815B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56EB9BBB2463FB10002F815B /* Main.storyboard */; };
 		56EB9BBE2463FC89002F815B /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB9BBD2463FC89002F815B /* AppCoordinator.swift */; };
@@ -79,6 +82,10 @@
 		56184183246C637E006BF368 /* OperationsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationsCoordinator.swift; sourceTree = "<group>"; };
 		56184185246C6527006BF368 /* OperationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationsView.swift; sourceTree = "<group>"; };
 		56184187246C655E006BF368 /* OperationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationsViewModel.swift; sourceTree = "<group>"; };
+		5618418E246D7899006BF368 /* AuthBackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthBackView.swift; sourceTree = "<group>"; };
+		56184190246D7D1B006BF368 /* AppSizes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSizes.swift; sourceTree = "<group>"; };
+		56184192246D7FBE006BF368 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
+		56184196246D8702006BF368 /* BlueRoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueRoundedButton.swift; sourceTree = "<group>"; };
 		56214F50246569C7000CE0BD /* CoordinatorProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocols.swift; sourceTree = "<group>"; };
 		56444DE024599FDD00BB6BAE /* FamilyBalance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FamilyBalance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56444DE324599FDD00BB6BAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -115,7 +122,6 @@
 		56C5A2A0246430F500CE5602 /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		56C5A2A22464696900CE5602 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		56EB9B982461C73F002F815B /* BlueStrokeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueStrokeTextField.swift; sourceTree = "<group>"; };
-		56EB9B9E2462B904002F815B /* UIColor+AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+AppColors.swift"; sourceTree = "<group>"; };
 		56EB9BB92463FAE6002F815B /* CostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostsViewController.swift; sourceTree = "<group>"; };
 		56EB9BBB2463FB10002F815B /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		56EB9BBD2463FC89002F815B /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
@@ -189,7 +195,6 @@
 		5618418A246D491F006BF368 /* UIColor */ = {
 			isa = PBXGroup;
 			children = (
-				56EB9B9E2462B904002F815B /* UIColor+AppColors.swift */,
 			);
 			path = UIColor;
 			sourceTree = "<group>";
@@ -214,9 +219,29 @@
 		5618418D246D4AAB006BF368 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				56184190246D7D1B006BF368 /* AppSizes.swift */,
+				56184192246D7FBE006BF368 /* AppColors.swift */,
+				56184195246D8692006BF368 /* Button */,
+				56184194246D8457006BF368 /* TextField */,
 				56EB9B9A2462B744002F815B /* View */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		56184194246D8457006BF368 /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				56EB9B982461C73F002F815B /* BlueStrokeTextField.swift */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
+		56184195246D8692006BF368 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				56184196246D8702006BF368 /* BlueRoundedButton.swift */,
+			);
+			path = Button;
 			sourceTree = "<group>";
 		};
 		56444DD724599FDD00BB6BAE = {
@@ -334,7 +359,7 @@
 		56EB9B9A2462B744002F815B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				56EB9B982461C73F002F815B /* BlueStrokeTextField.swift */,
+				5618418E246D7899006BF368 /* AuthBackView.swift */,
 				56C5A29E246430DF00CE5602 /* LoadingView.swift */,
 				56C5A2A0246430F500CE5602 /* LoadingView.xib */,
 			);
@@ -622,11 +647,13 @@
 				56444DEE24599FDD00BB6BAE /* FamilyBalance.xcdatamodeld in Sources */,
 				5673DD6E24602AC50004EB12 /* AppRepository.swift in Sources */,
 				56184182246C62AC006BF368 /* OperationsViewController.swift in Sources */,
+				5618418F246D7899006BF368 /* AuthBackView.swift in Sources */,
 				567086B82465890200CD2E2A /* CostsCoordinator.swift in Sources */,
+				56184193246D7FBE006BF368 /* AppColors.swift in Sources */,
 				56EB9BBA2463FAE6002F815B /* CostsViewController.swift in Sources */,
+				56184191246D7D1B006BF368 /* AppSizes.swift in Sources */,
 				56AADA19246C4AB600B2CC8F /* CignUpViewController.swift in Sources */,
 				56EB9BC424640E48002F815B /* SignInCoordinator.swift in Sources */,
-				56EB9B9F2462B904002F815B /* UIColor+AppColors.swift in Sources */,
 				56AADA1D246C4AE900B2CC8F /* SignUpViewModel.swift in Sources */,
 				56EB9B992461C73F002F815B /* BlueStrokeTextField.swift in Sources */,
 				56444DE624599FDD00BB6BAE /* SceneDelegate.swift in Sources */,
@@ -642,6 +669,7 @@
 				5673755D245D70C100DD02FB /* SignInViewModel.swift in Sources */,
 				567086B52465888000CD2E2A /* CostsViewModel.swift in Sources */,
 				56184184246C637E006BF368 /* OperationsCoordinator.swift in Sources */,
+				56184197246D8702006BF368 /* BlueRoundedButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
