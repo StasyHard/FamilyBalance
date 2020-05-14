@@ -13,17 +13,16 @@ final class SignInCoordinator: BaseCoordirator {
     
     
     //MARK: - Init
-    init(navController: UINavigationController, repository: Repository) {
+    init(navController: UINavigationController, repo: Repository) {
         self.navController = navController
-        self.repo = repository
+        self.repo = repo
     }
     
     
     //MARK: - Open metods
     override func start() {
-        let signInVC = UIStoryboard.instantiateSignInViewController()
-        
-        let viewModel = SignInViewModel()
+        let signInVC = UIStoryboard.instantiateSignInVC()
+        let viewModel = SignInViewModel(repo: repo)
         signInVC.viewModel = viewModel
         navController.setViewControllers([signInVC], animated: false)
         
@@ -50,7 +49,10 @@ final class SignInCoordinator: BaseCoordirator {
     }
     
     private func showSignUpModule() {
-        print("SignUpModule")
+        let signUpCoordinator = SignUpCoordinator(navController: navController, repo: repo)
+        childCoordinators.append(signUpCoordinator)
+        signUpCoordinator.parentCoordinator = self
+        signUpCoordinator.start()
     }
     
     private func didSignIn() {

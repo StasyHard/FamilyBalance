@@ -11,7 +11,7 @@ class SignInViewController: UIViewController {
     
     
     //MARK: - Private properties
-    private lazy var profileView = view as? SignInViewImplementation
+    private lazy var signInView = view as? SignInViewImplementation
     
     private let disposeBag = DisposeBag()
 
@@ -21,7 +21,7 @@ class SignInViewController: UIViewController {
         super.viewDidLoad()
         
         observeViewModel()
-        profileView?.setProvider(provider: self)
+        signInView?.setProvider(provider: self)
     }
     
     
@@ -32,12 +32,12 @@ class SignInViewController: UIViewController {
         guard let viewModel = self.viewModel else { return }
         
         viewModel.isSignInActiveObservable
-            .bind { [weak self] in self?.profileView?.isSignInActionsActive($0) }
+            .bind { [weak self] in self?.signInView?.isSignInActionsActive($0) }
             .disposed(by: self.disposeBag)
         
         viewModel.isLoadingObservable
             .filter { $0 }
-            .bind { [weak self] _ in self?.profileView?.showLoading() }
+            .bind { [weak self] _ in self?.signInView?.showLoading() }
             .disposed(by: self.disposeBag)
     }
 }

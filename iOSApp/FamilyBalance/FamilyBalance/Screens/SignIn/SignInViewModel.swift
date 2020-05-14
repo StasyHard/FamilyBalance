@@ -20,7 +20,6 @@ protocol SignInViewControllerActions: class {
 final class SignInViewModel: SignInViewModelObservable {
     
     //MARK: - Open properties
-    private let repository: Repository
     
     var isSignInActiveObservable: Observable<Bool>
     var isLoadingObservable: Observable<Bool>
@@ -32,6 +31,8 @@ final class SignInViewModel: SignInViewModelObservable {
     private let isLoading = BehaviorSubject<Bool>(value: false)
     private let didSignIn = PublishSubject<Void>()
     private let signUpTapped = PublishSubject<Void>()
+    
+    private let repository: Repository
     
     private let disposeBag = DisposeBag()
     

@@ -36,14 +36,14 @@ final class AppCoordinator: BaseCoordirator {
     
     // MARK: - Navigation
     private func showMain() {
-        let mainCoordinator = MainCoordinator(navController: navController)
+        let mainCoordinator = MainCoordinator(navController: navController, repo: appRepository)
         childCoordinators.append(mainCoordinator)
         //mainCoordinator.parentCoordinator = self
         mainCoordinator.start()
     }
     
     private func showSignIn() {
-        let signInCoordinator = SignInCoordinator(navController: navController, repository: appRepository)
+        let signInCoordinator = SignInCoordinator(navController: navController, repo: appRepository)
         childCoordinators.append(signInCoordinator)
         signInCoordinator.parentCoordinator = self
         signInCoordinator.start()
