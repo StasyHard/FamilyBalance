@@ -186,6 +186,39 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		5618418A246D491F006BF368 /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				56EB9B9E2462B904002F815B /* UIColor+AppColors.swift */,
+			);
+			path = UIColor;
+			sourceTree = "<group>";
+		};
+		5618418B246D492D006BF368 /* UIStoryboard */ = {
+			isa = PBXGroup;
+			children = (
+				56EB9BC124640A29002F815B /* Storyboard+instantiate.swift */,
+			);
+			path = UIStoryboard;
+			sourceTree = "<group>";
+		};
+		5618418C246D4A23006BF368 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				56444DEF24599FDF00BB6BAE /* Assets.xcassets */,
+				56444DF424599FDF00BB6BAE /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		5618418D246D4AAB006BF368 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				56EB9B9A2462B744002F815B /* View */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		56444DD724599FDD00BB6BAE = {
 			isa = PBXGroup;
 			children = (
@@ -211,16 +244,15 @@
 		56444DE224599FDD00BB6BAE /* FamilyBalance */ = {
 			isa = PBXGroup;
 			children = (
+				567E1E3E246B01C400C50217 /* Keys.swift */,
 				56EB9B9D2462B8C0002F815B /* Application */,
 				56EB9BC5246416AF002F815B /* Coordinator */,
 				567E1E39246AC2E000C50217 /* Repository */,
-				56C5A2A5246562D300CE5602 /* Screens */,
+				56C5A2A5246562D300CE5602 /* Screen */,
 				56EB9B9C2462B89F002F815B /* Extention */,
 				56EB9B9B2462B75C002F815B /* Model */,
-				56EB9B9A2462B744002F815B /* View */,
-				56444DEF24599FDF00BB6BAE /* Assets.xcassets */,
-				56444DF424599FDF00BB6BAE /* Info.plist */,
-				56444DEC24599FDD00BB6BAE /* FamilyBalance.xcdatamodeld */,
+				5618418D246D4AAB006BF368 /* Common */,
+				5618418C246D4A23006BF368 /* Resources */,
 			);
 			path = FamilyBalance;
 			sourceTree = "<group>";
@@ -272,19 +304,19 @@
 				5673DD6D24602AC50004EB12 /* AppRepository.swift */,
 				56AADA11246C38B100B2CC8F /* CoreDataClient.swift */,
 				567E1E3C246AF9B000C50217 /* FafilyBalanseApiClient.swift */,
-				567E1E3E246B01C400C50217 /* Keys.swift */,
+				56444DEC24599FDD00BB6BAE /* FamilyBalance.xcdatamodeld */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
 		};
-		56C5A2A5246562D300CE5602 /* Screens */ = {
+		56C5A2A5246562D300CE5602 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
 				5673755B245D700700DD02FB /* SignIn */,
 				56C5A2A62465630700CE5602 /* SignUp */,
 				56EB9BB82463FA94002F815B /* Main */,
 			);
-			path = Screens;
+			path = Screen;
 			sourceTree = "<group>";
 		};
 		56C5A2A62465630700CE5602 /* SignUp */ = {
@@ -320,8 +352,8 @@
 		56EB9B9C2462B89F002F815B /* Extention */ = {
 			isa = PBXGroup;
 			children = (
-				56EB9B9E2462B904002F815B /* UIColor+AppColors.swift */,
-				56EB9BC124640A29002F815B /* Storyboard+instantiate.swift */,
+				5618418A246D491F006BF368 /* UIColor */,
+				5618418B246D492D006BF368 /* UIStoryboard */,
 			);
 			path = Extention;
 			sourceTree = "<group>";
@@ -785,7 +817,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VL3SPLW988;
-				INFOPLIST_FILE = FamilyBalance/Info.plist;
+				INFOPLIST_FILE = FamilyBalance/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -804,7 +836,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VL3SPLW988;
-				INFOPLIST_FILE = FamilyBalance/Info.plist;
+				INFOPLIST_FILE = FamilyBalance/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
