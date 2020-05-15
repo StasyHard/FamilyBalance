@@ -22,7 +22,7 @@ class SignInViewController: UIViewController {
         
         guard let viewModel = self.viewModel else { return }
         signInView?.setProvider(provider: viewModel)
-        observeViewModel()
+        observeViewModel(viewModel)
         configureDismissKeyboard()
     }
     
@@ -30,9 +30,8 @@ class SignInViewController: UIViewController {
     //MARK: - Private metods
     
     //MARK: Observe on the ViewModel
-    private func observeViewModel() {
-        guard let viewModel = self.viewModel else { return }
-        
+    private func observeViewModel(_ viewModel: SignInViewModelObservable) {
+
         viewModel.isSignInActiveObservable
             .bind { [weak self] in self?.signInView?.isSignInActionsActive($0) }
             .disposed(by: self.disposeBag)
