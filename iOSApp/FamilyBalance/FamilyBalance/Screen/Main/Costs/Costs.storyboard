@@ -16,10 +16,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cta-64-tUV" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="30" y="64" width="354" height="236"/>
+                                <rect key="frame" x="30" y="64" width="354" height="295"/>
                                 <color key="backgroundColor" systemColor="systemGray3Color" red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="cta-64-tUV" secondAttribute="height" multiplier="1.5:1" id="hDx-4Z-9gm"/>
+                                    <constraint firstAttribute="width" secondItem="cta-64-tUV" secondAttribute="height" multiplier="1.2:1" id="hDx-4Z-9gm"/>
                                 </constraints>
                             </view>
                         </subviews>

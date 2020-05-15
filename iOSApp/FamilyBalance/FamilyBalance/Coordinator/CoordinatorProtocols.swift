@@ -3,8 +3,8 @@ import Foundation
 
 //Общий протокол для всех координаторов
 protocol Coordinator: AnyObject {
-    var parentCoordinator: Coordinator? { get set }
-    var childCoordinators: [Coordinator] { get set }
+    var parentCoordinator: BaseCoordirator? { get set }
+    var childCoordinators: [BaseCoordirator] { get set }
     func start()
 }
 
