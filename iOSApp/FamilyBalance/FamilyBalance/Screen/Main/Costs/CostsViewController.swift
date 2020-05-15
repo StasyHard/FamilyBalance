@@ -7,7 +7,7 @@ import Charts
 class CostsViewController: UIViewController {
     
     //MARK: - Open properties
-    var viewModel: (CostsViewModelObservable & CostsViewActions)?
+    var viewModel: (CostsViewModelActions & CostsViewActions)?
     var navController: UINavigationController?
     
     
@@ -40,7 +40,7 @@ class CostsViewController: UIViewController {
     }
     
     @objc func filterButtonTapped() {
-        print("Tapped")
+        viewModel?.filterDidTapped()
     }
     
     override func viewDidLayoutSubviews() {
@@ -51,7 +51,7 @@ class CostsViewController: UIViewController {
     //MARK: - Private metods
     
     //MARK: Observe on the ViewModel
-    private func observeViewModel(_ viewModel: CostsViewModelObservable) {
+    private func observeViewModel(_ viewModel: CostsViewModelActions) {
         
     }
 }

@@ -9,11 +9,6 @@ protocol SignInViewImplementation: class {
     func showLoading()
 }
 
-protocol SignInViewActions: class {
-    func signInDidTapped(_ email: String, _ password: String)
-    func signUpDidTapped()
-}
-
 
 
 final class SignInView: UIView {

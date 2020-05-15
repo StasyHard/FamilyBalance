@@ -7,10 +7,6 @@ protocol CostsViewImplementation: class {
     func setProvider(provider: CostsViewActions)
 }
 
-protocol CostsViewActions: class {
-    
-}
-
 
 class CostsView: UIView {
     

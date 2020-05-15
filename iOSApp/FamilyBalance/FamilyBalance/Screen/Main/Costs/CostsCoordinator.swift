@@ -18,7 +18,7 @@ class CostsCoordinator: BaseCoordirator {
         observeViewModel(viewModel)
     }
     
-    private func observeViewModel(_ viewModel: CostsViewModelObservable) {
+    private func observeViewModel(_ viewModel: CostsViewModelActions) {
         
     }
            

@@ -2,14 +2,21 @@
 import Foundation
 import RxSwift
 
-protocol CostsViewModelObservable: class {
+protocol CostsViewModelActions: class {
 
 }
 
-class CostsViewModel: CostsViewModelObservable {
+protocol CostsViewActions: class {
+    func filterDidTapped()
+}
+
+
+class CostsViewModel: CostsViewModelActions {
     
 }
 
 extension CostsViewModel: CostsViewActions {
-    
+    func filterDidTapped() {
+        
+    }
 }

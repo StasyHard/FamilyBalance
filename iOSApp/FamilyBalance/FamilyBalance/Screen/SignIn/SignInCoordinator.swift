@@ -30,9 +30,9 @@ final class SignInCoordinator: BaseCoordirator {
     }
     
     //MARK: - Private metods
-    private func observeViewModel(_ viewModel: SignInViewModelObservable) {
+    private func observeViewModel(_ viewModel: SignInViewModelActions) {
         
-        viewModel.didSignInObservable
+        viewModel.didSignIn
             .bind { [weak self] in
                 guard let `self` = self else { return }
                 self.didSignIn()
@@ -40,7 +40,7 @@ final class SignInCoordinator: BaseCoordirator {
         }
         .disposed(by: self.disposeBag)
         
-        viewModel.signUpTappedObservable
+        viewModel.signUpTapped
             .bind { [weak self] in
                 guard let `self` = self else { return }
                 self.showSignUpModule()

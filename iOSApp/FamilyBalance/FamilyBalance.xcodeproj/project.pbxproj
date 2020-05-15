@@ -357,6 +357,13 @@
 			path = UIImage;
 			sourceTree = "<group>";
 		};
+		5681648A246EEA8400BAAABF /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Filter;
+			sourceTree = "<group>";
+		};
 		56C5A2A5246562D300CE5602 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
@@ -424,6 +431,7 @@
 				56EB9BBB2463FB10002F815B /* Main.storyboard */,
 				56C5A2A22464696900CE5602 /* MainCoordinator.swift */,
 				567086B6246588B400CD2E2A /* Costs */,
+				5681648A246EEA8400BAAABF /* Filter */,
 				5618417E246C6202006BF368 /* Operations */,
 				56184189246C6DE0006BF368 /* Profile */,
 			);

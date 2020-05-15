@@ -7,7 +7,7 @@ import RxCocoa
 class SignInViewController: UIViewController {
     
     //MARK: - Open properties
-    var viewModel: (SignInViewModelObservable & SignInViewActions)?
+    var viewModel: (SignInViewModelActions & SignInViewActions)?
     
     
     //MARK: - Private properties
@@ -30,13 +30,13 @@ class SignInViewController: UIViewController {
     //MARK: - Private metods
     
     //MARK: Observe on the ViewModel
-    private func observeViewModel(_ viewModel: SignInViewModelObservable) {
+    private func observeViewModel(_ viewModel: SignInViewModelActions) {
 
-        viewModel.isSignInActiveObservable
+        viewModel.isSignInActive
             .bind { [weak self] in self?.signInView?.isSignInActionsActive($0) }
             .disposed(by: self.disposeBag)
         
-        viewModel.isLoadingObservable
+        viewModel.isLoading
             .filter { $0 }
             .bind { [weak self] _ in self?.signInView?.showLoading() }
             .disposed(by: self.disposeBag)
