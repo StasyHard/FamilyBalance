@@ -52,8 +52,9 @@ final class SignInViewModel: SignInViewModelObservable {
 
 extension SignInViewModel: SignInViewControllerActions {
     func signIn(_ email: String, _ password: String) {
-        isSignInActive.onNext(false)
         isLoading.onNext(true)
+        isSignInActive.onNext(false)
+        
         
         if email.isEmpty || password.isEmpty { return }
         
@@ -62,7 +63,10 @@ extension SignInViewModel: SignInViewControllerActions {
             .subscribe(
                 onSuccess: { [weak self] token in
                     print(token)
-                    self?.didSignIn.onNext(())
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+                        self?.didSignIn.onNext(())
+                    }
+                    //self?.didSignIn.onNext(())
                 },
                 onError: { error in
                     print(error)

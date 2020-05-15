@@ -246,6 +246,14 @@
 			path = Button;
 			sourceTree = "<group>";
 		};
+		5618419A246E986D006BF368 /* UIViewController */ = {
+			isa = PBXGroup;
+			children = (
+				56184198246D8F10006BF368 /* UIViewController + dismissKeyboard.swift */,
+			);
+			path = UIViewController;
+			sourceTree = "<group>";
+		};
 		56444DD724599FDD00BB6BAE = {
 			isa = PBXGroup;
 			children = (
@@ -381,7 +389,7 @@
 			children = (
 				5618418A246D491F006BF368 /* UIColor */,
 				5618418B246D492D006BF368 /* UIStoryboard */,
-				56184198246D8F10006BF368 /* UIViewController + dismissKeyboard.swift */,
+				5618419A246E986D006BF368 /* UIViewController */,
 			);
 			path = Extention;
 			sourceTree = "<group>";
