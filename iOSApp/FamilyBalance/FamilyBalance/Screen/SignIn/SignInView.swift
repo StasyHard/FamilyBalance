@@ -29,8 +29,8 @@ final class SignInView: UIView {
             setDelegate(textField: passwordTextField)
         }
     }
-    @IBOutlet private weak var logInButton: UIButton!
-    @IBOutlet private weak var signUpButton: UIButton!
+    @IBOutlet private weak var logInButton: BlueRoundedButton!
+    @IBOutlet private weak var signUpButton: BlueRoundedButton!
     
     
     //MARK: - Private properties
@@ -39,7 +39,7 @@ final class SignInView: UIView {
     
     
     //MARK: - IBAction
-    @IBAction private func signInTapped(_ sender: UIButton) {
+    @IBAction private func signInTapped(_ sender: BlueRoundedButton) {
         guard let emailInput = emailTextField.text, !emailInput.isEmpty,
             let passwordInput = passwordTextField.text, !passwordInput.isEmpty
             else {
@@ -112,6 +112,18 @@ extension SignInView: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
         let textField = textField as? BlueStrokeTextField
         textField?.textChanged()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case emailTextField:
+            passwordTextField.becomeFirstResponder()
+        case passwordTextField:
+            self.endEditing(true)
+        default:
+            self.endEditing(true)
+        }
+        return true
     }
 }
 
