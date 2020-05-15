@@ -10,12 +10,6 @@ protocol SignInViewModelObservable: class {
     var signUpTappedObservable: Observable<Void> { get set}
 }
 
-protocol SignInViewControllerActions: class {
-    func signIn(_ email: String, _ password: String)
-    func signUp()
-}
-
-
 
 final class SignInViewModel: SignInViewModelObservable {
     
@@ -50,8 +44,8 @@ final class SignInViewModel: SignInViewModelObservable {
 
 
 
-extension SignInViewModel: SignInViewControllerActions {
-    func signIn(_ email: String, _ password: String) {
+extension SignInViewModel: SignInViewActions {
+    func signInDidTapped(_ email: String, _ password: String) {
         isLoading.onNext(true)
         isSignInActive.onNext(false)
         
@@ -75,7 +69,7 @@ extension SignInViewModel: SignInViewControllerActions {
             .disposed(by: self.disposeBag)
     }
     
-    func signUp() {
+    func signUpDidTapped() {
         signUpTapped.onNext(())
     }
 }

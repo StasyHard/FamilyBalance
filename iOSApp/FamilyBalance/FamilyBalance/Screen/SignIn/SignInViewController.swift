@@ -7,7 +7,7 @@ import RxCocoa
 class SignInViewController: UIViewController {
     
     //MARK: - Open properties
-    var viewModel: (SignInViewModelObservable & SignInViewControllerActions)?
+    var viewModel: (SignInViewModelObservable & SignInViewActions)?
     
     
     //MARK: - Private properties
@@ -20,9 +20,9 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        guard let viewModel = self.viewModel else { return }
+        signInView?.setProvider(provider: viewModel)
         observeViewModel()
-        signInView?.setProvider(provider: self)
-        
         configureDismissKeyboard()
     }
     
@@ -44,15 +44,4 @@ class SignInViewController: UIViewController {
     }
 }
 
-
-
-extension SignInViewController: SignInViewActions {
-    func signInDidTapped(_ email: String, _ password: String) {
-        viewModel?.signIn(email, password)
-    }
-    
-    func signUpDidTapped() {
-        viewModel?.signUp()
-    }
-}
 
