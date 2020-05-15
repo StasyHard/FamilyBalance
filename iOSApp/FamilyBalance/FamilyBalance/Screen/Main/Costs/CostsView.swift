@@ -87,6 +87,7 @@ class CostsView: UIView {
 
 extension CostsView: CostsViewImplementation {
     func setProvider(provider: CostsViewActions) {
+        self.provider = provider
     }
     
     

@@ -14,7 +14,6 @@ class CostsCoordinator: BaseCoordirator {
         let viewModel = CostsViewModel()
         costsVC.viewModel = viewModel
         navController.setViewControllers([costsVC], animated: false)
-        costsVC.title = "Расходы"
         
         observeViewModel(viewModel)
     }

@@ -7,7 +7,7 @@ import Charts
 class CostsViewController: UIViewController {
     
     //MARK: - Open properties
-    var viewModel: (CostsViewModelObservable & CostsViewControllerActions)?
+    var viewModel: (CostsViewModelObservable & CostsViewActions)?
     var navController: UINavigationController?
     
     
@@ -20,13 +20,23 @@ class CostsViewController: UIViewController {
     //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        let filterButton = UIBarButtonItem(image: UIImage(named: "filter"), style: .done, target: self, action: #selector(filterButtonTapped))
-        print(filterButton)
-        //filterButton.tintColor = .clear
-        navigationItem.rightBarButtonItem = filterButton
+        setNavigationUI()
         
-        observeViewModel()
-        costsView?.setProvider(provider: self)
+        guard let viewModel = viewModel else { return }
+        costsView?.setProvider(provider: viewModel)
+        observeViewModel(viewModel)
+    }
+    
+    private func setNavigationUI() {
+        title = "Расходы"
+        let defaultImage = UIImage(named: "filter")?
+            .scaleTo(CGSize(width: 25, height: 25))
+
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: defaultImage,
+            style: .plain,
+            target: self,
+            action: #selector(filterButtonTapped))
     }
     
     @objc func filterButtonTapped() {
@@ -41,13 +51,11 @@ class CostsViewController: UIViewController {
     //MARK: - Private metods
     
     //MARK: Observe on the ViewModel
-    private func observeViewModel() {
+    private func observeViewModel(_ viewModel: CostsViewModelObservable) {
         
     }
 }
 
 
 
-extension CostsViewController: CostsViewActions {
-    
-}
+
