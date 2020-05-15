@@ -19,6 +19,13 @@ class CostsCoordinator: BaseCoordirator {
     }
     
     private func observeViewModel(_ viewModel: CostsViewModelActions) {
+        viewModel.filter
+            .bind {  [weak self] _ in
+                self?.showFilterModule()
+        }
+    }
+    
+    private func showFilterModule() {
         
     }
            

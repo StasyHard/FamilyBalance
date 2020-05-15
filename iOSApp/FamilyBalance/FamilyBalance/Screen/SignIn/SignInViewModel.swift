@@ -18,8 +18,7 @@ protocol SignInViewActions: class {
 
 final class SignInViewModel: SignInViewModelActions {
     
-    //MARK: - Open properties
-    
+    //MARK: - SignInViewModelActions
     var isSignInActive: Observable<Bool>
     var isLoading: Observable<Bool>
     var didSignIn: Observable<Void>

@@ -42,8 +42,7 @@ final class SignInCoordinator: BaseCoordirator {
         
         viewModel.signUpTapped
             .bind { [weak self] in
-                guard let `self` = self else { return }
-                self.showSignUpModule()
+                self?.showSignUpModule()
         }
         .disposed(by: self.disposeBag)
     }
