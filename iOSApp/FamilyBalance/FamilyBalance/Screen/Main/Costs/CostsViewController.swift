@@ -1,60 +1,53 @@
 
-import Charts
 import UIKit
+import RxSwift
+import RxCocoa
+import Charts
 
 class CostsViewController: UIViewController {
     
-    //MARK: - IBOutlet
-    @IBOutlet weak var pieChartView: PieChartView!
+    //MARK: - Open properties
+    var viewModel: (CostsViewModelObservable & CostsViewControllerActions)?
+    var navController: UINavigationController?
     
+    
+    //MARK: - Private properties
+    private lazy var costsView = view as? CostsViewImplementation
+    
+    private let disposeBag = DisposeBag()
+    
+    
+    //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        let filterButton = UIBarButtonItem(image: UIImage(named: "filter"), style: .done, target: self, action: #selector(filterButtonTapped))
+        print(filterButton)
+        //filterButton.tintColor = .clear
+        navigationItem.rightBarButtonItem = filterButton
         
-        title = "Расходы"
-        
-        pieChartView.delegate = self
+        observeViewModel()
+        costsView?.setProvider(provider: self)
+    }
+    
+    @objc func filterButtonTapped() {
+        print("Tapped")
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
-        //pieChartView.chartDescription?.text = "Расходы"
-        pieChartView.drawEntryLabelsEnabled = true
-        pieChartView.usePercentValuesEnabled = true
-        
-        pieChartView.holeRadiusPercent = 0
-        pieChartView.transparentCircleRadiusPercent = 0
-        
-        updateChartData()
     }
     
-    func updateChartData() {
-        var chartEntries = [ChartDataEntry]()
+    
+    //MARK: - Private metods
+    
+    //MARK: Observe on the ViewModel
+    private func observeViewModel() {
         
-        chartEntries.append(PieChartDataEntry(value: 18))
-        chartEntries.append(PieChartDataEntry(value: 10))
-        chartEntries.append(PieChartDataEntry(value: 24))
-        
-        let chartDataSet = PieChartDataSet(entries: chartEntries, label: "Категории")
-        chartDataSet.drawValuesEnabled = true
-        chartDataSet.sliceSpace = 2
-        
-        let colors = [UIColor.red, .blue, .brown]
-        chartDataSet.colors = colors
-
-        let data = PieChartData(dataSet: chartDataSet)
-        pieChartView.data = data
-        
-        let pFormatter = NumberFormatter()
-        pFormatter.numberStyle = .percent
-        pFormatter.maximumFractionDigits = 1
-        pFormatter.multiplier = 1
-        pFormatter.percentSymbol = " %"
-        data.setValueFormatter(DefaultValueFormatter(formatter: pFormatter))
     }
 }
 
-extension CostsViewController: ChartViewDelegate {
-    
+
+
+extension CostsViewController: CostsViewActions {
     
 }

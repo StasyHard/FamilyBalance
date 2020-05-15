@@ -37,6 +37,7 @@
 		567E1E3B246ACAFA00C50217 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567E1E3A246ACAFA00C50217 /* SignInView.swift */; };
 		567E1E3D246AF9B000C50217 /* FafilyBalanseApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567E1E3C246AF9B000C50217 /* FafilyBalanseApiClient.swift */; };
 		567E1E3F246B01C400C50217 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567E1E3E246B01C400C50217 /* Keys.swift */; };
+		56816486246ED9EF00BAAABF /* CostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56816485246ED9EF00BAAABF /* CostsView.swift */; };
 		56AADA12246C38B100B2CC8F /* CoreDataClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AADA11246C38B100B2CC8F /* CoreDataClient.swift */; };
 		56AADA14246C3BFB00B2CC8F /* BaseCoordirator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AADA13246C3BFB00B2CC8F /* BaseCoordirator.swift */; };
 		56AADA17246C4A9700B2CC8F /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56AADA16246C4A9700B2CC8F /* SignUp.storyboard */; };
@@ -113,6 +114,7 @@
 		567E1E3A246ACAFA00C50217 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		567E1E3C246AF9B000C50217 /* FafilyBalanseApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FafilyBalanseApiClient.swift; sourceTree = "<group>"; };
 		567E1E3E246B01C400C50217 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		56816485246ED9EF00BAAABF /* CostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostsView.swift; sourceTree = "<group>"; };
 		56AADA11246C38B100B2CC8F /* CoreDataClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataClient.swift; sourceTree = "<group>"; };
 		56AADA13246C3BFB00B2CC8F /* BaseCoordirator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordirator.swift; sourceTree = "<group>"; };
 		56AADA16246C4A9700B2CC8F /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
@@ -316,6 +318,7 @@
 				567086BD2465ABEA00CD2E2A /* Costs.storyboard */,
 				56EB9BB92463FAE6002F815B /* CostsViewController.swift */,
 				567086B42465888000CD2E2A /* CostsViewModel.swift */,
+				56816485246ED9EF00BAAABF /* CostsView.swift */,
 				567086B72465890200CD2E2A /* CostsCoordinator.swift */,
 			);
 			path = Costs;
@@ -668,6 +671,7 @@
 				56EB9BC424640E48002F815B /* SignInCoordinator.swift in Sources */,
 				56AADA1D246C4AE900B2CC8F /* SignUpViewModel.swift in Sources */,
 				56EB9B992461C73F002F815B /* BlueStrokeTextField.swift in Sources */,
+				56816486246ED9EF00BAAABF /* CostsView.swift in Sources */,
 				56444DE624599FDD00BB6BAE /* SceneDelegate.swift in Sources */,
 				56AADA1F246C4B4600B2CC8F /* SignUpCoordinator.swift in Sources */,
 				56AADA12246C38B100B2CC8F /* CoreDataClient.swift in Sources */,

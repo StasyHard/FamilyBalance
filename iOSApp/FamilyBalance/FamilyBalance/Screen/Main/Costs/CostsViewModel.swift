@@ -1,6 +1,19 @@
 
 import Foundation
+import RxSwift
 
-class CostsViewModel {
+protocol CostsViewModelObservable: class {
+
+}
+
+protocol CostsViewControllerActions: class {
+
+}
+
+class CostsViewModel: CostsViewModelObservable {
+    
+}
+
+extension CostsViewModel: CostsViewControllerActions {
     
 }
