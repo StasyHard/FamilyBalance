@@ -24,6 +24,10 @@ extension UIStoryboard {
         return UIStoryboard(name: "Operations", bundle: nil)
     }
     
+    private static var filters: UIStoryboard {
+        return UIStoryboard(name: "Filters", bundle: nil)
+    }
+    
     
     // MARK: - View Controllers init
     static func instantiateMainVC() -> UITabBarController {
@@ -49,6 +53,11 @@ extension UIStoryboard {
     static func instantiateOperationsVC() -> OperationsViewController {
         let historyVC = historyOperations.instantiateViewController(withIdentifier: "operationsVC") as! OperationsViewController
         return historyVC
+    }
+    
+    static func instantiateFiltersVC() -> FiltersViewController {
+        let filterVC = filters.instantiateViewController(withIdentifier: "filtersVC") as! FiltersViewController
+        return filterVC
     }
     
 }
