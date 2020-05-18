@@ -5,6 +5,7 @@ import Charts
 
 protocol CostsViewImplementation: class {
     func setProvider(provider: CostsViewActions)
+    func setData(_ categories: [CategoryViewModel])
 }
 
 
@@ -16,24 +17,32 @@ class CostsView: UIView {
     @IBOutlet weak var pieChartView: PieChartView! {
         didSet {
             setupChartSettings()
+            updateChartData()
         }
     }
     @IBOutlet weak var tableView: UITableView!
     
+    
     //MARK: - Private properties
     private var provider: CostsViewActions?
+    
+    private var categories: [CategoryViewModel]? {
+        didSet {
+            updateChartData()
+            tableView.reloadData()
+        }
+    }
     
     
     //MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        //setup()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        //setup()
     }
+    
     
     //MARK: - Private metods
     private func setup() {
@@ -45,14 +54,11 @@ class CostsView: UIView {
         //pieChartView.chartDescription?.text = "Расходы"
         pieChartView.drawEntryLabelsEnabled = true
         pieChartView.usePercentValuesEnabled = true
-        
         pieChartView.holeRadiusPercent = 0
         pieChartView.transparentCircleRadiusPercent = 0
-        
-        updateChartData()
     }
     
-    func updateChartData() {
+    private func updateChartData() {
         var chartEntries = [ChartDataEntry]()
         
         chartEntries.append(PieChartDataEntry(value: 60))
@@ -86,8 +92,9 @@ extension CostsView: CostsViewImplementation {
         self.provider = provider
     }
     
-    
-    
+    func setData(_ categories: [CategoryViewModel]) {
+        self.categories = categories
+    }
 }
 
 

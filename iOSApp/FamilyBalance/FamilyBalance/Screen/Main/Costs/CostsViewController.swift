@@ -27,12 +27,18 @@ class CostsViewController: UIViewController {
         observeViewModel(viewModel)
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+    }
+    
+    
+    //MARK: - Private metods
     private func setNavigationUI() {
         title = "Расходы"
         let defaultImage = UIImage(named: "filter")?
             .scaleTo(CGSize(width: AppSizes.iconHeightAndWidth,
                             height: AppSizes.iconHeightAndWidth))
-
+        
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: defaultImage,
             style: .plain,
@@ -40,12 +46,8 @@ class CostsViewController: UIViewController {
             action: #selector(filterButtonTapped))
     }
     
-    @objc func filterButtonTapped() {
-        viewModel?.filterDidTapped()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+    @objc private func filterButtonTapped() {
+        viewModel?.filtersDidTapped()
     }
     
     
@@ -54,6 +56,11 @@ class CostsViewController: UIViewController {
     //MARK: Observe on the ViewModel
     private func observeViewModel(_ viewModel: CostsViewModelActions) {
         
+        viewModel.categoryData
+            .bind { [weak self] data in
+                self?.costsView?.setData(data)
+        }
+        .disposed(by: self.disposeBag)
     }
 }
 
