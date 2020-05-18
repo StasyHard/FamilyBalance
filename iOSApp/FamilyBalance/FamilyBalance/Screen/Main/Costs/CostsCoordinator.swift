@@ -6,19 +6,19 @@ import RxCocoa
 
 class CostsCoordinator: BaseCoordirator {
     
-        //MARK: - Private properties
+    //MARK: - Private properties
     private var navController: UINavigationController
     
     private let disposeBag = DisposeBag()
     
     
-        //MARK: - Init
+    //MARK: - Init
     init(navController: UINavigationController) {
         self.navController = navController
     }
     
     
-        //MARK: - Open metods
+    //MARK: - Open metods
     override func start() {
         let costsVC = UIStoryboard.instantiateCostsVC()
         let viewModel = CostsViewModel()
@@ -29,7 +29,7 @@ class CostsCoordinator: BaseCoordirator {
     }
     
     
-        //MARK: - Private metods
+    //MARK: - Private metods
     private func observeViewModel(_ viewModel: CostsViewModelActions) {
         viewModel.filter
             .bind {  [weak self] _ in
