@@ -9,6 +9,8 @@ protocol CostsViewModelActions: class {
 
 protocol CostsViewActions: class {
     func filtersDidTapped()
+    
+    func viewDidLoad()
 }
 
 
@@ -46,14 +48,14 @@ class CostsViewModel: CostsViewModelActions {
                                          sum: 200)
         let category3 = CategoryViewModel(id: 3,
                                          name: "Развлечения",
-                                         color: UIColor.yellow,
+                                         color: UIColor.lightGray,
                                          sum: 300)
         let category4 = CategoryViewModel(id: 4,
                                          name: "Для дома",
-                                         color: UIColor.green,
+                                         color: UIColor.systemGreen,
                                          sum: 400)
         
-        return [category, category2, category3, category4]
+        return [category4, category3, category2, category]
     }
 }
 

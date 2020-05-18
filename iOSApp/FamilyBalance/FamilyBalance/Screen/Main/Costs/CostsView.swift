@@ -17,21 +17,22 @@ class CostsView: UIView {
     @IBOutlet weak var pieChartView: PieChartView! {
         didSet {
             setupChartSettings()
-            updateChartData()
         }
     }
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView! {
+        didSet {
+            registerCells()
+            //TODO: ------------------------------- Подумать где должна быть реализация
+            tableView.delegate = tableViewProvider
+            tableView.dataSource = tableViewProvider
+        }
+    }
     
     
     //MARK: - Private properties
     private var provider: CostsViewActions?
-    
-    private var categories: [CategoryViewModel]? {
-        didSet {
-            updateChartData()
-            tableView.reloadData()
-        }
-    }
+    //TODO: ------------------------------- Подумать где должна быть реализация
+    private let tableViewProvider = CostsTableViewProvider()
     
     
     //MARK: - Init
@@ -58,18 +59,21 @@ class CostsView: UIView {
         pieChartView.transparentCircleRadiusPercent = 0
     }
     
-    private func updateChartData() {
+    private func updateChartData( categories: [CategoryViewModel]) {
         var chartEntries = [ChartDataEntry]()
+        var colors = [UIColor]()
         
-        chartEntries.append(PieChartDataEntry(value: 60))
-        chartEntries.append(PieChartDataEntry(value: 30))
-        chartEntries.append(PieChartDataEntry(value: 10))
-        
+        categories.forEach({ category in
+            let value = category.sum
+            chartEntries.append(PieChartDataEntry(value: value))
+            let color = category.color
+            colors.append(color)
+        })
+    
         let chartDataSet = PieChartDataSet(entries: chartEntries, label: "Категории")
         chartDataSet.drawValuesEnabled = true
         chartDataSet.sliceSpace = 2
         
-        let colors = [UIColor.red, .blue, .brown]
         chartDataSet.colors = colors
         
         let data = PieChartData(dataSet: chartDataSet)
@@ -83,6 +87,9 @@ class CostsView: UIView {
         data.setValueFormatter(DefaultValueFormatter(formatter: pFormatter))
     }
     
+    private func registerCells() {
+        tableView.register(UINib(nibName: "CategoryCostTableViewCell", bundle: nil), forCellReuseIdentifier: CategoryCostsTableViewCell.reuseIdD)
+    }
 }
 
 
@@ -93,7 +100,9 @@ extension CostsView: CostsViewImplementation {
     }
     
     func setData(_ categories: [CategoryViewModel]) {
-        self.categories = categories
+        updateChartData(categories: categories)
+        tableViewProvider.categories = categories
+        tableView.reloadData()
     }
 }
 
@@ -101,5 +110,11 @@ extension CostsView: CostsViewImplementation {
 
 extension CostsView: ChartViewDelegate {
     
+    
+}
+
+
+
+extension CostsView: UITableViewDelegate {
     
 }

@@ -25,6 +25,8 @@ class CostsViewController: UIViewController {
         guard let viewModel = viewModel else { return }
         costsView?.setProvider(provider: viewModel)
         observeViewModel(viewModel)
+        
+        viewModel.viewDidLoad()
     }
     
     override func viewDidLayoutSubviews() {
