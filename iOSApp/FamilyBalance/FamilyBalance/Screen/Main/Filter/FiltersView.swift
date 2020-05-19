@@ -10,20 +10,37 @@ protocol FiltersViewImplementation: class {
 class FiltersView: UIView {
     
     //MARK: - IBOutlet
-    @IBOutlet weak var filterTableView: UITableView!
+    @IBOutlet weak var filterTableView: UITableView! {
+        didSet {
+        filterTableView.backgroundColor = AppColors.backgroundColor
+        registerCells()
+        filterTableView.delegate = tableViewProvider
+        filterTableView.dataSource = tableViewProvider
+    }
+    }
+    
     
     //MARK: - Private properties
-    
+    private var provider: FiltersViewActions?
+    //TODO: ------------------------------- Подумать где должна быть реализация
+    private let tableViewProvider = FiltersTableViewProvider()
     
     //MARK: - IBAction
     @IBAction func showButtonIsTapped(_ sender: BlueRoundedButton) {
     }
     
+    
+    private func registerCells() {
+        
+    }
+    
 }
+
+
 
 extension FiltersView: FiltersViewImplementation {
     func setProvider(provider: FiltersViewActions) {
-        
+        self.provider = provider
     }
     
     
