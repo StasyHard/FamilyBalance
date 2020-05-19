@@ -3,14 +3,21 @@ import UIKit
 
 
 protocol FiltersViewImplementation: class {
-   func setProvider(provider: FiltersViewActions)
+    func setProvider(provider: FiltersViewActions)
 }
 
 
 class FiltersView: UIView {
-
+    
+    //MARK: - IBOutlet
     @IBOutlet weak var filterTableView: UITableView!
-    @IBOutlet weak var showButtonTapped: BlueRoundedButton!
+    
+    //MARK: - Private properties
+    
+    
+    //MARK: - IBAction
+    @IBAction func showButtonIsTapped(_ sender: BlueRoundedButton) {
+    }
     
 }
 

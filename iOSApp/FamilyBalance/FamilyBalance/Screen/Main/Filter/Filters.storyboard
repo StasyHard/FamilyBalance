@@ -11,7 +11,7 @@
         <scene sceneID="cI3-Ap-gGb">
             <objects>
                 <viewController storyboardIdentifier="filtersVC" id="2tK-Ss-W0D" customClass="FiltersViewController" customModule="FamilyBalance" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Ihw-VF-8z3">
+                    <view key="view" contentMode="scaleToFill" id="Ihw-VF-8z3" customClass="FiltersView" customModule="FamilyBalance" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -24,6 +24,9 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <state key="normal" title="Показать"/>
+                                <connections>
+                                    <action selector="showButtonIsTapped:" destination="Ihw-VF-8z3" eventType="touchUpInside" id="W1c-c1-7UI"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -37,6 +40,9 @@
                             <constraint firstAttribute="trailing" secondItem="2i9-j5-5bi" secondAttribute="trailing" constant="20" id="y51-pD-2CS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Xba-7A-Jcd"/>
+                        <connections>
+                            <outlet property="filterTableView" destination="iJv-aL-NEZ" id="fFC-c8-8DJ"/>
+                        </connections>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YiC-lR-sRM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
