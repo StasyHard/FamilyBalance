@@ -88,7 +88,7 @@ class CostsView: UIView {
     }
     
     private func registerCells() {
-        tableView.register(UINib(nibName: "CategoryCostTableViewCell", bundle: nil), forCellReuseIdentifier: CategoryCostsTableViewCell.reuseIdD)
+        tableView.register(UINib(nibName: "CostTableViewCell", bundle: nil), forCellReuseIdentifier: CostTableViewCell.reuseIdD)
     }
 }
 

@@ -47,8 +47,8 @@
 		568164962472AFF200BAAABF /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568164952472AFF200BAAABF /* Category.swift */; };
 		568164982472B0F100BAAABF /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568164972472B0F100BAAABF /* Operation.swift */; };
 		5681649B2472B23C00BAAABF /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5681649A2472B23C00BAAABF /* CategoryViewModel.swift */; };
-		568164A12472CF1C00BAAABF /* CategoryCostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5681649F2472CF1C00BAAABF /* CategoryCostTableViewCell.swift */; };
-		568164A22472CF1C00BAAABF /* CategoryCostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 568164A02472CF1C00BAAABF /* CategoryCostTableViewCell.xib */; };
+		568164A12472CF1C00BAAABF /* CostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5681649F2472CF1C00BAAABF /* CostTableViewCell.swift */; };
+		568164A22472CF1C00BAAABF /* CostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 568164A02472CF1C00BAAABF /* CostTableViewCell.xib */; };
 		568164A42472DF3000BAAABF /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568164A32472DF3000BAAABF /* ReusableView.swift */; };
 		568164A62472E2D300BAAABF /* CostsTableViewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568164A52472E2D300BAAABF /* CostsTableViewProvider.swift */; };
 		568164AA2472E44500BAAABF /* TableViewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568164A92472E44500BAAABF /* TableViewProvider.swift */; };
@@ -138,8 +138,8 @@
 		568164952472AFF200BAAABF /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		568164972472B0F100BAAABF /* Operation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
 		5681649A2472B23C00BAAABF /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
-		5681649F2472CF1C00BAAABF /* CategoryCostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCostTableViewCell.swift; sourceTree = "<group>"; };
-		568164A02472CF1C00BAAABF /* CategoryCostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCostTableViewCell.xib; sourceTree = "<group>"; };
+		5681649F2472CF1C00BAAABF /* CostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostTableViewCell.swift; sourceTree = "<group>"; };
+		568164A02472CF1C00BAAABF /* CostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CostTableViewCell.xib; sourceTree = "<group>"; };
 		568164A32472DF3000BAAABF /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		568164A52472E2D300BAAABF /* CostsTableViewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostsTableViewProvider.swift; sourceTree = "<group>"; };
 		568164A92472E44500BAAABF /* TableViewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewProvider.swift; sourceTree = "<group>"; };
@@ -408,8 +408,8 @@
 		5681649C2472CEB700BAAABF /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				5681649F2472CF1C00BAAABF /* CategoryCostTableViewCell.swift */,
-				568164A02472CF1C00BAAABF /* CategoryCostTableViewCell.xib */,
+				5681649F2472CF1C00BAAABF /* CostTableViewCell.swift */,
+				568164A02472CF1C00BAAABF /* CostTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -645,7 +645,7 @@
 				56444DF024599FDF00BB6BAE /* Assets.xcassets in Resources */,
 				56444DEB24599FDD00BB6BAE /* SignIn.storyboard in Resources */,
 				567086BE2465ABEA00CD2E2A /* Costs.storyboard in Resources */,
-				568164A22472CF1C00BAAABF /* CategoryCostTableViewCell.xib in Resources */,
+				568164A22472CF1C00BAAABF /* CostTableViewCell.xib in Resources */,
 				56EB9BBC2463FB10002F815B /* Main.storyboard in Resources */,
 				56AADA17246C4A9700B2CC8F /* SignUp.storyboard in Resources */,
 				56C5A2A1246430F500CE5602 /* LoadingView.xib in Resources */,
@@ -765,7 +765,7 @@
 				56184191246D7D1B006BF368 /* AppSizes.swift in Sources */,
 				56184199246D8F10006BF368 /* UIViewController + dismissKeyboard.swift in Sources */,
 				56AADA19246C4AB600B2CC8F /* CignUpViewController.swift in Sources */,
-				568164A12472CF1C00BAAABF /* CategoryCostTableViewCell.swift in Sources */,
+				568164A12472CF1C00BAAABF /* CostTableViewCell.swift in Sources */,
 				56EB9BC424640E48002F815B /* SignInCoordinator.swift in Sources */,
 				56AADA1D246C4AE900B2CC8F /* SignUpViewModel.swift in Sources */,
 				56EB9B992461C73F002F815B /* BlueStrokeTextField.swift in Sources */,
