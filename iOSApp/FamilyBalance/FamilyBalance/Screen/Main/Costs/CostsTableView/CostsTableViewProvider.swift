@@ -5,6 +5,7 @@ class CostsTableViewProvider: NSObject, TableViewProvider {
     
     var categories = [CategoryViewModel]() 
     
+    private let tableViewCellHeight: CGFloat = 30.0
     
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
@@ -30,7 +31,7 @@ class CostsTableViewProvider: NSObject, TableViewProvider {
     
     func tableView(_ tableView: UITableView,
                    heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 40
+        return tableViewCellHeight
     }
     
     func tableView(_ tableView: UITableView,
@@ -45,6 +46,7 @@ class CostsTableViewProvider: NSObject, TableViewProvider {
                 headerView.updateChartData(categories: categories)
             }
             return headerView
+            
         } else {
             return nil
         }

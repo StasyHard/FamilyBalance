@@ -5,6 +5,7 @@ import Charts
 
 class CostsPieChartHeaderView: UITableViewHeaderFooterView, ReusableView {
     
+    //MARK: - IBOutlet
     @IBOutlet private weak var dateLabel: UILabel!
     @IBOutlet private weak var balanceLabel: UILabel!
     @IBOutlet private weak var pieChartView: PieChartView! {
@@ -13,17 +14,18 @@ class CostsPieChartHeaderView: UITableViewHeaderFooterView, ReusableView {
         }
     }
     
-    private func setupChartSettings() {
-        pieChartView.delegate = self
-        
-        //pieChartView.chartDescription?.text = "Расходы"
-        pieChartView.legend.enabled = false
-        pieChartView.drawEntryLabelsEnabled = true
-        pieChartView.usePercentValuesEnabled = true
-        pieChartView.holeRadiusPercent = 0
-        pieChartView.transparentCircleRadiusPercent = 0
+    //MARK: - Init
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
+        setupUI()
     }
     
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setupUI()
+    }
+    
+        
     func updateChartData( categories: [CategoryViewModel]) {
         var chartEntries = [ChartDataEntry]()
         var colors = [UIColor]()
@@ -50,6 +52,24 @@ class CostsPieChartHeaderView: UITableViewHeaderFooterView, ReusableView {
         pFormatter.multiplier = 1
         pFormatter.percentSymbol = "%"
         data.setValueFormatter(DefaultValueFormatter(formatter: pFormatter))
+    }
+    
+    
+    //MARK: - Private metods
+    private func setupUI() {
+        contentView.backgroundColor = AppColors.backgroundColor
+    }
+    
+    private func setupChartSettings() {
+        pieChartView.delegate = self
+        
+        //pieChartView.chartDescription?.text = "Расходы"
+        pieChartView.legend.enabled = false
+        pieChartView.drawEntryLabelsEnabled = true
+        pieChartView.usePercentValuesEnabled = true
+        pieChartView.holeRadiusPercent = 0
+        pieChartView.transparentCircleRadiusPercent = 0
+        pieChartView.backgroundColor = AppColors.backgroundColor
     }
 }
 

@@ -15,16 +15,25 @@ class CostTableViewCell: UITableViewCell, ReusableView {
     @IBOutlet weak var sumLabel: UILabel!
     
     
-    override func layoutSubviews() {
-        colorView.layer.cornerRadius = 10.0
-        colorView.clipsToBounds = true
+        //MARK: - Init
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setupUI()
     }
-
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setupUI()
+    }
+    
+        //MARK: - Private metods
+    private func setupUI() {
+        backgroundColor = AppColors.backgroundColor
+    }
+    
+    override func layoutSubviews() {
+        colorView.layer.cornerRadius = 7.0
+        colorView.clipsToBounds = true
     }
     
 }

@@ -17,21 +17,21 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pBm-3N-IVL">
-                        <rect key="frame" x="20" y="10" width="24" height="24"/>
+                        <rect key="frame" x="20" y="8" width="28" height="28"/>
                         <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="pBm-3N-IVL" secondAttribute="height" multiplier="1:1" id="4bi-ig-gTE"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Продукты" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x3N-hY-doa">
-                        <rect key="frame" x="54" y="13" width="71" height="18"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <rect key="frame" x="56" y="12" width="79.5" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7 000 ₽" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uN3-8e-ooE">
-                        <rect key="frame" x="245.5" y="13" width="54.5" height="18"/>
-                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                        <rect key="frame" x="239" y="12" width="61" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -39,12 +39,12 @@
                 <constraints>
                     <constraint firstItem="x3N-hY-doa" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="4vJ-I3-RDz"/>
                     <constraint firstItem="uN3-8e-ooE" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="HtP-Kh-eAc"/>
-                    <constraint firstItem="x3N-hY-doa" firstAttribute="leading" secondItem="pBm-3N-IVL" secondAttribute="trailing" constant="10" id="NRI-eO-XKU"/>
-                    <constraint firstAttribute="bottom" secondItem="pBm-3N-IVL" secondAttribute="bottom" constant="10" id="fgw-yS-rzO"/>
+                    <constraint firstItem="x3N-hY-doa" firstAttribute="leading" secondItem="pBm-3N-IVL" secondAttribute="trailing" constant="8" id="NRI-eO-XKU"/>
+                    <constraint firstAttribute="bottom" secondItem="pBm-3N-IVL" secondAttribute="bottom" constant="8" id="fgw-yS-rzO"/>
                     <constraint firstItem="pBm-3N-IVL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="ihc-EP-P8O"/>
                     <constraint firstItem="uN3-8e-ooE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="x3N-hY-doa" secondAttribute="trailing" constant="8" id="lsn-WJ-Qgs"/>
                     <constraint firstAttribute="trailing" secondItem="uN3-8e-ooE" secondAttribute="trailing" constant="20" id="tws-8J-tNz"/>
-                    <constraint firstItem="pBm-3N-IVL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="w8v-1l-tFZ"/>
+                    <constraint firstItem="pBm-3N-IVL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="w8v-1l-tFZ"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
