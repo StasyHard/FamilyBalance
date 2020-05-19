@@ -1,8 +1,9 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 
-protocol CostsViewModelActions: class {
+protocol CostsViewModelObservable: class {
     var filter: Observable<Void> { get set }
     var categoryData: Observable<[CategoryViewModel]> { get set }
 }
@@ -14,7 +15,7 @@ protocol CostsViewActions: class {
 }
 
 
-class CostsViewModel: CostsViewModelActions {
+class CostsViewModel: CostsViewModelObservable {
     
     //MARK: - CostsViewModelActions
     var filter: Observable<Void>

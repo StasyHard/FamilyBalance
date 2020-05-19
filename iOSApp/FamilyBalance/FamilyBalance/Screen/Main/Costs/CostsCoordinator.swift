@@ -4,7 +4,7 @@ import RxSwift
 import RxCocoa
 
 
-class CostsCoordinator: BaseCoordirator {
+final class CostsCoordinator: BaseCoordirator {
     
     //MARK: - Private properties
     private var navController: UINavigationController
@@ -30,7 +30,7 @@ class CostsCoordinator: BaseCoordirator {
     
     
     //MARK: - Private metods
-    private func observeViewModel(_ viewModel: CostsViewModelActions) {
+    private func observeViewModel(_ viewModel: CostsViewModelObservable) {
         viewModel.filter
             .bind {  [weak self] _ in
                 self?.showFilterModule()

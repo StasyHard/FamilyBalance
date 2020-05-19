@@ -30,7 +30,7 @@ final class SignInCoordinator: BaseCoordirator {
     }
     
     //MARK: - Private metods
-    private func observeViewModel(_ viewModel: SignInViewModelActions) {
+    private func observeViewModel(_ viewModel: SignInViewModelObservable) {
         
         viewModel.didSignIn
             .bind { [weak self] in

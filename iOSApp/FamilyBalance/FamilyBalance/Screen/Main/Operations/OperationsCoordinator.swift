@@ -4,7 +4,7 @@ import RxSwift
 import RxCocoa
 
 
-class OperationsCoordinator: BaseCoordirator {
+final class OperationsCoordinator: BaseCoordirator {
     
     private var navController: UINavigationController
     

@@ -7,8 +7,7 @@ import Charts
 class CostsViewController: UIViewController {
     
     //MARK: - Open properties
-    var viewModel: (CostsViewModelActions & CostsViewActions)?
-    var navController: UINavigationController?
+    var viewModel: (CostsViewModelObservable & CostsViewActions)?
     
     
     //MARK: - Private properties
@@ -56,7 +55,7 @@ class CostsViewController: UIViewController {
     //MARK: - Private metods
     
     //MARK: Observe on the ViewModel
-    private func observeViewModel(_ viewModel: CostsViewModelActions) {
+    private func observeViewModel(_ viewModel: CostsViewModelObservable) {
         
         viewModel.categoryData
             .bind { [weak self] data in

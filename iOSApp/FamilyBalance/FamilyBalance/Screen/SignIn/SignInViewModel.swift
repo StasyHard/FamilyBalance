@@ -3,7 +3,7 @@ import Foundation
 import RxSwift
 
 
-protocol SignInViewModelActions: class {
+protocol SignInViewModelObservable: class {
     var isSignInActive: Observable<Bool> { get set }
     var isLoading: Observable<Bool> { get set }
     var didSignIn: Observable<Void> { get set}
@@ -16,7 +16,7 @@ protocol SignInViewActions: class {
 }
 
 
-final class SignInViewModel: SignInViewModelActions {
+final class SignInViewModel: SignInViewModelObservable {
     
     //MARK: - SignInViewModelActions
     var isSignInActive: Observable<Bool>
