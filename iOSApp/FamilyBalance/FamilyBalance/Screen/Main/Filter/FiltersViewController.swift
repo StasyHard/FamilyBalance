@@ -1,25 +1,39 @@
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 
 class FiltersViewController: UIViewController {
     
     //MARK: - Open properties
-    //var viewModel: (CostsViewModelActions & CostsViewActions)?
-
+    var viewModel: (FiltersViewModelObservable & FiltersViewActions)?
+    
+    
+    //MARK: - Private properties
+    private lazy var filtersView = view as? FiltersViewImplementation
+    
+    private let disposeBag = DisposeBag()
+    
+    
+    //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setNavigationUI()
+        
+        guard let viewModel = viewModel else { return }
+        filtersView?.setProvider(provider: viewModel)
+        observeViewModel(viewModel)
     }
-
+    
     private func setNavigationUI() {
         title = "Фильтры"
         
         let defaultImage = UIImage(named: "close")?
             .scaleTo(CGSize(width: AppSizes.iconHeightAndWidth,
                             height: AppSizes.iconHeightAndWidth))
-
+        
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(
             image: defaultImage,
             style: .plain,
@@ -27,7 +41,13 @@ class FiltersViewController: UIViewController {
             action: #selector(closeButtonTapped))
     }
     
-    @objc func closeButtonTapped() {
+    @objc private func closeButtonTapped() {
+        viewModel?.closeButtonDidTapped()
+    }
+    
+    private func observeViewModel(_ viewModel: FiltersViewModelObservable) {
         
+        
+       // .disposed(by: self.disposeBag)
     }
 }

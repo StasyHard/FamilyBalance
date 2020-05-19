@@ -4,7 +4,7 @@ import RxSwift
 import RxCocoa
 
 
-class FiltersCoordinator: BaseCoordirator {
+final class FiltersCoordinator: BaseCoordirator {
     
     //MARK: - Private properties
     private var navController: UINavigationController
@@ -23,15 +23,28 @@ class FiltersCoordinator: BaseCoordirator {
     override func start() {
         let filtersNavController = UINavigationController()
         self.filtersNavController = filtersNavController
-        navController.present(filtersNavController, animated: true, completion: nil)
         
         let filtersVC = UIStoryboard.instantiateFiltersVC()
+        let viewModel = FiltersViewModel()
+        filtersVC.viewModel = viewModel
+        navController.present(filtersNavController, animated: true, completion: nil)
         filtersNavController.pushViewController(filtersVC, animated: false)
+        
+        observeViewModel(viewModel)
     }
     
     
     //MARK: - Private metods
-    private func observeViewModel(_ viewModel: CostsViewModelActions) {
-        
+    private func observeViewModel(_ viewModel: FiltersViewModelObservable) {
+        viewModel.isClosed
+            .bind { [weak self] _ in
+                self?.dismiss()
+        }
+        .disposed(by: self.disposeBag)
+    }
+    
+    private func dismiss() {
+        filtersNavController?.dismiss(animated: true, completion: nil)
+        parentCoordinator?.didFinish(coordinator: self)
     }
 }
