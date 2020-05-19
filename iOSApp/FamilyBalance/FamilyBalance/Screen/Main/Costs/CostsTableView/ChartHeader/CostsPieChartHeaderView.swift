@@ -25,7 +25,10 @@ class CostsPieChartHeaderView: UITableViewHeaderFooterView, ReusableView {
         setupUI()
     }
     
-        
+    func setNoDataText() {
+        pieChartView.noDataText = "Расходы в этот период отсутствуют"
+    }
+    
     func updateChartData( categories: [CategoryViewModel]) {
         var chartEntries = [ChartDataEntry]()
         var colors = [UIColor]()
@@ -63,13 +66,14 @@ class CostsPieChartHeaderView: UITableViewHeaderFooterView, ReusableView {
     private func setupChartSettings() {
         pieChartView.delegate = self
         
-        //pieChartView.chartDescription?.text = "Расходы"
         pieChartView.legend.enabled = false
         pieChartView.drawEntryLabelsEnabled = true
         pieChartView.usePercentValuesEnabled = true
         pieChartView.holeRadiusPercent = 0
         pieChartView.transparentCircleRadiusPercent = 0
         pieChartView.backgroundColor = AppColors.backgroundColor
+        
+        setNoDataText()
     }
 }
 

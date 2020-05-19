@@ -41,9 +41,6 @@ class CostsView: UIView {
     
     
     //MARK: - Private metods
-    private func setup() {
-    }
-    
     private func registerCells() {
         tableView.register(UINib(nibName: "CostTableViewCell", bundle: nil), forCellReuseIdentifier: CostTableViewCell.reuseIdD)
         tableView.register(UINib(nibName: "CostsPieChartHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: CostsPieChartHeaderView.reuseIdD)
