@@ -12,13 +12,7 @@ protocol CostsViewImplementation: class {
 class CostsView: UIView {
     
     //MARK: - IBOutlet
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var balanceLabel: UILabel!
-    @IBOutlet weak var pieChartView: PieChartView! {
-        didSet {
-            setupChartSettings()
-        }
-    }
+
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             registerCells()
@@ -49,46 +43,9 @@ class CostsView: UIView {
     private func setup() {
     }
     
-    private func setupChartSettings() {
-        pieChartView.delegate = self
-        
-        //pieChartView.chartDescription?.text = "Расходы"
-        pieChartView.drawEntryLabelsEnabled = true
-        pieChartView.usePercentValuesEnabled = true
-        pieChartView.holeRadiusPercent = 0
-        pieChartView.transparentCircleRadiusPercent = 0
-    }
-    
-    private func updateChartData( categories: [CategoryViewModel]) {
-        var chartEntries = [ChartDataEntry]()
-        var colors = [UIColor]()
-        
-        categories.forEach({ category in
-            let value = category.sum
-            chartEntries.append(PieChartDataEntry(value: value))
-            let color = category.color
-            colors.append(color)
-        })
-    
-        let chartDataSet = PieChartDataSet(entries: chartEntries, label: "Категории")
-        chartDataSet.drawValuesEnabled = true
-        chartDataSet.sliceSpace = 2
-        
-        chartDataSet.colors = colors
-        
-        let data = PieChartData(dataSet: chartDataSet)
-        pieChartView.data = data
-        
-        let pFormatter = NumberFormatter()
-        pFormatter.numberStyle = .percent
-        pFormatter.maximumFractionDigits = 1
-        pFormatter.multiplier = 1
-        pFormatter.percentSymbol = "%"
-        data.setValueFormatter(DefaultValueFormatter(formatter: pFormatter))
-    }
-    
     private func registerCells() {
         tableView.register(UINib(nibName: "CostTableViewCell", bundle: nil), forCellReuseIdentifier: CostTableViewCell.reuseIdD)
+        tableView.register(UINib(nibName: "CostsPieChartHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: CostsPieChartHeaderView.reuseIdD)
     }
 }
 
@@ -100,17 +57,10 @@ extension CostsView: CostsViewImplementation {
     }
     
     func setData(_ categories: [CategoryViewModel]) {
-        updateChartData(categories: categories)
+        //updateChartData(categories: categories)
         tableViewProvider.categories = categories
         tableView.reloadData()
     }
-}
-
-
-
-extension CostsView: ChartViewDelegate {
-    
-    
 }
 
 

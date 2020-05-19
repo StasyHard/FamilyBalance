@@ -15,58 +15,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xvd-hm-6gn">
-                                <rect key="frame" x="20" y="52" width="374" height="49"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Апрель" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="31S-LH-XaH">
-                                        <rect key="frame" x="157" y="0.0" width="60" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Баланс: 135 000 ₽" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ijd-5e-gcc">
-                                        <rect key="frame" x="113" y="28.5" width="148" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cta-64-tUV" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="20" y="109" width="374" height="287.5"/>
-                                <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="cta-64-tUV" secondAttribute="height" multiplier="1.3:1" id="wOw-vG-s88"/>
-                                </constraints>
-                            </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="20k-Wo-c7d">
-                                <rect key="frame" x="0.0" y="404.5" width="414" height="457.5"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="20k-Wo-c7d">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <view key="tableFooterView" contentMode="scaleToFill" id="KSQ-aA-vWp">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                </view>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="20k-Wo-c7d" firstAttribute="top" secondItem="cta-64-tUV" secondAttribute="bottom" constant="8" id="2pj-tE-xTf"/>
-                            <constraint firstItem="xvd-hm-6gn" firstAttribute="top" secondItem="Zkb-Qa-oh8" secondAttribute="top" constant="8" id="3Gp-T2-PzN"/>
                             <constraint firstItem="Zkb-Qa-oh8" firstAttribute="bottom" secondItem="20k-Wo-c7d" secondAttribute="bottom" id="JOg-He-TCj"/>
                             <constraint firstItem="20k-Wo-c7d" firstAttribute="leading" secondItem="Zkb-Qa-oh8" secondAttribute="leading" id="Ouc-z9-1aJ"/>
                             <constraint firstItem="Zkb-Qa-oh8" firstAttribute="trailing" secondItem="20k-Wo-c7d" secondAttribute="trailing" id="PJz-gx-b9v"/>
-                            <constraint firstItem="Zkb-Qa-oh8" firstAttribute="trailing" secondItem="xvd-hm-6gn" secondAttribute="trailing" constant="20" id="UtW-oK-xz9"/>
-                            <constraint firstItem="xvd-hm-6gn" firstAttribute="leading" secondItem="Zkb-Qa-oh8" secondAttribute="leading" constant="20" id="V5e-hX-VaC"/>
-                            <constraint firstItem="Zkb-Qa-oh8" firstAttribute="trailing" secondItem="cta-64-tUV" secondAttribute="trailing" constant="20" id="Xvt-dU-Apq"/>
-                            <constraint firstItem="cta-64-tUV" firstAttribute="leading" secondItem="Zkb-Qa-oh8" secondAttribute="leading" constant="20" id="gRh-Kx-Gcn"/>
-                            <constraint firstItem="cta-64-tUV" firstAttribute="top" secondItem="ijd-5e-gcc" secondAttribute="bottom" constant="8" id="sxM-mq-j4p"/>
+                            <constraint firstItem="20k-Wo-c7d" firstAttribute="top" secondItem="Zkb-Qa-oh8" secondAttribute="top" id="pUD-Bl-t8g"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Zkb-Qa-oh8"/>
                         <connections>
-                            <outlet property="balanceLabel" destination="ijd-5e-gcc" id="lLD-Pf-Q1M"/>
-                            <outlet property="dateLabel" destination="31S-LH-XaH" id="oyR-Zg-Q2F"/>
-                            <outlet property="pieChartView" destination="cta-64-tUV" id="OOd-UQ-VL2"/>
                             <outlet property="tableView" destination="20k-Wo-c7d" id="OpE-jX-NgP"/>
                         </connections>
                     </view>
