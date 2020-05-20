@@ -1,6 +1,13 @@
 
 import UIKit
 
+enum Filters {
+    case today(title: String)
+    case week(title: String)
+    case mounth(title: String)
+    case year(title: String)
+}
+
 class FiltersTableViewProvider: NSObject, TableViewProvider {
     
     //MARK: - Private properties
@@ -9,9 +16,26 @@ class FiltersTableViewProvider: NSObject, TableViewProvider {
     private let periodCellsTitles = ["Сегодня", "Текущая неделя", "Текущий месяц", "Текущий год"]
     //private let selectPeriodCellTitle = ["Выбрать период"]
     
-    private var selectedIndexPath: IndexPath = IndexPath(row: 0, section: 0)
+    private var selectedCellIndexPath: IndexPath = IndexPath(row: 0, section: 0)
     
     private let headerHeight: CGFloat = 20.0
+    
+    
+    //MARK: - Open metods
+    func setAccounts() {
+        //TODO: добавить счета клиента в массив счетов
+    }
+    
+//    func getFilter() -> FilterItem {
+//        var filterItem: FilterItem
+//        if selectedCellIndexPath.section == 0 {
+//            filterTitle = accountCellsTitles[selectedCellIndexPath.row]
+//        } else if selectedCellIndexPath.section == 1 {
+//            filterTitle = accountCellsTitles[selectedCellIndexPath.row]
+//        }
+//        
+//        return filterItem
+//    }
     
     
     //MARK: - TableViewProvider metods
@@ -40,7 +64,7 @@ class FiltersTableViewProvider: NSObject, TableViewProvider {
             return accountCellsTitles.count
         case 1:
             return periodCellsTitles.count
-        //case 2:
+            //case 2:
         //    return selectPeriodCellTitle.count
         default:
             return 0
@@ -57,9 +81,9 @@ class FiltersTableViewProvider: NSObject, TableViewProvider {
         case 1:
             let title = periodCellsTitles[indexPath.row]
             cell.textLabel?.text = title
-        //case 2:
+            //case 2:
             //let title = selectPeriodCellTitle[indexPath.row]
-            //cell.textLabel?.text = title
+        //cell.textLabel?.text = title
         default:
             return cell
         }
@@ -67,14 +91,15 @@ class FiltersTableViewProvider: NSObject, TableViewProvider {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath == selectedIndexPath {
+        if indexPath == selectedCellIndexPath {
             cell.accessoryType = .checkmark
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath != selectedIndexPath {
-            selectedIndexPath = indexPath
+        if indexPath != selectedCellIndexPath {
+            selectedCellIndexPath = indexPath
             tableView.reloadData()
+        }
     }
 }

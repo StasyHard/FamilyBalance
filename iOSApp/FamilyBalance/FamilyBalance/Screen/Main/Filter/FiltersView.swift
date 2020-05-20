@@ -27,11 +27,13 @@ class FiltersView: UIView {
     
     //MARK: - IBAction
     @IBAction func showButtonIsTapped(_ sender: BlueRoundedButton) {
+        //Получить от tableViewProvider фильтр
+        
     }
     
     
     private func registerCells() {
-        
+        //TODO: - написать кастомные ячейки и зарегистрировать их
     }
     
 }
