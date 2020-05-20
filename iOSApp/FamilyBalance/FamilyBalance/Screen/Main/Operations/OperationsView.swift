@@ -30,7 +30,7 @@ class OperationsView: UIView {
     
     //MARK: - Private metods
     private func registerCells() {
-        
+        operationsTableView.register(UINib(nibName: "IncomeAndCostsCell", bundle: nil), forCellReuseIdentifier: IncomeAndCostsCell.reuseIdD)
     }
 }
 

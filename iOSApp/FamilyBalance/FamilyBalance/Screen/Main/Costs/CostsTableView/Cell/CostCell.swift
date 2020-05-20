@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CostTableViewCell: UITableViewCell, ReusableView {
+class CostCell: UITableViewCell, ReusableView {
 
     @IBOutlet weak var colorView: UIView!
     @IBOutlet weak var categoryLabel: UILabel!

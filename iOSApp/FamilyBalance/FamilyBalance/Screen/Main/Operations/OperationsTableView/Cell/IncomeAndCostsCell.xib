@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="KGk-i7-Jjw" customClass="IncomeAndCostsCell" customModule="FamilyBalance" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="467" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="467" height="100"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5WQ-3S-iH7">
+                        <rect key="frame" x="40" y="16" width="387" height="2"/>
+                        <color key="progressTintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="trackTintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </progressView>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="w3h-e7-Xk4">
+                        <rect key="frame" x="20" y="34" width="427" height="58"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="NEK-2i-wjj">
+                                <rect key="frame" x="0.0" y="0.0" width="209.5" height="58"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Доход:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mjd-Ui-KnT">
+                                        <rect key="frame" x="0.0" y="0.0" width="209.5" height="25"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+ 100 000 ₽" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QEZ-Jo-ICk">
+                                        <rect key="frame" x="0.0" y="33" width="209.5" height="25"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lfq-Lf-dVe">
+                                <rect key="frame" x="217.5" y="0.0" width="209.5" height="58"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Расходы:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfL-Ao-KWm">
+                                        <rect key="frame" x="0.0" y="0.0" width="209.5" height="25"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- 75 000 ₽" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXq-lv-oJX">
+                                        <rect key="frame" x="0.0" y="33" width="209.5" height="25"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="w3h-e7-Xk4" secondAttribute="bottom" constant="8" id="1TC-jY-DtL"/>
+                    <constraint firstItem="w3h-e7-Xk4" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="3fV-ET-d0N"/>
+                    <constraint firstAttribute="trailing" secondItem="w3h-e7-Xk4" secondAttribute="trailing" constant="20" id="IEg-Xt-3Eh"/>
+                    <constraint firstItem="5WQ-3S-iH7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="40" id="Knb-eX-TTI"/>
+                    <constraint firstItem="5WQ-3S-iH7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="QRG-bB-GVQ"/>
+                    <constraint firstItem="w3h-e7-Xk4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="VFk-Hn-j3n"/>
+                    <constraint firstItem="w3h-e7-Xk4" firstAttribute="top" secondItem="5WQ-3S-iH7" secondAttribute="bottom" constant="16" id="iNk-7R-Nav"/>
+                    <constraint firstAttribute="trailing" secondItem="5WQ-3S-iH7" secondAttribute="trailing" constant="40" id="p1T-TM-b3l"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="costsSumLabel" destination="hXq-lv-oJX" id="yxs-lA-aDg"/>
+                <outlet property="incomeSumLabel" destination="QEZ-Jo-ICk" id="Bqs-yJ-eOD"/>
+                <outlet property="incomeToCostsRatioView" destination="5WQ-3S-iH7" id="scn-XF-qqr"/>
+            </connections>
+            <point key="canvasLocation" x="18.115942028985508" y="-50.892857142857139"/>
+        </tableViewCell>
+    </objects>
+</document>

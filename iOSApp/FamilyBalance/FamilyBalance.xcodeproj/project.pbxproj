@@ -28,6 +28,8 @@
 		56444DF324599FDF00BB6BAE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56444DF124599FDF00BB6BAE /* LaunchScreen.storyboard */; };
 		56444DFE24599FDF00BB6BAE /* FamilyBalanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56444DFD24599FDF00BB6BAE /* FamilyBalanceTests.swift */; };
 		56444E0924599FDF00BB6BAE /* FamilyBalanceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56444E0824599FDF00BB6BAE /* FamilyBalanceUITests.swift */; };
+		566AD9002475673500898065 /* IncomeAndCostsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566AD8FE2475673500898065 /* IncomeAndCostsCell.swift */; };
+		566AD9012475673500898065 /* IncomeAndCostsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 566AD8FF2475673500898065 /* IncomeAndCostsCell.xib */; };
 		567086B52465888000CD2E2A /* CostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567086B42465888000CD2E2A /* CostsViewModel.swift */; };
 		567086B82465890200CD2E2A /* CostsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567086B72465890200CD2E2A /* CostsCoordinator.swift */; };
 		567086BE2465ABEA00CD2E2A /* Costs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 567086BD2465ABEA00CD2E2A /* Costs.storyboard */; };
@@ -47,8 +49,8 @@
 		568164962472AFF200BAAABF /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568164952472AFF200BAAABF /* Category.swift */; };
 		568164982472B0F100BAAABF /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568164972472B0F100BAAABF /* Operation.swift */; };
 		5681649B2472B23C00BAAABF /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5681649A2472B23C00BAAABF /* CategoryViewModel.swift */; };
-		568164A12472CF1C00BAAABF /* CostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5681649F2472CF1C00BAAABF /* CostTableViewCell.swift */; };
-		568164A22472CF1C00BAAABF /* CostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 568164A02472CF1C00BAAABF /* CostTableViewCell.xib */; };
+		568164A12472CF1C00BAAABF /* CostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5681649F2472CF1C00BAAABF /* CostCell.swift */; };
+		568164A22472CF1C00BAAABF /* CostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 568164A02472CF1C00BAAABF /* CostCell.xib */; };
 		568164A42472DF3000BAAABF /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568164A32472DF3000BAAABF /* ReusableView.swift */; };
 		568164A62472E2D300BAAABF /* CostsTableViewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568164A52472E2D300BAAABF /* CostsTableViewProvider.swift */; };
 		568164AA2472E44500BAAABF /* TableViewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568164A92472E44500BAAABF /* TableViewProvider.swift */; };
@@ -123,6 +125,8 @@
 		56444E0424599FDF00BB6BAE /* FamilyBalanceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FamilyBalanceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		56444E0824599FDF00BB6BAE /* FamilyBalanceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyBalanceUITests.swift; sourceTree = "<group>"; };
 		56444E0A24599FDF00BB6BAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		566AD8FE2475673500898065 /* IncomeAndCostsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeAndCostsCell.swift; sourceTree = "<group>"; };
+		566AD8FF2475673500898065 /* IncomeAndCostsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IncomeAndCostsCell.xib; sourceTree = "<group>"; };
 		567086B42465888000CD2E2A /* CostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostsViewModel.swift; sourceTree = "<group>"; };
 		567086B72465890200CD2E2A /* CostsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostsCoordinator.swift; sourceTree = "<group>"; };
 		567086BD2465ABEA00CD2E2A /* Costs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Costs.storyboard; sourceTree = "<group>"; };
@@ -142,8 +146,8 @@
 		568164952472AFF200BAAABF /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		568164972472B0F100BAAABF /* Operation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
 		5681649A2472B23C00BAAABF /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
-		5681649F2472CF1C00BAAABF /* CostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostTableViewCell.swift; sourceTree = "<group>"; };
-		568164A02472CF1C00BAAABF /* CostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CostTableViewCell.xib; sourceTree = "<group>"; };
+		5681649F2472CF1C00BAAABF /* CostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostCell.swift; sourceTree = "<group>"; };
+		568164A02472CF1C00BAAABF /* CostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CostCell.xib; sourceTree = "<group>"; };
 		568164A32472DF3000BAAABF /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		568164A52472E2D300BAAABF /* CostsTableViewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostsTableViewProvider.swift; sourceTree = "<group>"; };
 		568164A92472E44500BAAABF /* TableViewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewProvider.swift; sourceTree = "<group>"; };
@@ -353,9 +357,19 @@
 		566AD8FC247565C100898065 /* OperationsTableView */ = {
 			isa = PBXGroup;
 			children = (
+				566AD8FD2475661B00898065 /* Cell */,
 				5699B5552475628200998BF0 /* OperationsTableViewProvider.swift */,
 			);
 			path = OperationsTableView;
+			sourceTree = "<group>";
+		};
+		566AD8FD2475661B00898065 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				566AD8FE2475673500898065 /* IncomeAndCostsCell.swift */,
+				566AD8FF2475673500898065 /* IncomeAndCostsCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		567086B6246588B400CD2E2A /* Costs */ = {
@@ -426,8 +440,8 @@
 		5681649C2472CEB700BAAABF /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				5681649F2472CF1C00BAAABF /* CostTableViewCell.swift */,
-				568164A02472CF1C00BAAABF /* CostTableViewCell.xib */,
+				5681649F2472CF1C00BAAABF /* CostCell.swift */,
+				568164A02472CF1C00BAAABF /* CostCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -681,8 +695,9 @@
 				56444DF024599FDF00BB6BAE /* Assets.xcassets in Resources */,
 				56444DEB24599FDD00BB6BAE /* SignIn.storyboard in Resources */,
 				5682B8122473CEC1002E2186 /* CostsPieChartHeaderView.xib in Resources */,
+				566AD9012475673500898065 /* IncomeAndCostsCell.xib in Resources */,
 				567086BE2465ABEA00CD2E2A /* Costs.storyboard in Resources */,
-				568164A22472CF1C00BAAABF /* CostTableViewCell.xib in Resources */,
+				568164A22472CF1C00BAAABF /* CostCell.xib in Resources */,
 				56EB9BBC2463FB10002F815B /* Main.storyboard in Resources */,
 				56AADA17246C4A9700B2CC8F /* SignUp.storyboard in Resources */,
 				56C5A2A1246430F500CE5602 /* LoadingView.xib in Resources */,
@@ -789,6 +804,7 @@
 				56EB9BC224640A29002F815B /* Storyboard+instantiate.swift in Sources */,
 				56C5A29F246430DF00CE5602 /* LoadingView.swift in Sources */,
 				568164A62472E2D300BAAABF /* CostsTableViewProvider.swift in Sources */,
+				566AD9002475673500898065 /* IncomeAndCostsCell.swift in Sources */,
 				568164A42472DF3000BAAABF /* ReusableView.swift in Sources */,
 				56444DEE24599FDD00BB6BAE /* FamilyBalance.xcdatamodeld in Sources */,
 				5673DD6E24602AC50004EB12 /* AppRepository.swift in Sources */,
@@ -803,7 +819,7 @@
 				56184191246D7D1B006BF368 /* AppSizes.swift in Sources */,
 				56184199246D8F10006BF368 /* UIViewController + dismissKeyboard.swift in Sources */,
 				56AADA19246C4AB600B2CC8F /* CignUpViewController.swift in Sources */,
-				568164A12472CF1C00BAAABF /* CostTableViewCell.swift in Sources */,
+				568164A12472CF1C00BAAABF /* CostCell.swift in Sources */,
 				56EB9BC424640E48002F815B /* SignInCoordinator.swift in Sources */,
 				56AADA1D246C4AE900B2CC8F /* SignUpViewModel.swift in Sources */,
 				56EB9B992461C73F002F815B /* BlueStrokeTextField.swift in Sources */,
