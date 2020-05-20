@@ -30,6 +30,7 @@
 		56444E0924599FDF00BB6BAE /* FamilyBalanceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56444E0824599FDF00BB6BAE /* FamilyBalanceUITests.swift */; };
 		566AD9002475673500898065 /* IncomeAndCostsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566AD8FE2475673500898065 /* IncomeAndCostsCell.swift */; };
 		566AD9012475673500898065 /* IncomeAndCostsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 566AD8FF2475673500898065 /* IncomeAndCostsCell.xib */; };
+		566AD90324757CCE00898065 /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566AD90224757CCE00898065 /* CustomProgressView.swift */; };
 		567086B52465888000CD2E2A /* CostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567086B42465888000CD2E2A /* CostsViewModel.swift */; };
 		567086B82465890200CD2E2A /* CostsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567086B72465890200CD2E2A /* CostsCoordinator.swift */; };
 		567086BE2465ABEA00CD2E2A /* Costs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 567086BD2465ABEA00CD2E2A /* Costs.storyboard */; };
@@ -127,6 +128,7 @@
 		56444E0A24599FDF00BB6BAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		566AD8FE2475673500898065 /* IncomeAndCostsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeAndCostsCell.swift; sourceTree = "<group>"; };
 		566AD8FF2475673500898065 /* IncomeAndCostsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IncomeAndCostsCell.xib; sourceTree = "<group>"; };
+		566AD90224757CCE00898065 /* CustomProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressView.swift; sourceTree = "<group>"; };
 		567086B42465888000CD2E2A /* CostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostsViewModel.swift; sourceTree = "<group>"; };
 		567086B72465890200CD2E2A /* CostsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostsCoordinator.swift; sourceTree = "<group>"; };
 		567086BD2465ABEA00CD2E2A /* Costs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Costs.storyboard; sourceTree = "<group>"; };
@@ -367,6 +369,7 @@
 			isa = PBXGroup;
 			children = (
 				566AD8FE2475673500898065 /* IncomeAndCostsCell.swift */,
+				566AD90224757CCE00898065 /* CustomProgressView.swift */,
 				566AD8FF2475673500898065 /* IncomeAndCostsCell.xib */,
 			);
 			path = Cell;
@@ -795,6 +798,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				56EB9BBE2463FC89002F815B /* AppCoordinator.swift in Sources */,
+				566AD90324757CCE00898065 /* CustomProgressView.swift in Sources */,
 				56444DE824599FDD00BB6BAE /* SignInViewController.swift in Sources */,
 				56816492246EF54500BAAABF /* FiltersViewModel.swift in Sources */,
 				5673755F245D8CB300DD02FB /* LoginModel.swift in Sources */,

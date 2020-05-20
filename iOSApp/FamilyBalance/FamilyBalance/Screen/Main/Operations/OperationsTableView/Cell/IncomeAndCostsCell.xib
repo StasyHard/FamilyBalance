@@ -16,25 +16,28 @@
                 <rect key="frame" x="0.0" y="0.0" width="467" height="100"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5WQ-3S-iH7">
-                        <rect key="frame" x="40" y="16" width="387" height="2"/>
+                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5WQ-3S-iH7" customClass="CustomProgressView" customModule="FamilyBalance" customModuleProvider="target">
+                        <rect key="frame" x="40" y="16" width="387" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="13c-Uh-m6P"/>
+                        </constraints>
                         <color key="progressTintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="trackTintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </progressView>
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="w3h-e7-Xk4">
-                        <rect key="frame" x="20" y="34" width="427" height="58"/>
+                        <rect key="frame" x="20" y="48" width="427" height="44"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="NEK-2i-wjj">
-                                <rect key="frame" x="0.0" y="0.0" width="209.5" height="58"/>
+                                <rect key="frame" x="0.0" y="0.0" width="209.5" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Доход:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mjd-Ui-KnT">
-                                        <rect key="frame" x="0.0" y="0.0" width="209.5" height="25"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="209.5" height="18"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+ 100 000 ₽" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QEZ-Jo-ICk">
-                                        <rect key="frame" x="0.0" y="33" width="209.5" height="25"/>
+                                        <rect key="frame" x="0.0" y="26" width="209.5" height="18"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -42,16 +45,16 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lfq-Lf-dVe">
-                                <rect key="frame" x="217.5" y="0.0" width="209.5" height="58"/>
+                                <rect key="frame" x="217.5" y="0.0" width="209.5" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Расходы:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfL-Ao-KWm">
-                                        <rect key="frame" x="0.0" y="0.0" width="209.5" height="25"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="209.5" height="18"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- 75 000 ₽" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXq-lv-oJX">
-                                        <rect key="frame" x="0.0" y="33" width="209.5" height="25"/>
+                                        <rect key="frame" x="0.0" y="26" width="209.5" height="18"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
