@@ -30,6 +30,10 @@ class CostsPieChartHeaderView: UITableViewHeaderFooterView, ReusableView {
     }
     
     func updateChartData( categories: [CategoryViewModel]) {
+        if categories.isEmpty {
+            pieChartView.data = nil
+            return
+        }
         var chartEntries = [ChartDataEntry]()
         var colors = [UIColor]()
         

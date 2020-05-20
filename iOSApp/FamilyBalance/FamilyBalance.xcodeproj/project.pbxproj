@@ -398,7 +398,7 @@
 				5681648D246EF50300BAAABF /* FiltersViewController.swift */,
 				56816491246EF54500BAAABF /* FiltersViewModel.swift */,
 				5681648F246EF53500BAAABF /* FiltersView.swift */,
-				5699B552247442B300998BF0 /* FiltersTableViewProvider.swift */,
+				5699B5542475418000998BF0 /* FiltersTableView */,
 				56816493246EF55E00BAAABF /* FiltersCoordinator.swift */,
 			);
 			path = Filter;
@@ -446,6 +446,14 @@
 				5682B8112473CEC1002E2186 /* CostsPieChartHeaderView.xib */,
 			);
 			path = ChartHeader;
+			sourceTree = "<group>";
+		};
+		5699B5542475418000998BF0 /* FiltersTableView */ = {
+			isa = PBXGroup;
+			children = (
+				5699B552247442B300998BF0 /* FiltersTableViewProvider.swift */,
+			);
+			path = FiltersTableView;
 			sourceTree = "<group>";
 		};
 		56C5A2A5246562D300CE5602 /* Screen */ = {

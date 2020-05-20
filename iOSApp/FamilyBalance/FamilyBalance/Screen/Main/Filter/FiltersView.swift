@@ -25,10 +25,11 @@ class FiltersView: UIView {
     //TODO: ------------------------------- Подумать где должна быть реализация
     private let tableViewProvider = FiltersTableViewProvider()
     
+    
     //MARK: - IBAction
     @IBAction func showButtonIsTapped(_ sender: BlueRoundedButton) {
-        //Получить от tableViewProvider фильтр
-        
+        let filter = tableViewProvider.getFilter()
+        provider?.showButtonTapped(filter: filter)
     }
     
     

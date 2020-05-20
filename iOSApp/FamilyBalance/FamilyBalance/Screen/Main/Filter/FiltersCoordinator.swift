@@ -4,6 +4,11 @@ import RxSwift
 import RxCocoa
 
 
+protocol FiltersListener {
+    func setFilter(_ filter: Filters)
+}
+
+
 final class FiltersCoordinator: BaseCoordirator {
     
     //MARK: - Private properties
@@ -36,6 +41,14 @@ final class FiltersCoordinator: BaseCoordirator {
     
     //MARK: - Private metods
     private func observeViewModel(_ viewModel: FiltersViewModelObservable) {
+        
+        viewModel.filter
+            .bind { [weak self] filter in
+                let listener: FiltersListener? = self?.findHandler()
+                listener?.setFilter(filter)
+        }
+        .disposed(by: self.disposeBag)
+        
         viewModel.isClosed
             .bind { [weak self] _ in
                 self?.dismiss()

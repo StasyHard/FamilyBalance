@@ -4,7 +4,7 @@ import UIKit
 class CostsTableViewProvider: NSObject, TableViewProvider {
     
     //MARK: - Open properties
-    var categories = [CategoryViewModel]() 
+    var categories = [CategoryViewModel]()
     
     
     //MARK: - Private properties
@@ -24,6 +24,7 @@ class CostsTableViewProvider: NSObject, TableViewProvider {
         if !categories.isEmpty {
             headerView.updateChartData(categories: categories)
         } else {
+            headerView.updateChartData(categories: categories)
             headerView.setNoDataText()
         }
         return headerView

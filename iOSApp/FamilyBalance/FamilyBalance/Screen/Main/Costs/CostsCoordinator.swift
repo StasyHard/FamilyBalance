@@ -8,6 +8,7 @@ final class CostsCoordinator: BaseCoordirator {
     
     //MARK: - Private properties
     private var navController: UINavigationController
+    private var viewModel: CostsViewModel?
     
     private let disposeBag = DisposeBag()
     
@@ -26,12 +27,13 @@ final class CostsCoordinator: BaseCoordirator {
         navController.setViewControllers([costsVC], animated: false)
         
         observeViewModel(viewModel)
+        self.viewModel = viewModel
     }
     
     
     //MARK: - Private metods
     private func observeViewModel(_ viewModel: CostsViewModelObservable) {
-        viewModel.filter
+        viewModel.filtersTapped
             .bind {  [weak self] _ in
                 self?.showFilterModule()
         }
@@ -44,5 +46,14 @@ final class CostsCoordinator: BaseCoordirator {
         filtersCoordinator.parentCoordinator = self
         filtersCoordinator.start()
     }
+}
+
+
+
+extension CostsCoordinator: FiltersListener {
+    func setFilter(_ filter: Filters) {
+        viewModel?.wasSetFilter(filter: filter)
+    }
+    
     
 }

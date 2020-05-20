@@ -1,41 +1,35 @@
 
 import UIKit
 
-enum Filters {
-    case today(title: String)
-    case week(title: String)
-    case mounth(title: String)
-    case year(title: String)
+enum Filters: String {
+    case today = "Сегодня"
+    case week = "Текущая неделя"
+    case mounth = "Текущий месяц"
+    case year = "Текущий год"
 }
+
 
 class FiltersTableViewProvider: NSObject, TableViewProvider {
     
     //MARK: - Private properties
-    private let sectionsTitles = ["Счет", "Период"]
-    private var accountCellsTitles = ["Все счета"]
-    private let periodCellsTitles = ["Сегодня", "Текущая неделя", "Текущий месяц", "Текущий год"]
-    //private let selectPeriodCellTitle = ["Выбрать период"]
+    private let sectionsTitles = ["Период"]
+    private let periodCellsType = [Filters.today, .week, .mounth, .year]
     
-    private var selectedCellIndexPath: IndexPath = IndexPath(row: 0, section: 0)
+    private var selectedCellIndexPath: IndexPath = IndexPath(row: 2, section: 0)
     
     private let headerHeight: CGFloat = 20.0
     
     
     //MARK: - Open metods
-    func setAccounts() {
-        //TODO: добавить счета клиента в массив счетов
-    }
-    
-//    func getFilter() -> FilterItem {
-//        var filterItem: FilterItem
-//        if selectedCellIndexPath.section == 0 {
-//            filterTitle = accountCellsTitles[selectedCellIndexPath.row]
-//        } else if selectedCellIndexPath.section == 1 {
-//            filterTitle = accountCellsTitles[selectedCellIndexPath.row]
-//        }
-//        
-//        return filterItem
+//    func setAccounts() {
+//        //TODO: добавить счета клиента в массив счетов
 //    }
+    
+        func getFilter() -> Filters {
+            var filterItem: Filters
+            filterItem = periodCellsType[selectedCellIndexPath.row]
+            return filterItem
+        }
     
     
     //MARK: - TableViewProvider metods
@@ -51,8 +45,6 @@ class FiltersTableViewProvider: NSObject, TableViewProvider {
         switch section {
         case 0:
             return sectionsTitles[section]
-        case 1:
-            return sectionsTitles[section]
         default:
             return nil
         }
@@ -61,11 +53,7 @@ class FiltersTableViewProvider: NSObject, TableViewProvider {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return accountCellsTitles.count
-        case 1:
-            return periodCellsTitles.count
-            //case 2:
-        //    return selectPeriodCellTitle.count
+            return periodCellsType.count
         default:
             return 0
         }
@@ -76,14 +64,8 @@ class FiltersTableViewProvider: NSObject, TableViewProvider {
         
         switch indexPath.section {
         case 0:
-            let title = accountCellsTitles[indexPath.row]
-            cell.textLabel?.text = title
-        case 1:
-            let title = periodCellsTitles[indexPath.row]
-            cell.textLabel?.text = title
-            //case 2:
-            //let title = selectPeriodCellTitle[indexPath.row]
-        //cell.textLabel?.text = title
+            let title = periodCellsType[indexPath.row]
+            cell.textLabel?.text = title.rawValue
         default:
             return cell
         }

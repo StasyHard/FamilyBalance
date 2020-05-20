@@ -59,7 +59,6 @@ extension CostsView: CostsViewImplementation {
     }
     
     func setData(_ categories: [CategoryViewModel]) {
-        //updateChartData(categories: categories)
         tableViewProvider.categories = categories
         tableView.reloadData()
     }
