@@ -19,12 +19,31 @@ class OperationsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setNavigationUI()
+        
         observeViewModel()
         operationsView?.setProvider(provider: self)
     }
     
     
     //MARK: - Private metods
+    private func setNavigationUI() {
+        title = "Операции"
+        let defaultImage = UIImage(named: "filter")?
+            .scaleTo(CGSize(width: AppSizes.iconHeightAndWidth,
+                            height: AppSizes.iconHeightAndWidth))
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: defaultImage,
+            style: .plain,
+            target: self,
+            action: #selector(filterButtonTapped))
+    }
+    
+    @objc private func filterButtonTapped() {
+        //viewModel?.filtersDidTapped()
+    }
+    
     private func observeViewModel() {
         
     }

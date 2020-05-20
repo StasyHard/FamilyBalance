@@ -51,10 +51,6 @@ class CostsViewController: UIViewController {
         viewModel?.filtersDidTapped()
     }
     
-    
-    //MARK: - Private metods
-    
-    //MARK: Observe on the ViewModel
     private func observeViewModel(_ viewModel: CostsViewModelObservable) {
         
         viewModel.categoryData

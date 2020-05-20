@@ -15,7 +15,6 @@ class CostsView: UIView {
 
     @IBOutlet weak var tableView: UITableView! {
         didSet {
-
             tableView.backgroundColor = AppColors.backgroundColor
             registerCells()
             //TODO: ------------------------------- Подумать где должна быть реализация
