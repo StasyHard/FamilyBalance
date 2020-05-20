@@ -3,7 +3,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class SignUpCoordinator: BaseCoordirator {
+final class SignUpCoordinator: BaseCoordirator {
     
     private let navController: UINavigationController
     private let repo: Repository

@@ -7,34 +7,32 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item 1-->
+        <!--Costs View Controller-->
         <scene sceneID="u25-Lx-iFR">
             <objects>
-                <viewController storyboardIdentifier="costsVC" id="OQB-wQ-Sjz" customClass="CostsViewController" customModule="FamilyBalance" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="yoX-ul-4pI">
+                <viewController storyboardIdentifier="costsVC" id="OQB-wQ-Sjz" userLabel="Costs View Controller" customClass="CostsViewController" customModule="FamilyBalance" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yoX-ul-4pI" customClass="CostsView" customModule="FamilyBalance" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cta-64-tUV" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="30" y="64" width="354" height="295"/>
-                                <color key="backgroundColor" systemColor="systemGray3Color" red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="cta-64-tUV" secondAttribute="height" multiplier="1.2:1" id="hDx-4Z-9gm"/>
-                                </constraints>
-                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="20k-Wo-c7d">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Zkb-Qa-oh8" firstAttribute="trailing" secondItem="cta-64-tUV" secondAttribute="trailing" constant="30" id="2qA-6Z-3Ce"/>
-                            <constraint firstItem="cta-64-tUV" firstAttribute="leading" secondItem="Zkb-Qa-oh8" secondAttribute="leading" constant="30" id="J0e-Fi-M9q"/>
-                            <constraint firstItem="cta-64-tUV" firstAttribute="top" secondItem="Zkb-Qa-oh8" secondAttribute="top" constant="20" id="NmG-lb-L2l"/>
+                            <constraint firstItem="Zkb-Qa-oh8" firstAttribute="bottom" secondItem="20k-Wo-c7d" secondAttribute="bottom" id="JOg-He-TCj"/>
+                            <constraint firstItem="20k-Wo-c7d" firstAttribute="leading" secondItem="Zkb-Qa-oh8" secondAttribute="leading" id="Ouc-z9-1aJ"/>
+                            <constraint firstItem="Zkb-Qa-oh8" firstAttribute="trailing" secondItem="20k-Wo-c7d" secondAttribute="trailing" id="PJz-gx-b9v"/>
+                            <constraint firstItem="20k-Wo-c7d" firstAttribute="top" secondItem="Zkb-Qa-oh8" secondAttribute="top" id="pUD-Bl-t8g"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Zkb-Qa-oh8"/>
+                        <connections>
+                            <outlet property="tableView" destination="20k-Wo-c7d" id="OpE-jX-NgP"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="gfZ-NM-hhQ"/>
-                    <connections>
-                        <outlet property="pieChartView" destination="cta-64-tUV" id="XMs-2q-zSh"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GTm-P7-rgg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

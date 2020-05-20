@@ -4,56 +4,56 @@ import RxSwift
 
 
 protocol SignInViewModelObservable: class {
-    var isSignInActiveObservable: Observable<Bool> { get set }
-    var isLoadingObservable: Observable<Bool> { get set }
-    var didSignInObservable: Observable<Void> { get set}
-    var signUpTappedObservable: Observable<Void> { get set}
+    var isSignInActive: Observable<Bool> { get set }
+    var isLoading: Observable<Bool> { get set }
+    var didSignIn: Observable<Void> { get set}
+    var signUpTapped: Observable<Void> { get set}
 }
 
-protocol SignInViewControllerActions: class {
-    func signIn(_ email: String, _ password: String)
-    func signUp()
+protocol SignInViewActions: class {
+    func signInDidTapped(_ email: String, _ password: String)
+    func signUpDidTapped()
 }
-
 
 
 final class SignInViewModel: SignInViewModelObservable {
     
-    //MARK: - Open properties
+    //MARK: - SignInViewModelActions
+    var isSignInActive: Observable<Bool>
+    var isLoading: Observable<Bool>
+    var didSignIn: Observable<Void>
+    var signUpTapped: Observable<Void>
     
-    var isSignInActiveObservable: Observable<Bool>
-    var isLoadingObservable: Observable<Bool>
-    var didSignInObservable: Observable<Void>
-    var signUpTappedObservable: Observable<Void>
     
     //MARK: - Private properties
-    private let isSignInActive = BehaviorSubject<Bool>(value: true)
-    private let isLoading = BehaviorSubject<Bool>(value: false)
-    private let didSignIn = PublishSubject<Void>()
-    private let signUpTapped = PublishSubject<Void>()
+    private let _isSignInActive = BehaviorSubject<Bool>(value: true)
+    private let _isLoading = BehaviorSubject<Bool>(value: false)
+    private let _didSignIn = PublishSubject<Void>()
+    private let _signUpTapped = PublishSubject<Void>()
     
     private let repository: Repository
     
     private let disposeBag = DisposeBag()
     
+    
     //MARK: - Init
     init(repo: Repository) {
         self.repository = repo
         
-        isSignInActiveObservable = isSignInActive
-        isLoadingObservable = isLoading
-        didSignInObservable = didSignIn
-        signUpTappedObservable = signUpTapped
+        isSignInActive = _isSignInActive
+        isLoading = _isLoading
+        didSignIn = _didSignIn
+        signUpTapped = _signUpTapped
         
     }
 }
 
 
 
-extension SignInViewModel: SignInViewControllerActions {
-    func signIn(_ email: String, _ password: String) {
-        isLoading.onNext(true)
-        isSignInActive.onNext(false)
+extension SignInViewModel: SignInViewActions {
+    func signInDidTapped(_ email: String, _ password: String) {
+        _isLoading.onNext(true)
+        _isSignInActive.onNext(false)
         
         
         if email.isEmpty || password.isEmpty { return }
@@ -64,7 +64,7 @@ extension SignInViewModel: SignInViewControllerActions {
                 onSuccess: { [weak self] token in
                     print(token)
                     DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-                        self?.didSignIn.onNext(())
+                        self?._didSignIn.onNext(())
                     }
                     //self?.didSignIn.onNext(())
                 },
@@ -75,7 +75,7 @@ extension SignInViewModel: SignInViewControllerActions {
             .disposed(by: self.disposeBag)
     }
     
-    func signUp() {
-        signUpTapped.onNext(())
+    func signUpDidTapped() {
+        _signUpTapped.onNext(())
     }
 }

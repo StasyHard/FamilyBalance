@@ -1,60 +1,70 @@
 
-import Charts
 import UIKit
+import RxSwift
+import RxCocoa
+import Charts
 
 class CostsViewController: UIViewController {
     
-    //MARK: - IBOutlet
-    @IBOutlet weak var pieChartView: PieChartView!
+    //MARK: - Open properties
+    var viewModel: (CostsViewModelObservable & CostsViewActions)?
     
+    
+    //MARK: - Private properties
+    private lazy var costsView = view as? CostsViewImplementation
+    
+    private let disposeBag = DisposeBag()
+    
+    
+    //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setNavigationUI()
         
-        title = "Расходы"
+        guard let viewModel = viewModel else { return }
+        costsView?.setProvider(provider: viewModel)
+        observeViewModel(viewModel)
         
-        pieChartView.delegate = self
+        viewModel.viewDidLoad()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
-        //pieChartView.chartDescription?.text = "Расходы"
-        pieChartView.drawEntryLabelsEnabled = true
-        pieChartView.usePercentValuesEnabled = true
-        
-        pieChartView.holeRadiusPercent = 0
-        pieChartView.transparentCircleRadiusPercent = 0
-        
-        updateChartData()
     }
     
-    func updateChartData() {
-        var chartEntries = [ChartDataEntry]()
+    
+    //MARK: - Private metods
+    private func setNavigationUI() {
+        title = "Расходы"
+        let defaultImage = UIImage(named: "filter")?
+            .scaleTo(CGSize(width: AppSizes.iconHeightAndWidth,
+                            height: AppSizes.iconHeightAndWidth))
         
-        chartEntries.append(PieChartDataEntry(value: 18))
-        chartEntries.append(PieChartDataEntry(value: 10))
-        chartEntries.append(PieChartDataEntry(value: 24))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: defaultImage,
+            style: .plain,
+            target: self,
+            action: #selector(filterButtonTapped))
+    }
+    
+    @objc private func filterButtonTapped() {
+        viewModel?.filtersDidTapped()
+    }
+    
+    
+    //MARK: - Private metods
+    
+    //MARK: Observe on the ViewModel
+    private func observeViewModel(_ viewModel: CostsViewModelObservable) {
         
-        let chartDataSet = PieChartDataSet(entries: chartEntries, label: "Категории")
-        chartDataSet.drawValuesEnabled = true
-        chartDataSet.sliceSpace = 2
-        
-        let colors = [UIColor.red, .blue, .brown]
-        chartDataSet.colors = colors
-
-        let data = PieChartData(dataSet: chartDataSet)
-        pieChartView.data = data
-        
-        let pFormatter = NumberFormatter()
-        pFormatter.numberStyle = .percent
-        pFormatter.maximumFractionDigits = 1
-        pFormatter.multiplier = 1
-        pFormatter.percentSymbol = " %"
-        data.setValueFormatter(DefaultValueFormatter(formatter: pFormatter))
+        viewModel.categoryData
+            .bind { [weak self] data in
+                self?.costsView?.setData(data)
+        }
+        .disposed(by: self.disposeBag)
     }
 }
 
-extension CostsViewController: ChartViewDelegate {
-    
-    
-}
+
+
+

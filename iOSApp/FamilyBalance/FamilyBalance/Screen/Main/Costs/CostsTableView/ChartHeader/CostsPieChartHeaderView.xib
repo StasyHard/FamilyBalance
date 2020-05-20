@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CostsPieChartHeaderView" customModule="FamilyBalance" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="585" height="648"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZTs-l9-eBj">
+                    <rect key="frame" x="8" y="52" width="569" height="49"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Апрель" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VWg-9s-C36">
+                            <rect key="frame" x="254.5" y="0.0" width="60" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Баланс: 135 000 ₽" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bjM-QM-Dc7">
+                            <rect key="frame" x="210.5" y="28.5" width="148" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cnI-4r-GIF" customClass="PieChartView" customModule="Charts">
+                    <rect key="frame" x="0.0" y="109" width="585" height="438"/>
+                    <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="LQt-5O-LFt">
+                    <rect key="frame" x="20" y="555" width="155" height="51"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Доходы за апрель" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CzX-Ae-6Co">
+                            <rect key="frame" x="0.0" y="0.0" width="155" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Расходы за апрель" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="esr-SJ-mVg">
+                            <rect key="frame" x="0.0" y="30.5" width="155" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="W93-9Y-toz">
+                    <rect key="frame" x="484.5" y="555" width="80.5" height="51"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100 000 ₽" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tyC-Rp-fgz">
+                            <rect key="frame" x="0.0" y="0.0" width="80.5" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="75 000 ₽" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yxh-oe-aNB">
+                            <rect key="frame" x="0.0" y="30.5" width="80.5" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="LQt-5O-LFt" firstAttribute="top" secondItem="cnI-4r-GIF" secondAttribute="bottom" constant="8" id="76N-Mw-81Y"/>
+                <constraint firstItem="LQt-5O-LFt" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="DA0-2d-atS"/>
+                <constraint firstItem="cnI-4r-GIF" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Dn3-cU-gJ3"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="W93-9Y-toz" secondAttribute="bottom" constant="8" id="FcE-DD-69j"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ZTs-l9-eBj" secondAttribute="trailing" constant="8" id="IOc-RS-Meo"/>
+                <constraint firstItem="W93-9Y-toz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="LQt-5O-LFt" secondAttribute="trailing" constant="8" id="UUc-nL-I8w"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="cnI-4r-GIF" secondAttribute="trailing" id="VCw-Wa-rUT"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="W93-9Y-toz" secondAttribute="trailing" constant="20" id="f2C-Kq-tcg"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="LQt-5O-LFt" secondAttribute="bottom" constant="8" id="fY0-pb-y3T"/>
+                <constraint firstItem="cnI-4r-GIF" firstAttribute="top" secondItem="ZTs-l9-eBj" secondAttribute="bottom" constant="8" id="jlE-RJ-0I9"/>
+                <constraint firstItem="ZTs-l9-eBj" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="peV-K2-YtM"/>
+                <constraint firstItem="ZTs-l9-eBj" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="qhk-AE-zW3"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="balanceLabel" destination="bjM-QM-Dc7" id="uSD-ta-JXk"/>
+                <outlet property="dateLabel" destination="VWg-9s-C36" id="sY7-Sp-ahO"/>
+                <outlet property="pieChartView" destination="cnI-4r-GIF" id="r4i-qg-xlr"/>
+            </connections>
+            <point key="canvasLocation" x="203.62318840579712" y="79.017857142857139"/>
+        </view>
+    </objects>
+</document>
