@@ -3,7 +3,7 @@ import UIKit
 
 
 protocol FiltersViewImplementation: class {
-    func setProvider(provider: FiltersViewActions)
+    func setActionsDelegate(delegate: FiltersViewActions)
 }
 
 
@@ -21,7 +21,7 @@ class FiltersView: UIView {
     
     
     //MARK: - Private properties
-    private var provider: FiltersViewActions?
+    private var actionsDelegate: FiltersViewActions?
     //TODO: ------------------------------- Подумать где должна быть реализация
     private let tableViewProvider = FiltersTableViewProvider()
     
@@ -29,7 +29,7 @@ class FiltersView: UIView {
     //MARK: - IBAction
     @IBAction func showButtonIsTapped(_ sender: BlueRoundedButton) {
         let filter = tableViewProvider.getFilter()
-        provider?.showButtonTapped(filter: filter)
+        actionsDelegate?.showButtonTapped(filter: filter)
     }
     
     
@@ -42,11 +42,9 @@ class FiltersView: UIView {
 
 
 extension FiltersView: FiltersViewImplementation {
-    func setProvider(provider: FiltersViewActions) {
-        self.provider = provider
+    func setActionsDelegate(delegate: FiltersViewActions) {
+        self.actionsDelegate = delegate
     }
-    
-    
 }
 
 

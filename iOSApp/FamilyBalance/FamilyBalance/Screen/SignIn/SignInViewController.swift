@@ -21,7 +21,7 @@ class SignInViewController: UIViewController {
         super.viewDidLoad()
         
         guard let viewModel = self.viewModel else { return }
-        signInView?.setProvider(provider: viewModel)
+        signInView?.setActionsDelegate(delegate: viewModel)
         observeViewModel(viewModel)
         configureDismissKeyboard()
     }

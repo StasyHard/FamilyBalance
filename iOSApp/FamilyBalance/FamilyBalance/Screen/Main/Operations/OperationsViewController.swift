@@ -22,7 +22,7 @@ class OperationsViewController: UIViewController {
         setNavigationUI()
         
         observeViewModel()
-        operationsView?.setProvider(provider: self)
+        operationsView?.setActionsDelegate(delegate: self)
     }
     
     
