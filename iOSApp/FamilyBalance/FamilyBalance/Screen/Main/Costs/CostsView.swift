@@ -4,7 +4,7 @@ import Charts
 
 
 protocol CostsViewImplementation: class {
-    func setProvider(provider: CostsViewActions)
+    func setaAtionsDelegate(delegate: CostsViewActions)
     func setData(_ categories: [CategoryViewModel])
 }
 
@@ -17,7 +17,6 @@ class CostsView: UIView {
         didSet {
             tableView.backgroundColor = AppColors.backgroundColor
             registerCells()
-            //TODO: ------------------------------- Подумать где должна быть реализация
             tableView.delegate = tableViewProvider
             tableView.dataSource = tableViewProvider
         }
@@ -25,7 +24,7 @@ class CostsView: UIView {
     
     
     //MARK: - Private properties
-    private var provider: CostsViewActions?
+    private var actionsDelegate: CostsViewActions?
     //TODO: ------------------------------- Подумать где должна быть реализация
     private let tableViewProvider = CostsTableViewProvider()
     
@@ -53,8 +52,8 @@ class CostsView: UIView {
 
 
 extension CostsView: CostsViewImplementation {
-    func setProvider(provider: CostsViewActions) {
-        self.provider = provider
+    func setaAtionsDelegate(delegate: CostsViewActions) {
+        self.actionsDelegate = delegate
     }
     
     func setData(_ categories: [CategoryViewModel]) {

@@ -23,7 +23,7 @@ class FiltersViewController: UIViewController {
         setNavigationUI()
         
         guard let viewModel = viewModel else { return }
-        filtersView?.setProvider(provider: viewModel)
+        filtersView?.setActionsDelegate(delegate: viewModel)
         observeViewModel(viewModel)
     }
     

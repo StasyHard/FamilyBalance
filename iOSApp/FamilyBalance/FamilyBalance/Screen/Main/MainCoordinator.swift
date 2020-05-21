@@ -16,12 +16,16 @@ final class MainCoordinator: BaseCoordirator {
         navController.setViewControllers([tabbarVC], animated: false)
         
         let costsNavController = createCostsNavController()
-        let historyOperationsNavController = createHistoryNavController()
+        let operationsNavController = createHistoryNavController()
+        let addOperationNavController = createAddOperationNavController()
         
-        tabbarVC.viewControllers = [costsNavController, historyOperationsNavController]
+        tabbarVC.viewControllers = [costsNavController,
+                                    addOperationNavController,
+                                    operationsNavController]
         
         showCostModule(navController: costsNavController)
-        showHistoryOperationsModule(navController: historyOperationsNavController)
+        showOperationsModule(navController: operationsNavController)
+        showAddOperationModule(navController: addOperationNavController)
         
     }
     
@@ -35,11 +39,22 @@ final class MainCoordinator: BaseCoordirator {
     }
     
     private func createHistoryNavController() -> UINavigationController {
-        let historyOperationsNavController = UINavigationController()
-        historyOperationsNavController.tabBarItem = UITabBarItem(title: "Операции",
-                                                                 image: nil,
-                                                                 tag: 1)
-        return historyOperationsNavController
+        let operationsNavController = UINavigationController()
+        operationsNavController.tabBarItem = UITabBarItem(title: "Операции",
+                                                          image: nil,
+                                                          tag: 2)
+        return operationsNavController
+    }
+    
+    private func createAddOperationNavController() -> UINavigationController {
+        let addOperationNavController = UINavigationController()
+        let itemImage = UIImage(named: "add")?
+            .scaleTo(CGSize(width: 50,
+                            height: 50))
+        addOperationNavController.tabBarItem = UITabBarItem(title: nil,
+                                                            image: itemImage,
+                                                            tag: 1)
+        return addOperationNavController
     }
     
     private func showCostModule(navController: UINavigationController) {
@@ -48,13 +63,15 @@ final class MainCoordinator: BaseCoordirator {
         costsCoordinator.start()
     }
     
-    private func showHistoryOperationsModule(navController: UINavigationController) {
-        let historyOperationsCoordinator = OperationsCoordinator(
-            navController: navController
-        )
-        childCoordinators.append(historyOperationsCoordinator)
-        historyOperationsCoordinator.start()
+    private func showOperationsModule(navController: UINavigationController) {
+        let operationsCoordinator = OperationsCoordinator(navController: navController)
+        childCoordinators.append(operationsCoordinator)
+        operationsCoordinator.start()
     }
     
-    
+    private func showAddOperationModule(navController: UINavigationController) {
+        let addOperationCoordinator = AddOperationCoordinator(navController: navController)
+        childCoordinators.append(addOperationCoordinator)
+        addOperationCoordinator.start()
+    }
 }

@@ -22,7 +22,7 @@ class CostsViewController: UIViewController {
         setNavigationUI()
         
         guard let viewModel = viewModel else { return }
-        costsView?.setProvider(provider: viewModel)
+        costsView?.setaAtionsDelegate(delegate: viewModel)
         observeViewModel(viewModel)
         
         viewModel.viewDidLoad()
