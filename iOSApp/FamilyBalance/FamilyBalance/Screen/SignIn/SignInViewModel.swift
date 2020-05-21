@@ -58,7 +58,7 @@ extension SignInViewModel: SignInViewActions {
         
         if email.isEmpty || password.isEmpty { return }
         
-        let loginModel = LoginModel(email: email, password: password)
+        let loginModel = UserLoginModel(email: email, password: password)
         repository.signIn(loginModel)
             .subscribe(
                 onSuccess: { [weak self] token in

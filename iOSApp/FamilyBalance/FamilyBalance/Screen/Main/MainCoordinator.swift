@@ -58,7 +58,7 @@ final class MainCoordinator: BaseCoordirator {
     }
     
     private func showCostModule(navController: UINavigationController) {
-        let costsCoordinator = CostsCoordinator(navController: navController)
+        let costsCoordinator = CostsCoordinator(navController: navController, repo: repo)
         childCoordinators.append(costsCoordinator)
         costsCoordinator.start()
     }

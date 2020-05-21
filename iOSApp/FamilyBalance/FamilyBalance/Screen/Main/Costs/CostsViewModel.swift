@@ -3,6 +3,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
+
 protocol CostsViewModelObservable: class {
     var filtersTapped: Observable<Void> { get set }
     var categoryData: Observable<[CategoryViewModel]> { get set }
@@ -15,7 +16,7 @@ protocol CostsViewActions: class {
 }
 
 
-class CostsViewModel: CostsViewModelObservable {
+final class CostsViewModel: CostsViewModelObservable {
     
     //MARK: - CostsViewModelActions
     var filtersTapped: Observable<Void>
@@ -26,64 +27,51 @@ class CostsViewModel: CostsViewModelObservable {
     private let _filtersTapped = PublishSubject<Void>()
     private let _categoryData = PublishSubject<[CategoryViewModel]>()
     
+    private var repo: Repository?
     private var filter: Filters = .mounth
     
     private let disposeBag = DisposeBag()
     
     
     //MARK: - Init
-    init() {
+    init(repo: Repository) {
         filtersTapped = _filtersTapped
         categoryData = _categoryData
+        
+        self.repo = repo
     }
     
     
     //MARK: - Open metods
+    //координатор вызывает функцию, когда на экране фильтров была нажата кнопка показать
     func wasSetFilter(filter: Filters) {
+        
         if filter != self.filter {
             self.filter = filter
             
-            var categories = [CategoryViewModel]()
-            switch filter {
-            case .today:
-                categories = []
-            case .week:
-                categories = [
-                    CategoryViewModel(id: 1,
-                                      name: "Продукты",
-                                      color: UIColor.red,
-                                      sum: 100),
-                    CategoryViewModel(id: 2,
-                                      name: "Сладости",
-                                      color: UIColor.blue,
-                                      sum: 200)  ]
-            case .mounth:
-                categories = [
-                    CategoryViewModel(id: 1,
-                                      name: "Продукты",
-                                      color: UIColor.red,
-                                      sum: 100),
-                    CategoryViewModel(id: 2,
-                                      name: "Сладости",
-                                      color: UIColor.blue,
-                                      sum: 200),
-                    CategoryViewModel(id: 3,
-                                      name: "Развлечения",
-                                      color: UIColor.lightGray,
-                                      sum: 300),
-                    CategoryViewModel(id: 4,
-                                      name: "Для дома",
-                                      color: UIColor.systemGreen,
-                                      sum: 400) ]
-            case .year:
-                categories = [
-                    CategoryViewModel(id: 1,
-                                      name: "Продукты",
-                                      color: UIColor.red,
-                                      sum: 100)]
-            }
-            _categoryData.onNext(categories)
+            repo?.getOperations(filter: filter)
+                .subscribe(
+                    onNext: { operations in
+                        let categories = self.getCategories(by: operations)
+                        self._categoryData.onNext(categories)
+                })
+                .disposed(by: self.disposeBag)
         }
+    }
+    
+    private func getCategories(by operations: [Operation]) -> [CategoryViewModel] {
+        let categories = [CategoryViewModel]()
+        if operations.isEmpty { return categories }
+        else {
+            let costs = operations.filter { $0.category != nil }
+            print(costs)
+            
+            
+            
+            return categories
+        }
+        
+        
     }
     
     

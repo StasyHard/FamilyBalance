@@ -5,6 +5,6 @@ import UIKit
 struct CategoryViewModel {
     let id: Int
     let name: String
-    let color: UIColor
-    let sum: Double
+    var color: UIColor
+    var sum: Double
 }

@@ -4,6 +4,7 @@ import RxSwift
 import RxCocoa
 import Charts
 
+
 class CostsViewController: UIViewController {
     
     //MARK: - Open properties
@@ -28,14 +29,11 @@ class CostsViewController: UIViewController {
         viewModel.viewDidLoad()
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-    }
-    
     
     //MARK: - Private metods
     private func setNavigationUI() {
-        title = "Расходы"
+        navigationItem.title = "Расходы"
+        
         let defaultImage = UIImage(named: "filter")?
             .scaleTo(CGSize(width: AppSizes.iconHeightAndWidth,
                             height: AppSizes.iconHeightAndWidth))

@@ -7,6 +7,7 @@ import RxCocoa
 final class CostsCoordinator: BaseCoordirator {
     
     //MARK: - Private properties
+    private var repo: Repository
     private var navController: UINavigationController
     private var viewModel: CostsViewModel?
     
@@ -14,15 +15,16 @@ final class CostsCoordinator: BaseCoordirator {
     
     
     //MARK: - Init
-    init(navController: UINavigationController) {
+    init(navController: UINavigationController, repo: Repository) {
         self.navController = navController
+        self.repo = repo
     }
     
     
     //MARK: - Open metods
     override func start() {
         let costsVC = UIStoryboard.instantiateCostsVC()
-        let viewModel = CostsViewModel()
+        let viewModel = CostsViewModel(repo: repo)
         costsVC.viewModel = viewModel
         navController.setViewControllers([costsVC], animated: false)
         
