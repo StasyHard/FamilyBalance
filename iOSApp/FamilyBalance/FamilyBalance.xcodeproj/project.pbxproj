@@ -393,10 +393,18 @@
 				566AD9052476722B00898065 /* AddOperationViewController.swift */,
 				566AD90B2476728200898065 /* AddOperationViewModel.swift */,
 				566AD9092476726A00898065 /* AddOperationView.swift */,
-				566AD90F24768BB700898065 /* AddOperationTableViewProvider.swift */,
 				566AD9072476724200898065 /* AddOperationCoordinator.swift */,
+				566AD91124768FA400898065 /* AddOperationTableView */,
 			);
 			path = "Add operation";
+			sourceTree = "<group>";
+		};
+		566AD91124768FA400898065 /* AddOperationTableView */ = {
+			isa = PBXGroup;
+			children = (
+				566AD90F24768BB700898065 /* AddOperationTableViewProvider.swift */,
+			);
+			path = AddOperationTableView;
 			sourceTree = "<group>";
 		};
 		567086B6246588B400CD2E2A /* Costs */ = {

@@ -16,16 +16,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BZ1-5v-Org">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="91" width="414" height="771"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <segmentedControl key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="O7l-xR-vWq">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="32"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <segments>
-                                        <segment title="Расход"/>
-                                        <segment title="Доход"/>
-                                    </segments>
-                                </segmentedControl>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ql-DP-te1" customClass="BlueRoundedButton" customModule="FamilyBalance" customModuleProvider="target">
                                 <rect key="frame" x="20" y="812" width="374" height="30"/>
@@ -35,21 +27,34 @@
                                     <action selector="saveButtonTapped:" destination="mX4-6U-sCy" eventType="touchUpInside" id="SNh-2K-jnr"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ltw-Wl-Av5">
+                                <rect key="frame" x="20" y="52" width="374" height="32"/>
+                                <segments>
+                                    <segment title="Расход"/>
+                                    <segment title="Доход"/>
+                                </segments>
+                                <connections>
+                                    <action selector="incommeOrCostControlTapped:" destination="mX4-6U-sCy" eventType="valueChanged" id="bMR-Vz-a0d"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="BZ1-5v-Org" firstAttribute="top" secondItem="Ltw-Wl-Av5" secondAttribute="bottom" constant="8" id="9e5-Wa-GRD"/>
                             <constraint firstItem="NRk-Ft-b1G" firstAttribute="bottom" secondItem="BZ1-5v-Org" secondAttribute="bottom" id="Cbh-cb-aOb"/>
-                            <constraint firstItem="BZ1-5v-Org" firstAttribute="top" secondItem="NRk-Ft-b1G" secondAttribute="top" id="KjV-O8-1n8"/>
                             <constraint firstItem="7Ql-DP-te1" firstAttribute="leading" secondItem="NRk-Ft-b1G" secondAttribute="leading" constant="20" id="POa-8i-OJI"/>
                             <constraint firstItem="NRk-Ft-b1G" firstAttribute="trailing" secondItem="BZ1-5v-Org" secondAttribute="trailing" id="cIx-O4-wHt"/>
+                            <constraint firstItem="Ltw-Wl-Av5" firstAttribute="leading" secondItem="NRk-Ft-b1G" secondAttribute="leading" constant="20" id="dU0-5l-Q7G"/>
                             <constraint firstItem="NRk-Ft-b1G" firstAttribute="trailing" secondItem="7Ql-DP-te1" secondAttribute="trailing" constant="20" id="dbX-7v-kS8"/>
+                            <constraint firstItem="Ltw-Wl-Av5" firstAttribute="top" secondItem="NRk-Ft-b1G" secondAttribute="top" constant="8" id="fvh-Ba-ENE"/>
+                            <constraint firstItem="NRk-Ft-b1G" firstAttribute="trailing" secondItem="Ltw-Wl-Av5" secondAttribute="trailing" constant="20" id="l8e-b5-X5P"/>
                             <constraint firstItem="NRk-Ft-b1G" firstAttribute="bottom" secondItem="7Ql-DP-te1" secondAttribute="bottom" constant="20" id="pcd-04-xVs"/>
                             <constraint firstItem="BZ1-5v-Org" firstAttribute="leading" secondItem="NRk-Ft-b1G" secondAttribute="leading" id="r8a-df-OnB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NRk-Ft-b1G"/>
                         <connections>
                             <outlet property="addOperationTableView" destination="BZ1-5v-Org" id="IQ9-9s-3Z6"/>
-                            <outlet property="incomeOrCostsControl" destination="O7l-xR-vWq" id="8e0-Rm-KNx"/>
+                            <outlet property="operationControl" destination="Ltw-Wl-Av5" id="PJV-I9-l7v"/>
                         </connections>
                     </view>
                 </viewController>
