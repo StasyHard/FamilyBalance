@@ -359,8 +359,8 @@
 		566AD8FC247565C100898065 /* OperationsTableView */ = {
 			isa = PBXGroup;
 			children = (
-				566AD8FD2475661B00898065 /* Cell */,
 				5699B5552475628200998BF0 /* OperationsTableViewProvider.swift */,
+				566AD8FD2475661B00898065 /* Cell */,
 			);
 			path = OperationsTableView;
 			sourceTree = "<group>";
@@ -369,7 +369,6 @@
 			isa = PBXGroup;
 			children = (
 				566AD8FE2475673500898065 /* IncomeAndCostsCell.swift */,
-				566AD90224757CCE00898065 /* CustomProgressView.swift */,
 				566AD8FF2475673500898065 /* IncomeAndCostsCell.xib */,
 			);
 			path = Cell;
@@ -509,6 +508,7 @@
 		56EB9B9A2462B744002F815B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				566AD90224757CCE00898065 /* CustomProgressView.swift */,
 				5618418E246D7899006BF368 /* AuthBackView.swift */,
 				56C5A29E246430DF00CE5602 /* LoadingView.swift */,
 				56C5A2A0246430F500CE5602 /* LoadingView.xib */,

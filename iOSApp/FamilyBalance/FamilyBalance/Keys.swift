@@ -2,6 +2,6 @@
 import Foundation
 
 class Keys {
-    static var TOKEN = "f"
+    static var TOKEN = "в"
 }
 
