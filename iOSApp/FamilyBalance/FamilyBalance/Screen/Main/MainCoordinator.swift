@@ -74,6 +74,4 @@ final class MainCoordinator: BaseCoordirator {
         childCoordinators.append(addOperationCoordinator)
         addOperationCoordinator.start()
     }
-    
-    
 }
