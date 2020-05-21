@@ -17,7 +17,6 @@ class CostsView: UIView {
         didSet {
             tableView.backgroundColor = AppColors.backgroundColor
             registerCells()
-            //TODO: ------------------------------- Подумать где должна быть реализация
             tableView.delegate = tableViewProvider
             tableView.dataSource = tableViewProvider
         }

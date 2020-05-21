@@ -28,36 +28,52 @@ extension UIStoryboard {
         return UIStoryboard(name: "Filters", bundle: nil)
     }
     
+    private static var addOperation: UIStoryboard {
+        return UIStoryboard(name: "AddOperation", bundle: nil)
+    }
+    
     
     // MARK: - View Controllers init
     static func instantiateMainVC() -> UITabBarController {
-      let mainVC = main.instantiateViewController(withIdentifier: "tabBarVC") as! UITabBarController
+      let mainVC = main.instantiateViewController(
+        withIdentifier: "tabBarVC") as! UITabBarController
       return mainVC
     }
 
     static func instantiateSignInVC() -> SignInViewController {
-      let signInVC = signIn.instantiateViewController(withIdentifier: "signInVC") as! SignInViewController
+      let signInVC = signIn.instantiateViewController(
+        withIdentifier: "signInVC") as! SignInViewController
       return signInVC
     }
     
     static func instantiateCostsVC() -> CostsViewController {
-        let costsVC = costs.instantiateViewController(withIdentifier: "costsVC") as! CostsViewController
+        let costsVC = costs.instantiateViewController(
+            withIdentifier: "costsVC") as! CostsViewController
         return costsVC
     }
     
     static func instantiateSignUpVC() -> SignUpViewController {
-        let signUpVC = signUp.instantiateViewController(withIdentifier: "signUpVC") as! SignUpViewController
+        let signUpVC = signUp.instantiateViewController(
+            withIdentifier: "signUpVC") as! SignUpViewController
         return signUpVC
     }
     
     static func instantiateOperationsVC() -> OperationsViewController {
-        let historyVC = historyOperations.instantiateViewController(withIdentifier: "operationsVC") as! OperationsViewController
+        let historyVC = historyOperations.instantiateViewController(
+            withIdentifier: "operationsVC") as! OperationsViewController
         return historyVC
     }
     
     static func instantiateFiltersVC() -> FiltersViewController {
-        let filterVC = filters.instantiateViewController(withIdentifier: "filtersVC") as! FiltersViewController
+        let filterVC = filters.instantiateViewController(
+            withIdentifier: "filtersVC") as! FiltersViewController
         return filterVC
+    }
+    
+    static func instantiateAddOperationsVC() -> AddOperationViewController {
+        let addOperationVC = addOperation.instantiateViewController(
+            withIdentifier: "addOperation") as! AddOperationViewController
+        return addOperationVC
     }
     
 }
