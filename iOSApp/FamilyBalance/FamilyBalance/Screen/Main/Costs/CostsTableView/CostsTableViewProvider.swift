@@ -48,8 +48,8 @@ class CostsTableViewProvider: NSObject, TableViewProvider {
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard
             let cell = tableView.dequeueReusableCell(
-                withIdentifier: CostTableViewCell.reuseIdD,
-                for: indexPath) as? CostTableViewCell
+                withIdentifier: CostCell.reuseIdD,
+                for: indexPath) as? CostCell
             else { return UITableViewCell() }
         
         let category = categories[indexPath.row]

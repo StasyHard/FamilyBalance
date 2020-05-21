@@ -15,7 +15,6 @@ class CostsView: UIView {
 
     @IBOutlet weak var tableView: UITableView! {
         didSet {
-
             tableView.backgroundColor = AppColors.backgroundColor
             registerCells()
             //TODO: ------------------------------- Подумать где должна быть реализация
@@ -46,7 +45,7 @@ class CostsView: UIView {
     }
     
     private func registerCells() {
-        tableView.register(UINib(nibName: "CostTableViewCell", bundle: nil), forCellReuseIdentifier: CostTableViewCell.reuseIdD)
+        tableView.register(UINib(nibName: "CostCell", bundle: nil), forCellReuseIdentifier: CostCell.reuseIdD)
         tableView.register(UINib(nibName: "CostsPieChartHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: CostsPieChartHeaderView.reuseIdD)
     }
 }
