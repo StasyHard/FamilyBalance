@@ -6,7 +6,7 @@ import RxCocoa
 
 protocol CostsViewModelObservable: class {
     var filtersTapped: Observable<Void> { get set }
-    var categoryData: Observable<[CategoryViewModel]> { get set }
+    var categoryData: Observable<[CategoryUIModel]> { get set }
 }
 
 protocol CostsViewActions: class {
@@ -20,12 +20,12 @@ final class CostsViewModel: CostsViewModelObservable {
     
     //MARK: - CostsViewModelActions
     var filtersTapped: Observable<Void>
-    var categoryData: Observable<[CategoryViewModel]>
+    var categoryData: Observable<[CategoryUIModel]>
     
     
     //MARK: - Private properties
     private let _filtersTapped = PublishSubject<Void>()
-    private let _categoryData = PublishSubject<[CategoryViewModel]>()
+    private let _categoryData = PublishSubject<[CategoryUIModel]>()
     
     private var repo: Repository?
     private var filter: Filters = .mounth
@@ -49,61 +49,71 @@ final class CostsViewModel: CostsViewModelObservable {
         if filter != self.filter {
             self.filter = filter
             
-            repo?.getOperations(filter: filter)
-                .subscribe(
-                    onNext: { operations in
-                        let categories = self.getCategories(by: operations)
-                        self._categoryData.onNext(categories)
-                })
-                .disposed(by: self.disposeBag)
+            getOperations()
         }
-    }
-    
-    private func getCategories(by operations: [Operation]) -> [CategoryViewModel] {
-        let categories = [CategoryViewModel]()
-        if operations.isEmpty { return categories }
-        else {
-            let costs = operations.filter { $0.category != nil }
-            print(costs)
-            
-            
-            
-            return categories
-        }
-        
-        
     }
     
     
     //MARK: - Private metods
-    private func convertToCategoryViewModel() -> [CategoryViewModel] {
-        //TODO: ------------------------логика преобразования модели ответа в модель вью
-        let category = CategoryViewModel(id: 1,
-                                         name: "Продукты",
-                                         color: UIColor.red,
-                                         sum: 100)
-        let category2 = CategoryViewModel(id: 2,
-                                          name: "Сладости",
-                                          color: UIColor.blue,
-                                          sum: 200)
-        let category3 = CategoryViewModel(id: 3,
-                                          name: "Развлечения",
-                                          color: UIColor.lightGray,
-                                          sum: 300)
-        let category4 = CategoryViewModel(id: 4,
-                                          name: "Для дома",
-                                          color: UIColor.systemGreen,
-                                          sum: 400)
+    private func getOperations() {
+        repo?.getOperations(filter: filter)
+            .subscribe(
+                onNext: { operations in
+                    let categories = self.getCategories(by: operations)
+                    self._categoryData.onNext(categories)
+            })
+            .disposed(by: self.disposeBag)
+    }
+    
+    private func getCategories(by operations: [Operation]) -> [CategoryUIModel] {
+        var categories = [CategoryUIModel]()
         
-        return [category4, category3, category2, category]
+        if operations.isEmpty { return categories }
+        else {
+            let filtered = operations.filter { $0.category != nil }
+            let resCategories = Dictionary(grouping: filtered, by: {$0.category})
+            
+            categories = resCategories.reduce([]) { (result, resCategory) -> [CategoryUIModel] in
+                var result = result
+                let category = resCategory.key!
+                let operationsInCategory = resCategory.value
+                var sumOperations = 0.0
+
+                operationsInCategory.forEach { sumOperations += $0.sum }
+                result.append(CategoryUIModel(id: category.id,
+                                             name: category.title,
+                                             sum: sumOperations))
+                return result
+            }
+            
+            categories = categories.sorted { $0.sum > $1.sum }
+            categories = setCategoriesGraphColors(categories: categories)
+            
+            return categories
+        }
+    }
+    
+    private func setCategoriesGraphColors(categories: [CategoryUIModel]) -> [CategoryUIModel] {
+        let colors = [GraphColors.systemBlue, .systemRed, .systemGreen, .systemOrange, .systemYellow]
+        for ind in 0..<categories.count {
+            if ind < colors.count {
+                categories[ind].color = colors[ind]
+            }
+            else {
+                categories[ind].color = .systemGray
+            }
+        }
+        return categories
     }
 }
+
+
+
 
 extension CostsViewModel: CostsViewActions {
     func viewDidLoad() {
         //-----------------------------------------------------------------------получить данные из сети
-        let categories = convertToCategoryViewModel()
-        _categoryData.onNext(categories)
+        getOperations()
     }
     
     func filtersDidTapped() {

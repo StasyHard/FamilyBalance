@@ -7,7 +7,6 @@ class CostsPieChartHeaderView: UITableViewHeaderFooterView, ReusableView {
     
     //MARK: - IBOutlet
     @IBOutlet private weak var dateLabel: UILabel!
-    @IBOutlet private weak var balanceLabel: UILabel!
     @IBOutlet private weak var pieChartView: PieChartView! {
         didSet {
             setupChartSettings()
@@ -29,7 +28,7 @@ class CostsPieChartHeaderView: UITableViewHeaderFooterView, ReusableView {
         pieChartView.noDataText = "Расходы в этот период отсутствуют"
     }
     
-    func updateChartData( categories: [CategoryViewModel]) {
+    func updateChartData( categories: [CategoryUIModel]) {
         if categories.isEmpty {
             pieChartView.data = nil
             return
@@ -40,7 +39,7 @@ class CostsPieChartHeaderView: UITableViewHeaderFooterView, ReusableView {
         categories.forEach({ category in
             let value = category.sum
             chartEntries.append(PieChartDataEntry(value: value))
-            let color = category.color
+            let color = category.getUIcolorFromGraphColor(category.color)
             colors.append(color)
         })
         

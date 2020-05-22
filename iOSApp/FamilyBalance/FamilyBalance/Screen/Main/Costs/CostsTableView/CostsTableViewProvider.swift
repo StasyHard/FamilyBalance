@@ -4,7 +4,7 @@ import UIKit
 class CostsTableViewProvider: NSObject, TableViewProvider {
     
     //MARK: - Open properties
-    var categories = [CategoryViewModel]()
+    var categories = [CategoryUIModel]()
     
     
     //MARK: - Private properties
@@ -53,14 +53,9 @@ class CostsTableViewProvider: NSObject, TableViewProvider {
             else { return UITableViewCell() }
         
         let category = categories[indexPath.row]
-        
-        cell.colorView.backgroundColor = category.color
+        cell.colorView.backgroundColor = category.getUIcolorFromGraphColor(category.color)
         cell.categoryLabel.text = category.name
         cell.sumLabel.text = "\(category.sum) ₽"
         return cell
     }
-    
-    
-    
-    
 }

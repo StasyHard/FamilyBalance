@@ -14,7 +14,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZTs-l9-eBj">
-                    <rect key="frame" x="8" y="52" width="569" height="49"/>
+                    <rect key="frame" x="8" y="60" width="569" height="20.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Апрель" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VWg-9s-C36">
                             <rect key="frame" x="254.5" y="0.0" width="60" height="20.5"/>
@@ -22,16 +22,10 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Баланс: 135 000 ₽" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bjM-QM-Dc7">
-                            <rect key="frame" x="210.5" y="28.5" width="148" height="20.5"/>
-                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                     </subviews>
                 </stackView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cnI-4r-GIF" customClass="PieChartView" customModule="Charts">
-                    <rect key="frame" x="0.0" y="109" width="585" height="438"/>
+                    <rect key="frame" x="0.0" y="88.5" width="585" height="458.5"/>
                     <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="LQt-5O-LFt">
@@ -81,13 +75,12 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="W93-9Y-toz" secondAttribute="trailing" constant="20" id="f2C-Kq-tcg"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="LQt-5O-LFt" secondAttribute="bottom" constant="8" id="fY0-pb-y3T"/>
                 <constraint firstItem="cnI-4r-GIF" firstAttribute="top" secondItem="ZTs-l9-eBj" secondAttribute="bottom" constant="8" id="jlE-RJ-0I9"/>
-                <constraint firstItem="ZTs-l9-eBj" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="peV-K2-YtM"/>
+                <constraint firstItem="ZTs-l9-eBj" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="16" id="peV-K2-YtM"/>
                 <constraint firstItem="ZTs-l9-eBj" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="qhk-AE-zW3"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
-                <outlet property="balanceLabel" destination="bjM-QM-Dc7" id="uSD-ta-JXk"/>
                 <outlet property="dateLabel" destination="VWg-9s-C36" id="sY7-Sp-ahO"/>
                 <outlet property="pieChartView" destination="cnI-4r-GIF" id="r4i-qg-xlr"/>
             </connections>
