@@ -12,6 +12,12 @@ class CostsPieChartHeaderView: UITableViewHeaderFooterView, ReusableView {
             setupChartSettings()
         }
     }
+    @IBOutlet private weak var incomeLabel: UILabel!
+    @IBOutlet private weak var costsLabel: UILabel!
+    @IBOutlet weak var incomeSumLabel: UILabel!
+    @IBOutlet weak var costsSumLabel: UILabel!
+    
+    
     
     //MARK: - Init
     override init(reuseIdentifier: String?) {
@@ -24,15 +30,22 @@ class CostsPieChartHeaderView: UITableViewHeaderFooterView, ReusableView {
         setupUI()
     }
     
-    func setNoDataText() {
-        pieChartView.noDataText = "Расходы в этот период отсутствуют"
-    }
     
-    func updateChartData( categories: [CategoryUIModel]) {
+    //MARK: - Open metods
+    func updateUI(categories: [CategoryUIModel]) {
         if categories.isEmpty {
             pieChartView.data = nil
-            return
+            setNoDataText()
+            //costsSumLabel.text =
+        } else {
+            updateChartData(categories: categories)
         }
+        
+        
+        
+    }
+    
+    func updateChartData(categories: [CategoryUIModel]) {
         var chartEntries = [ChartDataEntry]()
         var colors = [UIColor]()
         
@@ -77,6 +90,10 @@ class CostsPieChartHeaderView: UITableViewHeaderFooterView, ReusableView {
         pieChartView.backgroundColor = AppColors.backgroundColor
         
         setNoDataText()
+    }
+    
+    private func setNoDataText() {
+        pieChartView.noDataText = "Расходы в этот период отсутствуют"
     }
 }
 

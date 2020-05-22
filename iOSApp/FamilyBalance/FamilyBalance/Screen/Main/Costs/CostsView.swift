@@ -5,7 +5,9 @@ import Charts
 
 protocol CostsViewImplementation: class {
     func setaAtionsDelegate(delegate: CostsViewActions)
-    func setData(_ categories: [CategoryUIModel])
+    func setCategories(_ categories: [CategoryUIModel])
+    func setIncomeSum(_ sum: Double)
+    func setCostsSum(_ sum: Double)
 }
 
 
@@ -52,11 +54,20 @@ class CostsView: UIView {
 
 
 extension CostsView: CostsViewImplementation {
+    
     func setaAtionsDelegate(delegate: CostsViewActions) {
         self.actionsDelegate = delegate
     }
     
-    func setData(_ categories: [CategoryUIModel]) {
+    func setIncomeSum(_ sum: Double) {
+        tableViewProvider.incomeSum = sum
+    }
+    
+    func setCostsSum(_ sum: Double) {
+        tableViewProvider.costsSum = sum
+    }
+    
+    func setCategories(_ categories: [CategoryUIModel]) {
         tableViewProvider.categories = categories
         tableView.reloadData()
     }

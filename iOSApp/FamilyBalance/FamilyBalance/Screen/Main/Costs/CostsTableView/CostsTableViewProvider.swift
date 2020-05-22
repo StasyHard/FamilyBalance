@@ -5,10 +5,12 @@ class CostsTableViewProvider: NSObject, TableViewProvider {
     
     //MARK: - Open properties
     var categories = [CategoryUIModel]()
+    var costsSum: Double = 0.0
+    var incomeSum: Double = 0.0
     
     
     //MARK: - Private properties
-    private let tableViewCellHeight: CGFloat = 30.0
+    private let tableViewCellHeight: CGFloat = 35.0
     
     
     //MARK: - TableViewProvider metods
@@ -21,12 +23,11 @@ class CostsTableViewProvider: NSObject, TableViewProvider {
                 as? CostsPieChartHeaderView
             else { return nil }
         
-        if !categories.isEmpty {
-            headerView.updateChartData(categories: categories)
-        } else {
-            headerView.updateChartData(categories: categories)
-            headerView.setNoDataText()
-        }
+        //headerView.updateChartData(categories: categories)
+        headerView.incomeSumLabel.text = "\(incomeSum) ₽"
+        headerView.costsSumLabel.text = "\(costsSum) ₽"
+        headerView.updateUI(categories: categories)
+
         return headerView
     }
     
@@ -56,6 +57,7 @@ class CostsTableViewProvider: NSObject, TableViewProvider {
         cell.colorView.backgroundColor = category.getUIcolorFromGraphColor(category.color)
         cell.categoryLabel.text = category.name
         cell.sumLabel.text = "\(category.sum) ₽"
+        //cell.setstroke()
         return cell
     }
 }

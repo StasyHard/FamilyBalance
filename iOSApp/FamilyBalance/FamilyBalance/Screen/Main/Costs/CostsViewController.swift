@@ -52,11 +52,24 @@ class CostsViewController: UIViewController {
     private func observeViewModel(_ viewModel: CostsViewModelObservable) {
         
         viewModel.categoryData
-            .bind { [weak self] data in
-                self?.costsView?.setData(data)
+            .bind { [weak self] categories in
+                self?.costsView?.setCategories(categories)
         }
         .disposed(by: self.disposeBag)
+        
+        viewModel.incomeSum
+            .bind { [weak self] sum in
+                self?.costsView?.setIncomeSum(sum)
+        }
+        .disposed(by: self.disposeBag)
+        
+        viewModel.costsSum
+            .bind { [weak self] sum in
+                self?.costsView?.setIncomeSum(sum)
+            }
+        .disposed(by: self.disposeBag)
     }
+    
 }
 
 
