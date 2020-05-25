@@ -7,12 +7,17 @@ class CostsPieChartHeaderView: UITableViewHeaderFooterView, ReusableView {
     
     //MARK: - IBOutlet
     @IBOutlet private weak var dateLabel: UILabel!
-    @IBOutlet private weak var balanceLabel: UILabel!
     @IBOutlet private weak var pieChartView: PieChartView! {
         didSet {
             setupChartSettings()
         }
     }
+    @IBOutlet private weak var incomeLabel: UILabel!
+    @IBOutlet private weak var costsLabel: UILabel!
+    @IBOutlet weak var incomeSumLabel: UILabel!
+    @IBOutlet weak var costsSumLabel: UILabel!
+    
+    
     
     //MARK: - Init
     override init(reuseIdentifier: String?) {
@@ -25,22 +30,29 @@ class CostsPieChartHeaderView: UITableViewHeaderFooterView, ReusableView {
         setupUI()
     }
     
-    func setNoDataText() {
-        pieChartView.noDataText = "Расходы в этот период отсутствуют"
-    }
     
-    func updateChartData( categories: [CategoryViewModel]) {
+    //MARK: - Open metods
+    func updateUI(categories: [CategoryUIModel]) {
         if categories.isEmpty {
             pieChartView.data = nil
-            return
+            setNoDataText()
+            //costsSumLabel.text =
+        } else {
+            updateChartData(categories: categories)
         }
+        
+        
+        
+    }
+    
+    func updateChartData(categories: [CategoryUIModel]) {
         var chartEntries = [ChartDataEntry]()
         var colors = [UIColor]()
         
         categories.forEach({ category in
             let value = category.sum
             chartEntries.append(PieChartDataEntry(value: value))
-            let color = category.color
+            let color = category.getUIcolorFromGraphColor(category.color)
             colors.append(color)
         })
         
@@ -78,6 +90,10 @@ class CostsPieChartHeaderView: UITableViewHeaderFooterView, ReusableView {
         pieChartView.backgroundColor = AppColors.backgroundColor
         
         setNoDataText()
+    }
+    
+    private func setNoDataText() {
+        pieChartView.noDataText = "Расходы в этот период отсутствуют"
     }
 }
 

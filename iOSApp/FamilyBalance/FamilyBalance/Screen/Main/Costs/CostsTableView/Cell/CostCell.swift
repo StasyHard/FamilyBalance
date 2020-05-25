@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CostTableViewCell: UITableViewCell, ReusableView {
+class CostCell: UITableViewCell, ReusableView {
 
     @IBOutlet weak var colorView: UIView!
     @IBOutlet weak var categoryLabel: UILabel!
@@ -32,8 +32,21 @@ class CostTableViewCell: UITableViewCell, ReusableView {
     }
     
     override func layoutSubviews() {
-        colorView.layer.cornerRadius = 7.0
+        colorView.layer.cornerRadius = 10.0
         colorView.clipsToBounds = true
     }
-    
 }
+
+
+
+//extension CostCell {
+//    func setstroke() {
+//        let frame = CGRect(x: colorView.frame.origin.x + colorView.frame.width,
+//            y: colorView.frame.origin.y,
+//            width: self.frame.width - 50,
+//            height: colorView.frame.height)
+//        let view = UIView(frame: frame)
+//        self.addSubview(view)
+//        view.backgroundColor = .red
+//    }
+//}

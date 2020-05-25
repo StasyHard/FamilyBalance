@@ -4,6 +4,7 @@ import RxSwift
 import RxCocoa
 import Charts
 
+
 class CostsViewController: UIViewController {
     
     //MARK: - Open properties
@@ -22,20 +23,17 @@ class CostsViewController: UIViewController {
         setNavigationUI()
         
         guard let viewModel = viewModel else { return }
-        costsView?.setProvider(provider: viewModel)
+        costsView?.setaAtionsDelegate(delegate: viewModel)
         observeViewModel(viewModel)
         
         viewModel.viewDidLoad()
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-    }
-    
     
     //MARK: - Private metods
     private func setNavigationUI() {
-        title = "Расходы"
+        navigationItem.title = "Расходы"
+        
         let defaultImage = UIImage(named: "filter")?
             .scaleTo(CGSize(width: AppSizes.iconHeightAndWidth,
                             height: AppSizes.iconHeightAndWidth))
@@ -51,18 +49,27 @@ class CostsViewController: UIViewController {
         viewModel?.filtersDidTapped()
     }
     
-    
-    //MARK: - Private metods
-    
-    //MARK: Observe on the ViewModel
     private func observeViewModel(_ viewModel: CostsViewModelObservable) {
         
         viewModel.categoryData
-            .bind { [weak self] data in
-                self?.costsView?.setData(data)
+            .bind { [weak self] categories in
+                self?.costsView?.setCategories(categories)
         }
         .disposed(by: self.disposeBag)
+        
+        viewModel.incomeSum
+            .bind { [weak self] sum in
+                self?.costsView?.setIncomeSum(sum)
+        }
+        .disposed(by: self.disposeBag)
+        
+        viewModel.costsSum
+            .bind { [weak self] sum in
+                self?.costsView?.setCostsSum(sum)
+            }
+        .disposed(by: self.disposeBag)
     }
+    
 }
 
 

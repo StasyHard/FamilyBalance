@@ -4,11 +4,13 @@ import UIKit
 class CostsTableViewProvider: NSObject, TableViewProvider {
     
     //MARK: - Open properties
-    var categories = [CategoryViewModel]()
+    var categories = [CategoryUIModel]()
+    var costsSum: Double = 0.0
+    var incomeSum: Double = 0.0
     
     
     //MARK: - Private properties
-    private let tableViewCellHeight: CGFloat = 30.0
+    private let tableViewCellHeight: CGFloat = 35.0
     
     
     //MARK: - TableViewProvider metods
@@ -21,17 +23,16 @@ class CostsTableViewProvider: NSObject, TableViewProvider {
                 as? CostsPieChartHeaderView
             else { return nil }
         
-        if !categories.isEmpty {
-            headerView.updateChartData(categories: categories)
-        } else {
-            headerView.updateChartData(categories: categories)
-            headerView.setNoDataText()
-        }
+        //headerView.updateChartData(categories: categories)
+        headerView.incomeSumLabel.text = "\(incomeSum) ₽"
+        headerView.costsSumLabel.text = "\(costsSum) ₽"
+        headerView.updateUI(categories: categories)
+
         return headerView
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return tableView.frame.width
+        return tableView.frame.width - 50
     }
     
     func tableView(_ tableView: UITableView,
@@ -48,19 +49,15 @@ class CostsTableViewProvider: NSObject, TableViewProvider {
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard
             let cell = tableView.dequeueReusableCell(
-                withIdentifier: CostTableViewCell.reuseIdD,
-                for: indexPath) as? CostTableViewCell
+                withIdentifier: CostCell.reuseIdD,
+                for: indexPath) as? CostCell
             else { return UITableViewCell() }
         
         let category = categories[indexPath.row]
-        
-        cell.colorView.backgroundColor = category.color
+        cell.colorView.backgroundColor = category.getUIcolorFromGraphColor(category.color)
         cell.categoryLabel.text = category.name
         cell.sumLabel.text = "\(category.sum) ₽"
+        //cell.setstroke()
         return cell
     }
-    
-    
-    
-    
 }

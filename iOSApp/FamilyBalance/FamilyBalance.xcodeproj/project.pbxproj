@@ -28,11 +28,20 @@
 		56444DF324599FDF00BB6BAE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56444DF124599FDF00BB6BAE /* LaunchScreen.storyboard */; };
 		56444DFE24599FDF00BB6BAE /* FamilyBalanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56444DFD24599FDF00BB6BAE /* FamilyBalanceTests.swift */; };
 		56444E0924599FDF00BB6BAE /* FamilyBalanceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56444E0824599FDF00BB6BAE /* FamilyBalanceUITests.swift */; };
+		566AD9002475673500898065 /* IncomeAndCostsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566AD8FE2475673500898065 /* IncomeAndCostsCell.swift */; };
+		566AD9012475673500898065 /* IncomeAndCostsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 566AD8FF2475673500898065 /* IncomeAndCostsCell.xib */; };
+		566AD90324757CCE00898065 /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566AD90224757CCE00898065 /* CustomProgressView.swift */; };
+		566AD9062476722B00898065 /* AddOperationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566AD9052476722B00898065 /* AddOperationViewController.swift */; };
+		566AD9082476724200898065 /* AddOperationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566AD9072476724200898065 /* AddOperationCoordinator.swift */; };
+		566AD90A2476726A00898065 /* AddOperationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566AD9092476726A00898065 /* AddOperationView.swift */; };
+		566AD90C2476728200898065 /* AddOperationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566AD90B2476728200898065 /* AddOperationViewModel.swift */; };
+		566AD90E247672C600898065 /* AddOperation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 566AD90D247672C600898065 /* AddOperation.storyboard */; };
+		566AD91024768BB700898065 /* AddOperationTableViewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566AD90F24768BB700898065 /* AddOperationTableViewProvider.swift */; };
 		567086B52465888000CD2E2A /* CostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567086B42465888000CD2E2A /* CostsViewModel.swift */; };
 		567086B82465890200CD2E2A /* CostsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567086B72465890200CD2E2A /* CostsCoordinator.swift */; };
 		567086BE2465ABEA00CD2E2A /* Costs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 567086BD2465ABEA00CD2E2A /* Costs.storyboard */; };
 		5673755D245D70C100DD02FB /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5673755C245D70C100DD02FB /* SignInViewModel.swift */; };
-		5673755F245D8CB300DD02FB /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5673755E245D8CB300DD02FB /* LoginModel.swift */; };
+		5673755F245D8CB300DD02FB /* UserLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5673755E245D8CB300DD02FB /* UserLoginModel.swift */; };
 		5673DD6E24602AC50004EB12 /* AppRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5673DD6D24602AC50004EB12 /* AppRepository.swift */; };
 		567E1E3B246ACAFA00C50217 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567E1E3A246ACAFA00C50217 /* SignInView.swift */; };
 		567E1E3D246AF9B000C50217 /* FafilyBalanseApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567E1E3C246AF9B000C50217 /* FafilyBalanseApiClient.swift */; };
@@ -46,15 +55,19 @@
 		56816494246EF55E00BAAABF /* FiltersCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56816493246EF55E00BAAABF /* FiltersCoordinator.swift */; };
 		568164962472AFF200BAAABF /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568164952472AFF200BAAABF /* Category.swift */; };
 		568164982472B0F100BAAABF /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568164972472B0F100BAAABF /* Operation.swift */; };
-		5681649B2472B23C00BAAABF /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5681649A2472B23C00BAAABF /* CategoryViewModel.swift */; };
-		568164A12472CF1C00BAAABF /* CostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5681649F2472CF1C00BAAABF /* CostTableViewCell.swift */; };
-		568164A22472CF1C00BAAABF /* CostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 568164A02472CF1C00BAAABF /* CostTableViewCell.xib */; };
+		5681649B2472B23C00BAAABF /* CategoryUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5681649A2472B23C00BAAABF /* CategoryUIModel.swift */; };
+		568164A12472CF1C00BAAABF /* CostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5681649F2472CF1C00BAAABF /* CostCell.swift */; };
+		568164A22472CF1C00BAAABF /* CostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 568164A02472CF1C00BAAABF /* CostCell.xib */; };
 		568164A42472DF3000BAAABF /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568164A32472DF3000BAAABF /* ReusableView.swift */; };
 		568164A62472E2D300BAAABF /* CostsTableViewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568164A52472E2D300BAAABF /* CostsTableViewProvider.swift */; };
 		568164AA2472E44500BAAABF /* TableViewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568164A92472E44500BAAABF /* TableViewProvider.swift */; };
 		5682B80F2473CEA0002E2186 /* CostsPieChartHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5682B80E2473CEA0002E2186 /* CostsPieChartHeaderView.swift */; };
 		5682B8122473CEC1002E2186 /* CostsPieChartHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5682B8112473CEC1002E2186 /* CostsPieChartHeaderView.xib */; };
+		5694064F2476C25C009034FE /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5694064E2476C25C009034FE /* Filters.swift */; };
+		569406512476CC4C009034FE /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569406502476CC4C009034FE /* Data.swift */; };
+		569406532477DDBE009034FE /* GraphColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569406522477DDBE009034FE /* GraphColors.swift */; };
 		5699B553247442B300998BF0 /* FiltersTableViewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5699B552247442B300998BF0 /* FiltersTableViewProvider.swift */; };
+		5699B5562475628200998BF0 /* OperationsTableViewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5699B5552475628200998BF0 /* OperationsTableViewProvider.swift */; };
 		56AADA12246C38B100B2CC8F /* CoreDataClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AADA11246C38B100B2CC8F /* CoreDataClient.swift */; };
 		56AADA14246C3BFB00B2CC8F /* BaseCoordirator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AADA13246C3BFB00B2CC8F /* BaseCoordirator.swift */; };
 		56AADA17246C4A9700B2CC8F /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56AADA16246C4A9700B2CC8F /* SignUp.storyboard */; };
@@ -122,11 +135,20 @@
 		56444E0424599FDF00BB6BAE /* FamilyBalanceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FamilyBalanceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		56444E0824599FDF00BB6BAE /* FamilyBalanceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyBalanceUITests.swift; sourceTree = "<group>"; };
 		56444E0A24599FDF00BB6BAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		566AD8FE2475673500898065 /* IncomeAndCostsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeAndCostsCell.swift; sourceTree = "<group>"; };
+		566AD8FF2475673500898065 /* IncomeAndCostsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IncomeAndCostsCell.xib; sourceTree = "<group>"; };
+		566AD90224757CCE00898065 /* CustomProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressView.swift; sourceTree = "<group>"; };
+		566AD9052476722B00898065 /* AddOperationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOperationViewController.swift; sourceTree = "<group>"; };
+		566AD9072476724200898065 /* AddOperationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOperationCoordinator.swift; sourceTree = "<group>"; };
+		566AD9092476726A00898065 /* AddOperationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOperationView.swift; sourceTree = "<group>"; };
+		566AD90B2476728200898065 /* AddOperationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOperationViewModel.swift; sourceTree = "<group>"; };
+		566AD90D247672C600898065 /* AddOperation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddOperation.storyboard; sourceTree = "<group>"; };
+		566AD90F24768BB700898065 /* AddOperationTableViewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOperationTableViewProvider.swift; sourceTree = "<group>"; };
 		567086B42465888000CD2E2A /* CostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostsViewModel.swift; sourceTree = "<group>"; };
 		567086B72465890200CD2E2A /* CostsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostsCoordinator.swift; sourceTree = "<group>"; };
 		567086BD2465ABEA00CD2E2A /* Costs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Costs.storyboard; sourceTree = "<group>"; };
 		5673755C245D70C100DD02FB /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
-		5673755E245D8CB300DD02FB /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		5673755E245D8CB300DD02FB /* UserLoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginModel.swift; sourceTree = "<group>"; };
 		5673DD6D24602AC50004EB12 /* AppRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRepository.swift; sourceTree = "<group>"; };
 		567E1E3A246ACAFA00C50217 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		567E1E3C246AF9B000C50217 /* FafilyBalanseApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FafilyBalanseApiClient.swift; sourceTree = "<group>"; };
@@ -140,15 +162,19 @@
 		56816493246EF55E00BAAABF /* FiltersCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersCoordinator.swift; sourceTree = "<group>"; };
 		568164952472AFF200BAAABF /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		568164972472B0F100BAAABF /* Operation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
-		5681649A2472B23C00BAAABF /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
-		5681649F2472CF1C00BAAABF /* CostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostTableViewCell.swift; sourceTree = "<group>"; };
-		568164A02472CF1C00BAAABF /* CostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CostTableViewCell.xib; sourceTree = "<group>"; };
+		5681649A2472B23C00BAAABF /* CategoryUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryUIModel.swift; sourceTree = "<group>"; };
+		5681649F2472CF1C00BAAABF /* CostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostCell.swift; sourceTree = "<group>"; };
+		568164A02472CF1C00BAAABF /* CostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CostCell.xib; sourceTree = "<group>"; };
 		568164A32472DF3000BAAABF /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		568164A52472E2D300BAAABF /* CostsTableViewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostsTableViewProvider.swift; sourceTree = "<group>"; };
 		568164A92472E44500BAAABF /* TableViewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewProvider.swift; sourceTree = "<group>"; };
 		5682B80E2473CEA0002E2186 /* CostsPieChartHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostsPieChartHeaderView.swift; sourceTree = "<group>"; };
 		5682B8112473CEC1002E2186 /* CostsPieChartHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CostsPieChartHeaderView.xib; sourceTree = "<group>"; };
+		5694064E2476C25C009034FE /* Filters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
+		569406502476CC4C009034FE /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		569406522477DDBE009034FE /* GraphColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphColors.swift; sourceTree = "<group>"; };
 		5699B552247442B300998BF0 /* FiltersTableViewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersTableViewProvider.swift; sourceTree = "<group>"; };
+		5699B5552475628200998BF0 /* OperationsTableViewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationsTableViewProvider.swift; sourceTree = "<group>"; };
 		56AADA11246C38B100B2CC8F /* CoreDataClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataClient.swift; sourceTree = "<group>"; };
 		56AADA13246C3BFB00B2CC8F /* BaseCoordirator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordirator.swift; sourceTree = "<group>"; };
 		56AADA16246C4A9700B2CC8F /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
@@ -219,6 +245,7 @@
 				56184185246C6527006BF368 /* OperationsView.swift */,
 				56184187246C655E006BF368 /* OperationsViewModel.swift */,
 				56184183246C637E006BF368 /* OperationsCoordinator.swift */,
+				566AD8FC247565C100898065 /* OperationsTableView */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
@@ -254,33 +281,33 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		5618418D246D4AAB006BF368 /* Common */ = {
+		5618418D246D4AAB006BF368 /* Base */ = {
 			isa = PBXGroup;
 			children = (
 				56184190246D7D1B006BF368 /* AppSizes.swift */,
 				56184192246D7FBE006BF368 /* AppColors.swift */,
-				56EB9BC5246416AF002F815B /* Coordinator */,
-				56184195246D8692006BF368 /* Button */,
-				56184194246D8457006BF368 /* TextField */,
-				56EB9B9A2462B744002F815B /* View */,
+				5694064D2476C20D009034FE /* Enums */,
+				56184195246D8692006BF368 /* Buttons */,
+				56184194246D8457006BF368 /* TextFields */,
+				56EB9B9A2462B744002F815B /* Views */,
 			);
-			path = Common;
+			path = Base;
 			sourceTree = "<group>";
 		};
-		56184194246D8457006BF368 /* TextField */ = {
+		56184194246D8457006BF368 /* TextFields */ = {
 			isa = PBXGroup;
 			children = (
 				56EB9B982461C73F002F815B /* BlueStrokeTextField.swift */,
 			);
-			path = TextField;
+			path = TextFields;
 			sourceTree = "<group>";
 		};
-		56184195246D8692006BF368 /* Button */ = {
+		56184195246D8692006BF368 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
 				56184196246D8702006BF368 /* BlueRoundedButton.swift */,
 			);
-			path = Button;
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 		5618419A246E986D006BF368 /* UIViewController */ = {
@@ -318,12 +345,13 @@
 			children = (
 				567E1E3E246B01C400C50217 /* Keys.swift */,
 				56EB9B9D2462B8C0002F815B /* Application */,
+				56EB9BC5246416AF002F815B /* AppCoordinator */,
 				567E1E39246AC2E000C50217 /* Repository */,
 				56C5A2A5246562D300CE5602 /* Screen */,
 				568164A82472E41700BAAABF /* Protocols */,
 				56EB9B9C2462B89F002F815B /* Extention */,
 				56EB9B9B2462B75C002F815B /* Model */,
-				5618418D246D4AAB006BF368 /* Common */,
+				5618418D246D4AAB006BF368 /* Base */,
 				5618418C246D4A23006BF368 /* Resources */,
 			);
 			path = FamilyBalance;
@@ -345,6 +373,45 @@
 				56444E0A24599FDF00BB6BAE /* Info.plist */,
 			);
 			path = FamilyBalanceUITests;
+			sourceTree = "<group>";
+		};
+		566AD8FC247565C100898065 /* OperationsTableView */ = {
+			isa = PBXGroup;
+			children = (
+				5699B5552475628200998BF0 /* OperationsTableViewProvider.swift */,
+				566AD8FD2475661B00898065 /* Cell */,
+			);
+			path = OperationsTableView;
+			sourceTree = "<group>";
+		};
+		566AD8FD2475661B00898065 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				566AD8FE2475673500898065 /* IncomeAndCostsCell.swift */,
+				566AD8FF2475673500898065 /* IncomeAndCostsCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		566AD904247671A800898065 /* Add operation */ = {
+			isa = PBXGroup;
+			children = (
+				566AD90D247672C600898065 /* AddOperation.storyboard */,
+				566AD9052476722B00898065 /* AddOperationViewController.swift */,
+				566AD90B2476728200898065 /* AddOperationViewModel.swift */,
+				566AD9092476726A00898065 /* AddOperationView.swift */,
+				566AD9072476724200898065 /* AddOperationCoordinator.swift */,
+				566AD91124768FA400898065 /* AddOperationTableView */,
+			);
+			path = "Add operation";
+			sourceTree = "<group>";
+		};
+		566AD91124768FA400898065 /* AddOperationTableView */ = {
+			isa = PBXGroup;
+			children = (
+				566AD90F24768BB700898065 /* AddOperationTableViewProvider.swift */,
+			);
+			path = AddOperationTableView;
 			sourceTree = "<group>";
 		};
 		567086B6246588B400CD2E2A /* Costs */ = {
@@ -375,6 +442,7 @@
 		567E1E39246AC2E000C50217 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				569406502476CC4C009034FE /* Data.swift */,
 				5673DD6D24602AC50004EB12 /* AppRepository.swift */,
 				56AADA11246C38B100B2CC8F /* CoreDataClient.swift */,
 				567E1E3C246AF9B000C50217 /* FafilyBalanseApiClient.swift */,
@@ -407,7 +475,7 @@
 		568164992472B21400BAAABF /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				5681649A2472B23C00BAAABF /* CategoryViewModel.swift */,
+				5681649A2472B23C00BAAABF /* CategoryUIModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -415,8 +483,8 @@
 		5681649C2472CEB700BAAABF /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				5681649F2472CF1C00BAAABF /* CostTableViewCell.swift */,
-				568164A02472CF1C00BAAABF /* CostTableViewCell.xib */,
+				5681649F2472CF1C00BAAABF /* CostCell.swift */,
+				568164A02472CF1C00BAAABF /* CostCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -446,6 +514,15 @@
 				5682B8112473CEC1002E2186 /* CostsPieChartHeaderView.xib */,
 			);
 			path = ChartHeader;
+			sourceTree = "<group>";
+		};
+		5694064D2476C20D009034FE /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				5694064E2476C25C009034FE /* Filters.swift */,
+				569406522477DDBE009034FE /* GraphColors.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 		5699B5542475418000998BF0 /* FiltersTableView */ = {
@@ -478,21 +555,22 @@
 			path = SignUp;
 			sourceTree = "<group>";
 		};
-		56EB9B9A2462B744002F815B /* View */ = {
+		56EB9B9A2462B744002F815B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				566AD90224757CCE00898065 /* CustomProgressView.swift */,
 				5618418E246D7899006BF368 /* AuthBackView.swift */,
 				56C5A29E246430DF00CE5602 /* LoadingView.swift */,
 				56C5A2A0246430F500CE5602 /* LoadingView.xib */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		56EB9B9B2462B75C002F815B /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				568164992472B21400BAAABF /* ViewModel */,
-				5673755E245D8CB300DD02FB /* LoginModel.swift */,
+				5673755E245D8CB300DD02FB /* UserLoginModel.swift */,
 				568164952472AFF200BAAABF /* Category.swift */,
 				568164972472B0F100BAAABF /* Operation.swift */,
 			);
@@ -529,19 +607,20 @@
 				567086B6246588B400CD2E2A /* Costs */,
 				5681648A246EEA8400BAAABF /* Filter */,
 				5618417E246C6202006BF368 /* Operations */,
+				566AD904247671A800898065 /* Add operation */,
 				56184189246C6DE0006BF368 /* Profile */,
 			);
 			path = Main;
 			sourceTree = "<group>";
 		};
-		56EB9BC5246416AF002F815B /* Coordinator */ = {
+		56EB9BC5246416AF002F815B /* AppCoordinator */ = {
 			isa = PBXGroup;
 			children = (
 				56EB9BBD2463FC89002F815B /* AppCoordinator.swift */,
 				56AADA13246C3BFB00B2CC8F /* BaseCoordirator.swift */,
 				56214F50246569C7000CE0BD /* CoordinatorProtocols.swift */,
 			);
-			path = Coordinator;
+			path = AppCoordinator;
 			sourceTree = "<group>";
 		};
 		DD492D5FF358CA70EC3CC168 /* Pods */ = {
@@ -665,13 +744,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				56184180246C6261006BF368 /* Operations.storyboard in Resources */,
+				566AD90E247672C600898065 /* AddOperation.storyboard in Resources */,
 				56444DF324599FDF00BB6BAE /* LaunchScreen.storyboard in Resources */,
 				5681648C246EF4F000BAAABF /* Filters.storyboard in Resources */,
 				56444DF024599FDF00BB6BAE /* Assets.xcassets in Resources */,
 				56444DEB24599FDD00BB6BAE /* SignIn.storyboard in Resources */,
 				5682B8122473CEC1002E2186 /* CostsPieChartHeaderView.xib in Resources */,
+				566AD9012475673500898065 /* IncomeAndCostsCell.xib in Resources */,
 				567086BE2465ABEA00CD2E2A /* Costs.storyboard in Resources */,
-				568164A22472CF1C00BAAABF /* CostTableViewCell.xib in Resources */,
+				568164A22472CF1C00BAAABF /* CostCell.xib in Resources */,
 				56EB9BBC2463FB10002F815B /* Main.storyboard in Resources */,
 				56AADA17246C4A9700B2CC8F /* SignUp.storyboard in Resources */,
 				56C5A2A1246430F500CE5602 /* LoadingView.xib in Resources */,
@@ -769,15 +850,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				56EB9BBE2463FC89002F815B /* AppCoordinator.swift in Sources */,
+				566AD90324757CCE00898065 /* CustomProgressView.swift in Sources */,
 				56444DE824599FDD00BB6BAE /* SignInViewController.swift in Sources */,
 				56816492246EF54500BAAABF /* FiltersViewModel.swift in Sources */,
-				5673755F245D8CB300DD02FB /* LoginModel.swift in Sources */,
+				5673755F245D8CB300DD02FB /* UserLoginModel.swift in Sources */,
 				56444DE424599FDD00BB6BAE /* AppDelegate.swift in Sources */,
 				56184188246C655E006BF368 /* OperationsViewModel.swift in Sources */,
 				56AADA1B246C4AD100B2CC8F /* SignUpView.swift in Sources */,
 				56EB9BC224640A29002F815B /* Storyboard+instantiate.swift in Sources */,
 				56C5A29F246430DF00CE5602 /* LoadingView.swift in Sources */,
 				568164A62472E2D300BAAABF /* CostsTableViewProvider.swift in Sources */,
+				566AD9002475673500898065 /* IncomeAndCostsCell.swift in Sources */,
 				568164A42472DF3000BAAABF /* ReusableView.swift in Sources */,
 				56444DEE24599FDD00BB6BAE /* FamilyBalance.xcdatamodeld in Sources */,
 				5673DD6E24602AC50004EB12 /* AppRepository.swift in Sources */,
@@ -789,12 +872,16 @@
 				56816490246EF53500BAAABF /* FiltersView.swift in Sources */,
 				56184193246D7FBE006BF368 /* AppColors.swift in Sources */,
 				56EB9BBA2463FAE6002F815B /* CostsViewController.swift in Sources */,
+				566AD9082476724200898065 /* AddOperationCoordinator.swift in Sources */,
 				56184191246D7D1B006BF368 /* AppSizes.swift in Sources */,
 				56184199246D8F10006BF368 /* UIViewController + dismissKeyboard.swift in Sources */,
 				56AADA19246C4AB600B2CC8F /* CignUpViewController.swift in Sources */,
-				568164A12472CF1C00BAAABF /* CostTableViewCell.swift in Sources */,
+				569406532477DDBE009034FE /* GraphColors.swift in Sources */,
+				568164A12472CF1C00BAAABF /* CostCell.swift in Sources */,
+				566AD91024768BB700898065 /* AddOperationTableViewProvider.swift in Sources */,
 				56EB9BC424640E48002F815B /* SignInCoordinator.swift in Sources */,
 				56AADA1D246C4AE900B2CC8F /* SignUpViewModel.swift in Sources */,
+				569406512476CC4C009034FE /* Data.swift in Sources */,
 				56EB9B992461C73F002F815B /* BlueStrokeTextField.swift in Sources */,
 				56816486246ED9EF00BAAABF /* CostsView.swift in Sources */,
 				56816494246EF55E00BAAABF /* FiltersCoordinator.swift in Sources */,
@@ -803,13 +890,16 @@
 				56AADA12246C38B100B2CC8F /* CoreDataClient.swift in Sources */,
 				567E1E3D246AF9B000C50217 /* FafilyBalanseApiClient.swift in Sources */,
 				567E1E3F246B01C400C50217 /* Keys.swift in Sources */,
+				566AD90A2476726A00898065 /* AddOperationView.swift in Sources */,
 				567E1E3B246ACAFA00C50217 /* SignInView.swift in Sources */,
+				566AD9062476722B00898065 /* AddOperationViewController.swift in Sources */,
+				566AD90C2476728200898065 /* AddOperationViewModel.swift in Sources */,
 				56C5A2A32464696900CE5602 /* MainCoordinator.swift in Sources */,
 				56AADA14246C3BFB00B2CC8F /* BaseCoordirator.swift in Sources */,
 				56184186246C6527006BF368 /* OperationsView.swift in Sources */,
 				56816488246EE0CE00BAAABF /* UIImage + scaleTo.swift in Sources */,
 				5681648E246EF50300BAAABF /* FiltersViewController.swift in Sources */,
-				5681649B2472B23C00BAAABF /* CategoryViewModel.swift in Sources */,
+				5681649B2472B23C00BAAABF /* CategoryUIModel.swift in Sources */,
 				568164982472B0F100BAAABF /* Operation.swift in Sources */,
 				56214F51246569C7000CE0BD /* CoordinatorProtocols.swift in Sources */,
 				5673755D245D70C100DD02FB /* SignInViewModel.swift in Sources */,
@@ -817,6 +907,8 @@
 				567086B52465888000CD2E2A /* CostsViewModel.swift in Sources */,
 				56184184246C637E006BF368 /* OperationsCoordinator.swift in Sources */,
 				56184197246D8702006BF368 /* BlueRoundedButton.swift in Sources */,
+				5694064F2476C25C009034FE /* Filters.swift in Sources */,
+				5699B5562475628200998BF0 /* OperationsTableViewProvider.swift in Sources */,
 				568164962472AFF200BAAABF /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
