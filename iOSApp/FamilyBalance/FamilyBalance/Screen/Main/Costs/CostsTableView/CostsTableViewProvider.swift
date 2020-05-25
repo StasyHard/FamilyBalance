@@ -32,7 +32,7 @@ class CostsTableViewProvider: NSObject, TableViewProvider {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return tableView.frame.width
+        return tableView.frame.width - 50
     }
     
     func tableView(_ tableView: UITableView,

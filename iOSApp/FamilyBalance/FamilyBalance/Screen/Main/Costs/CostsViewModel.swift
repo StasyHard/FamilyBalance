@@ -57,26 +57,24 @@ final class CostsViewModel: CostsViewModelObservable {
         if filter != self.filter {
             self.filter = filter
             
-            getOperations()
+            getData()
         }
     }
     
     
     //MARK: - Private metods
-    private func getOperations() {
+    private func getData() {
         repo?.getOperations(filter: filter)
             .subscribe(
                 onNext: { /*[weak self]*/ operations in
                     let income = operations.filter { $0.category == nil }
-//                    if !income.isEmpty {
-//                        let sum = self.getSum(by: income)
-//                        self._incomeSum.onNext(sum)
-//                    }
+                    let sumIncome = self.getSum(by: income)
+                    self._incomeSum.onNext(sumIncome)
+                    
                     let costs = operations.filter { $0.category != nil }
-//                    if !costs.isEmpty {
-//                        let sum = self.getSum(by: costs)
-//                        self._costsSum.onNext(sum)
-//                    }
+                    let sumCosts = self.getSum(by: costs)
+                    self._costsSum.onNext(sumCosts)
+                    
                     let costsCategories = self.getCategories(by: costs)
                     self._categoryData.onNext(costsCategories)
             })
@@ -85,8 +83,11 @@ final class CostsViewModel: CostsViewModelObservable {
     
     private func getSum(by operations: [Operation]) -> Double {
         var sum = 0.0
-        operations.forEach { sum += $0.sum}
-        return sum
+        if !operations.isEmpty {
+            operations.forEach { sum += $0.sum}
+        }
+         return sum
+        
     }
     
     private func getCategories(by operations: [Operation]) -> [CategoryUIModel] {
@@ -135,7 +136,7 @@ final class CostsViewModel: CostsViewModelObservable {
 extension CostsViewModel: CostsViewActions {
     func viewDidLoad() {
         //-----------------------------------------------------------------------получить данные из сети
-        getOperations()
+        getData()
     }
     
     func filtersDidTapped() {

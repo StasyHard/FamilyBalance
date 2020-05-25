@@ -61,10 +61,12 @@ extension CostsView: CostsViewImplementation {
     
     func setIncomeSum(_ sum: Double) {
         tableViewProvider.incomeSum = sum
+        tableView.reloadData()
     }
     
     func setCostsSum(_ sum: Double) {
         tableViewProvider.costsSum = sum
+        tableView.reloadData()
     }
     
     func setCategories(_ categories: [CategoryUIModel]) {

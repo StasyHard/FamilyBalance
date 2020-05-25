@@ -65,7 +65,7 @@ class CostsViewController: UIViewController {
         
         viewModel.costsSum
             .bind { [weak self] sum in
-                self?.costsView?.setIncomeSum(sum)
+                self?.costsView?.setCostsSum(sum)
             }
         .disposed(by: self.disposeBag)
     }

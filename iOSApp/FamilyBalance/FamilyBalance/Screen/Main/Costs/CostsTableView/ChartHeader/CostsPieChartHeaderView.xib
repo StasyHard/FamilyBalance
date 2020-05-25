@@ -10,15 +10,15 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CostsPieChartHeaderView" customModule="FamilyBalance" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="585" height="648"/>
+            <rect key="frame" x="0.0" y="0.0" width="585" height="494"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cnI-4r-GIF" customClass="PieChartView" customModule="Charts">
-                    <rect key="frame" x="0.0" y="44" width="585" height="464.5"/>
+                    <rect key="frame" x="20" y="52" width="545" height="290.5"/>
                     <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="LQt-5O-LFt">
-                    <rect key="frame" x="20" y="553" width="71" height="51"/>
+                    <rect key="frame" x="20" y="399" width="71" height="51"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Доход" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CzX-Ae-6Co">
                             <rect key="frame" x="0.0" y="0.0" width="71" height="20.5"/>
@@ -35,7 +35,7 @@
                     </subviews>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="W93-9Y-toz">
-                    <rect key="frame" x="484.5" y="553" width="80.5" height="51"/>
+                    <rect key="frame" x="484.5" y="399" width="80.5" height="51"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100 000 ₽" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tyC-Rp-fgz">
                             <rect key="frame" x="0.0" y="0.0" width="80.5" height="20.5"/>
@@ -52,7 +52,7 @@
                     </subviews>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZTs-l9-eBj">
-                    <rect key="frame" x="20" y="516.5" width="545" height="20.5"/>
+                    <rect key="frame" x="20" y="358.5" width="545" height="20.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Апрель" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VWg-9s-C36">
                             <rect key="frame" x="242.5" y="0.0" width="60" height="20.5"/>
@@ -67,14 +67,14 @@
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ZTs-l9-eBj" secondAttribute="trailing" constant="20" id="8I1-HT-VDt"/>
                 <constraint firstItem="LQt-5O-LFt" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="DA0-2d-atS"/>
-                <constraint firstItem="cnI-4r-GIF" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Dn3-cU-gJ3"/>
+                <constraint firstItem="cnI-4r-GIF" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="Dn3-cU-gJ3"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="W93-9Y-toz" secondAttribute="bottom" constant="10" id="FcE-DD-69j"/>
-                <constraint firstItem="ZTs-l9-eBj" firstAttribute="top" secondItem="cnI-4r-GIF" secondAttribute="bottom" constant="8" id="M2O-ny-luI"/>
-                <constraint firstItem="cnI-4r-GIF" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="OEa-kX-VNV"/>
-                <constraint firstItem="LQt-5O-LFt" firstAttribute="top" secondItem="ZTs-l9-eBj" secondAttribute="bottom" constant="16" id="TMb-YJ-dOR"/>
+                <constraint firstItem="ZTs-l9-eBj" firstAttribute="top" secondItem="cnI-4r-GIF" secondAttribute="bottom" constant="16" id="M2O-ny-luI"/>
+                <constraint firstItem="cnI-4r-GIF" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="OEa-kX-VNV"/>
+                <constraint firstItem="LQt-5O-LFt" firstAttribute="top" secondItem="ZTs-l9-eBj" secondAttribute="bottom" constant="20" id="TMb-YJ-dOR"/>
                 <constraint firstItem="W93-9Y-toz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="LQt-5O-LFt" secondAttribute="trailing" constant="8" id="UUc-nL-I8w"/>
                 <constraint firstItem="ZTs-l9-eBj" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="UtW-5s-zcE"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="cnI-4r-GIF" secondAttribute="trailing" id="VCw-Wa-rUT"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="cnI-4r-GIF" secondAttribute="trailing" constant="20" id="VCw-Wa-rUT"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="W93-9Y-toz" secondAttribute="trailing" constant="20" id="f2C-Kq-tcg"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="LQt-5O-LFt" secondAttribute="bottom" constant="10" id="fY0-pb-y3T"/>
             </constraints>
@@ -88,7 +88,7 @@
                 <outlet property="incomeSumLabel" destination="tyC-Rp-fgz" id="CDr-ua-NTl"/>
                 <outlet property="pieChartView" destination="cnI-4r-GIF" id="r4i-qg-xlr"/>
             </connections>
-            <point key="canvasLocation" x="203.62318840579712" y="79.017857142857139"/>
+            <point key="canvasLocation" x="203.62318840579712" y="27.455357142857142"/>
         </view>
     </objects>
 </document>
