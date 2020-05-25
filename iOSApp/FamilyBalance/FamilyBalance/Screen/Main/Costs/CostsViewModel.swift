@@ -5,7 +5,7 @@ import RxCocoa
 
 
 protocol CostsViewModelObservable: class {
-    var filtersTapped: Observable<Void> { get set }
+    var filtersTapped: Observable<Filters> { get set }
     var categoryData: Observable<[CategoryUIModel]> { get set }
     var costsSum: Observable<Double> { get set }
     var incomeSum: Observable<Double> { get set }
@@ -21,14 +21,14 @@ protocol CostsViewActions: class {
 final class CostsViewModel: CostsViewModelObservable {
     
     //MARK: - CostsViewModelActions
-    var filtersTapped: Observable<Void>
+    var filtersTapped: Observable<Filters>
     var categoryData: Observable<[CategoryUIModel]>
     var costsSum: Observable<Double>
     var incomeSum: Observable<Double>
     
     
     //MARK: - Private properties
-    private let _filtersTapped = PublishSubject<Void>()
+    private let _filtersTapped = PublishSubject<Filters>()
     private let _categoryData = PublishSubject<[CategoryUIModel]>()
     private let _costsSum = BehaviorSubject<Double>(value: 0.0)
     private let _incomeSum = BehaviorSubject<Double>(value: 0.0)
@@ -87,7 +87,6 @@ final class CostsViewModel: CostsViewModelObservable {
             operations.forEach { sum += $0.sum}
         }
          return sum
-        
     }
     
     private func getCategories(by operations: [Operation]) -> [CategoryUIModel] {
@@ -102,7 +101,6 @@ final class CostsViewModel: CostsViewModelObservable {
                 let operationsInCategory = resCategory.value
                 let sumOperations = getSum(by: operationsInCategory)
                 
-                //operationsInCategory.forEach { sumOperations += $0.sum }
                 result.append(CategoryUIModel(id: category.id,
                                               name: category.title,
                                               sum: sumOperations))
@@ -140,6 +138,7 @@ extension CostsViewModel: CostsViewActions {
     }
     
     func filtersDidTapped() {
-        _filtersTapped.onNext(())
+        //передаем стартовый фильтр для экрана
+        _filtersTapped.onNext((filter))
     }
 }

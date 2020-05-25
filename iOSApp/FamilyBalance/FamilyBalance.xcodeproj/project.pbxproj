@@ -466,8 +466,8 @@
 				5681648D246EF50300BAAABF /* FiltersViewController.swift */,
 				56816491246EF54500BAAABF /* FiltersViewModel.swift */,
 				5681648F246EF53500BAAABF /* FiltersView.swift */,
-				5699B5542475418000998BF0 /* FiltersTableView */,
 				56816493246EF55E00BAAABF /* FiltersCoordinator.swift */,
+				5699B5542475418000998BF0 /* FiltersTableView */,
 			);
 			path = Filter;
 			sourceTree = "<group>";

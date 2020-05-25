@@ -4,6 +4,7 @@ import UIKit
 
 protocol FiltersViewImplementation: class {
     func setActionsDelegate(delegate: FiltersViewActions)
+    func setStartFilter(_ filter: Filters)
 }
 
 
@@ -12,11 +13,11 @@ class FiltersView: UIView {
     //MARK: - IBOutlet
     @IBOutlet weak var filterTableView: UITableView! {
         didSet {
-        filterTableView.backgroundColor = AppColors.backgroundColor
-        registerCells()
-        filterTableView.delegate = tableViewProvider
-        filterTableView.dataSource = tableViewProvider
-    }
+            filterTableView.backgroundColor = AppColors.backgroundColor
+            registerCells()
+            filterTableView.delegate = tableViewProvider
+            filterTableView.dataSource = tableViewProvider
+        }
     }
     
     
@@ -36,14 +37,19 @@ class FiltersView: UIView {
     private func registerCells() {
         //TODO: - написать кастомные ячейки и зарегистрировать их
     }
-    
 }
 
 
 
 extension FiltersView: FiltersViewImplementation {
+    
     func setActionsDelegate(delegate: FiltersViewActions) {
         self.actionsDelegate = delegate
+    }
+    
+    func setStartFilter(_ filter: Filters) {
+        tableViewProvider.setStartFilter(filter)
+        //filterTableView.reloadData()
     }
 }
 
