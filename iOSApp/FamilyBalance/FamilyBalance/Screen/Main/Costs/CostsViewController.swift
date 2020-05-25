@@ -57,6 +57,12 @@ class CostsViewController: UIViewController {
         }
         .disposed(by: self.disposeBag)
         
+        viewModel.graphData
+            .bind { [weak self] categories in
+                self?.costsView?.setGraphCategories(categories)
+        }
+        .disposed(by: self.disposeBag)
+        
         viewModel.incomeSum
             .bind { [weak self] sum in
                 self?.costsView?.setIncomeSum(sum)

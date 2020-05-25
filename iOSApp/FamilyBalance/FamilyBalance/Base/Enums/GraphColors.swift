@@ -6,6 +6,7 @@ enum GraphColors {
     case systemRed
     case systemGreen
     case systemOrange
-    case systemYellow
+    case systemPurple
+    case systemIndigo
     case systemGray
 }

@@ -32,20 +32,18 @@ class CostsPieChartHeaderView: UITableViewHeaderFooterView, ReusableView {
     
     
     //MARK: - Open metods
-    func updateUI(categories: [CategoryUIModel]) {
+    func updateUI(categories: [CategoryGraphModel]) {
         if categories.isEmpty {
             pieChartView.data = nil
             setNoDataText()
-            //costsSumLabel.text =
         } else {
             updateChartData(categories: categories)
         }
-        
-        
-        
     }
     
-    func updateChartData(categories: [CategoryUIModel]) {
+    
+    //MARK: - Private metods
+    private func updateChartData(categories: [CategoryGraphModel]) {
         var chartEntries = [ChartDataEntry]()
         var colors = [UIColor]()
         

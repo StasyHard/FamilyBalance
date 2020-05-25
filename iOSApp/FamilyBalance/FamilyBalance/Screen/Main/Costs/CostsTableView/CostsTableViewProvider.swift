@@ -4,6 +4,7 @@ import UIKit
 class CostsTableViewProvider: NSObject, TableViewProvider {
     
     //MARK: - Open properties
+    var graphCategories = [CategoryGraphModel]()
     var categories = [CategoryUIModel]()
     var costsSum: Double = 0.0
     var incomeSum: Double = 0.0
@@ -26,7 +27,7 @@ class CostsTableViewProvider: NSObject, TableViewProvider {
         //headerView.updateChartData(categories: categories)
         headerView.incomeSumLabel.text = "\(incomeSum) ₽"
         headerView.costsSumLabel.text = "\(costsSum) ₽"
-        headerView.updateUI(categories: categories)
+        headerView.updateUI(categories: graphCategories)
 
         return headerView
     }

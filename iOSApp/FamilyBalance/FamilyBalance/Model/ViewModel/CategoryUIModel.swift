@@ -2,7 +2,7 @@
 import Foundation
 import UIKit
 
-class CategoryUIModel {
+class CategoryUIModel: GraphColorConvertable {
     
     //MARK: - Open properties
     let id: Int
@@ -16,23 +16,5 @@ class CategoryUIModel {
         self.name = name
         self.color = color
         self.sum = sum
-    }
-    
-    //MARK: - Open properties
-    func getUIcolorFromGraphColor(_ graphColor: GraphColors) -> UIColor {
-        switch graphColor {
-        case .systemBlue:
-            return UIColor.systemBlue
-        case .systemRed:
-            return UIColor.systemRed
-        case .systemGreen:
-            return UIColor.systemGreen
-        case .systemOrange:
-            return UIColor.systemOrange
-        case .systemYellow:
-            return UIColor.systemBlue
-        case .systemGray:
-            return UIColor.systemGray
-        }
     }
 }
