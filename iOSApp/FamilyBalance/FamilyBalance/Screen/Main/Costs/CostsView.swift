@@ -4,8 +4,11 @@ import Charts
 
 
 protocol CostsViewImplementation: class {
-    func setProvider(provider: CostsViewActions)
-    func setData(_ categories: [CategoryViewModel])
+    func setaAtionsDelegate(delegate: CostsViewActions)
+    func setCategories(_ categories: [CategoryUIModel])
+    func setGraphCategories(_ categorise: [CategoryGraphModel])
+    func setIncomeSum(_ sum: Double)
+    func setCostsSum(_ sum: Double)
 }
 
 
@@ -17,7 +20,6 @@ class CostsView: UIView {
         didSet {
             tableView.backgroundColor = AppColors.backgroundColor
             registerCells()
-            //TODO: ------------------------------- Подумать где должна быть реализация
             tableView.delegate = tableViewProvider
             tableView.dataSource = tableViewProvider
         }
@@ -25,7 +27,7 @@ class CostsView: UIView {
     
     
     //MARK: - Private properties
-    private var provider: CostsViewActions?
+    private var actionsDelegate: CostsViewActions?
     //TODO: ------------------------------- Подумать где должна быть реализация
     private let tableViewProvider = CostsTableViewProvider()
     
@@ -53,12 +55,28 @@ class CostsView: UIView {
 
 
 extension CostsView: CostsViewImplementation {
-    func setProvider(provider: CostsViewActions) {
-        self.provider = provider
+
+    func setaAtionsDelegate(delegate: CostsViewActions) {
+        self.actionsDelegate = delegate
     }
     
-    func setData(_ categories: [CategoryViewModel]) {
+    func setIncomeSum(_ sum: Double) {
+        tableViewProvider.incomeSum = sum
+        tableView.reloadData()
+    }
+    
+    func setCostsSum(_ sum: Double) {
+        tableViewProvider.costsSum = sum
+        tableView.reloadData()
+    }
+    
+    func setCategories(_ categories: [CategoryUIModel]) {
         tableViewProvider.categories = categories
+        tableView.reloadData()
+    }
+    
+    func setGraphCategories(_ categorise: [CategoryGraphModel]) {
+        tableViewProvider.graphCategories = categorise
         tableView.reloadData()
     }
 }

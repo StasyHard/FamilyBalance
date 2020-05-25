@@ -1,13 +1,6 @@
 
 import UIKit
 
-enum Filters: String {
-    case today = "Сегодня"
-    case week = "Текущая неделя"
-    case mounth = "Текущий месяц"
-    case year = "Текущий год"
-}
-
 
 class FiltersTableViewProvider: NSObject, TableViewProvider {
     
@@ -15,21 +8,24 @@ class FiltersTableViewProvider: NSObject, TableViewProvider {
     private let sectionsTitles = ["Период"]
     private let periodCellsType = [Filters.today, .week, .mounth, .year]
     
-    private var selectedCellIndexPath: IndexPath = IndexPath(row: 2, section: 0)
+    private var selectedCellIndexPath: IndexPath?
     
     private let headerHeight: CGFloat = 20.0
     
     
     //MARK: - Open metods
-//    func setAccounts() {
-//        //TODO: добавить счета клиента в массив счетов
-//    }
     
-        func getFilter() -> Filters {
-            var filterItem: Filters
-            filterItem = periodCellsType[selectedCellIndexPath.row]
-            return filterItem
-        }
+    func getFilter() -> Filters {
+        var filterItem: Filters
+        filterItem = periodCellsType[selectedCellIndexPath!.row]
+        return filterItem
+    }
+    
+    func setStartFilter(_ filer: Filters) {
+        guard let row = periodCellsType.firstIndex(of: filer)
+            else { return }
+        selectedCellIndexPath = IndexPath(row: row, section: 0)
+    }
     
     
     //MARK: - TableViewProvider metods

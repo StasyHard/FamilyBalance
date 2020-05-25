@@ -23,7 +23,7 @@ class FiltersViewController: UIViewController {
         setNavigationUI()
         
         guard let viewModel = viewModel else { return }
-        filtersView?.setProvider(provider: viewModel)
+        filtersView?.setActionsDelegate(delegate: viewModel)
         observeViewModel(viewModel)
     }
     
@@ -47,7 +47,10 @@ class FiltersViewController: UIViewController {
     
     private func observeViewModel(_ viewModel: FiltersViewModelObservable) {
         
-        
-       // .disposed(by: self.disposeBag)
+        viewModel.startFilter
+            .bind { [weak self] filter in
+                self?.filtersView?.setStartFilter(filter)
+        }
+        .disposed(by: self.disposeBag)
     }
 }

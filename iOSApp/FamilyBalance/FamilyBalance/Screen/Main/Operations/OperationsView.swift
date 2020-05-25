@@ -2,7 +2,7 @@
 import UIKit
 
 protocol OperationsViewImplementation: class {
-    func setProvider(provider: OperationsViewActions)
+    func setActionsDelegate(delegate: OperationsViewActions)
 }
 
 protocol OperationsViewActions: class {
@@ -13,7 +13,7 @@ protocol OperationsViewActions: class {
 class OperationsView: UIView {
     
     //MARK: - Private properties
-    private var provider: OperationsViewActions?
+    private var actionsDelegate: OperationsViewActions?
     //TODO: ------------------------------- Подумать где должна быть реализация
     private let tableViewProvider = OperationsTableViewProvider()
     
@@ -39,7 +39,7 @@ class OperationsView: UIView {
 
 extension OperationsView: OperationsViewImplementation {
     
-    func setProvider(provider: OperationsViewActions) {
+    func setActionsDelegate(delegate: OperationsViewActions) {
         
     }
 }

@@ -21,7 +21,7 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         
         observeViewModel()
-        signUpView?.setProvider(provider: self)
+        signUpView?.setActionsDelegate(delegate: self)
     }
     
     

@@ -15,12 +15,15 @@ final class FiltersCoordinator: BaseCoordirator {
     private var navController: UINavigationController
     private var filtersNavController: UINavigationController?
     
+    private let startFilter: Filters
+    
     private let disposeBag = DisposeBag()
     
     
     //MARK: - Init
-    init(navController: UINavigationController) {
+    init(navController: UINavigationController, startFilter: Filters) {
         self.navController = navController
+        self.startFilter = startFilter
     }
     
     
@@ -30,7 +33,7 @@ final class FiltersCoordinator: BaseCoordirator {
         self.filtersNavController = filtersNavController
         
         let filtersVC = UIStoryboard.instantiateFiltersVC()
-        let viewModel = FiltersViewModel()
+        let viewModel = FiltersViewModel(startFilter: startFilter)
         filtersVC.viewModel = viewModel
         navController.present(filtersNavController, animated: true, completion: nil)
         filtersNavController.pushViewController(filtersVC, animated: false)
@@ -42,7 +45,7 @@ final class FiltersCoordinator: BaseCoordirator {
     //MARK: - Private metods
     private func observeViewModel(_ viewModel: FiltersViewModelObservable) {
         
-        viewModel.filter
+        viewModel.isSetFilter
             .bind { [weak self] filter in
                 let listener: FiltersListener? = self?.findHandler()
                 listener?.setFilter(filter)

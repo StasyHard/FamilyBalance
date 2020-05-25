@@ -3,7 +3,8 @@ import Foundation
 import RxSwift
 
 protocol Repository {
-    func signIn(_ loginModel: LoginModel) -> Single<String>
+    func signIn(_ loginModel: UserLoginModel) -> Single<String>
+    func getOperations(filter: Filters) -> Observable<[Operation]>
 }
 
 
@@ -12,11 +13,12 @@ final class AppRepository: Repository {
     private let apiClient = FafilyBalanseApiClient()
     private let localClient = CoreDataClient()
     
-    func signIn(_ loginModel: LoginModel) -> Single<String> {
+    
+    func signIn(_ loginModel: UserLoginModel) -> Single<String> {
         return Single
-            .create { single in
+            .create { [weak self] single in
                 
-                self.apiClient.signIn(user: loginModel) { response in
+                self?.apiClient.signIn(user: loginModel) { response in
                     if let token = response {
                         single(.success(token))
                     } else {
@@ -26,6 +28,19 @@ final class AppRepository: Repository {
                 }
                 return Disposables.create()
         }
+    }
+    
+    func getOperations(filter: Filters) -> Observable<[Operation]> {
+        return Observable
+            .create { [weak self] result in
+                //проверяем есть ли в базе данные за период, если нет запрашиваем у сервера
+                let operations = self?.apiClient.getOperations(period: filter)
+                result.onNext(operations!)
+                //result.onError()
+                
+                return Disposables.create()
+        }
+        
     }
 }
 

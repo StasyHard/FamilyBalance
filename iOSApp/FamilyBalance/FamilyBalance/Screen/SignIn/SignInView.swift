@@ -3,7 +3,7 @@ import UIKit
 
 
 protocol SignInViewImplementation: class {
-    func setProvider(provider: SignInViewActions)
+    func setActionsDelegate(delegate: SignInViewActions)
     
     func isSignInActionsActive(_ isActive: Bool)
     func showLoading()
@@ -29,7 +29,7 @@ final class SignInView: UIView {
     
     
     //MARK: - Private properties
-    private var provider: SignInViewActions?
+    private var actionsDelegate: SignInViewActions?
     private var loadingView: LoadingView?
     
     
@@ -42,11 +42,11 @@ final class SignInView: UIView {
                 checkInputData(passwordTextField)
                 return
         }
-        provider?.signInDidTapped(emailInput, passwordInput)
+        actionsDelegate?.signInDidTapped(emailInput, passwordInput)
     }
     
     @IBAction func signUpTapped(_ sender: UIButton) {
-        provider?.signUpDidTapped()
+        actionsDelegate?.signUpDidTapped()
     }
     
     //MARK: - Init
@@ -76,8 +76,8 @@ final class SignInView: UIView {
 //MARK: - SignInViewImplementation
 extension SignInView: SignInViewImplementation {
     
-    func setProvider(provider: SignInViewActions) {
-        self.provider = provider
+    func setActionsDelegate(delegate: SignInViewActions) {
+        self.actionsDelegate = delegate
     }
     
     func isSignInActionsActive(_ isActive: Bool) {
