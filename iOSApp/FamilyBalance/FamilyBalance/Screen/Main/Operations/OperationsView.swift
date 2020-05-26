@@ -5,16 +5,11 @@ protocol OperationsViewImplementation: class {
     func setActionsDelegate(delegate: OperationsViewActions)
 }
 
-protocol OperationsViewActions: class {
-    
-}
-
 
 class OperationsView: UIView {
     
     //MARK: - Private properties
     private var actionsDelegate: OperationsViewActions?
-    //TODO: ------------------------------- Подумать где должна быть реализация
     private let tableViewProvider = OperationsTableViewProvider()
     
     
@@ -40,6 +35,6 @@ class OperationsView: UIView {
 extension OperationsView: OperationsViewImplementation {
     
     func setActionsDelegate(delegate: OperationsViewActions) {
-        
+        self.actionsDelegate = delegate
     }
 }

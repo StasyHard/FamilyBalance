@@ -108,12 +108,13 @@ final class CostsViewModel: CostsViewModelObservable {
         return sum
     }
     
+    //получаем категории для таблицы из операций
     private func getCategories(by operations: [Operation]) -> [CategoryUIModel] {
         var categories = [CategoryUIModel]()
         if !operations.isEmpty {
             let resCategories = Dictionary(grouping: operations,
                                            by: {$0.category})
-            
+        
             categories = resCategories
                 .reduce([]) { (result, resCategory) -> [CategoryUIModel] in
                     var result = result
@@ -133,19 +134,21 @@ final class CostsViewModel: CostsViewModelObservable {
         return categories
     }
     
+    //устанавливаем категориям цвета для графика
     private func setCategoriesGraphColors(categories: [CategoryUIModel]) -> [CategoryUIModel] {
-        let colors = [GraphColors.systemBlue, .systemRed, .systemGreen, .systemOrange, .systemIndigo, .systemPurple, .systemGray]
+        let colors = GraphColors.allCases
         for ind in 0..<categories.count {
             if ind < colors.count {
                 categories[ind].color = colors[ind]
             }
             else {
-                categories[ind].color = .systemGray
+                categories[ind].color = colors.last ??  GraphColors.systemGray
             }
         }
         return categories
     }
     
+    //получаем категории для отображения на графике
     private func getCategoriesForGraph(by categories: [CategoryUIModel]) -> [CategoryGraphModel] {
         var graphCategories = [CategoryGraphModel]()
         if !categories.isEmpty {
@@ -173,7 +176,6 @@ final class CostsViewModel: CostsViewModelObservable {
 
 extension CostsViewModel: CostsViewActions {
     func viewDidLoad() {
-        //-----------------------------------------------------------------------получить данные из сети
         getData()
     }
     

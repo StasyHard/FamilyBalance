@@ -1,7 +1,7 @@
 
 import Foundation
 
-enum GraphColors {
+enum GraphColors: CaseIterable {
     case systemBlue
     case systemRed
     case systemGreen
