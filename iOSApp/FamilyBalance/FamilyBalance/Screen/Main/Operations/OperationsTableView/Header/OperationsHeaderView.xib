@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="MR0-9a-Rc9" customClass="OperationsHeaderView" customModule="FamilyBalance" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="524" height="47"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Y8-6H-izl">
+                    <rect key="frame" x="20" y="8" width="33" height="3"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zCd-Ee-BHY">
+                    <rect key="frame" x="470" y="8" width="34" height="3"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                    <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="3Y8-6H-izl" firstAttribute="leading" secondItem="A2f-Qj-YfQ" secondAttribute="leading" constant="20" id="Cia-if-Rqt"/>
+                <constraint firstItem="A2f-Qj-YfQ" firstAttribute="bottom" secondItem="zCd-Ee-BHY" secondAttribute="bottom" constant="2" id="Mbh-7F-I5Q"/>
+                <constraint firstItem="A2f-Qj-YfQ" firstAttribute="trailing" secondItem="zCd-Ee-BHY" secondAttribute="trailing" constant="20" id="doS-5q-VGJ"/>
+                <constraint firstItem="zCd-Ee-BHY" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3Y8-6H-izl" secondAttribute="trailing" constant="8" id="mtj-9f-Hez"/>
+                <constraint firstItem="A2f-Qj-YfQ" firstAttribute="bottom" secondItem="3Y8-6H-izl" secondAttribute="bottom" constant="2" id="ocM-t5-gZm"/>
+                <constraint firstItem="3Y8-6H-izl" firstAttribute="top" secondItem="MR0-9a-Rc9" secondAttribute="top" constant="8" id="vSk-kX-wQO"/>
+                <constraint firstItem="zCd-Ee-BHY" firstAttribute="top" secondItem="MR0-9a-Rc9" secondAttribute="top" constant="8" id="yTk-WX-COa"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="A2f-Qj-YfQ"/>
+            <connections>
+                <outlet property="dateLabel" destination="3Y8-6H-izl" id="TRy-Pk-FHS"/>
+                <outlet property="summLabel" destination="zCd-Ee-BHY" id="IVi-Lh-V9C"/>
+            </connections>
+            <point key="canvasLocation" x="79.710144927536234" y="-266.85267857142856"/>
+        </view>
+    </objects>
+</document>

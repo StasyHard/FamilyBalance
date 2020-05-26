@@ -49,6 +49,23 @@ class OperationsViewController: UIViewController {
     
     private func observeViewModel(_ viewModel: OperationsViewModelObservable) {
         
+        viewModel.operationsByDays
+            .bind { [weak self] operations in
+                self?.operationsView?.showOperationsByDays(operations)
+        }
+        .disposed(by: self.disposeBag)
+        
+        viewModel.incomeSum
+            .bind { [weak self] sum in
+                self?.operationsView?.showIncomeSum(sum)
+        }
+        .disposed(by: self.disposeBag)
+        
+        viewModel.costsSum
+            .bind { [weak self] sum in
+                self?.operationsView?.showCostsSum(sum)
+        }
+        .disposed(by: self.disposeBag)
     }
 }
 

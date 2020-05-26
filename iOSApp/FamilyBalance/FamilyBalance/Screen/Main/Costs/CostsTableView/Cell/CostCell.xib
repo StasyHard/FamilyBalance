@@ -24,7 +24,7 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Продукты" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x3N-hY-doa">
-                        <rect key="frame" x="56" y="12" width="79.5" height="20.5"/>
+                        <rect key="frame" x="56" y="8" width="79.5" height="28"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -38,11 +38,13 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="x3N-hY-doa" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="4vJ-I3-RDz"/>
+                    <constraint firstItem="x3N-hY-doa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="833-1e-6mY"/>
+                    <constraint firstAttribute="bottom" secondItem="x3N-hY-doa" secondAttribute="bottom" constant="8" id="8oz-4G-VRj"/>
                     <constraint firstItem="uN3-8e-ooE" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="HtP-Kh-eAc"/>
                     <constraint firstItem="x3N-hY-doa" firstAttribute="leading" secondItem="pBm-3N-IVL" secondAttribute="trailing" constant="8" id="NRI-eO-XKU"/>
-                    <constraint firstAttribute="bottom" secondItem="pBm-3N-IVL" secondAttribute="bottom" constant="8" id="fgw-yS-rzO"/>
                     <constraint firstItem="pBm-3N-IVL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="ihc-EP-P8O"/>
                     <constraint firstItem="uN3-8e-ooE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="x3N-hY-doa" secondAttribute="trailing" constant="8" id="lsn-WJ-Qgs"/>
+                    <constraint firstItem="pBm-3N-IVL" firstAttribute="height" secondItem="x3N-hY-doa" secondAttribute="height" id="qYJ-p9-e3H"/>
                     <constraint firstAttribute="trailing" secondItem="uN3-8e-ooE" secondAttribute="trailing" constant="20" id="tws-8J-tNz"/>
                     <constraint firstItem="pBm-3N-IVL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="w8v-1l-tFZ"/>
                 </constraints>

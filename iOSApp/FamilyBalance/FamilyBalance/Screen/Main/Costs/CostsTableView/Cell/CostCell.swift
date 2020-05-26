@@ -32,7 +32,7 @@ class CostCell: UITableViewCell, ReusableView {
     }
     
     override func layoutSubviews() {
-        colorView.layer.cornerRadius = 10.0
+        colorView.layer.cornerRadius = 10
         colorView.clipsToBounds = true
     }
 }

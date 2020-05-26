@@ -11,7 +11,7 @@ class CostsTableViewProvider: NSObject, TableViewProvider {
     
     
     //MARK: - Private properties
-    private let tableViewCellHeight: CGFloat = 35.0
+    private let tableViewCellHeight: CGFloat = 40.0
     
     
     //MARK: - TableViewProvider metods
@@ -40,11 +40,11 @@ class CostsTableViewProvider: NSObject, TableViewProvider {
                    numberOfRowsInSection section: Int) -> Int {
         return categories.count
     }
-    
-    func tableView(_ tableView: UITableView,
-                   heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableViewCellHeight
-    }
+//    
+//    func tableView(_ tableView: UITableView,
+//                   heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return tableViewCellHeight
+//    }
     
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {

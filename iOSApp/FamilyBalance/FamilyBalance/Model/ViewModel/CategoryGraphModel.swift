@@ -2,7 +2,7 @@
 import Foundation
 
 
-class CategoryGraphModel: GraphColorConvertable {
+final class CategoryGraphModel: GraphColorConvertable {
     
     //MARK: - Open properties
     let color: GraphColors

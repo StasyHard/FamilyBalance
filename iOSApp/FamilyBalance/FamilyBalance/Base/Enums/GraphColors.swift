@@ -1,6 +1,7 @@
 
 import Foundation
 
+//Цвета категорий для экрана Категории
 enum GraphColors: CaseIterable {
     case systemBlue
     case systemRed

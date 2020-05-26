@@ -2,7 +2,7 @@
 import Foundation
 import UIKit
 
-class CategoryUIModel: GraphColorConvertable {
+final class CategoryUIModel: GraphColorConvertable {
     
     //MARK: - Open properties
     let id: Int
