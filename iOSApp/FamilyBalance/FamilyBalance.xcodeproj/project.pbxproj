@@ -252,8 +252,8 @@
 			children = (
 				5618417F246C6261006BF368 /* Operations.storyboard */,
 				56184181246C62AC006BF368 /* OperationsViewController.swift */,
-				56184185246C6527006BF368 /* OperationsView.swift */,
 				56184187246C655E006BF368 /* OperationsViewModel.swift */,
+				56184185246C6527006BF368 /* OperationsView.swift */,
 				56184183246C637E006BF368 /* OperationsCoordinator.swift */,
 				566AD8FC247565C100898065 /* OperationsTableView */,
 			);

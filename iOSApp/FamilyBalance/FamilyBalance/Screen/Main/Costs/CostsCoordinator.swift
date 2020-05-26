@@ -56,6 +56,4 @@ extension CostsCoordinator: FiltersListener {
     func setFilter(_ filter: Filters) {
         viewModel?.wasSetFilter(filter: filter)
     }
-    
-    
 }

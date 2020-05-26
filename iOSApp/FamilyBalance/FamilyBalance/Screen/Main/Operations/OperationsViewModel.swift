@@ -5,6 +5,7 @@ import RxCocoa
 
 
 protocol OperationsViewModelObservable: class {
+    var filtersTapped: Observable<Filters> { get set }
     var operationsByDays: Observable<[DayOperationsUIModel]> { get set }
     var costsSum: Observable<Double> { get set }
     var incomeSum: Observable<Double> { get set }
@@ -12,18 +13,21 @@ protocol OperationsViewModelObservable: class {
 
 protocol OperationsViewActions: class {
     func viewDidLoad()
+    func filtersDidTapped()
 }
 
 
 final class OperationsViewModel: OperationsViewModelObservable {
     
     //MARK: - OperationsViewModelObservable
+    var filtersTapped: Observable<Filters>
     var operationsByDays: Observable<[DayOperationsUIModel]>
     var costsSum: Observable<Double>
     var incomeSum: Observable<Double>
     
     
     //MARK: - Private properties
+    private let _filtersTapped = PublishSubject<Filters>()
     private let _operationsByDay = PublishSubject<[DayOperationsUIModel]>()
     private let _costsSum = BehaviorSubject<Double>(value: 0.0)
     private let _incomeSum = BehaviorSubject<Double>(value: 0.0)
@@ -39,9 +43,23 @@ final class OperationsViewModel: OperationsViewModelObservable {
         operationsByDays = _operationsByDay
         costsSum = _costsSum
         incomeSum = _incomeSum
+        filtersTapped = _filtersTapped
         
         self.repo = repo
     }
+    
+    
+    //MARK: - Open metods
+      //координатор вызывает функцию, когда на экране фильтров была нажата кнопка показать
+      func wasSetFilter(filter: Filters) {
+          
+          if filter != self.filter {
+              self.filter = filter
+              
+              getData()
+          }
+      }
+    
     
     //MARK: - Private metods
     //получаем операции и преобразовываем их в необходимые данные: массив операций сортированный по дням, общая сумма доходов, общая сумма расходов
@@ -113,8 +131,14 @@ final class OperationsViewModel: OperationsViewModelObservable {
 
 
 extension OperationsViewModel: OperationsViewActions {
+    
     func viewDidLoad() {
         getData()
+    }
+    
+    func filtersDidTapped() {
+        //передаем стартовый фильтр для экрана
+        _filtersTapped.onNext((filter))
     }
 }
 

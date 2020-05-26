@@ -14,7 +14,6 @@ protocol CostsViewModelObservable: class {
 
 protocol CostsViewActions: class {
     func filtersDidTapped()
-    
     func viewDidLoad()
 }
 

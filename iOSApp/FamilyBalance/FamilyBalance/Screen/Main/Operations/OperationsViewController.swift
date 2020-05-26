@@ -44,7 +44,7 @@ class OperationsViewController: UIViewController {
     }
     
     @objc private func filterButtonTapped() {
-        //viewModel?.filtersDidTapped()
+        viewModel?.filtersDidTapped()
     }
     
     private func observeViewModel(_ viewModel: OperationsViewModelObservable) {

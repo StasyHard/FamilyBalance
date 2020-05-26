@@ -10,6 +10,7 @@ final class OperationsCoordinator: BaseCoordirator {
     private var navController: UINavigationController
     
     private let repo: Repository
+    private var viewModel: OperationsViewModel?
     
     private let disposeBag = DisposeBag()
     
@@ -25,10 +26,30 @@ final class OperationsCoordinator: BaseCoordirator {
         navController.setViewControllers([operationsVC], animated: false)
         
         observeViewModel(viewModel)
+        self.viewModel = viewModel
     }
     
     private func observeViewModel(_ viewModel: OperationsViewModelObservable) {
         
+        viewModel.filtersTapped
+            .bind {  [weak self] startFilter in
+                    self?.showFilterModule(startFilter: startFilter)
+            }
+            .disposed(by: self.disposeBag)
     }
     
+    private func showFilterModule(startFilter: Filters) {
+        let filtersCoordinator = FiltersCoordinator(navController: navController, startFilter: startFilter)
+        childCoordinators.append(filtersCoordinator)
+        filtersCoordinator.parentCoordinator = self
+        filtersCoordinator.start()
+    }
+}
+
+
+
+extension OperationsCoordinator: FiltersListener {
+    func setFilter(_ filter: Filters) {
+        viewModel?.wasSetFilter(filter: filter)
+    }
 }
