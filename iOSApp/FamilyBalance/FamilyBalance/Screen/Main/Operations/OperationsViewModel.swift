@@ -33,7 +33,7 @@ final class OperationsViewModel: OperationsViewModelObservable {
     private let _incomeSum = BehaviorSubject<Double>(value: 0.0)
     
     private let repo: Repository
-    private var filter: Filters = .year
+    private var filter: Filters = .mounth
     
     private let disposeBag = DisposeBag()
     

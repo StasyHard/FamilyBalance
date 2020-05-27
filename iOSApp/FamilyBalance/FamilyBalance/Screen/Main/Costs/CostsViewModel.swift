@@ -113,7 +113,7 @@ final class CostsViewModel: CostsViewModelObservable {
         if !operations.isEmpty {
             let resCategories = Dictionary(grouping: operations,
                                            by: {$0.category})
-        
+            
             categories = resCategories
                 .reduce([]) { (result, resCategory) -> [CategoryUIModel] in
                     var result = result
@@ -166,6 +166,14 @@ final class CostsViewModel: CostsViewModelObservable {
                     return result
             }
         }
+        //категория с серым цветом должна быть последняя в массиве
+        graphCategories = graphCategories.sorted { $0.sum > $1.sum }
+        let ind = graphCategories.firstIndex { $0.color == .systemGray }
+        guard let index = ind
+            else { return graphCategories }
+        let elem = graphCategories[index]
+        graphCategories.remove(at: index)
+        graphCategories.append(elem)
         return graphCategories
     }
 }
