@@ -70,6 +70,10 @@
 		56926D98247E56A9007CFE7E /* Date+currentWeekMonday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56926D97247E56A9007CFE7E /* Date+currentWeekMonday.swift */; };
 		56926D9B247E5718007CFE7E /* Calendar+iso8601.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56926D9A247E5718007CFE7E /* Calendar+iso8601.swift */; };
 		56926D9D247E75DB007CFE7E /* Period.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56926D9C247E75DB007CFE7E /* Period.swift */; };
+		56926DA0247E96A3007CFE7E /* SumOperationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56926D9F247E96A3007CFE7E /* SumOperationCell.swift */; };
+		56926DA2247E96BA007CFE7E /* SumOperationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56926DA1247E96BA007CFE7E /* SumOperationCell.xib */; };
+		56926DA4247EA91E007CFE7E /* AddOperationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56926DA3247EA91E007CFE7E /* AddOperationCell.swift */; };
+		56926DA6247EAA30007CFE7E /* AddOperationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56926DA5247EAA30007CFE7E /* AddOperationCell.xib */; };
 		5694064F2476C25C009034FE /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5694064E2476C25C009034FE /* Filters.swift */; };
 		569406512476CC4C009034FE /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569406502476CC4C009034FE /* Data.swift */; };
 		569406532477DDBE009034FE /* GraphColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569406522477DDBE009034FE /* GraphColors.swift */; };
@@ -186,6 +190,10 @@
 		56926D97247E56A9007CFE7E /* Date+currentWeekMonday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+currentWeekMonday.swift"; sourceTree = "<group>"; };
 		56926D9A247E5718007CFE7E /* Calendar+iso8601.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calendar+iso8601.swift"; sourceTree = "<group>"; };
 		56926D9C247E75DB007CFE7E /* Period.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Period.swift; sourceTree = "<group>"; };
+		56926D9F247E96A3007CFE7E /* SumOperationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SumOperationCell.swift; sourceTree = "<group>"; };
+		56926DA1247E96BA007CFE7E /* SumOperationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SumOperationCell.xib; sourceTree = "<group>"; };
+		56926DA3247EA91E007CFE7E /* AddOperationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOperationCell.swift; sourceTree = "<group>"; };
+		56926DA5247EAA30007CFE7E /* AddOperationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddOperationCell.xib; sourceTree = "<group>"; };
 		5694064E2476C25C009034FE /* Filters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
 		569406502476CC4C009034FE /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		569406522477DDBE009034FE /* GraphColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphColors.swift; sourceTree = "<group>"; };
@@ -429,6 +437,7 @@
 			isa = PBXGroup;
 			children = (
 				566AD90F24768BB700898065 /* AddOperationTableViewProvider.swift */,
+				56926D9E247E9658007CFE7E /* Cells */,
 			);
 			path = AddOperationTableView;
 			sourceTree = "<group>";
@@ -562,6 +571,17 @@
 				56926D9A247E5718007CFE7E /* Calendar+iso8601.swift */,
 			);
 			path = Calendar;
+			sourceTree = "<group>";
+		};
+		56926D9E247E9658007CFE7E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				56926D9F247E96A3007CFE7E /* SumOperationCell.swift */,
+				56926DA1247E96BA007CFE7E /* SumOperationCell.xib */,
+				56926DA3247EA91E007CFE7E /* AddOperationCell.swift */,
+				56926DA5247EAA30007CFE7E /* AddOperationCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		5694064D2476C20D009034FE /* Enums */ = {
@@ -798,6 +818,7 @@
 				566AD90E247672C600898065 /* AddOperation.storyboard in Resources */,
 				56444DF324599FDF00BB6BAE /* LaunchScreen.storyboard in Resources */,
 				5681648C246EF4F000BAAABF /* Filters.storyboard in Resources */,
+				56926DA2247E96BA007CFE7E /* SumOperationCell.xib in Resources */,
 				56444DF024599FDF00BB6BAE /* Assets.xcassets in Resources */,
 				56444DEB24599FDD00BB6BAE /* SignIn.storyboard in Resources */,
 				56926D93247D575E007CFE7E /* OperationsHeaderView.xib in Resources */,
@@ -808,6 +829,7 @@
 				56EB9BBC2463FB10002F815B /* Main.storyboard in Resources */,
 				56AADA17246C4A9700B2CC8F /* SignUp.storyboard in Resources */,
 				56C5A2A1246430F500CE5602 /* LoadingView.xib in Resources */,
+				56926DA6247EAA30007CFE7E /* AddOperationCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -911,9 +933,11 @@
 				56184188246C655E006BF368 /* OperationsViewModel.swift in Sources */,
 				56AADA1B246C4AD100B2CC8F /* SignUpView.swift in Sources */,
 				56926D9B247E5718007CFE7E /* Calendar+iso8601.swift in Sources */,
+				56926DA4247EA91E007CFE7E /* AddOperationCell.swift in Sources */,
 				56EB9BC224640A29002F815B /* Storyboard+instantiate.swift in Sources */,
 				56C5A29F246430DF00CE5602 /* LoadingView.swift in Sources */,
 				568164A62472E2D300BAAABF /* CostsTableViewProvider.swift in Sources */,
+				56926DA0247E96A3007CFE7E /* SumOperationCell.swift in Sources */,
 				566AD9002475673500898065 /* IncomeAndCostsCell.swift in Sources */,
 				568164A42472DF3000BAAABF /* ReusableView.swift in Sources */,
 				56444DEE24599FDD00BB6BAE /* FamilyBalance.xcdatamodeld in Sources */,

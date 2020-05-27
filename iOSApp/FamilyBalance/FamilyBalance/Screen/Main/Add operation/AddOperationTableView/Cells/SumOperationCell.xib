@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="76" id="ef1-ku-sGY" customClass="SumOperationCell" customModule="FamilyBalance" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="429" height="76"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ef1-ku-sGY" id="2BD-CT-nZE">
+                <rect key="frame" x="0.0" y="0.0" width="429" height="76"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сумма" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5M-2e-RvN">
+                        <rect key="frame" x="20" y="8" width="55" height="60"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0 ₽" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YzA-Ec-SlX">
+                        <rect key="frame" x="383" y="8" width="26" height="60"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="YzA-Ec-SlX" secondAttribute="bottom" constant="8" id="2Yp-vV-795"/>
+                    <constraint firstAttribute="trailing" secondItem="YzA-Ec-SlX" secondAttribute="trailing" constant="20" id="487-4U-2cn"/>
+                    <constraint firstAttribute="bottom" secondItem="b5M-2e-RvN" secondAttribute="bottom" constant="8" id="EX7-1a-eeb"/>
+                    <constraint firstItem="YzA-Ec-SlX" firstAttribute="top" secondItem="2BD-CT-nZE" secondAttribute="top" constant="8" id="KmU-c2-LX7"/>
+                    <constraint firstItem="b5M-2e-RvN" firstAttribute="top" secondItem="2BD-CT-nZE" secondAttribute="top" constant="8" id="SPs-Nv-LBn"/>
+                    <constraint firstItem="b5M-2e-RvN" firstAttribute="leading" secondItem="2BD-CT-nZE" secondAttribute="leading" constant="20" id="cas-Jm-3I7"/>
+                    <constraint firstItem="YzA-Ec-SlX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="b5M-2e-RvN" secondAttribute="trailing" constant="8" id="n3i-b7-vBT"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="sumLabel" destination="b5M-2e-RvN" id="dbW-pM-f2Y"/>
+                <outlet property="summTextField" destination="YzA-Ec-SlX" id="J6O-H7-DG1"/>
+            </connections>
+            <point key="canvasLocation" x="110.86956521739131" y="-122.54464285714285"/>
+        </tableViewCell>
+    </objects>
+</document>

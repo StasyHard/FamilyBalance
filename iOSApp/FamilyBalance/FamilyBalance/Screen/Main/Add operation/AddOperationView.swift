@@ -9,36 +9,30 @@ protocol AddOperationViewImplementation: class {
 
 final class AddOperationView: UIView {
     
-    @IBOutlet weak var operationControl: UISegmentedControl!
-    @IBOutlet weak var addOperationTableView: UITableView! {
+    //MARK: - IBOutlet
+    @IBOutlet private weak var operationControl: UISegmentedControl! {
+        didSet {
+            operationControl.backgroundColor =  AppColors.backgroundColor
+        }
+    }
+    @IBOutlet private weak var addOperationTableView: UITableView! {
         didSet {
             addOperationTableView.backgroundColor = AppColors.backgroundColor
+            addOperationTableView.separatorColor = .red
+            registerCells()
             addOperationTableView.delegate = tableViewProvider
             addOperationTableView.dataSource = tableViewProvider
             addOperationTableView.tableFooterView = UIView()
         }
     }
     
-        //MARK: - Init
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupUI()
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        setupUI()
-    }
-    
-    private func setupUI() {
-        backgroundColor = AppColors.backgroundColor
-    }
-
     
     //MARK: - Private properties
     private var actionsDelegate: AddOperationViewActions?
     private let tableViewProvider = AddOperationTableViewProvider()
     
+    
+    //MARK: - IBAction
     @IBAction func incommeOrCostControlTapped(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             tableViewProvider.operation = .cost
@@ -48,7 +42,13 @@ final class AddOperationView: UIView {
         }
         addOperationTableView.reloadData()
     }
+    
     @IBAction func saveButtonTapped(_ sender: BlueRoundedButton) {
+    }
+    
+    private func registerCells() {
+        addOperationTableView.register(UINib(nibName: "SumOperationCell", bundle: nil), forCellReuseIdentifier: SumOperationCell.reuseIdD)
+        addOperationTableView.register(UINib(nibName: "AddOperationCell", bundle: nil), forCellReuseIdentifier: AddOperationCell.reuseIdD)
     }
     
 }
