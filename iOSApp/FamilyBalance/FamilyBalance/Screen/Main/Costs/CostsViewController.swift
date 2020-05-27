@@ -74,6 +74,12 @@ class CostsViewController: UIViewController {
                 self?.costsView?.setCostsSum(sum)
             }
         .disposed(by: self.disposeBag)
+        
+        viewModel.period
+            .bind { [weak self] period in
+                self?.costsView?.showPeriod(period)
+            }
+        .disposed(by: self.disposeBag)
     }
     
 }

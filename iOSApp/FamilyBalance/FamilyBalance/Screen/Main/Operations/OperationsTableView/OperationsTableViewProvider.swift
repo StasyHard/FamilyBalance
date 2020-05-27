@@ -31,18 +31,10 @@ final class OperationsTableViewProvider: NSObject, TableViewProvider {
                 withIdentifier: OperationsHeaderView.reuseIdD) as? OperationsHeaderView
             else { return nil }
         let date = operationsByDays[section - 1].date
-        headerView.dateLabel.text = convertDateToString(date: date)
+        headerView.dateLabel.text = Date.convertDateToString(date: date)
         headerView.summLabel.text = "\(operationsByDays[section - 1].sum) ₽"
         
         return headerView
-    }
-    
-    private func convertDateToString(date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.locale = Locale(identifier: "ru_RU")
-        let date = formatter.string(from: date)
-        return date
     }
     
     func tableView(_ tableView: UITableView,

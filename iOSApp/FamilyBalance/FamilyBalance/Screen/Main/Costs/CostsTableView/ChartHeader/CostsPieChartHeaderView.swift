@@ -6,12 +6,12 @@ import Charts
 class CostsPieChartHeaderView: UITableViewHeaderFooterView, ReusableView {
     
     //MARK: - IBOutlet
-    @IBOutlet private weak var dateLabel: UILabel!
     @IBOutlet private weak var pieChartView: PieChartView! {
         didSet {
             setupChartSettings()
         }
     }
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet private weak var incomeLabel: UILabel!
     @IBOutlet private weak var costsLabel: UILabel!
     @IBOutlet weak var incomeSumLabel: UILabel!

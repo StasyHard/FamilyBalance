@@ -9,13 +9,14 @@ protocol CostsViewImplementation: class {
     func setGraphCategories(_ categorise: [CategoryGraphModel])
     func setIncomeSum(_ sum: Double)
     func setCostsSum(_ sum: Double)
+    func showPeriod(_ period: Period)
 }
 
 
 class CostsView: UIView {
     
     //MARK: - IBOutlet
-
+    
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.backgroundColor = AppColors.backgroundColor
@@ -55,9 +56,13 @@ class CostsView: UIView {
 
 
 extension CostsView: CostsViewImplementation {
-
+    
     func setaAtionsDelegate(delegate: CostsViewActions) {
         self.actionsDelegate = delegate
+    }
+    
+    func showPeriod(_ period: Period) {
+        tableViewProvider.period = period
     }
     
     func setIncomeSum(_ sum: Double) {

@@ -10,6 +10,7 @@ protocol CostsViewModelObservable: class {
     var graphData: Observable<[CategoryGraphModel]> { get set }
     var costsSum: Observable<Double> { get set }
     var incomeSum: Observable<Double> { get set }
+    var period: Observable<Period> { get set }
 }
 
 protocol CostsViewActions: class {
@@ -26,6 +27,7 @@ final class CostsViewModel: CostsViewModelObservable {
     var graphData: Observable<[CategoryGraphModel]>
     var costsSum: Observable<Double>
     var incomeSum: Observable<Double>
+    var period: Observable<Period>
     
     
     //MARK: - Private properties
@@ -34,6 +36,7 @@ final class CostsViewModel: CostsViewModelObservable {
     private let _graphData = PublishSubject<[CategoryGraphModel]>()
     private let _costsSum = BehaviorSubject<Double>(value: 0.0)
     private let _incomeSum = BehaviorSubject<Double>(value: 0.0)
+    private let _period = PublishSubject<Period>()
     
     private var repo: Repository?
     private var filter: Filters = .mounth
@@ -48,6 +51,7 @@ final class CostsViewModel: CostsViewModelObservable {
         incomeSum = _incomeSum
         costsSum = _costsSum
         graphData = _graphData
+        period = _period
         
         self.repo = repo
     }
@@ -69,6 +73,9 @@ final class CostsViewModel: CostsViewModelObservable {
     //получаем массив операций за запрошенный период и иреобразуем в необходимые для вью данные
     //общая сумма доходов, общая сумма расходов, категории для таблицы, категории для графика
     private func getData() {
+        let period = getPeriodByFilter()
+        _period.onNext(period)
+        
         repo?.getOperations(filter: filter)
             .subscribe(
                 onNext: { [weak self] operations in
@@ -89,6 +96,30 @@ final class CostsViewModel: CostsViewModelObservable {
                     self._graphData.onNext(graphCaterories)
             })
             .disposed(by: self.disposeBag)
+    }
+    
+    //Преобразовываем filter в
+    private func getPeriodByFilter() -> Period {
+        let endDate = Date().currentDate
+        
+        switch filter {
+        case .mounth:
+            let startOfCurrentMonth = Date().startOfCurrentMonth
+            return Period(startDate: startOfCurrentMonth,
+                          endDate: endDate)
+        case .today:
+            let startOfCurrentDay = Date().startOfCurrentDay
+            return Period(startDate: startOfCurrentDay,
+                          endDate: endDate)
+        case .week:
+            let startOfCurrentWeek = Date().startOfCurrentWeek
+            return Period(startDate: startOfCurrentWeek,
+                          endDate: endDate)
+        case .year:
+            let startOfCurrentYear = Date().startOfCurrentYear
+            return Period(startDate: startOfCurrentYear,
+                          endDate: endDate)
+        }
     }
     
     private func getSum(by operations: [Operation]) -> Double {

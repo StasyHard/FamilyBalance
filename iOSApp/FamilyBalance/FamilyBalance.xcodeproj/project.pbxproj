@@ -66,6 +66,10 @@
 		56926D8E247D03A1007CFE7E /* DayOperationsUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56926D8D247D03A1007CFE7E /* DayOperationsUIModel.swift */; };
 		56926D91247D56FC007CFE7E /* OperationsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56926D90247D56FC007CFE7E /* OperationsHeaderView.swift */; };
 		56926D93247D575E007CFE7E /* OperationsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56926D92247D575E007CFE7E /* OperationsHeaderView.xib */; };
+		56926D96247E5411007CFE7E /* Date+convertToString .swift in Sources */ = {isa = PBXBuildFile; fileRef = 56926D95247E5411007CFE7E /* Date+convertToString .swift */; };
+		56926D98247E56A9007CFE7E /* Date+currentWeekMonday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56926D97247E56A9007CFE7E /* Date+currentWeekMonday.swift */; };
+		56926D9B247E5718007CFE7E /* Calendar+iso8601.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56926D9A247E5718007CFE7E /* Calendar+iso8601.swift */; };
+		56926D9D247E75DB007CFE7E /* Period.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56926D9C247E75DB007CFE7E /* Period.swift */; };
 		5694064F2476C25C009034FE /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5694064E2476C25C009034FE /* Filters.swift */; };
 		569406512476CC4C009034FE /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569406502476CC4C009034FE /* Data.swift */; };
 		569406532477DDBE009034FE /* GraphColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569406522477DDBE009034FE /* GraphColors.swift */; };
@@ -178,6 +182,10 @@
 		56926D8D247D03A1007CFE7E /* DayOperationsUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOperationsUIModel.swift; sourceTree = "<group>"; };
 		56926D90247D56FC007CFE7E /* OperationsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationsHeaderView.swift; sourceTree = "<group>"; };
 		56926D92247D575E007CFE7E /* OperationsHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OperationsHeaderView.xib; sourceTree = "<group>"; };
+		56926D95247E5411007CFE7E /* Date+convertToString .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+convertToString .swift"; sourceTree = "<group>"; };
+		56926D97247E56A9007CFE7E /* Date+currentWeekMonday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+currentWeekMonday.swift"; sourceTree = "<group>"; };
+		56926D9A247E5718007CFE7E /* Calendar+iso8601.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calendar+iso8601.swift"; sourceTree = "<group>"; };
+		56926D9C247E75DB007CFE7E /* Period.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Period.swift; sourceTree = "<group>"; };
 		5694064E2476C25C009034FE /* Filters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
 		569406502476CC4C009034FE /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		569406522477DDBE009034FE /* GraphColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphColors.swift; sourceTree = "<group>"; };
@@ -539,6 +547,23 @@
 			path = Header;
 			sourceTree = "<group>";
 		};
+		56926D94247E53C5007CFE7E /* Date */ = {
+			isa = PBXGroup;
+			children = (
+				56926D95247E5411007CFE7E /* Date+convertToString .swift */,
+				56926D97247E56A9007CFE7E /* Date+currentWeekMonday.swift */,
+			);
+			path = Date;
+			sourceTree = "<group>";
+		};
+		56926D99247E56F6007CFE7E /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				56926D9A247E5718007CFE7E /* Calendar+iso8601.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
 		5694064D2476C20D009034FE /* Enums */ = {
 			isa = PBXGroup;
 			children = (
@@ -596,6 +621,7 @@
 				5673755E245D8CB300DD02FB /* UserLoginModel.swift */,
 				568164952472AFF200BAAABF /* Category.swift */,
 				568164972472B0F100BAAABF /* Operation.swift */,
+				56926D9C247E75DB007CFE7E /* Period.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -604,6 +630,8 @@
 			isa = PBXGroup;
 			children = (
 				568164A32472DF3000BAAABF /* ReusableView.swift */,
+				56926D99247E56F6007CFE7E /* Calendar */,
+				56926D94247E53C5007CFE7E /* Date */,
 				5618418A246D491F006BF368 /* UIColor */,
 				5618418B246D492D006BF368 /* UIStoryboard */,
 				5618419A246E986D006BF368 /* UIViewController */,
@@ -877,10 +905,12 @@
 				566AD90324757CCE00898065 /* CustomProgressView.swift in Sources */,
 				56444DE824599FDD00BB6BAE /* SignInViewController.swift in Sources */,
 				56816492246EF54500BAAABF /* FiltersViewModel.swift in Sources */,
+				56926D9D247E75DB007CFE7E /* Period.swift in Sources */,
 				5673755F245D8CB300DD02FB /* UserLoginModel.swift in Sources */,
 				56444DE424599FDD00BB6BAE /* AppDelegate.swift in Sources */,
 				56184188246C655E006BF368 /* OperationsViewModel.swift in Sources */,
 				56AADA1B246C4AD100B2CC8F /* SignUpView.swift in Sources */,
+				56926D9B247E5718007CFE7E /* Calendar+iso8601.swift in Sources */,
 				56EB9BC224640A29002F815B /* Storyboard+instantiate.swift in Sources */,
 				56C5A29F246430DF00CE5602 /* LoadingView.swift in Sources */,
 				568164A62472E2D300BAAABF /* CostsTableViewProvider.swift in Sources */,
@@ -889,11 +919,13 @@
 				56444DEE24599FDD00BB6BAE /* FamilyBalance.xcdatamodeld in Sources */,
 				5673DD6E24602AC50004EB12 /* AppRepository.swift in Sources */,
 				56184182246C62AC006BF368 /* OperationsViewController.swift in Sources */,
+				56926D96247E5411007CFE7E /* Date+convertToString .swift in Sources */,
 				5618418F246D7899006BF368 /* AuthBackView.swift in Sources */,
 				567086B82465890200CD2E2A /* CostsCoordinator.swift in Sources */,
 				56940657247BE964009034FE /* GraphColorConvertable.swift in Sources */,
 				56926D8E247D03A1007CFE7E /* DayOperationsUIModel.swift in Sources */,
 				5699B553247442B300998BF0 /* FiltersTableViewProvider.swift in Sources */,
+				56926D98247E56A9007CFE7E /* Date+currentWeekMonday.swift in Sources */,
 				568164AA2472E44500BAAABF /* TableViewProvider.swift in Sources */,
 				56816490246EF53500BAAABF /* FiltersView.swift in Sources */,
 				56184193246D7FBE006BF368 /* AppColors.swift in Sources */,

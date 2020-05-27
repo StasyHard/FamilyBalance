@@ -8,6 +8,7 @@ class CostsTableViewProvider: NSObject, TableViewProvider {
     var categories = [CategoryUIModel]()
     var costsSum: Double = 0.0
     var incomeSum: Double = 0.0
+    var period: Period?
     
     
     //MARK: - Private properties
@@ -24,7 +25,14 @@ class CostsTableViewProvider: NSObject, TableViewProvider {
                 as? CostsPieChartHeaderView
             else { return nil }
         
-        //headerView.updateChartData(categories: categories)
+        if let period = period {
+            let startDate = Date.convertDateToString(date: period.startDate)
+            let endDate = Date.convertDateToString(date: period.endDate)
+            headerView.dateLabel.text = "\(startDate) - \(endDate)"
+        } else {
+            headerView.dateLabel.text = ""
+        }
+
         headerView.incomeSumLabel.text = "\(incomeSum) ₽"
         headerView.costsSumLabel.text = "\(costsSum) ₽"
         headerView.updateUI(categories: graphCategories)

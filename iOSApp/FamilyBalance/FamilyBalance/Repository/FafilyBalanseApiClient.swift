@@ -40,7 +40,7 @@ class FafilyBalanseApiClient {
                 Operation(id: 8, sum: 700, date: convertToDate(string: "29.04.2020"), comment: "", account: card, category: categKvartira),
                 Operation(id: 9, sum: 200, date: convertToDate(string: "28.04.2020"), comment: "", account: card, category: categZdorovie),
                 Operation(id: 10, sum: 500, date: convertToDate(string: "27.04.2020"), comment: "", account: card, category: nil),
-                Operation(id: 11, sum: 200, date: convertToDate(string: "27.04.2020"), comment: "", account: card, category: categTransp)
+                Operation(id: 11, sum: 300, date: convertToDate(string: "27.04.2020"), comment: "", account: card, category: categTransp)
             ]
         }
         return operations
