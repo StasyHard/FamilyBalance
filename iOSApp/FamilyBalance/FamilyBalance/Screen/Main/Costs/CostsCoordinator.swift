@@ -36,14 +36,14 @@ final class CostsCoordinator: BaseCoordirator {
     //MARK: - Private metods
     private func observeViewModel(_ viewModel: CostsViewModelObservable) {
         viewModel.filtersTapped
-            .bind {  [weak self] _ in
-                self?.showFilterModule()
+            .bind {  [weak self] startFilter in
+                self?.showFilterModule(startFilter: startFilter)
         }
         .disposed(by: self.disposeBag)
     }
     
-    private func showFilterModule() {
-        let filtersCoordinator = FiltersCoordinator(navController: navController)
+    private func showFilterModule(startFilter: Filters) {
+        let filtersCoordinator = FiltersCoordinator(navController: navController, startFilter: startFilter)
         childCoordinators.append(filtersCoordinator)
         filtersCoordinator.parentCoordinator = self
         filtersCoordinator.start()
@@ -56,6 +56,4 @@ extension CostsCoordinator: FiltersListener {
     func setFilter(_ filter: Filters) {
         viewModel?.wasSetFilter(filter: filter)
     }
-    
-    
 }

@@ -47,7 +47,10 @@ class FiltersViewController: UIViewController {
     
     private func observeViewModel(_ viewModel: FiltersViewModelObservable) {
         
-        
-       // .disposed(by: self.disposeBag)
+        viewModel.startFilter
+            .bind { [weak self] filter in
+                self?.filtersView?.setStartFilter(filter)
+        }
+        .disposed(by: self.disposeBag)
     }
 }

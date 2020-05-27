@@ -4,13 +4,15 @@ import UIKit
 class CostsTableViewProvider: NSObject, TableViewProvider {
     
     //MARK: - Open properties
+    var graphCategories = [CategoryGraphModel]()
     var categories = [CategoryUIModel]()
     var costsSum: Double = 0.0
     var incomeSum: Double = 0.0
+    var period: Period?
     
     
     //MARK: - Private properties
-    private let tableViewCellHeight: CGFloat = 35.0
+    private let tableViewCellHeight: CGFloat = 40.0
     
     
     //MARK: - TableViewProvider metods
@@ -23,10 +25,17 @@ class CostsTableViewProvider: NSObject, TableViewProvider {
                 as? CostsPieChartHeaderView
             else { return nil }
         
-        //headerView.updateChartData(categories: categories)
+        if let period = period {
+            let startDate = Date.convertDateToString(date: period.startDate)
+            let endDate = Date.convertDateToString(date: period.endDate)
+            headerView.dateLabel.text = "\(startDate) - \(endDate)"
+        } else {
+            headerView.dateLabel.text = ""
+        }
+
         headerView.incomeSumLabel.text = "\(incomeSum) ₽"
         headerView.costsSumLabel.text = "\(costsSum) ₽"
-        headerView.updateUI(categories: categories)
+        headerView.updateUI(categories: graphCategories)
 
         return headerView
     }
@@ -39,11 +48,11 @@ class CostsTableViewProvider: NSObject, TableViewProvider {
                    numberOfRowsInSection section: Int) -> Int {
         return categories.count
     }
-    
-    func tableView(_ tableView: UITableView,
-                   heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableViewCellHeight
-    }
+//    
+//    func tableView(_ tableView: UITableView,
+//                   heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return tableViewCellHeight
+//    }
     
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {

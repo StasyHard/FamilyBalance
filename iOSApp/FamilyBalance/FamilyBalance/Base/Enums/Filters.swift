@@ -1,7 +1,7 @@
 
 import Foundation
 
-
+//Фильтры для экарана Фильтры
 enum Filters: String {
     case today = "Сегодня"
     case week = "Текущая неделя"

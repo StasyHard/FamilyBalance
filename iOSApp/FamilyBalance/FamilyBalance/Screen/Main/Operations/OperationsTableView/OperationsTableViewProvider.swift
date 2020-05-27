@@ -2,75 +2,59 @@
 import UIKit
 
 
-struct OperationsInDayViewModel {
-    let date: String
-    let operations: [OperationModel]
-}
-
-struct OperationModel {
-    var id: Int
-    var category: String?
-    var account: String
-    var sum: Double
-}
-
-
 final class OperationsTableViewProvider: NSObject, TableViewProvider {
     
-    var datesOperations = [
-        OperationsInDayViewModel(date: "1.05.2020",
-                                 operations: [OperationModel(id: 10,
-                                                             category: nil,
-                                                             account: "Наличные",
-                                                             sum: 1000)]),
-        OperationsInDayViewModel(date: "31.04.2020",
-                                 operations: [OperationModel(id: 9,
-                                                             category: "Продукты",
-                                                             account: "Наличные",
-                                                             sum: 200),
-                                              OperationModel(id: 11,
-                                                             category: "Развлечения",
-                                                             account: "Наличные",
-                                                             sum: 500)])
-    ]
+    //MARK: - Open properties
+    var operationsByDays = [DayOperationsUIModel]()
+    var costsSum: Double = 0.0
+    var incomeSum: Double = 0.0
     
+    //MARK: - TableViewProvider metods
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1 + datesOperations.count
+        return 1 + operationsByDays.count
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 0 {
-            return 16
-        } else {
-            return 20
+        func tableView(_ tableView: UITableView,
+                       heightForHeaderInSection section: Int) -> CGFloat {
+            if section == 0 {
+                return 16
+            } else {
+                return UITableView.automaticDimension
+            }
         }
+    
+    func tableView(_ tableView: UITableView,
+                   viewForHeaderInSection section: Int) -> UIView? {
+        guard
+            section != 0,
+            let headerView = tableView.dequeueReusableHeaderFooterView(
+                withIdentifier: OperationsHeaderView.reuseIdD) as? OperationsHeaderView
+            else { return nil }
+        let date = operationsByDays[section - 1].date
+        headerView.dateLabel.text = Date.convertDateToString(date: date)
+        headerView.summLabel.text = "\(operationsByDays[section - 1].sum) ₽"
+        
+        return headerView
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 {
-            return 95
-        } else {
-            return 40
-        }
+    func tableView(_ tableView: UITableView,
+                   willDisplayHeaderView view: UIView,
+                   forSection section: Int) {
+        let headerView = (view as? UITableViewHeaderFooterView)
+        headerView?.tintColor = .clear
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0 {
-            return nil
-        } else {
-            return datesOperations[section - 1].date
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView,
+                   numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return 1
         } else {
-            return datesOperations[section - 1].operations.count
+            return operationsByDays[section - 1].operations.count
         }
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             
             guard let cell = tableView.dequeueReusableCell(
@@ -78,9 +62,9 @@ final class OperationsTableViewProvider: NSObject, TableViewProvider {
                 for: indexPath) as? IncomeAndCostsCell
                 else { return UITableViewCell() }
             
-            cell.incomeSumLabel.text = "+\(7000) ₽"
-            cell.costsSumLabel.text = "-\(10000) ₽"
-            let ratio: Float = 7000/(7000 + 10000)
+            cell.incomeSumLabel.text = "+\(incomeSum) ₽"
+            cell.costsSumLabel.text = "-\(costsSum) ₽"
+            let ratio: Float = Float(incomeSum/(incomeSum + costsSum))
             cell.incomeToCostsRatioView.progress = ratio
             
             return cell
@@ -93,16 +77,16 @@ final class OperationsTableViewProvider: NSObject, TableViewProvider {
                 else { return UITableViewCell() }
             
             let dateInd = indexPath.section - 1
-            let operation = datesOperations[dateInd].operations[indexPath.row]
+            let operation = operationsByDays[dateInd].operations[indexPath.row]
             
             if operation.category == nil {
-                cell.categoryLabel.text = operation.account
+                cell.categoryLabel.text = operation.account.title
                 cell.colorView.backgroundColor = .green
-                cell.sumLabel.text = "+\(operation.sum)"
+                cell.sumLabel.text = "+\(operation.sum) ₽"
             } else {
-                cell.categoryLabel.text = operation.category
+                cell.categoryLabel.text = operation.category?.title
                 cell.colorView.backgroundColor = .red
-                cell.sumLabel.text = "-\(operation.sum)"
+                cell.sumLabel.text = "-\(operation.sum) ₽"
             }
             
             cell.backgroundColor = .white
