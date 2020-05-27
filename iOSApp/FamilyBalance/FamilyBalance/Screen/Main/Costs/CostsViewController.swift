@@ -4,6 +4,7 @@ import RxSwift
 import RxCocoa
 import Charts
 
+
 class CostsViewController: UIViewController {
     
     //MARK: - Open properties
@@ -28,14 +29,11 @@ class CostsViewController: UIViewController {
         viewModel.viewDidLoad()
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-    }
-    
     
     //MARK: - Private metods
     private func setNavigationUI() {
-        title = "Расходы"
+        navigationItem.title = "Расходы"
+        
         let defaultImage = UIImage(named: "filter")?
             .scaleTo(CGSize(width: AppSizes.iconHeightAndWidth,
                             height: AppSizes.iconHeightAndWidth))
@@ -54,11 +52,36 @@ class CostsViewController: UIViewController {
     private func observeViewModel(_ viewModel: CostsViewModelObservable) {
         
         viewModel.categoryData
-            .bind { [weak self] data in
-                self?.costsView?.setData(data)
+            .bind { [weak self] categories in
+                self?.costsView?.setCategories(categories)
         }
         .disposed(by: self.disposeBag)
+        
+        viewModel.graphData
+            .bind { [weak self] categories in
+                self?.costsView?.setGraphCategories(categories)
+        }
+        .disposed(by: self.disposeBag)
+        
+        viewModel.incomeSum
+            .bind { [weak self] sum in
+                self?.costsView?.setIncomeSum(sum)
+        }
+        .disposed(by: self.disposeBag)
+        
+        viewModel.costsSum
+            .bind { [weak self] sum in
+                self?.costsView?.setCostsSum(sum)
+            }
+        .disposed(by: self.disposeBag)
+        
+        viewModel.period
+            .bind { [weak self] period in
+                self?.costsView?.showPeriod(period)
+            }
+        .disposed(by: self.disposeBag)
     }
+    
 }
 
 

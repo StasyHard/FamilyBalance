@@ -6,7 +6,8 @@ import RxCocoa
 
 protocol FiltersViewModelObservable: class {
     var isClosed: Observable<Void> { get set }
-    var filter: Observable<Filters> { get set }
+    var isSetFilter: Observable<Filters> { get set }
+    var startFilter: Observable<Filters> { get set }
 }
 
 protocol FiltersViewActions: class {
@@ -19,17 +20,25 @@ class FiltersViewModel: FiltersViewModelObservable {
     
     //MARK: - FiltersViewModelObservable
     var isClosed: Observable<Void>
-    var filter: Observable<Filters>
+    var isSetFilter: Observable<Filters>
+    var startFilter: Observable<Filters>
     
     
     //MARK: - Private properties
     private let _isClosed = PublishSubject<Void>()
-    private let _filter = PublishSubject<Filters>()
+    private let _isSetFilter = PublishSubject<Filters>()
+    private let _startFilter = BehaviorSubject<Filters>(value: .mounth)
+    
+    private let disposeBag = DisposeBag()
+    
     
     //MARK: - Init
-    init() {
-        isClosed = _isClosed
-        filter = _filter
+    init(startFilter: Filters) {
+        self.isClosed = _isClosed
+        self.isSetFilter = _isSetFilter
+        self.startFilter = _startFilter
+        
+        _startFilter.onNext(startFilter)
     }
 }
 
@@ -42,7 +51,7 @@ extension FiltersViewModel: FiltersViewActions {
     }
     
     func showButtonTapped(filter: Filters) {
-        _filter.onNext(filter)
+        _isSetFilter.onNext(filter)
         _isClosed.onNext(())
     }
 }

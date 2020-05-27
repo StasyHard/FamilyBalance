@@ -2,7 +2,12 @@
 import Foundation
 
 
-struct Category {
+struct Category: Hashable {
     let id: Int
-    let name: String
+    let title: String
+}
+
+struct Account {
+    let id: Int
+    let title: String
 }

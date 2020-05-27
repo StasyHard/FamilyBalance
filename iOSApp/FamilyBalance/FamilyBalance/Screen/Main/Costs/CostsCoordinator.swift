@@ -7,6 +7,7 @@ import RxCocoa
 final class CostsCoordinator: BaseCoordirator {
     
     //MARK: - Private properties
+    private var repo: Repository
     private var navController: UINavigationController
     private var viewModel: CostsViewModel?
     
@@ -14,15 +15,16 @@ final class CostsCoordinator: BaseCoordirator {
     
     
     //MARK: - Init
-    init(navController: UINavigationController) {
+    init(navController: UINavigationController, repo: Repository) {
         self.navController = navController
+        self.repo = repo
     }
     
     
     //MARK: - Open metods
     override func start() {
         let costsVC = UIStoryboard.instantiateCostsVC()
-        let viewModel = CostsViewModel()
+        let viewModel = CostsViewModel(repo: repo)
         costsVC.viewModel = viewModel
         navController.setViewControllers([costsVC], animated: false)
         
@@ -34,14 +36,14 @@ final class CostsCoordinator: BaseCoordirator {
     //MARK: - Private metods
     private func observeViewModel(_ viewModel: CostsViewModelObservable) {
         viewModel.filtersTapped
-            .bind {  [weak self] _ in
-                self?.showFilterModule()
+            .bind {  [weak self] startFilter in
+                self?.showFilterModule(startFilter: startFilter)
         }
         .disposed(by: self.disposeBag)
     }
     
-    private func showFilterModule() {
-        let filtersCoordinator = FiltersCoordinator(navController: navController)
+    private func showFilterModule(startFilter: Filters) {
+        let filtersCoordinator = FiltersCoordinator(navController: navController, startFilter: startFilter)
         childCoordinators.append(filtersCoordinator)
         filtersCoordinator.parentCoordinator = self
         filtersCoordinator.start()
@@ -54,6 +56,4 @@ extension CostsCoordinator: FiltersListener {
     func setFilter(_ filter: Filters) {
         viewModel?.wasSetFilter(filter: filter)
     }
-    
-    
 }

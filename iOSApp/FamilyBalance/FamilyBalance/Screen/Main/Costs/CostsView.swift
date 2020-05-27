@@ -5,14 +5,18 @@ import Charts
 
 protocol CostsViewImplementation: class {
     func setaAtionsDelegate(delegate: CostsViewActions)
-    func setData(_ categories: [CategoryViewModel])
+    func setCategories(_ categories: [CategoryUIModel])
+    func setGraphCategories(_ categorise: [CategoryGraphModel])
+    func setIncomeSum(_ sum: Double)
+    func setCostsSum(_ sum: Double)
+    func showPeriod(_ period: Period)
 }
 
 
 class CostsView: UIView {
     
     //MARK: - IBOutlet
-
+    
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.backgroundColor = AppColors.backgroundColor
@@ -52,12 +56,32 @@ class CostsView: UIView {
 
 
 extension CostsView: CostsViewImplementation {
+    
     func setaAtionsDelegate(delegate: CostsViewActions) {
         self.actionsDelegate = delegate
     }
     
-    func setData(_ categories: [CategoryViewModel]) {
+    func showPeriod(_ period: Period) {
+        tableViewProvider.period = period
+    }
+    
+    func setIncomeSum(_ sum: Double) {
+        tableViewProvider.incomeSum = sum
+        tableView.reloadData()
+    }
+    
+    func setCostsSum(_ sum: Double) {
+        tableViewProvider.costsSum = sum
+        tableView.reloadData()
+    }
+    
+    func setCategories(_ categories: [CategoryUIModel]) {
         tableViewProvider.categories = categories
+        tableView.reloadData()
+    }
+    
+    func setGraphCategories(_ categorise: [CategoryGraphModel]) {
+        tableViewProvider.graphCategories = categorise
         tableView.reloadData()
     }
 }

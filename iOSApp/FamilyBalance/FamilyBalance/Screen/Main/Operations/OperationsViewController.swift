@@ -6,7 +6,7 @@ import RxCocoa
 class OperationsViewController: UIViewController {
     
     //MARK: - Open properties
-    var viewModel: (OperationsViewControllerActions & OperationsViewModelObservable)?
+    var viewModel: (OperationsViewModelObservable & OperationsViewActions)?
     
     
     //MARK: - Private properties
@@ -21,14 +21,17 @@ class OperationsViewController: UIViewController {
         
         setNavigationUI()
         
-        observeViewModel()
-        operationsView?.setActionsDelegate(delegate: self)
+        guard let viewModel = viewModel else { return }
+        operationsView?.setActionsDelegate(delegate: viewModel)
+        observeViewModel(viewModel)
+        
+        viewModel.viewDidLoad()
     }
     
     
     //MARK: - Private metods
     private func setNavigationUI() {
-        title = "Операции"
+        navigationItem.title = "Операции"
         let defaultImage = UIImage(named: "filter")?
             .scaleTo(CGSize(width: AppSizes.iconHeightAndWidth,
                             height: AppSizes.iconHeightAndWidth))
@@ -41,17 +44,28 @@ class OperationsViewController: UIViewController {
     }
     
     @objc private func filterButtonTapped() {
-        //viewModel?.filtersDidTapped()
+        viewModel?.filtersDidTapped()
     }
     
-    private func observeViewModel() {
+    private func observeViewModel(_ viewModel: OperationsViewModelObservable) {
         
+        viewModel.operationsByDays
+            .bind { [weak self] operations in
+                self?.operationsView?.showOperationsByDays(operations)
+        }
+        .disposed(by: self.disposeBag)
+        
+        viewModel.incomeSum
+            .bind { [weak self] sum in
+                self?.operationsView?.showIncomeSum(sum)
+        }
+        .disposed(by: self.disposeBag)
+        
+        viewModel.costsSum
+            .bind { [weak self] sum in
+                self?.operationsView?.showCostsSum(sum)
+        }
+        .disposed(by: self.disposeBag)
     }
-}
-
-
-
-extension OperationsViewController: OperationsViewActions {
-    
 }
 
