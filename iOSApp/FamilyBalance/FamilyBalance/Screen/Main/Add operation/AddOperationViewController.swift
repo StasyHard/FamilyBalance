@@ -25,6 +25,7 @@ final class AddOperationViewController: UIViewController {
         guard let viewModel = viewModel else { return }
         addOperationView?.setActionsDelegate(viewModel)
         observeViewModel(viewModel)
+        configureDismissKeyboard()
     }
     
     

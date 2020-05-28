@@ -22,9 +22,9 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0 ₽" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YzA-Ec-SlX">
-                        <rect key="frame" x="383" y="8" width="26" height="60"/>
+                        <rect key="frame" x="83" y="8" width="326" height="60"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                        <textInputTraits key="textInputTraits"/>
+                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                     </textField>
                 </subviews>
                 <constraints>
@@ -34,7 +34,7 @@
                     <constraint firstItem="YzA-Ec-SlX" firstAttribute="top" secondItem="2BD-CT-nZE" secondAttribute="top" constant="8" id="KmU-c2-LX7"/>
                     <constraint firstItem="b5M-2e-RvN" firstAttribute="top" secondItem="2BD-CT-nZE" secondAttribute="top" constant="8" id="SPs-Nv-LBn"/>
                     <constraint firstItem="b5M-2e-RvN" firstAttribute="leading" secondItem="2BD-CT-nZE" secondAttribute="leading" constant="20" id="cas-Jm-3I7"/>
-                    <constraint firstItem="YzA-Ec-SlX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="b5M-2e-RvN" secondAttribute="trailing" constant="8" id="n3i-b7-vBT"/>
+                    <constraint firstItem="YzA-Ec-SlX" firstAttribute="leading" secondItem="b5M-2e-RvN" secondAttribute="trailing" constant="8" id="n3i-b7-vBT"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

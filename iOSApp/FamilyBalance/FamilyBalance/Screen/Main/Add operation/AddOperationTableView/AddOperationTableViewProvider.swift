@@ -95,11 +95,13 @@ class AddOperationTableViewProvider: NSObject, TableViewProvider {
                 if incomeCellType == .account {
                     cell.button.titleLabel?.text = accounts[0].title
                 }
+                if incomeCellType == .date {
+                    let date = Date().currentDate
+                    cell.button.setTitle(Date.convertDateToString(date: date), for: .normal)
+                }
                 
                 return cell
             }
         }
     }
-    
-    
 }

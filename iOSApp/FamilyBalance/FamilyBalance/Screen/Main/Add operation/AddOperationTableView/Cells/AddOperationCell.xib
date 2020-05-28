@@ -22,7 +22,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rSt-WS-wn4">
-                        <rect key="frame" x="425" y="8" width="46" height="65"/>
+                        <rect key="frame" x="70" y="8" width="401" height="65"/>
                         <state key="normal" title="Button"/>
                         <connections>
                             <action selector="buttonTapped:" destination="g4b-bQ-XqH" eventType="touchUpInside" id="FuP-Rd-ThJ"/>
@@ -35,7 +35,7 @@
                     <constraint firstItem="kx7-F6-b33" firstAttribute="leading" secondItem="z2o-KU-GQS" secondAttribute="leading" constant="20" id="Jeu-hN-PCy"/>
                     <constraint firstAttribute="trailing" secondItem="rSt-WS-wn4" secondAttribute="trailing" constant="20" id="T3M-Ld-nwp"/>
                     <constraint firstItem="kx7-F6-b33" firstAttribute="top" secondItem="z2o-KU-GQS" secondAttribute="top" constant="8" id="b4I-7I-4Pt"/>
-                    <constraint firstItem="rSt-WS-wn4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kx7-F6-b33" secondAttribute="trailing" constant="8" id="hTR-Gc-Rll"/>
+                    <constraint firstItem="rSt-WS-wn4" firstAttribute="leading" secondItem="kx7-F6-b33" secondAttribute="trailing" constant="8" id="hTR-Gc-Rll"/>
                     <constraint firstItem="rSt-WS-wn4" firstAttribute="top" secondItem="z2o-KU-GQS" secondAttribute="top" constant="8" id="nms-nb-QpF"/>
                 </constraints>
             </tableViewCellContentView>
