@@ -6,14 +6,7 @@ enum OperationTable: Int {
     case cost
 }
 
-fileprivate enum IncomeCellsType: String, CaseIterable {
-    case sum = "Сумма"
-    case account = "Счет"
-    case date = "Дата"
-    
-}
-
-fileprivate enum CostCellsType: String, CaseIterable {
+fileprivate enum CellType: String, CaseIterable {
     case sum = "Сумма"
     case account = "Счет"
     case date = "Дата"
@@ -30,78 +23,58 @@ class AddOperationTableViewProvider: NSObject, TableViewProvider {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch operation {
         case .cost:
-            return CostCellsType.allCases.count
+            return CellType.allCases.count
         case .income:
-            return IncomeCellsType.allCases.count
+            return CellType.allCases.count - 1
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch operation {
-        case .cost:
-            let costCellType = CostCellsType.allCases[indexPath.row]
-            if costCellType == .sum {
-                
-                guard let cell = tableView
-                    .dequeueReusableCell(withIdentifier: SumOperationCell.reuseIdD,
-                                         for: indexPath) as? SumOperationCell
-                    else { return UITableViewCell() }
-                
-                cell.sumLabel.text = costCellType.rawValue
-                return cell
+        let cellType = CellType.allCases[indexPath.row]
+        
+        if cellType == .sum {
+            guard let cell = tableView
+                .dequeueReusableCell(withIdentifier: SumOperationCell.reuseIdD,
+                                     for: indexPath) as? SumOperationCell
+                else { return UITableViewCell() }
+            
+            cell.sumLabel.text = cellType.rawValue
+            return cell
+        }
+        
+        else {
+            guard let cell = tableView
+            .dequeueReusableCell(withIdentifier: AddOperationCell.reuseIdD,
+                                 for: indexPath) as? AddOperationCell
+            else { return UITableViewCell() }
+            
+            cell.delegate = self
+            cell.label.text = cellType.rawValue
+            
+            if cellType == .category {
+                cell.button.setTitle(categories[0].title, for: .normal)
             }
-            else {
-                guard let cell = tableView
-                    .dequeueReusableCell(withIdentifier: AddOperationCell.reuseIdD,
-                                         for: indexPath) as? AddOperationCell
-                    else { return UITableViewCell() }
-                
-                cell.label.text = costCellType.rawValue
-                
-                if costCellType == .category {
-                    cell.button.setTitle(categories[0].title, for: .normal)
-                }
-                if costCellType == .account {
-                    cell.button.setTitle(accounts[0].title, for: .normal)
-                }
-                if costCellType == .date {
-                    let date = Date().currentDate
-                    cell.button.setTitle(Date.convertDateToString(date: date), for: .normal)
-                }
-                
-                return cell
+            if cellType == .account {
+                cell.button.setTitle(accounts[0].title, for: .normal)
+            }
+            if cellType == .date {
+                let date = Date().currentDate
+                cell.button.setTitle(Date.convertDateToString(date: date), for: .normal)
             }
             
-        case .income:
-            let incomeCellType = IncomeCellsType.allCases[indexPath.row]
-            if incomeCellType == .sum {
-                
-                guard let cell = tableView
-                    .dequeueReusableCell(withIdentifier: SumOperationCell.reuseIdD,
-                                         for: indexPath) as? SumOperationCell
-                    else { return UITableViewCell() }
-                
-                cell.sumLabel.text = incomeCellType.rawValue
-                return cell
-            }
-            else {
-                guard let cell = tableView
-                    .dequeueReusableCell(withIdentifier: AddOperationCell.reuseIdD,
-                                         for: indexPath) as? AddOperationCell
-                    else { return UITableViewCell() }
-                
-                cell.label.text = incomeCellType.rawValue
-                
-                if incomeCellType == .account {
-                    cell.button.titleLabel?.text = accounts[0].title
-                }
-                if incomeCellType == .date {
-                    let date = Date().currentDate
-                    cell.button.setTitle(Date.convertDateToString(date: date), for: .normal)
-                }
-                
-                return cell
-            }
+            return cell
         }
     }
+}
+
+
+
+extension AddOperationTableViewProvider: AddOperationCellDelegate {
+    
+    func didTapButtonInCell(_ cell: AddOperationCell) {
+        let button = cell.button.titleLabel?.text
+        print(button)
+    }
+    
+    
 }

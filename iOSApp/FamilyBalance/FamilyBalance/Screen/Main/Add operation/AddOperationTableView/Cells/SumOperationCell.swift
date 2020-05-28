@@ -1,14 +1,7 @@
-//
-//  SummOperationCell.swift
-//  FamilyBalance
-//
-//  Created by Anastasia Reyngardt on 27.05.2020.
-//  Copyright © 2020 GermanyHome. All rights reserved.
-//
-
 import UIKit
 
-class SumOperationCell: UITableViewCell, ReusableView {
+
+final class SumOperationCell: UITableViewCell, ReusableView {
 
     @IBOutlet weak var sumLabel: UILabel!
     @IBOutlet weak var summTextField: UITextField! {
@@ -16,9 +9,11 @@ class SumOperationCell: UITableViewCell, ReusableView {
             summTextField.delegate = self
         }
     }
-    
 }
 
+
+
+//MARK: - UITextFieldDelegate
 extension SumOperationCell: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -27,7 +22,9 @@ extension SumOperationCell: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         let inputText = textField.text ?? ""
-        textField.text = "\(inputText) ₽"
+        if !inputText.isEmpty {
+            textField.text = "\(inputText) ₽"
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
