@@ -16,10 +16,16 @@ fileprivate enum CellType: String, CaseIterable {
 
 class AddOperationTableViewProvider: NSObject, TableViewProvider {
     
-    var operation: OperationTable = .cost
-    var categories = [Category(id: 1, title: "Продукты"), Category(id: 2, title: "Развлечения")]
-    var accounts = [Account(id: 1, title: "Наличные"), Account(id: 2, title: "Карта")]
+    //MARK: - Open properties
+    var actionsDelegate: AddOperationViewActions?
     
+    var operation: OperationTable = .cost
+    var category: Category?
+    var account: Account?
+    var sum: Double?
+    
+    
+    //MARK: - TableViewProvider metods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch operation {
         case .cost:
@@ -39,6 +45,7 @@ class AddOperationTableViewProvider: NSObject, TableViewProvider {
                 else { return UITableViewCell() }
             
             cell.sumLabel.text = cellType.rawValue
+            cell.textFieldDelegate = self
             return cell
         }
         
@@ -52,10 +59,10 @@ class AddOperationTableViewProvider: NSObject, TableViewProvider {
             cell.label.text = cellType.rawValue
             
             if cellType == .category {
-                cell.button.setTitle(categories[0].title, for: .normal)
+                cell.button.setTitle(category?.title ?? "", for: .normal)
             }
             if cellType == .account {
-                cell.button.setTitle(accounts[0].title, for: .normal)
+                cell.button.setTitle(account?.title ?? "", for: .normal)
             }
             if cellType == .date {
                 let date = Date().currentDate
@@ -69,12 +76,46 @@ class AddOperationTableViewProvider: NSObject, TableViewProvider {
 
 
 
-extension AddOperationTableViewProvider: AddOperationCellDelegate {
+//MARK: - UITextFieldDelegate
+extension AddOperationTableViewProvider: UITextFieldDelegate {
     
-    func didTapButtonInCell(_ cell: AddOperationCell) {
-        let button = cell.button.titleLabel?.text
-        print(button)
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.text = ""
     }
     
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        let inputText = textField.text ?? ""
+        if !inputText.isEmpty {
+            //textField.text = "\(inputText) ₽"
+            sum = inputText.toDouble()
+        }
+    }
     
+    private func toDouble(string: String) -> Double? {
+        return NumberFormatter().number(from: string)?.doubleValue
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            textField.endEditing(true)
+        return true
+    }
+}
+
+
+
+extension AddOperationTableViewProvider: AddOperationCellDelegate {
+    
+    func buttonInCellTapped(_ cell: AddOperationCell) {
+        let buttonTitle = cell.button.titleLabel?.text
+        if buttonTitle == CellType.account.rawValue {
+            actionsDelegate?.accountButtonTapped()
+        }
+        if buttonTitle == CellType.category.rawValue {
+            actionsDelegate?.categoryButtonTapped()
+        }
+        if buttonTitle == CellType.date.rawValue {
+            print("Date tapped")
+        }
+    }
+
 }

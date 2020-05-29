@@ -24,7 +24,7 @@
                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0 ₽" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YzA-Ec-SlX">
                         <rect key="frame" x="83" y="8" width="326" height="60"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                        <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                     </textField>
                 </subviews>
                 <constraints>

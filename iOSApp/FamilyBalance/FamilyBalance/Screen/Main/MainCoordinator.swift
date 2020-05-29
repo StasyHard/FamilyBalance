@@ -70,7 +70,7 @@ final class MainCoordinator: BaseCoordirator {
     }
     
     private func showAddOperationModule(navController: UINavigationController) {
-        let addOperationCoordinator = AddOperationCoordinator(navController: navController)
+        let addOperationCoordinator = AddOperationCoordinator(navController: navController, repo: repo)
         childCoordinators.append(addOperationCoordinator)
         addOperationCoordinator.start()
     }

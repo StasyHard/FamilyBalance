@@ -3,7 +3,16 @@ import UIKit
 
 protocol AddOperationViewImplementation: class {
     func setActionsDelegate(_ delegate: AddOperationViewActions)
-    func setData()
+    func showDefaultAccount(account: Account)
+    func showDefaultCategory(category: Category)
+}
+
+protocol AddOperationViewActions: class {
+    func viewDidLoad()
+    func accountButtonTapped()
+    func categoryButtonTapped()
+    //func DateButtonTapped()
+    func saveOperationButtonTapped(sum: Double?, account: Account, category: Category?) 
 }
 
 
@@ -18,11 +27,12 @@ final class AddOperationView: UIView {
     @IBOutlet private weak var addOperationTableView: UITableView! {
         didSet {
             addOperationTableView.backgroundColor = AppColors.backgroundColor
-            addOperationTableView.separatorColor = .red
-            registerCells()
+            addOperationTableView.tableFooterView = UIView()
+            
             addOperationTableView.delegate = tableViewProvider
             addOperationTableView.dataSource = tableViewProvider
-            addOperationTableView.tableFooterView = UIView()
+            tableViewProvider.actionsDelegate = actionsDelegate
+            registerCells()
         }
     }
     
@@ -33,7 +43,7 @@ final class AddOperationView: UIView {
     
     
     //MARK: - IBAction
-    @IBAction func incommeOrCostControlTapped(_ sender: UISegmentedControl) {
+    @IBAction private func incommeOrCostControlTapped(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             tableViewProvider.operation = .cost
         }
@@ -43,9 +53,21 @@ final class AddOperationView: UIView {
         addOperationTableView.reloadData()
     }
     
-    @IBAction func saveButtonTapped(_ sender: BlueRoundedButton) {
+    @IBAction private func saveButtonTapped(_ sender: BlueRoundedButton) {
+        switch tableViewProvider.operation {
+        case .income:
+            actionsDelegate?.saveOperationButtonTapped(sum: tableViewProvider.sum,
+                                                       account: tableViewProvider.account!,
+                                                       category: nil)
+        case .cost:
+            actionsDelegate?.saveOperationButtonTapped(sum: tableViewProvider.sum,
+                                                       account: tableViewProvider.account!,
+                                                       category: tableViewProvider.category!)
+        }
     }
     
+    
+    //MARK: - Private metods
     private func registerCells() {
         addOperationTableView.register(UINib(nibName: "SumOperationCell", bundle: nil), forCellReuseIdentifier: SumOperationCell.reuseIdD)
         addOperationTableView.register(UINib(nibName: "AddOperationCell", bundle: nil), forCellReuseIdentifier: AddOperationCell.reuseIdD)
@@ -56,12 +78,19 @@ final class AddOperationView: UIView {
 
 
 extension AddOperationView: AddOperationViewImplementation {
+
     func setActionsDelegate(_ delegate: AddOperationViewActions) {
         self.actionsDelegate = delegate
     }
     
-    func setData() {
-        
+    func showDefaultAccount(account: Account) {
+        tableViewProvider.account = account
+        addOperationTableView.reloadData()
+    }
+    
+    func showDefaultCategory(category: Category) {
+        tableViewProvider.category = category
+        addOperationTableView.reloadData()
     }
     
     

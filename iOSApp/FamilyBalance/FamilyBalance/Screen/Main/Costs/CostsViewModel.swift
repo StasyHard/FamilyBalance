@@ -76,7 +76,7 @@ final class CostsViewModel: CostsViewModelObservable {
         let period = getPeriodByFilter()
         _period.onNext(period)
         
-        repo?.getOperations(filter: filter)
+        repo?.getOperations(byPeriod: period)
             .subscribe(
                 onNext: { [weak self] operations in
                     guard let `self` = self else { return }
@@ -92,13 +92,13 @@ final class CostsViewModel: CostsViewModelObservable {
                     let costsCategories = self.getCategories(by: costs)
                     self._categoryData.onNext(costsCategories)
                     
-                    let graphCaterories = self.getCategoriesForGraph(by: costsCategories)
-                    self._graphData.onNext(graphCaterories)
+                    let graphCostsCaterories = self.getCategoriesForGraph(by: costsCategories)
+                    self._graphData.onNext(graphCostsCaterories)
             })
             .disposed(by: self.disposeBag)
     }
     
-    //Преобразовываем filter в
+    //Преобразовываем filter в period
     private func getPeriodByFilter() -> Period {
         let endDate = Date().currentDate
         

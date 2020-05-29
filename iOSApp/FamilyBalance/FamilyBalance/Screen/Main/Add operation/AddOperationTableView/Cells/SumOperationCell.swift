@@ -3,32 +3,20 @@ import UIKit
 
 final class SumOperationCell: UITableViewCell, ReusableView {
 
+    //MARK: - IBOutlet
     @IBOutlet weak var sumLabel: UILabel!
-    @IBOutlet weak var summTextField: UITextField! {
+    @IBOutlet weak var summTextField: UITextField!
+    
+    weak var textFieldDelegate: UITextFieldDelegate? {
         didSet {
-            summTextField.delegate = self
-        }
-    }
-}
-
-
-
-//MARK: - UITextFieldDelegate
-extension SumOperationCell: UITextFieldDelegate {
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.text = ""
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        let inputText = textField.text ?? ""
-        if !inputText.isEmpty {
-            textField.text = "\(inputText) ₽"
+            summTextField.delegate = textFieldDelegate
         }
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-            self.endEditing(true)
-        return true
+    
+    
+        //MARK: - Open metods
+    func getSum() -> Double? {
+        return Double(summTextField.text!)
     }
 }

@@ -26,6 +26,8 @@ final class AddOperationViewController: UIViewController {
         addOperationView?.setActionsDelegate(viewModel)
         observeViewModel(viewModel)
         configureDismissKeyboard()
+        
+        viewModel.viewDidLoad()
     }
     
     
@@ -49,6 +51,32 @@ final class AddOperationViewController: UIViewController {
 //    }
     
     private func observeViewModel(_ viewModel: AddOperationViewModelObservable) {
+        
+        viewModel.defaultAccount
+            .bind { [weak self] account in
+                self?.addOperationView?.showDefaultAccount(account: account)
+        }
+        .disposed(by: self.disposeBag)
+        
+        viewModel.defaultCatecory
+            .bind { [weak self] category in
+                self?.addOperationView?.showDefaultCategory(category: category)
+        }
+        .disposed(by: self.disposeBag)
+        
+        viewModel.addOperationResponse
+            .bind { response in
+                switch response {
+                case .sumIsNil:
+                    self.showAlertWithOneAction(title: "Ошибка", message: "Введите сумму операции", actionTitle: "ОК")
+                case .error:
+                    self.showAlertWithOneAction(title: "Ошибка", message: "Сохраните операцию повторно", actionTitle: "ОК")
+                case .success:
+                    self.showAlertWithOneAction(title: "Операция сохранена", message: "", actionTitle: "ОК")
+                    
+                }
+        }
+        .disposed(by: self.disposeBag)
     }
 
 }

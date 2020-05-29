@@ -3,7 +3,7 @@ import UIKit
 
 
 protocol AddOperationCellDelegate: class {
-    func didTapButtonInCell(_ cell: AddOperationCell)
+    func buttonInCellTapped(_ cell: AddOperationCell)
 }
 
 final class AddOperationCell: UITableViewCell, ReusableView {
@@ -15,6 +15,6 @@ final class AddOperationCell: UITableViewCell, ReusableView {
     
     
     @IBAction func buttonTapped(_ sender: UIButton) {
-        delegate?.didTapButtonInCell(self)
+        delegate?.buttonInCellTapped(self)
     }
 }
