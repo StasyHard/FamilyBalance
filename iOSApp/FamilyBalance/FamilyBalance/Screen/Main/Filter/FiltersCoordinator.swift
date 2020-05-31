@@ -13,7 +13,7 @@ final class FiltersCoordinator: BaseCoordirator {
     
     //MARK: - Private properties
     private var navController: UINavigationController
-    private var filtersNavController: UINavigationController?
+    private var filtersNavController: UINavigationController
     
     private let startFilter: Filters
     
@@ -24,14 +24,13 @@ final class FiltersCoordinator: BaseCoordirator {
     init(navController: UINavigationController, startFilter: Filters) {
         self.navController = navController
         self.startFilter = startFilter
+        
+         self.filtersNavController = UINavigationController()
     }
     
     
     //MARK: - Open metods
     override func start() {
-        let filtersNavController = UINavigationController()
-        self.filtersNavController = filtersNavController
-        
         let filtersVC = UIStoryboard.instantiateFiltersVC()
         let viewModel = FiltersViewModel(startFilter: startFilter)
         filtersVC.viewModel = viewModel
@@ -60,7 +59,7 @@ final class FiltersCoordinator: BaseCoordirator {
     }
     
     private func dismiss() {
-        filtersNavController?.dismiss(animated: true, completion: nil)
+        filtersNavController.dismiss(animated: true, completion: nil)
         parentCoordinator?.didFinish(coordinator: self)
     }
 }

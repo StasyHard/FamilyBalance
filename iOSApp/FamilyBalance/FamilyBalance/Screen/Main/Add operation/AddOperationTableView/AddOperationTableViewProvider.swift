@@ -20,9 +20,9 @@ class AddOperationTableViewProvider: NSObject, TableViewProvider {
     var actionsDelegate: AddOperationViewActions?
     
     var operation: OperationTable = .cost
-    var category: Category?
-    var account: Account?
-    var sum: Double?
+    var defaultCategory: Category?
+    var defaultAccount: Account?
+    private(set) var sum: Double?
     
     
     //MARK: - TableViewProvider metods
@@ -59,10 +59,10 @@ class AddOperationTableViewProvider: NSObject, TableViewProvider {
             cell.label.text = cellType.rawValue
             
             if cellType == .category {
-                cell.button.setTitle(category?.title ?? "", for: .normal)
+                cell.button.setTitle(defaultCategory?.title ?? "", for: .normal)
             }
             if cellType == .account {
-                cell.button.setTitle(account?.title ?? "", for: .normal)
+                cell.button.setTitle(defaultAccount?.title ?? "", for: .normal)
             }
             if cellType == .date {
                 let date = Date().currentDate
@@ -85,14 +85,10 @@ extension AddOperationTableViewProvider: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         let inputText = textField.text ?? ""
+        sum = inputText.toDouble()
         if !inputText.isEmpty {
-            //textField.text = "\(inputText) ₽"
-            sum = inputText.toDouble()
+            textField.text = "\(inputText) ₽"
         }
-    }
-    
-    private func toDouble(string: String) -> Double? {
-        return NumberFormatter().number(from: string)?.doubleValue
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -106,14 +102,14 @@ extension AddOperationTableViewProvider: UITextFieldDelegate {
 extension AddOperationTableViewProvider: AddOperationCellDelegate {
     
     func buttonInCellTapped(_ cell: AddOperationCell) {
-        let buttonTitle = cell.button.titleLabel?.text
-        if buttonTitle == CellType.account.rawValue {
+        let cellTitle = cell.label.text
+        if cellTitle == CellType.account.rawValue {
             actionsDelegate?.accountButtonTapped()
         }
-        if buttonTitle == CellType.category.rawValue {
+        if cellTitle == CellType.category.rawValue {
             actionsDelegate?.categoryButtonTapped()
         }
-        if buttonTitle == CellType.date.rawValue {
+        if cellTitle == CellType.date.rawValue {
             print("Date tapped")
         }
     }

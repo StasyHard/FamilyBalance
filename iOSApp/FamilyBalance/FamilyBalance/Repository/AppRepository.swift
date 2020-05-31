@@ -8,6 +8,7 @@ protocol Repository {
     func getOperations(byPeriod period: Period) -> Observable<[Operation]>
     func getDefaultAccount() -> Single<Account>
     func getDefaultCategory() -> Single<Category>
+    func getCategories() -> Observable<[Category]>
     
     func addOperation(_ operation: Operation) -> Single<Void>
 }
@@ -65,6 +66,14 @@ final class AppRepository: Repository {
                 let category = Category(id: 1, title: "Продукты")
                 single(.success(category))
                 
+                return Disposables.create()
+        }
+    }
+    
+    func getCategories() -> Observable<[Category]> {
+        return Observable
+            .create { result in
+                result.onNext([categProduct, categCar, categTransp, categChocolad, categKvartira, categZdorovie, categTelephone, categRazvlechen])
                 return Disposables.create()
         }
     }

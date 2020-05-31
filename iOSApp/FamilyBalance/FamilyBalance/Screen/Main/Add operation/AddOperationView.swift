@@ -5,6 +5,7 @@ protocol AddOperationViewImplementation: class {
     func setActionsDelegate(_ delegate: AddOperationViewActions)
     func showDefaultAccount(account: Account)
     func showDefaultCategory(category: Category)
+
 }
 
 protocol AddOperationViewActions: class {
@@ -31,7 +32,6 @@ final class AddOperationView: UIView {
             
             addOperationTableView.delegate = tableViewProvider
             addOperationTableView.dataSource = tableViewProvider
-            tableViewProvider.actionsDelegate = actionsDelegate
             registerCells()
         }
     }
@@ -57,12 +57,12 @@ final class AddOperationView: UIView {
         switch tableViewProvider.operation {
         case .income:
             actionsDelegate?.saveOperationButtonTapped(sum: tableViewProvider.sum,
-                                                       account: tableViewProvider.account!,
+                                                       account: tableViewProvider.defaultAccount!,
                                                        category: nil)
         case .cost:
             actionsDelegate?.saveOperationButtonTapped(sum: tableViewProvider.sum,
-                                                       account: tableViewProvider.account!,
-                                                       category: tableViewProvider.category!)
+                                                       account: tableViewProvider.defaultAccount!,
+                                                       category: tableViewProvider.defaultCategory!)
         }
     }
     
@@ -72,7 +72,6 @@ final class AddOperationView: UIView {
         addOperationTableView.register(UINib(nibName: "SumOperationCell", bundle: nil), forCellReuseIdentifier: SumOperationCell.reuseIdD)
         addOperationTableView.register(UINib(nibName: "AddOperationCell", bundle: nil), forCellReuseIdentifier: AddOperationCell.reuseIdD)
     }
-    
 }
 
 
@@ -81,15 +80,16 @@ extension AddOperationView: AddOperationViewImplementation {
 
     func setActionsDelegate(_ delegate: AddOperationViewActions) {
         self.actionsDelegate = delegate
+        tableViewProvider.actionsDelegate = actionsDelegate
     }
     
     func showDefaultAccount(account: Account) {
-        tableViewProvider.account = account
+        tableViewProvider.defaultAccount = account
         addOperationTableView.reloadData()
     }
     
     func showDefaultCategory(category: Category) {
-        tableViewProvider.category = category
+        tableViewProvider.defaultCategory = category
         addOperationTableView.reloadData()
     }
     

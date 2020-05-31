@@ -12,7 +12,9 @@ enum AddOperationResponse {
 protocol AddOperationViewModelObservable: class {
     var defaultAccount: Observable<Account> { get set }
     var defaultCatecory: Observable<Category> { get set }
-    var categoryDidTapped: Observable<Void> { get set }
+    var accountDidTapped: Observable<Void> { get set }
+    var categoryDidTapped: Observable<Category> { get set }
+
     var addOperationResponse: Observable<AddOperationResponse> { get set }
 }
 
@@ -22,17 +24,24 @@ final class AddOperationViewModel: AddOperationViewModelObservable {
     //MARK: - AddOperationViewModelObservable
     var defaultAccount: Observable<Account>
     var defaultCatecory: Observable<Category>
-    var categoryDidTapped: Observable<Void>
+    var accountDidTapped: Observable<Void>
+    var categoryDidTapped: Observable<Category>
     var addOperationResponse: Observable<AddOperationResponse>
     
     
     //MARK: - Private properties
     private let _defaultAccount = PublishSubject<Account>()
     private let _defaultCatecory = PublishSubject<Category>()
-    private let _categoryDidTapped = PublishSubject<Void>()
+    private let _categoryDidTapped = PublishSubject<Category>()
+    private let _accountDidTapped = PublishSubject<Void>()
     private let _addOperationResponse = PublishSubject<AddOperationResponse>()
     
     private let repo: Repository
+    private var defСategory: Category? {
+        didSet {
+            _defaultCatecory.onNext(defСategory!)
+        }
+    }
     
     private let disposeBag = DisposeBag()
     
@@ -42,6 +51,7 @@ final class AddOperationViewModel: AddOperationViewModelObservable {
         self.repo = repo
         defaultAccount = _defaultAccount
         defaultCatecory = _defaultCatecory
+        accountDidTapped = _accountDidTapped
         categoryDidTapped = _categoryDidTapped
         addOperationResponse = _addOperationResponse
     }
@@ -61,17 +71,18 @@ extension AddOperationViewModel: AddOperationViewActions {
         
         repo.getDefaultCategory()
             .subscribe(onSuccess: { [weak self] category in
-                self?._defaultCatecory.onNext(category)
+                self?.defСategory = category
             })
             .disposed(by: self.disposeBag)
     }
     
     func accountButtonTapped() {
-        
+        _accountDidTapped.onNext(())
     }
     
     func categoryButtonTapped() {
-        _categoryDidTapped.onNext(())
+        guard let defСategory = defСategory else { return }
+        _categoryDidTapped.onNext((defСategory))
     }
     
     func saveOperationButtonTapped(sum: Double?, account: Account, category: Category?) {

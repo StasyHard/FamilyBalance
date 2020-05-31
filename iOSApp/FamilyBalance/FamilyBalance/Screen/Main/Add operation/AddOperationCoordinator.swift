@@ -31,9 +31,32 @@ class AddOperationCoordinator: BaseCoordirator {
     //MARK: - Private metods
     private func observeViewModel(_ viewModel: AddOperationViewModelObservable) {
         viewModel.categoryDidTapped
-            .bind { _ in
-                //show module.....
+            .bind { [weak self] category in
+                self?.showCategoryListModule(selectedCategory: category)
         }
            .disposed(by: self.disposeBag)
+        
+        viewModel.accountDidTapped
+            .bind { [weak self] in
+                self?.showAccountListModule()
+        }
+        .disposed(by: self.disposeBag)
+    }
+    
+    private func showCategoryListModule(selectedCategory: Category) {
+        let categoryListCoordinator = CategoryListCoordinator(navController: navController,
+                                                              repo: repo,
+                                                              selectedCategory: selectedCategory)
+           childCoordinators.append(categoryListCoordinator)
+           categoryListCoordinator.parentCoordinator = self
+           categoryListCoordinator.start()
+       }
+    
+    private func showAccountListModule() {
+        let accountListCoordinator = AccountListCoordinator(navController: navController,
+                                                            repo: repo)
+        childCoordinators.append(accountListCoordinator)
+        accountListCoordinator.parentCoordinator = self
+        accountListCoordinator.start()
     }
 }

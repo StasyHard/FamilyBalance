@@ -1,0 +1,43 @@
+
+import UIKit
+import RxSwift
+import RxCocoa
+
+
+final class CategoryListCoordinator: BaseCoordirator {
+    
+    //MARK: - Private properties
+    private var navController: UINavigationController
+    private var categoryListNavController: UINavigationController
+    
+    private let repo: Repository
+    private let selectedCategory: Category
+    
+    private let disposeBag = DisposeBag()
+    
+    
+    //MARK: - Init
+    init(navController: UINavigationController, repo: Repository, selectedCategory: Category) {
+        self.navController = navController
+        self.repo = repo
+        self.selectedCategory = selectedCategory
+        
+        self.categoryListNavController = UINavigationController()
+    }
+    
+    override func start() {
+        let categoryListVC = UIStoryboard.instantiateCategoryListVC()
+        let viewModel = CategoryListViewModel(repo: repo, selectedCategory: selectedCategory)
+        categoryListVC.viewModel = viewModel
+        navController.present(categoryListNavController, animated: true, completion: nil)
+        categoryListNavController.pushViewController(categoryListVC, animated: false)
+        
+        observeViewModel(viewModel)
+    }
+    
+    
+    //MARK: - Private metods
+    private func observeViewModel(_ viewModel: CategoryListViewModelObservable) {
+        
+    }
+}
