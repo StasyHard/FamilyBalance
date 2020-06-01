@@ -23,7 +23,7 @@ final class CategoryListViewController: UIViewController {
         setNavigationUI()
         
         guard let viewModel = viewModel else { return }
-        //categoryListView?.setActionsDelegate(viewModel)
+        categoryListView?.setActionsDelegate(delegate: viewModel)
         observeViewModel(viewModel)
 
         viewModel.viewDidLoad()

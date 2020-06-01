@@ -19,10 +19,10 @@ final class CategoryListViewModel: CategoryListViewModelObservable {
     
         //MARK: - Private properties
     private let _catecories = PublishSubject<[Category]>()
-    private let _selectedCategory = PublishSubject<Category>()
+    private let _selectedCategory: BehaviorSubject<Category>
     
     private let repo: Repository
-    private let select: Category
+    //private let selectCateg: Category
     
     private let disposeBag = DisposeBag()
     
@@ -32,21 +32,25 @@ final class CategoryListViewModel: CategoryListViewModelObservable {
         self.repo = repo
         
         self.catecories = _catecories
+        _selectedCategory = BehaviorSubject<Category>(value: selectedCategory)
         self.selectedCategory = _selectedCategory
-        self.select = selectedCategory
     }
 }
 
 
 
 extension CategoryListViewModel: CategoryListViewActions {
+    
     func viewDidLoad() {
         repo.getCategories()
             .subscribe(onNext: { [weak self] categories in
                 guard let `self` = self else { return }
                 self._catecories.onNext(categories)
-                self._selectedCategory.onNext(self.select)
             })
         .disposed(by: self.disposeBag)
+    }
+    
+    func wasSelectedCategory(category: Category) {
+        _selectedCategory.onNext(category)
     }
 }

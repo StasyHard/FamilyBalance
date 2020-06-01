@@ -3,12 +3,14 @@ import UIKit
 
 
 protocol CategoryListViewImplementation {
+    func setActionsDelegate(delegate: CategoryListViewActions)
     func showCategories(_ categories: [Category])
     func setSelectedCategory(_ category: Category)
 }
 
 protocol CategoryListViewActions: class {
     func viewDidLoad()
+    func wasSelectedCategory(category: Category)
 }
 
 
@@ -24,7 +26,7 @@ class CategoryListView: UIView {
         }
     }
     
-    private var actionsDelegate: CategoryListViewActions?
+    //private var actionsDelegate: CategoryListViewActions?
     private let tableViewProvider = CategoryListTableViewProvider()
 }
 
@@ -32,13 +34,18 @@ class CategoryListView: UIView {
 
 extension CategoryListView: CategoryListViewImplementation {
     
+    func setActionsDelegate(delegate: CategoryListViewActions) {
+        //self.actionsDelegate = delegate
+        tableViewProvider.actionDelegate = delegate
+    }
+    
     func showCategories(_ categories: [Category]) {
         tableViewProvider.categories = categories
         categoryListTableView.reloadData()
     }
     
     func setSelectedCategory(_ category: Category) {
-        tableViewProvider.setSelectedCategory(category)
+        tableViewProvider.selectedCategory = category
         categoryListTableView.reloadData()
     }
 }

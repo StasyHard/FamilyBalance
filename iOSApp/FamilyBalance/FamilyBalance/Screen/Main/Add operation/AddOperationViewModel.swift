@@ -14,7 +14,7 @@ protocol AddOperationViewModelObservable: class {
     var defaultCatecory: Observable<Category> { get set }
     var accountDidTapped: Observable<Void> { get set }
     var categoryDidTapped: Observable<Category> { get set }
-
+    
     var addOperationResponse: Observable<AddOperationResponse> { get set }
 }
 
@@ -54,6 +54,12 @@ final class AddOperationViewModel: AddOperationViewModelObservable {
         accountDidTapped = _accountDidTapped
         categoryDidTapped = _categoryDidTapped
         addOperationResponse = _addOperationResponse
+    }
+    
+    
+    //MARK: - Open metods
+    func setNewDefaultCategory(_ category: Category) {
+        defСategory = category
     }
 }
 
@@ -114,11 +120,11 @@ extension AddOperationViewModel: AddOperationViewActions {
                 .subscribe(
                     onSuccess: { [weak self] _ in
                         self?._addOperationResponse.onNext(.success)
-                },
+                    },
                     onError: { [weak self] _ in
                         self?._addOperationResponse.onNext(.error)
                 })
-            .disposed(by: self.disposeBag)
+                .disposed(by: self.disposeBag)
         }
-}
+    }
 }

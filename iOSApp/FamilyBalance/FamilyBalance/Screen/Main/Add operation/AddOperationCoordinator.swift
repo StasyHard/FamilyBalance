@@ -8,6 +8,7 @@ class AddOperationCoordinator: BaseCoordirator {
     
     //MARK: - Private properties
     private var navController: UINavigationController
+    private var viewModel: AddOperationViewModel?
     private let repo: Repository
     
     private let disposeBag = DisposeBag()
@@ -26,6 +27,7 @@ class AddOperationCoordinator: BaseCoordirator {
         navController.setViewControllers([addOperationVC], animated: false)
         
         observeViewModel(viewModel)
+        self.viewModel = viewModel
     }
     
     //MARK: - Private metods
@@ -59,4 +61,14 @@ class AddOperationCoordinator: BaseCoordirator {
         accountListCoordinator.parentCoordinator = self
         accountListCoordinator.start()
     }
+}
+
+
+
+extension AddOperationCoordinator: CategoryListener {
+    
+    func setCategory(_ category: Category) {
+        viewModel?.setNewDefaultCategory(category)
+    }
+
 }

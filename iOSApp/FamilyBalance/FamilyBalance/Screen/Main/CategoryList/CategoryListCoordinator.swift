@@ -3,6 +3,9 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+protocol CategoryListener {
+    func setCategory(_ category: Category)
+}
 
 final class CategoryListCoordinator: BaseCoordirator {
     
@@ -39,5 +42,20 @@ final class CategoryListCoordinator: BaseCoordirator {
     //MARK: - Private metods
     private func observeViewModel(_ viewModel: CategoryListViewModelObservable) {
         
+        viewModel.selectedCategory
+            .bind { [weak self] category in
+                guard let `self` = self else { return }
+                if category != self.selectedCategory {
+                    self.dismiss()
+                    let listener: CategoryListener? = self.findHandler()
+                    listener?.setCategory(category)
+                }
+        }
+        .disposed(by: self.disposeBag)
+    }
+    
+    private func dismiss() {
+        self.categoryListNavController.dismiss(animated: true, completion: nil)
+        self.parentCoordinator?.didFinish(coordinator: self)
     }
 }
