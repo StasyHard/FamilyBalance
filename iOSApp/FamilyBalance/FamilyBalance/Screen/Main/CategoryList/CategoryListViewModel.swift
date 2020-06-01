@@ -22,7 +22,6 @@ final class CategoryListViewModel: CategoryListViewModelObservable {
     private let _selectedCategory: BehaviorSubject<Category>
     
     private let repo: Repository
-    //private let selectCateg: Category
     
     private let disposeBag = DisposeBag()
     

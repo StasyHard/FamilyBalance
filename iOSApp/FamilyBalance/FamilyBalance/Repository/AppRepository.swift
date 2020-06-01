@@ -9,6 +9,7 @@ protocol Repository {
     func getDefaultAccount() -> Single<Account>
     func getDefaultCategory() -> Single<Category>
     func getCategories() -> Observable<[Category]>
+    func getAccounts() -> Observable<[Account]>
     
     func addOperation(_ operation: Operation) -> Single<Void>
 }
@@ -36,6 +37,7 @@ final class AppRepository: Repository {
         }
     }
     
+    //получить список операций за определенный период
     func getOperations(byPeriod period: Period) -> Observable<[Operation]> {
         return Observable
             .create { [weak self] result in
@@ -48,36 +50,51 @@ final class AppRepository: Repository {
         }
     }
     
+    //получить категории расходов
+    func getCategories() -> Observable<[Category]> {
+        return Observable
+            .create { result in
+                result.onNext([categProduct, categCar, categTransp, categChocolad, categKvartira, categZdorovie, categTelephone, categRazvlechen])
+                
+                return Disposables.create()
+        }
+    }
+    
+    //получить счета
+    func getAccounts() -> Observable<[Account]> {
+        return Observable
+            .create { result in
+                result.onNext([cash, card])
+                 
+                return Disposables.create()
+        }
+    }
+    
+    //получить счета
     func getDefaultAccount() -> Single<Account> {
         return Single
             .create { single in
                 
-                let account = Account(id: 1, title: "Карта")
+                let account = card
                 single(.success(account))
                 
                 return Disposables.create()
         }
     }
     
+    //получить дефолтную категорию, для экранов где необходимо сразу добававить дефолтные данные
     func getDefaultCategory() -> Single<Category> {
         return Single
             .create { single in
                 
-                let category = Category(id: 1, title: "Продукты")
+                let category = categProduct
                 single(.success(category))
                 
                 return Disposables.create()
         }
     }
     
-    func getCategories() -> Observable<[Category]> {
-        return Observable
-            .create { result in
-                result.onNext([categProduct, categCar, categTransp, categChocolad, categKvartira, categZdorovie, categTelephone, categRazvlechen])
-                return Disposables.create()
-        }
-    }
-    
+    //получить дефолтный счет, для экранов где необходимо сразу добававить дефолтные данные
     func addOperation(_ operation: Operation) -> Single<Void> {
         return Single
             .create { single in

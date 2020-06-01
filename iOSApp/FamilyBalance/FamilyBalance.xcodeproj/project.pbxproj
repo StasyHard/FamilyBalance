@@ -85,8 +85,6 @@
 		56926DBC2481619C007CFE7E /* AccountListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56926DBB2481619C007CFE7E /* AccountListViewModel.swift */; };
 		56926DBE248161AB007CFE7E /* AccountListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56926DBD248161AB007CFE7E /* AccountListCoordinator.swift */; };
 		56926DC0248161BA007CFE7E /* AccountList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56926DBF248161BA007CFE7E /* AccountList.storyboard */; };
-		56926DC82484FFC2007CFE7E /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56926DC62484FFC2007CFE7E /* ListCell.swift */; };
-		56926DC92484FFC2007CFE7E /* ListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56926DC72484FFC2007CFE7E /* ListCell.xib */; };
 		56926DCC24850470007CFE7E /* AccountListTableViewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56926DCB24850470007CFE7E /* AccountListTableViewProvider.swift */; };
 		56926DCE24850673007CFE7E /* CategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56926DCD24850673007CFE7E /* CategoryListView.swift */; };
 		56926DD024850729007CFE7E /* CategoryListTableViewProviderNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56926DCF24850729007CFE7E /* CategoryListTableViewProviderNew.swift */; };
@@ -221,8 +219,6 @@
 		56926DBB2481619C007CFE7E /* AccountListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListViewModel.swift; sourceTree = "<group>"; };
 		56926DBD248161AB007CFE7E /* AccountListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListCoordinator.swift; sourceTree = "<group>"; };
 		56926DBF248161BA007CFE7E /* AccountList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AccountList.storyboard; sourceTree = "<group>"; };
-		56926DC62484FFC2007CFE7E /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
-		56926DC72484FFC2007CFE7E /* ListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListCell.xib; sourceTree = "<group>"; };
 		56926DCB24850470007CFE7E /* AccountListTableViewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListTableViewProvider.swift; sourceTree = "<group>"; };
 		56926DCD24850673007CFE7E /* CategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListView.swift; sourceTree = "<group>"; };
 		56926DCF24850729007CFE7E /* CategoryListTableViewProviderNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListTableViewProviderNew.swift; sourceTree = "<group>"; };
@@ -635,8 +631,8 @@
 			isa = PBXGroup;
 			children = (
 				56926DBF248161BA007CFE7E /* AccountList.storyboard */,
-				56926DB72481617D007CFE7E /* AccountListViewController.swift */,
 				56926DB92481618D007CFE7E /* AccountListView.swift */,
+				56926DB72481617D007CFE7E /* AccountListViewController.swift */,
 				56926DBB2481619C007CFE7E /* AccountListViewModel.swift */,
 				56926DBD248161AB007CFE7E /* AccountListCoordinator.swift */,
 				56926DCA24850445007CFE7E /* AccountListTableView */,
@@ -663,8 +659,6 @@
 			isa = PBXGroup;
 			children = (
 				56926DCF24850729007CFE7E /* CategoryListTableViewProviderNew.swift */,
-				56926DC62484FFC2007CFE7E /* ListCell.swift */,
-				56926DC72484FFC2007CFE7E /* ListCell.xib */,
 			);
 			path = CategoryListTableView;
 			sourceTree = "<group>";
@@ -923,7 +917,6 @@
 				56926DC0248161BA007CFE7E /* AccountList.storyboard in Resources */,
 				566AD9012475673500898065 /* IncomeAndCostsCell.xib in Resources */,
 				567086BE2465ABEA00CD2E2A /* Costs.storyboard in Resources */,
-				56926DC92484FFC2007CFE7E /* ListCell.xib in Resources */,
 				568164A22472CF1C00BAAABF /* CostCell.xib in Resources */,
 				56EB9BBC2463FB10002F815B /* Main.storyboard in Resources */,
 				56AADA17246C4A9700B2CC8F /* SignUp.storyboard in Resources */,
@@ -1040,7 +1033,6 @@
 				56926DA4247EA91E007CFE7E /* AddOperationCell.swift in Sources */,
 				56EB9BC224640A29002F815B /* Storyboard+instantiate.swift in Sources */,
 				56C5A29F246430DF00CE5602 /* LoadingView.swift in Sources */,
-				56926DC82484FFC2007CFE7E /* ListCell.swift in Sources */,
 				568164A62472E2D300BAAABF /* CostsTableViewProvider.swift in Sources */,
 				56926DB524814F14007CFE7E /* CategoryListViewModel.swift in Sources */,
 				56926DA0247E96A3007CFE7E /* SumOperationCell.swift in Sources */,

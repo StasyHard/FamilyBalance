@@ -2,7 +2,6 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import Charts
 
 
 final class CategoryListViewController: UIViewController {
@@ -12,12 +11,12 @@ final class CategoryListViewController: UIViewController {
     
     
     //MARK: - Private properties
-    private lazy var categoryListView = view as? CategoryListView
+    private lazy var categoryListView = view as? CategoryListViewImplementation
     
     private let disposeBag = DisposeBag()
     
     
- //MARK: - Life cycle
+    //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationUI()
@@ -25,19 +24,19 @@ final class CategoryListViewController: UIViewController {
         guard let viewModel = viewModel else { return }
         categoryListView?.setActionsDelegate(delegate: viewModel)
         observeViewModel(viewModel)
-
+        
         viewModel.viewDidLoad()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-       //закрытие экрана должно отправлять в координатор эвент о закрытии
+        //закрытие экрана должно отправлять в координатор эвент о закрытии
     }
     
     
-        //MARK: - Private metods
+    //MARK: - Private metods
     private func setNavigationUI() {
-            title = "Выбрать категорию"
-        }
+        title = "Выбрать категорию"
+    }
     
     private func observeViewModel(_ viewModel: CategoryListViewModelObservable) {
         

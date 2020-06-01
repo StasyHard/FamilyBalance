@@ -7,7 +7,7 @@ struct Category: Hashable {
     let title: String
 }
 
-struct Account {
+struct Account: Hashable {
     let id: Int
     let title: String
 }

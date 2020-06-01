@@ -16,24 +16,24 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сумма" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5M-2e-RvN">
-                        <rect key="frame" x="20" y="8" width="55" height="60"/>
+                        <rect key="frame" x="20" y="10" width="55" height="56"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0 ₽" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YzA-Ec-SlX">
-                        <rect key="frame" x="83" y="8" width="326" height="60"/>
+                        <rect key="frame" x="83" y="10" width="326" height="56"/>
                         <color key="textColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                         <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                     </textField>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="YzA-Ec-SlX" secondAttribute="bottom" constant="8" id="2Yp-vV-795"/>
+                    <constraint firstAttribute="bottom" secondItem="YzA-Ec-SlX" secondAttribute="bottom" constant="10" id="2Yp-vV-795"/>
                     <constraint firstAttribute="trailing" secondItem="YzA-Ec-SlX" secondAttribute="trailing" constant="20" id="487-4U-2cn"/>
-                    <constraint firstAttribute="bottom" secondItem="b5M-2e-RvN" secondAttribute="bottom" constant="8" id="EX7-1a-eeb"/>
-                    <constraint firstItem="YzA-Ec-SlX" firstAttribute="top" secondItem="2BD-CT-nZE" secondAttribute="top" constant="8" id="KmU-c2-LX7"/>
-                    <constraint firstItem="b5M-2e-RvN" firstAttribute="top" secondItem="2BD-CT-nZE" secondAttribute="top" constant="8" id="SPs-Nv-LBn"/>
+                    <constraint firstAttribute="bottom" secondItem="b5M-2e-RvN" secondAttribute="bottom" constant="10" id="EX7-1a-eeb"/>
+                    <constraint firstItem="YzA-Ec-SlX" firstAttribute="top" secondItem="2BD-CT-nZE" secondAttribute="top" constant="10" id="KmU-c2-LX7"/>
+                    <constraint firstItem="b5M-2e-RvN" firstAttribute="top" secondItem="2BD-CT-nZE" secondAttribute="top" constant="10" id="SPs-Nv-LBn"/>
                     <constraint firstItem="b5M-2e-RvN" firstAttribute="leading" secondItem="2BD-CT-nZE" secondAttribute="leading" constant="20" id="cas-Jm-3I7"/>
                     <constraint firstItem="YzA-Ec-SlX" firstAttribute="leading" secondItem="b5M-2e-RvN" secondAttribute="trailing" constant="8" id="n3i-b7-vBT"/>
                 </constraints>

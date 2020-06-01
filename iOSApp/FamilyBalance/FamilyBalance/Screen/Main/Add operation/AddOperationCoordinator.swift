@@ -39,8 +39,8 @@ class AddOperationCoordinator: BaseCoordirator {
            .disposed(by: self.disposeBag)
         
         viewModel.accountDidTapped
-            .bind { [weak self] in
-                self?.showAccountListModule()
+            .bind { [weak self] account in
+                self?.showAccountListModule(selectedAccount: account)
         }
         .disposed(by: self.disposeBag)
     }
@@ -54,9 +54,10 @@ class AddOperationCoordinator: BaseCoordirator {
            categoryListCoordinator.start()
        }
     
-    private func showAccountListModule() {
+    private func showAccountListModule(selectedAccount: Account) {
         let accountListCoordinator = AccountListCoordinator(navController: navController,
-                                                            repo: repo)
+                                                            repo: repo,
+                                                            selectedAccount: selectedAccount)
         childCoordinators.append(accountListCoordinator)
         accountListCoordinator.parentCoordinator = self
         accountListCoordinator.start()
@@ -70,5 +71,13 @@ extension AddOperationCoordinator: CategoryListener {
     func setCategory(_ category: Category) {
         viewModel?.setNewDefaultCategory(category)
     }
+}
 
+
+extension AddOperationCoordinator: AccountListener {
+    func setAccount(_ account: Account) {
+        viewModel?.setNewDefaultAccount(account)
+    }
+    
+    
 }

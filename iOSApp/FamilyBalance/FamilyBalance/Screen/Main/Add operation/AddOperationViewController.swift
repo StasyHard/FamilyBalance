@@ -21,11 +21,11 @@ final class AddOperationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationUI()
+        configureDismissKeyboard()
         
         guard let viewModel = viewModel else { return }
         addOperationView?.setActionsDelegate(viewModel)
         observeViewModel(viewModel)
-        configureDismissKeyboard()
         
         viewModel.viewDidLoad()
     }

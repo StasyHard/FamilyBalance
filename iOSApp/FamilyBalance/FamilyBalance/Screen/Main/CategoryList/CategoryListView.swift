@@ -26,7 +26,6 @@ class CategoryListView: UIView {
         }
     }
     
-    //private var actionsDelegate: CategoryListViewActions?
     private let tableViewProvider = CategoryListTableViewProvider()
 }
 
@@ -35,7 +34,6 @@ class CategoryListView: UIView {
 extension CategoryListView: CategoryListViewImplementation {
     
     func setActionsDelegate(delegate: CategoryListViewActions) {
-        //self.actionsDelegate = delegate
         tableViewProvider.actionDelegate = delegate
     }
     
