@@ -64,7 +64,7 @@ final class OperationsViewModel: OperationsViewModelObservable {
     //MARK: - Private metods
     //получаем операции и преобразовываем их в необходимые данные: массив операций сортированный по дням, общая сумма доходов, общая сумма расходов
     private func getData() {
-        repo.getOperations(filter: filter)
+        repo.getOperations(byPeriod: getPeriodByFilter())
             .subscribe(onNext: { [weak self] operations in
                 guard let `self` = self else { return }
                 
@@ -83,6 +83,30 @@ final class OperationsViewModel: OperationsViewModelObservable {
             })
             .disposed(by: self.disposeBag)
     }
+    
+    //Преобразовываем filter в period
+       private func getPeriodByFilter() -> Period {
+           let endDate = Date().currentDate
+           
+           switch filter {
+           case .mounth:
+               let startOfCurrentMonth = Date().startOfCurrentMonth
+               return Period(startDate: startOfCurrentMonth,
+                             endDate: endDate)
+           case .today:
+               let startOfCurrentDay = Date().startOfCurrentDay
+               return Period(startDate: startOfCurrentDay,
+                             endDate: endDate)
+           case .week:
+               let startOfCurrentWeek = Date().startOfCurrentWeek
+               return Period(startDate: startOfCurrentWeek,
+                             endDate: endDate)
+           case .year:
+               let startOfCurrentYear = Date().startOfCurrentYear
+               return Period(startDate: startOfCurrentYear,
+                             endDate: endDate)
+           }
+       }
     
     private func getSum(by operations: [Operation]) -> Double {
         var sum = 0.0

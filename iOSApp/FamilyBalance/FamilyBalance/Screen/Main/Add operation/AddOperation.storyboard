@@ -10,14 +10,15 @@
         <!--Add Operation View Controller-->
         <scene sceneID="kVN-7G-Z3M">
             <objects>
-                <viewController storyboardIdentifier="addOperation" id="aLJ-M9-JEH" customClass="AddOperationViewController" customModule="FamilyBalance" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="addOperationVC" id="aLJ-M9-JEH" customClass="AddOperationViewController" customModule="FamilyBalance" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mX4-6U-sCy" customClass="AddOperationView" customModule="FamilyBalance" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BZ1-5v-Org">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" separatorInsetReference="fromAutomaticInsets" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BZ1-5v-Org">
                                 <rect key="frame" x="0.0" y="91" width="414" height="771"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ql-DP-te1" customClass="BlueRoundedButton" customModule="FamilyBalance" customModuleProvider="target">
                                 <rect key="frame" x="20" y="812" width="374" height="30"/>
@@ -38,7 +39,7 @@
                                 </connections>
                             </segmentedControl>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="BZ1-5v-Org" firstAttribute="top" secondItem="Ltw-Wl-Av5" secondAttribute="bottom" constant="8" id="9e5-Wa-GRD"/>
                             <constraint firstItem="NRk-Ft-b1G" firstAttribute="bottom" secondItem="BZ1-5v-Org" secondAttribute="bottom" id="Cbh-cb-aOb"/>

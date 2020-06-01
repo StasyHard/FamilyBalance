@@ -3,6 +3,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
+//MARK: - Исправить чтоб был не стартовый и установленный, а один фильтр
 
 protocol FiltersViewModelObservable: class {
     var isClosed: Observable<Void> { get set }

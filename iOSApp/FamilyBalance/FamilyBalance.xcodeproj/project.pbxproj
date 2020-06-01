@@ -70,6 +70,24 @@
 		56926D98247E56A9007CFE7E /* Date+currentWeekMonday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56926D97247E56A9007CFE7E /* Date+currentWeekMonday.swift */; };
 		56926D9B247E5718007CFE7E /* Calendar+iso8601.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56926D9A247E5718007CFE7E /* Calendar+iso8601.swift */; };
 		56926D9D247E75DB007CFE7E /* Period.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56926D9C247E75DB007CFE7E /* Period.swift */; };
+		56926DA0247E96A3007CFE7E /* SumOperationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56926D9F247E96A3007CFE7E /* SumOperationCell.swift */; };
+		56926DA2247E96BA007CFE7E /* SumOperationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56926DA1247E96BA007CFE7E /* SumOperationCell.xib */; };
+		56926DA4247EA91E007CFE7E /* AddOperationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56926DA3247EA91E007CFE7E /* AddOperationCell.swift */; };
+		56926DA6247EAA30007CFE7E /* AddOperationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56926DA5247EAA30007CFE7E /* AddOperationCell.xib */; };
+		56926DA82480F421007CFE7E /* String+toDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56926DA72480F421007CFE7E /* String+toDouble.swift */; };
+		56926DAA2480FBBA007CFE7E /* UIViewController+showAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56926DA92480FBBA007CFE7E /* UIViewController+showAlert.swift */; };
+		56926DAD24814EC5007CFE7E /* CategoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56926DAC24814EC5007CFE7E /* CategoryListViewController.swift */; };
+		56926DAF24814ED5007CFE7E /* CategoryList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56926DAE24814ED5007CFE7E /* CategoryList.storyboard */; };
+		56926DB324814EFD007CFE7E /* CategoryListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56926DB224814EFD007CFE7E /* CategoryListCoordinator.swift */; };
+		56926DB524814F14007CFE7E /* CategoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56926DB424814F14007CFE7E /* CategoryListViewModel.swift */; };
+		56926DB82481617D007CFE7E /* AccountListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56926DB72481617D007CFE7E /* AccountListViewController.swift */; };
+		56926DBA2481618D007CFE7E /* AccountListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56926DB92481618D007CFE7E /* AccountListView.swift */; };
+		56926DBC2481619C007CFE7E /* AccountListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56926DBB2481619C007CFE7E /* AccountListViewModel.swift */; };
+		56926DBE248161AB007CFE7E /* AccountListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56926DBD248161AB007CFE7E /* AccountListCoordinator.swift */; };
+		56926DC0248161BA007CFE7E /* AccountList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56926DBF248161BA007CFE7E /* AccountList.storyboard */; };
+		56926DCC24850470007CFE7E /* AccountListTableViewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56926DCB24850470007CFE7E /* AccountListTableViewProvider.swift */; };
+		56926DCE24850673007CFE7E /* CategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56926DCD24850673007CFE7E /* CategoryListView.swift */; };
+		56926DD024850729007CFE7E /* CategoryListTableViewProviderNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56926DCF24850729007CFE7E /* CategoryListTableViewProviderNew.swift */; };
 		5694064F2476C25C009034FE /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5694064E2476C25C009034FE /* Filters.swift */; };
 		569406512476CC4C009034FE /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569406502476CC4C009034FE /* Data.swift */; };
 		569406532477DDBE009034FE /* GraphColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569406522477DDBE009034FE /* GraphColors.swift */; };
@@ -186,6 +204,24 @@
 		56926D97247E56A9007CFE7E /* Date+currentWeekMonday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+currentWeekMonday.swift"; sourceTree = "<group>"; };
 		56926D9A247E5718007CFE7E /* Calendar+iso8601.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calendar+iso8601.swift"; sourceTree = "<group>"; };
 		56926D9C247E75DB007CFE7E /* Period.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Period.swift; sourceTree = "<group>"; };
+		56926D9F247E96A3007CFE7E /* SumOperationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SumOperationCell.swift; sourceTree = "<group>"; };
+		56926DA1247E96BA007CFE7E /* SumOperationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SumOperationCell.xib; sourceTree = "<group>"; };
+		56926DA3247EA91E007CFE7E /* AddOperationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOperationCell.swift; sourceTree = "<group>"; };
+		56926DA5247EAA30007CFE7E /* AddOperationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddOperationCell.xib; sourceTree = "<group>"; };
+		56926DA72480F421007CFE7E /* String+toDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+toDouble.swift"; sourceTree = "<group>"; };
+		56926DA92480FBBA007CFE7E /* UIViewController+showAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+showAlert.swift"; sourceTree = "<group>"; };
+		56926DAC24814EC5007CFE7E /* CategoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewController.swift; sourceTree = "<group>"; };
+		56926DAE24814ED5007CFE7E /* CategoryList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CategoryList.storyboard; sourceTree = "<group>"; };
+		56926DB224814EFD007CFE7E /* CategoryListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListCoordinator.swift; sourceTree = "<group>"; };
+		56926DB424814F14007CFE7E /* CategoryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewModel.swift; sourceTree = "<group>"; };
+		56926DB72481617D007CFE7E /* AccountListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListViewController.swift; sourceTree = "<group>"; };
+		56926DB92481618D007CFE7E /* AccountListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListView.swift; sourceTree = "<group>"; };
+		56926DBB2481619C007CFE7E /* AccountListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListViewModel.swift; sourceTree = "<group>"; };
+		56926DBD248161AB007CFE7E /* AccountListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListCoordinator.swift; sourceTree = "<group>"; };
+		56926DBF248161BA007CFE7E /* AccountList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AccountList.storyboard; sourceTree = "<group>"; };
+		56926DCB24850470007CFE7E /* AccountListTableViewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListTableViewProvider.swift; sourceTree = "<group>"; };
+		56926DCD24850673007CFE7E /* CategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListView.swift; sourceTree = "<group>"; };
+		56926DCF24850729007CFE7E /* CategoryListTableViewProviderNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListTableViewProviderNew.swift; sourceTree = "<group>"; };
 		5694064E2476C25C009034FE /* Filters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
 		569406502476CC4C009034FE /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		569406522477DDBE009034FE /* GraphColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphColors.swift; sourceTree = "<group>"; };
@@ -304,6 +340,7 @@
 			children = (
 				56184190246D7D1B006BF368 /* AppSizes.swift */,
 				56184192246D7FBE006BF368 /* AppColors.swift */,
+				56926DC42483ED85007CFE7E /* Cells */,
 				5694064D2476C20D009034FE /* Enums */,
 				56184195246D8692006BF368 /* Buttons */,
 				56184194246D8457006BF368 /* TextFields */,
@@ -332,6 +369,7 @@
 			isa = PBXGroup;
 			children = (
 				56184198246D8F10006BF368 /* UIViewController + dismissKeyboard.swift */,
+				56926DA92480FBBA007CFE7E /* UIViewController+showAlert.swift */,
 			);
 			path = UIViewController;
 			sourceTree = "<group>";
@@ -366,9 +404,9 @@
 				56EB9BC5246416AF002F815B /* AppCoordinator */,
 				567E1E39246AC2E000C50217 /* Repository */,
 				56C5A2A5246562D300CE5602 /* Screen */,
-				568164A82472E41700BAAABF /* Protocols */,
-				56EB9B9C2462B89F002F815B /* Extention */,
 				56EB9B9B2462B75C002F815B /* Model */,
+				568164A82472E41700BAAABF /* Protocols */,
+				56EB9B9C2462B89F002F815B /* Extentions */,
 				5618418D246D4AAB006BF368 /* Base */,
 				5618418C246D4A23006BF368 /* Resources */,
 			);
@@ -416,9 +454,9 @@
 			isa = PBXGroup;
 			children = (
 				566AD90D247672C600898065 /* AddOperation.storyboard */,
+				566AD9092476726A00898065 /* AddOperationView.swift */,
 				566AD9052476722B00898065 /* AddOperationViewController.swift */,
 				566AD90B2476728200898065 /* AddOperationViewModel.swift */,
-				566AD9092476726A00898065 /* AddOperationView.swift */,
 				566AD9072476724200898065 /* AddOperationCoordinator.swift */,
 				566AD91124768FA400898065 /* AddOperationTableView */,
 			);
@@ -429,6 +467,7 @@
 			isa = PBXGroup;
 			children = (
 				566AD90F24768BB700898065 /* AddOperationTableViewProvider.swift */,
+				56926D9E247E9658007CFE7E /* Cells */,
 			);
 			path = AddOperationTableView;
 			sourceTree = "<group>";
@@ -482,9 +521,9 @@
 			isa = PBXGroup;
 			children = (
 				5681648B246EF4F000BAAABF /* Filters.storyboard */,
+				5681648F246EF53500BAAABF /* FiltersView.swift */,
 				5681648D246EF50300BAAABF /* FiltersViewController.swift */,
 				56816491246EF54500BAAABF /* FiltersViewModel.swift */,
-				5681648F246EF53500BAAABF /* FiltersView.swift */,
 				56816493246EF55E00BAAABF /* FiltersCoordinator.swift */,
 				5699B5542475418000998BF0 /* FiltersTableView */,
 			);
@@ -564,6 +603,74 @@
 			path = Calendar;
 			sourceTree = "<group>";
 		};
+		56926D9E247E9658007CFE7E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				56926D9F247E96A3007CFE7E /* SumOperationCell.swift */,
+				56926DA1247E96BA007CFE7E /* SumOperationCell.xib */,
+				56926DA3247EA91E007CFE7E /* AddOperationCell.swift */,
+				56926DA5247EAA30007CFE7E /* AddOperationCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		56926DAB24814E50007CFE7E /* CategoryList */ = {
+			isa = PBXGroup;
+			children = (
+				56926DAE24814ED5007CFE7E /* CategoryList.storyboard */,
+				56926DCD24850673007CFE7E /* CategoryListView.swift */,
+				56926DAC24814EC5007CFE7E /* CategoryListViewController.swift */,
+				56926DB424814F14007CFE7E /* CategoryListViewModel.swift */,
+				56926DB224814EFD007CFE7E /* CategoryListCoordinator.swift */,
+				56926DC52483EDEC007CFE7E /* CategoryListTableView */,
+			);
+			path = CategoryList;
+			sourceTree = "<group>";
+		};
+		56926DB624815F20007CFE7E /* AccountList */ = {
+			isa = PBXGroup;
+			children = (
+				56926DBF248161BA007CFE7E /* AccountList.storyboard */,
+				56926DB92481618D007CFE7E /* AccountListView.swift */,
+				56926DB72481617D007CFE7E /* AccountListViewController.swift */,
+				56926DBB2481619C007CFE7E /* AccountListViewModel.swift */,
+				56926DBD248161AB007CFE7E /* AccountListCoordinator.swift */,
+				56926DCA24850445007CFE7E /* AccountListTableView */,
+			);
+			path = AccountList;
+			sourceTree = "<group>";
+		};
+		56926DC32483ED3E007CFE7E /* String */ = {
+			isa = PBXGroup;
+			children = (
+				56926DA72480F421007CFE7E /* String+toDouble.swift */,
+			);
+			path = String;
+			sourceTree = "<group>";
+		};
+		56926DC42483ED85007CFE7E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		56926DC52483EDEC007CFE7E /* CategoryListTableView */ = {
+			isa = PBXGroup;
+			children = (
+				56926DCF24850729007CFE7E /* CategoryListTableViewProviderNew.swift */,
+			);
+			path = CategoryListTableView;
+			sourceTree = "<group>";
+		};
+		56926DCA24850445007CFE7E /* AccountListTableView */ = {
+			isa = PBXGroup;
+			children = (
+				56926DCB24850470007CFE7E /* AccountListTableViewProvider.swift */,
+			);
+			path = AccountListTableView;
+			sourceTree = "<group>";
+		};
 		5694064D2476C20D009034FE /* Enums */ = {
 			isa = PBXGroup;
 			children = (
@@ -626,7 +733,7 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		56EB9B9C2462B89F002F815B /* Extention */ = {
+		56EB9B9C2462B89F002F815B /* Extentions */ = {
 			isa = PBXGroup;
 			children = (
 				568164A32472DF3000BAAABF /* ReusableView.swift */,
@@ -636,8 +743,9 @@
 				5618418B246D492D006BF368 /* UIStoryboard */,
 				5618419A246E986D006BF368 /* UIViewController */,
 				56816489246EE0E000BAAABF /* UIImage */,
+				56926DC32483ED3E007CFE7E /* String */,
 			);
-			path = Extention;
+			path = Extentions;
 			sourceTree = "<group>";
 		};
 		56EB9B9D2462B8C0002F815B /* Application */ = {
@@ -659,6 +767,8 @@
 				5681648A246EEA8400BAAABF /* Filter */,
 				5618417E246C6202006BF368 /* Operations */,
 				566AD904247671A800898065 /* Add operation */,
+				56926DB624815F20007CFE7E /* AccountList */,
+				56926DAB24814E50007CFE7E /* CategoryList */,
 				56184189246C6DE0006BF368 /* Profile */,
 			);
 			path = Main;
@@ -795,19 +905,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				56184180246C6261006BF368 /* Operations.storyboard in Resources */,
+				56926DAF24814ED5007CFE7E /* CategoryList.storyboard in Resources */,
 				566AD90E247672C600898065 /* AddOperation.storyboard in Resources */,
 				56444DF324599FDF00BB6BAE /* LaunchScreen.storyboard in Resources */,
 				5681648C246EF4F000BAAABF /* Filters.storyboard in Resources */,
+				56926DA2247E96BA007CFE7E /* SumOperationCell.xib in Resources */,
 				56444DF024599FDF00BB6BAE /* Assets.xcassets in Resources */,
 				56444DEB24599FDD00BB6BAE /* SignIn.storyboard in Resources */,
 				56926D93247D575E007CFE7E /* OperationsHeaderView.xib in Resources */,
 				5682B8122473CEC1002E2186 /* CostsPieChartHeaderView.xib in Resources */,
+				56926DC0248161BA007CFE7E /* AccountList.storyboard in Resources */,
 				566AD9012475673500898065 /* IncomeAndCostsCell.xib in Resources */,
 				567086BE2465ABEA00CD2E2A /* Costs.storyboard in Resources */,
 				568164A22472CF1C00BAAABF /* CostCell.xib in Resources */,
 				56EB9BBC2463FB10002F815B /* Main.storyboard in Resources */,
 				56AADA17246C4A9700B2CC8F /* SignUp.storyboard in Resources */,
 				56C5A2A1246430F500CE5602 /* LoadingView.xib in Resources */,
+				56926DA6247EAA30007CFE7E /* AddOperationCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -902,19 +1016,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				56EB9BBE2463FC89002F815B /* AppCoordinator.swift in Sources */,
+				56926DCE24850673007CFE7E /* CategoryListView.swift in Sources */,
 				566AD90324757CCE00898065 /* CustomProgressView.swift in Sources */,
 				56444DE824599FDD00BB6BAE /* SignInViewController.swift in Sources */,
 				56816492246EF54500BAAABF /* FiltersViewModel.swift in Sources */,
 				56926D9D247E75DB007CFE7E /* Period.swift in Sources */,
+				56926DBA2481618D007CFE7E /* AccountListView.swift in Sources */,
 				5673755F245D8CB300DD02FB /* UserLoginModel.swift in Sources */,
 				56444DE424599FDD00BB6BAE /* AppDelegate.swift in Sources */,
 				56184188246C655E006BF368 /* OperationsViewModel.swift in Sources */,
+				56926DA82480F421007CFE7E /* String+toDouble.swift in Sources */,
 				56AADA1B246C4AD100B2CC8F /* SignUpView.swift in Sources */,
+				56926DAD24814EC5007CFE7E /* CategoryListViewController.swift in Sources */,
+				56926DCC24850470007CFE7E /* AccountListTableViewProvider.swift in Sources */,
 				56926D9B247E5718007CFE7E /* Calendar+iso8601.swift in Sources */,
+				56926DA4247EA91E007CFE7E /* AddOperationCell.swift in Sources */,
 				56EB9BC224640A29002F815B /* Storyboard+instantiate.swift in Sources */,
 				56C5A29F246430DF00CE5602 /* LoadingView.swift in Sources */,
 				568164A62472E2D300BAAABF /* CostsTableViewProvider.swift in Sources */,
+				56926DB524814F14007CFE7E /* CategoryListViewModel.swift in Sources */,
+				56926DA0247E96A3007CFE7E /* SumOperationCell.swift in Sources */,
 				566AD9002475673500898065 /* IncomeAndCostsCell.swift in Sources */,
+				56926DB82481617D007CFE7E /* AccountListViewController.swift in Sources */,
 				568164A42472DF3000BAAABF /* ReusableView.swift in Sources */,
 				56444DEE24599FDD00BB6BAE /* FamilyBalance.xcdatamodeld in Sources */,
 				5673DD6E24602AC50004EB12 /* AppRepository.swift in Sources */,
@@ -924,6 +1047,8 @@
 				567086B82465890200CD2E2A /* CostsCoordinator.swift in Sources */,
 				56940657247BE964009034FE /* GraphColorConvertable.swift in Sources */,
 				56926D8E247D03A1007CFE7E /* DayOperationsUIModel.swift in Sources */,
+				56926DAA2480FBBA007CFE7E /* UIViewController+showAlert.swift in Sources */,
+				56926DBE248161AB007CFE7E /* AccountListCoordinator.swift in Sources */,
 				5699B553247442B300998BF0 /* FiltersTableViewProvider.swift in Sources */,
 				56926D98247E56A9007CFE7E /* Date+currentWeekMonday.swift in Sources */,
 				568164AA2472E44500BAAABF /* TableViewProvider.swift in Sources */,
@@ -941,6 +1066,7 @@
 				56EB9BC424640E48002F815B /* SignInCoordinator.swift in Sources */,
 				56AADA1D246C4AE900B2CC8F /* SignUpViewModel.swift in Sources */,
 				569406512476CC4C009034FE /* Data.swift in Sources */,
+				56926DB324814EFD007CFE7E /* CategoryListCoordinator.swift in Sources */,
 				56EB9B992461C73F002F815B /* BlueStrokeTextField.swift in Sources */,
 				56816486246ED9EF00BAAABF /* CostsView.swift in Sources */,
 				56816494246EF55E00BAAABF /* FiltersCoordinator.swift in Sources */,
@@ -949,6 +1075,7 @@
 				56AADA12246C38B100B2CC8F /* CoreDataClient.swift in Sources */,
 				567E1E3D246AF9B000C50217 /* FafilyBalanseApiClient.swift in Sources */,
 				567E1E3F246B01C400C50217 /* Keys.swift in Sources */,
+				56926DBC2481619C007CFE7E /* AccountListViewModel.swift in Sources */,
 				566AD90A2476726A00898065 /* AddOperationView.swift in Sources */,
 				567E1E3B246ACAFA00C50217 /* SignInView.swift in Sources */,
 				566AD9062476722B00898065 /* AddOperationViewController.swift in Sources */,
@@ -968,6 +1095,7 @@
 				56184184246C637E006BF368 /* OperationsCoordinator.swift in Sources */,
 				56184197246D8702006BF368 /* BlueRoundedButton.swift in Sources */,
 				5694064F2476C25C009034FE /* Filters.swift in Sources */,
+				56926DD024850729007CFE7E /* CategoryListTableViewProviderNew.swift in Sources */,
 				5699B5562475628200998BF0 /* OperationsTableViewProvider.swift in Sources */,
 				568164962472AFF200BAAABF /* Category.swift in Sources */,
 			);
