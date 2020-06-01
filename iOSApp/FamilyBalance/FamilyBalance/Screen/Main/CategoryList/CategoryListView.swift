@@ -11,28 +11,24 @@ protocol CategoryListViewActions: class {
     func viewDidLoad()
 }
 
-class CategoryListView: UIView {
 
-     //MARK: - IBOutlet
+class CategoryListView: UIView {
+    
     @IBOutlet weak var categoryListTableView: UITableView! {
         didSet {
             categoryListTableView.backgroundColor = AppColors.backgroundColor
             categoryListTableView.tableFooterView = UIView()
-            registerCells()
+            
             categoryListTableView.delegate = tableViewProvider
             categoryListTableView.dataSource = tableViewProvider
         }
     }
     
-    
-    //MARK: - Private properties
-    private var actionsDelegate: AddOperationViewActions?
+    private var actionsDelegate: CategoryListViewActions?
     private let tableViewProvider = CategoryListTableViewProvider()
-    
-    private func registerCells() {
-       categoryListTableView.register(UINib(nibName: "ListCell", bundle: nil), forCellReuseIdentifier: ListCell.reuseIdD)
-    }
 }
+
+
 
 extension CategoryListView: CategoryListViewImplementation {
     
@@ -42,7 +38,7 @@ extension CategoryListView: CategoryListViewImplementation {
     }
     
     func setSelectedCategory(_ category: Category) {
-        print(category)
         tableViewProvider.setSelectedCategory(category)
+        categoryListTableView.reloadData()
     }
 }

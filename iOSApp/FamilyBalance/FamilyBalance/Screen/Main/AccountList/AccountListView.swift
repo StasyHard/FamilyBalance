@@ -10,12 +10,14 @@ import UIKit
 
 class AccountListView: UIView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    @IBOutlet weak var accountListTableView: UITableView! {
+        didSet {
+            accountListTableView.delegate = tableViewProvider
+            accountListTableView.dataSource = tableViewProvider
+        }
     }
-    */
+    
+    
+    private let tableViewProvider = AccountListTableViewProvider()
 
 }

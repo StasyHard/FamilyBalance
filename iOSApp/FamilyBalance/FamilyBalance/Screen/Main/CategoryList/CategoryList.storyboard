@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -8,34 +7,34 @@
     </dependencies>
     <scenes>
         <!--Category List View Controller-->
-        <scene sceneID="efw-Dk-KwX">
+        <scene sceneID="kBV-sJ-z9J">
             <objects>
-                <viewController storyboardIdentifier="categoryListVC" id="ulG-MM-yux" customClass="CategoryListViewController" customModule="FamilyBalance" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="1gz-gw-APc" customClass="CategoryListView" customModule="FamilyBalance" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                <viewController storyboardIdentifier="categoryListVC" id="x4R-0C-KQb" customClass="CategoryListViewController" customModule="FamilyBalance" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WpK-pa-8C1" customClass="CategoryListView" customModule="FamilyBalance" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Hbb-dV-wVM">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="o2H-J8-5Wh">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="rCr-E9-HzI" firstAttribute="bottom" secondItem="Hbb-dV-wVM" secondAttribute="bottom" id="BVI-va-v05"/>
-                            <constraint firstItem="Hbb-dV-wVM" firstAttribute="top" secondItem="rCr-E9-HzI" secondAttribute="top" id="TWI-iz-sGj"/>
-                            <constraint firstItem="rCr-E9-HzI" firstAttribute="trailing" secondItem="Hbb-dV-wVM" secondAttribute="trailing" id="lQi-6r-ZhP"/>
-                            <constraint firstItem="Hbb-dV-wVM" firstAttribute="leading" secondItem="rCr-E9-HzI" secondAttribute="leading" id="nYk-0l-SZc"/>
+                            <constraint firstItem="o2H-J8-5Wh" firstAttribute="top" secondItem="NBJ-Yl-NJh" secondAttribute="top" id="Th6-WR-YWw"/>
+                            <constraint firstItem="o2H-J8-5Wh" firstAttribute="leading" secondItem="NBJ-Yl-NJh" secondAttribute="leading" id="gvl-1C-W8Z"/>
+                            <constraint firstItem="NBJ-Yl-NJh" firstAttribute="bottom" secondItem="o2H-J8-5Wh" secondAttribute="bottom" id="xnc-yW-rC4"/>
+                            <constraint firstItem="NBJ-Yl-NJh" firstAttribute="trailing" secondItem="o2H-J8-5Wh" secondAttribute="trailing" id="ymC-QH-LW8"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="rCr-E9-HzI"/>
+                        <viewLayoutGuide key="safeArea" id="NBJ-Yl-NJh"/>
                         <connections>
-                            <outlet property="categoryListTableView" destination="Hbb-dV-wVM" id="SBs-AT-WP4"/>
+                            <outlet property="categoryListTableView" destination="o2H-J8-5Wh" id="oae-VA-J1i"/>
                         </connections>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0HQ-Wt-v2n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cBz-3j-8Eg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="113.04347826086958" y="71.651785714285708"/>
+            <point key="canvasLocation" x="167" y="18"/>
         </scene>
     </scenes>
 </document>

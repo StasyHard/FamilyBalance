@@ -12,7 +12,7 @@ final class CategoryListViewController: UIViewController {
     
     
     //MARK: - Private properties
-    private lazy var categoryListView = view as? CategoryListViewImplementation
+    private lazy var categoryListView = view as? CategoryListView
     
     private let disposeBag = DisposeBag()
     
@@ -25,9 +25,12 @@ final class CategoryListViewController: UIViewController {
         guard let viewModel = viewModel else { return }
         //categoryListView?.setActionsDelegate(viewModel)
         observeViewModel(viewModel)
-        configureDismissKeyboard()
-        
+
         viewModel.viewDidLoad()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+       //закрытие экрана должно отправлять в координатор эвент о закрытии
     }
     
     
