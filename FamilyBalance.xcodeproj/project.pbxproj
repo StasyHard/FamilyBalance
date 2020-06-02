@@ -347,7 +347,6 @@
 				56184190246D7D1B006BF368 /* AppSizes.swift */,
 				56184192246D7FBE006BF368 /* AppColors.swift */,
 				561F6403248643BB005EDD87 /* TableViews */,
-				56926DC42483ED85007CFE7E /* Cells */,
 				5694064D2476C20D009034FE /* Enums */,
 				56184195246D8692006BF368 /* Buttons */,
 				56184194246D8457006BF368 /* TextFields */,
@@ -663,13 +662,6 @@
 				56926DA72480F421007CFE7E /* String+toDouble.swift */,
 			);
 			path = String;
-			sourceTree = "<group>";
-		};
-		56926DC42483ED85007CFE7E /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Cells;
 			sourceTree = "<group>";
 		};
 		56926DC52483EDEC007CFE7E /* CategoryListTableView */ = {

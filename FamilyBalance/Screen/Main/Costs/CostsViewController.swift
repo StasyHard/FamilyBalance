@@ -43,7 +43,6 @@ class CostsViewController: UIViewController {
             style: .plain,
             target: self,
             action: #selector(filterButtonTapped))
-        navigationItem.rightBarButtonItem?.tintColor = AppColors.primaryColor
     }
     
     @objc private func filterButtonTapped() {
