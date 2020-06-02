@@ -4,11 +4,6 @@ import RxSwift
 import RxCocoa
 
 
-protocol FiltersListener {
-    func setFilter(_ filter: Filters)
-}
-
-
 final class FiltersCoordinator: BaseCoordirator {
     
     //MARK: - Private properties

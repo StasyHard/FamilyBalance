@@ -12,8 +12,7 @@ final class SumOperationCell: UITableViewCell, ReusableView {
             summTextField.delegate = textFieldDelegate
         }
     }
-    
-    
+
     
         //MARK: - Open metods
     func getSum() -> Double? {
