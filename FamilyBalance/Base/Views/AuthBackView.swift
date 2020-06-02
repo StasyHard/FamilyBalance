@@ -18,7 +18,7 @@ class AuthBackView: UIView {
     //MARK: - Private metods
     private func setupUI() {
         backgroundColor = AppColors.backgroundColor
-        layer.cornerRadius = AppSizes.bigViewCornerRadius
+        layer.cornerRadius = 10
         layer.borderWidth = AppSizes.stdViewBorderWidth
         layer.borderColor =  AppColors.primaryColor.cgColor
         addShadow()

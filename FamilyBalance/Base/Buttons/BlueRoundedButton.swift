@@ -20,6 +20,6 @@ class BlueRoundedButton: UIButton {
     private func setupUI() {
         tintColor = .white
         backgroundColor = AppColors.primaryColor
-        layer.cornerRadius = AppSizes.litleViewCornerRadius
+        layer.cornerRadius = 5
     }
 }
