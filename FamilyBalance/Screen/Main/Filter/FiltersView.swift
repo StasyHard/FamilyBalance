@@ -4,7 +4,7 @@ import UIKit
 
 protocol FiltersViewImplementation: class {
     func setActionsDelegate(delegate: FiltersViewActions)
-    func setStartFilter(_ filter: Filters)
+    func setStartFilter(_ filter: PeriodFilter)
 }
 
 
@@ -13,7 +13,6 @@ class FiltersView: UIView {
     //MARK: - IBOutlet
     @IBOutlet weak var filterTableView: UITableView! {
         didSet {
-            filterTableView.backgroundColor = AppColors.backgroundColor
             registerCells()
             filterTableView.delegate = tableViewProvider
             filterTableView.dataSource = tableViewProvider
@@ -29,7 +28,7 @@ class FiltersView: UIView {
     
     //MARK: - IBAction
     @IBAction func showButtonIsTapped(_ sender: BlueRoundedButton) {
-        let filter = tableViewProvider.getFilter()
+        let filter = tableViewProvider.getPeriodFilter()
         actionsDelegate?.showButtonTapped(filter: filter)
     }
     
@@ -47,8 +46,8 @@ extension FiltersView: FiltersViewImplementation {
         self.actionsDelegate = delegate
     }
     
-    func setStartFilter(_ filter: Filters) {
-        tableViewProvider.setStartFilter(filter)
+    func setStartFilter(_ filter: PeriodFilter) {
+        tableViewProvider.setStartPeriodFilter(filter)
         //filterTableView.reloadData()
     }
 }

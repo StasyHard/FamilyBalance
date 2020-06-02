@@ -42,7 +42,7 @@ final class CostsCoordinator: BaseCoordirator {
         .disposed(by: self.disposeBag)
     }
     
-    private func showFilterModule(startFilter: Filters) {
+    private func showFilterModule(startFilter: PeriodFilter) {
         let filtersCoordinator = FiltersCoordinator(navController: navController, startFilter: startFilter)
         childCoordinators.append(filtersCoordinator)
         filtersCoordinator.parentCoordinator = self
@@ -53,7 +53,7 @@ final class CostsCoordinator: BaseCoordirator {
 
 
 extension CostsCoordinator: FiltersListener {
-    func setFilter(_ filter: Filters) {
+    func setFilter(_ filter: PeriodFilter) {
         viewModel?.wasSetFilter(filter: filter)
     }
 }

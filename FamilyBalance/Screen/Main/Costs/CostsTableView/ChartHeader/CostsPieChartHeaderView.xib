@@ -14,7 +14,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cnI-4r-GIF" customClass="PieChartView" customModule="Charts">
-                    <rect key="frame" x="20" y="52" width="545" height="290.5"/>
+                    <rect key="frame" x="20" y="60" width="545" height="282.5"/>
                     <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="LQt-5O-LFt">
@@ -70,7 +70,7 @@
                 <constraint firstItem="cnI-4r-GIF" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="Dn3-cU-gJ3"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="W93-9Y-toz" secondAttribute="bottom" constant="10" id="FcE-DD-69j"/>
                 <constraint firstItem="ZTs-l9-eBj" firstAttribute="top" secondItem="cnI-4r-GIF" secondAttribute="bottom" constant="16" id="M2O-ny-luI"/>
-                <constraint firstItem="cnI-4r-GIF" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="OEa-kX-VNV"/>
+                <constraint firstItem="cnI-4r-GIF" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="16" id="OEa-kX-VNV"/>
                 <constraint firstItem="LQt-5O-LFt" firstAttribute="top" secondItem="ZTs-l9-eBj" secondAttribute="bottom" constant="20" id="TMb-YJ-dOR"/>
                 <constraint firstItem="W93-9Y-toz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="LQt-5O-LFt" secondAttribute="trailing" constant="8" id="UUc-nL-I8w"/>
                 <constraint firstItem="ZTs-l9-eBj" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="UtW-5s-zcE"/>

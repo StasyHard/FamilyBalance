@@ -5,7 +5,7 @@ import RxCocoa
 
 
 protocol CostsViewModelObservable: class {
-    var filtersTapped: Observable<Filters> { get set }
+    var filtersTapped: Observable<PeriodFilter> { get set }
     var categoryData: Observable<[CategoryUIModel]> { get set }
     var graphData: Observable<[CategoryGraphModel]> { get set }
     var costsSum: Observable<Double> { get set }
@@ -22,7 +22,7 @@ protocol CostsViewActions: class {
 final class CostsViewModel: CostsViewModelObservable {
     
     //MARK: - CostsViewModelActions
-    var filtersTapped: Observable<Filters>
+    var filtersTapped: Observable<PeriodFilter>
     var categoryData: Observable<[CategoryUIModel]>
     var graphData: Observable<[CategoryGraphModel]>
     var costsSum: Observable<Double>
@@ -31,7 +31,7 @@ final class CostsViewModel: CostsViewModelObservable {
     
     
     //MARK: - Private properties
-    private let _filtersTapped = PublishSubject<Filters>()
+    private let _filtersTapped = PublishSubject<PeriodFilter>()
     private let _categoryData = PublishSubject<[CategoryUIModel]>()
     private let _graphData = PublishSubject<[CategoryGraphModel]>()
     private let _costsSum = BehaviorSubject<Double>(value: 0.0)
@@ -39,7 +39,7 @@ final class CostsViewModel: CostsViewModelObservable {
     private let _period = PublishSubject<Period>()
     
     private var repo: Repository?
-    private var filter: Filters = .mounth
+    private var filter: PeriodFilter = .mounth
     
     private let disposeBag = DisposeBag()
     
@@ -59,7 +59,7 @@ final class CostsViewModel: CostsViewModelObservable {
     
     //MARK: - Open metods
     //координатор вызывает функцию, когда на экране фильтров была нажата кнопка показать
-    func wasSetFilter(filter: Filters) {
+    func wasSetFilter(filter: PeriodFilter) {
         
         if filter != self.filter {
             self.filter = filter
