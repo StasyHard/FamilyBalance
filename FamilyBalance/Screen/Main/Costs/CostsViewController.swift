@@ -38,7 +38,7 @@ class CostsViewController: UIViewController {
             .scaleTo(CGSize(width: AppSizes.iconHeightAndWidth,
                             height: AppSizes.iconHeightAndWidth))
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: defaultImage,
             style: .plain,
             target: self,
@@ -53,25 +53,25 @@ class CostsViewController: UIViewController {
         
         viewModel.categoryData
             .bind { [weak self] categories in
-                self?.costsView?.setCategories(categories)
+                self?.costsView?.showCategories(categories)
         }
         .disposed(by: self.disposeBag)
         
         viewModel.graphData
             .bind { [weak self] categories in
-                self?.costsView?.setGraphCategories(categories)
+                self?.costsView?.showGraphCategories(categories)
         }
         .disposed(by: self.disposeBag)
         
         viewModel.incomeSum
             .bind { [weak self] sum in
-                self?.costsView?.setIncomeSum(sum)
+                self?.costsView?.showIncomeSum(sum)
         }
         .disposed(by: self.disposeBag)
         
         viewModel.costsSum
             .bind { [weak self] sum in
-                self?.costsView?.setCostsSum(sum)
+                self?.costsView?.showCostsSum(sum)
             }
         .disposed(by: self.disposeBag)
         

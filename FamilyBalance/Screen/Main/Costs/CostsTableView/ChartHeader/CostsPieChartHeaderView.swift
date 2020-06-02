@@ -79,7 +79,7 @@ class CostsPieChartHeaderView: UITableViewHeaderFooterView, ReusableView {
     
     private func setupChartSettings() {
         pieChartView.delegate = self
-        
+
         pieChartView.legend.enabled = false
         pieChartView.drawEntryLabelsEnabled = true
         pieChartView.usePercentValuesEnabled = true
@@ -98,6 +98,5 @@ class CostsPieChartHeaderView: UITableViewHeaderFooterView, ReusableView {
 
 
 extension CostsPieChartHeaderView: ChartViewDelegate {
-    
     
 }
