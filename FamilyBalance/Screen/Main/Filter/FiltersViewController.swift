@@ -31,8 +31,8 @@ class FiltersViewController: UIViewController {
         title = "Фильтры"
         
         let defaultImage = UIImage(named: "close")?
-            .scaleTo(CGSize(width: AppSizes.iconHeightAndWidth,
-                            height: AppSizes.iconHeightAndWidth))
+            .scaleTo(CGSize(width: 15,
+                            height: 15))
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(
             image: defaultImage,

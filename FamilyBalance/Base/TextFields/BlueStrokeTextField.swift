@@ -38,7 +38,7 @@ class BlueStrokeTextField: UITextField {
     private func setupUI() {
         layer.borderWidth = AppSizes.stdViewBorderWidth
         layer.borderColor = AppColors.primaryColor.cgColor
-        layer.cornerRadius = AppSizes.litleViewCornerRadius
+        layer.cornerRadius = 5
         clipsToBounds = true
     }
 }
