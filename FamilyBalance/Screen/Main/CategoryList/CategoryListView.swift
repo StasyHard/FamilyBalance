@@ -17,10 +17,7 @@ protocol CategoryListViewActions: class {
 class CategoryListView: UIView {
     
     @IBOutlet weak var categoryListTableView: UITableView! {
-        didSet {
-            categoryListTableView.backgroundColor = AppColors.backgroundColor
-            categoryListTableView.tableFooterView = UIView()
-            
+        didSet {            
             categoryListTableView.delegate = tableViewProvider
             categoryListTableView.dataSource = tableViewProvider
         }

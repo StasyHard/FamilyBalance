@@ -31,7 +31,7 @@
 		56444DF324599FDF00BB6BAE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56444DF124599FDF00BB6BAE /* LaunchScreen.storyboard */; };
 		56444DFE24599FDF00BB6BAE /* FamilyBalanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56444DFD24599FDF00BB6BAE /* FamilyBalanceTests.swift */; };
 		56444E0924599FDF00BB6BAE /* FamilyBalanceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56444E0824599FDF00BB6BAE /* FamilyBalanceUITests.swift */; };
-		566AD9002475673500898065 /* IncomeAndCostsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566AD8FE2475673500898065 /* IncomeAndCostsCell.swift */; };
+		566AD9002475673500898065 /* OperationsRatioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566AD8FE2475673500898065 /* OperationsRatioCell.swift */; };
 		566AD9012475673500898065 /* IncomeAndCostsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 566AD8FF2475673500898065 /* IncomeAndCostsCell.xib */; };
 		566AD90324757CCE00898065 /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566AD90224757CCE00898065 /* CustomProgressView.swift */; };
 		566AD9062476722B00898065 /* AddOperationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566AD9052476722B00898065 /* AddOperationViewController.swift */; };
@@ -166,7 +166,7 @@
 		56444E0424599FDF00BB6BAE /* FamilyBalanceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FamilyBalanceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		56444E0824599FDF00BB6BAE /* FamilyBalanceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyBalanceUITests.swift; sourceTree = "<group>"; };
 		56444E0A24599FDF00BB6BAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		566AD8FE2475673500898065 /* IncomeAndCostsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeAndCostsCell.swift; sourceTree = "<group>"; };
+		566AD8FE2475673500898065 /* OperationsRatioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationsRatioCell.swift; sourceTree = "<group>"; };
 		566AD8FF2475673500898065 /* IncomeAndCostsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IncomeAndCostsCell.xib; sourceTree = "<group>"; };
 		566AD90224757CCE00898065 /* CustomProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressView.swift; sourceTree = "<group>"; };
 		566AD9052476722B00898065 /* AddOperationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOperationViewController.swift; sourceTree = "<group>"; };
@@ -445,20 +445,20 @@
 			children = (
 				5699B5552475628200998BF0 /* OperationsTableViewProvider.swift */,
 				56926D8F247D56B9007CFE7E /* Header */,
-				566AD8FD2475661B00898065 /* Cell */,
+				566AD8FD2475661B00898065 /* Cells */,
 			);
 			path = OperationsTableView;
 			sourceTree = "<group>";
 		};
-		566AD8FD2475661B00898065 /* Cell */ = {
+		566AD8FD2475661B00898065 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				5681649F2472CF1C00BAAABF /* CostCell.swift */,
 				568164A02472CF1C00BAAABF /* CostCell.xib */,
-				566AD8FE2475673500898065 /* IncomeAndCostsCell.swift */,
+				566AD8FE2475673500898065 /* OperationsRatioCell.swift */,
 				566AD8FF2475673500898065 /* IncomeAndCostsCell.xib */,
 			);
-			path = Cell;
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		566AD904247671A800898065 /* Add operation */ = {
@@ -1040,7 +1040,7 @@
 				568164A62472E2D300BAAABF /* CostsTableViewProvider.swift in Sources */,
 				56926DB524814F14007CFE7E /* CategoryListViewModel.swift in Sources */,
 				56926DA0247E96A3007CFE7E /* SumOperationCell.swift in Sources */,
-				566AD9002475673500898065 /* IncomeAndCostsCell.swift in Sources */,
+				566AD9002475673500898065 /* OperationsRatioCell.swift in Sources */,
 				56926DB82481617D007CFE7E /* AccountListViewController.swift in Sources */,
 				568164A42472DF3000BAAABF /* ReusableView.swift in Sources */,
 				56444DEE24599FDD00BB6BAE /* FamilyBalance.xcdatamodeld in Sources */,

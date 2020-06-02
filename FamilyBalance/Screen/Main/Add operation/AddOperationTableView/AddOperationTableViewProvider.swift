@@ -22,7 +22,11 @@ class AddOperationTableViewProvider: NSObject, TableViewProvider {
     var operation: OperationTable = .cost
     var defaultCategory: Category?
     var defaultAccount: Account?
-    var sum: Double?
+    var sum: Double? {
+        didSet {
+            print(sum)
+        }
+    }
     
     
     //MARK: - TableViewProvider metods
@@ -45,8 +49,11 @@ class AddOperationTableViewProvider: NSObject, TableViewProvider {
                 else { return UITableViewCell() }
             
             cell.sumLabel.text = cellType.rawValue
-            cell.summTextField.text = nil
-            sum = nil
+            if let sum = sum.map({ return Int(exactly: $0) == nil ? "\($0)" : "\(Int($0))" }) {
+                cell.summTextField.text = "\(sum) ₽"
+            } else {
+                cell.summTextField.text = nil
+            }
             cell.textFieldDelegate = self
             return cell
         }
@@ -87,6 +94,7 @@ extension AddOperationTableViewProvider: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         let inputText = textField.text ?? ""
+       print(inputText)
         sum = inputText.toDouble()
         if !inputText.isEmpty {
             textField.text = "\(inputText) ₽"

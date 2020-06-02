@@ -18,7 +18,6 @@ class OperationsViewController: UIViewController {
     //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setNavigationUI()
         
         guard let viewModel = viewModel else { return }

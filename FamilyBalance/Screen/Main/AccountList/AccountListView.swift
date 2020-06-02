@@ -17,10 +17,7 @@ protocol AccountListViewActions {
 final class AccountListView: UIView {
 
     @IBOutlet weak var accountListTableView: UITableView! {
-        didSet {
-            accountListTableView.backgroundColor = AppColors.backgroundColor
-            accountListTableView.tableFooterView = UIView()
-            
+        didSet {            
             accountListTableView.delegate = tableViewProvider
             accountListTableView.dataSource = tableViewProvider
         }

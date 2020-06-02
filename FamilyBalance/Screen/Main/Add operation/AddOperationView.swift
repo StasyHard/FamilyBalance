@@ -24,13 +24,17 @@ final class AddOperationView: UIView {
     @IBOutlet private weak var operationControl: UISegmentedControl! {
         didSet {
             operationControl.backgroundColor =  AppColors.backgroundColor
+            operationControl.selectedSegmentTintColor = AppColors.primaryColor
+            operationControl
+                .setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white],
+                                        for: .selected)
+            operationControl
+                .setTitleTextAttributes([NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 17)],
+                                        for: .normal)
         }
     }
     @IBOutlet private weak var addOperationTableView: UITableView! {
         didSet {
-            addOperationTableView.backgroundColor = AppColors.backgroundColor
-            addOperationTableView.tableFooterView = UIView()
-            
             addOperationTableView.delegate = tableViewProvider
             addOperationTableView.dataSource = tableViewProvider
             registerCells()
@@ -51,6 +55,7 @@ final class AddOperationView: UIView {
         if sender.selectedSegmentIndex == 1 {
             tableViewProvider.operation = .income
         }
+        tableViewProvider.sum = nil
         addOperationTableView.reloadData()
     }
     

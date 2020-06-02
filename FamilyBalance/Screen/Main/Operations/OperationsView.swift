@@ -18,10 +18,7 @@ class OperationsView: UIView {
     
     @IBOutlet private weak var operationsTableView: UITableView! {
         didSet {
-            operationsTableView.backgroundColor = AppColors.backgroundColor
-            operationsTableView.tableFooterView = UIView()
             registerCells()
-            
             operationsTableView.delegate = tableViewProvider
             operationsTableView.dataSource = tableViewProvider
         }
@@ -31,7 +28,7 @@ class OperationsView: UIView {
     //MARK: - Private metods
     private func registerCells() {
         operationsTableView.register(UINib(nibName: "OperationsHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: OperationsHeaderView.reuseIdD)
-        operationsTableView.register(UINib(nibName: "IncomeAndCostsCell", bundle: nil), forCellReuseIdentifier: IncomeAndCostsCell.reuseIdD)
+        operationsTableView.register(UINib(nibName: "IncomeAndCostsCell", bundle: nil), forCellReuseIdentifier: OperationsRatioCell.reuseIdD)
         operationsTableView.register(UINib(nibName: "CostCell", bundle: nil), forCellReuseIdentifier: CostCell.reuseIdD)
     }
 }
@@ -55,7 +52,7 @@ extension OperationsView: OperationsViewImplementation {
     }
     
     func showOperationsByDays(_ operations: [DayOperationsUIModel]) {
-        tableViewProvider.operationsByDays = operations
+        tableViewProvider.daysOperations = operations
         operationsTableView.reloadData()
     }
 }
