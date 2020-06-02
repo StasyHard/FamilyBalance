@@ -48,25 +48,21 @@ class CostsTableViewProvider: NSObject, TableViewProvider {
                    numberOfRowsInSection section: Int) -> Int {
         return categories.count
     }
-//    
-//    func tableView(_ tableView: UITableView,
-//                   heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return tableViewCellHeight
-//    }
     
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard
             let cell = tableView.dequeueReusableCell(
-                withIdentifier: CostCell.reuseIdD,
-                for: indexPath) as? CostCell
+                withIdentifier: CategoryCell.reuseIdD,
+                for: indexPath) as? CategoryCell
             else { return UITableViewCell() }
         
         let category = categories[indexPath.row]
-        cell.colorView.backgroundColor = category.getUIcolorFromGraphColor(category.color)
+        let color = category.getUIcolorFromGraphColor(category.color)
+        cell.colorView.backgroundColor = color
+        cell.backgroundColorView.backgroundColor = color.withAlphaComponent(0.3)
         cell.categoryLabel.text = category.name
         cell.sumLabel.text = "\(category.sum) ₽"
-        //cell.setstroke()
         return cell
     }
 }

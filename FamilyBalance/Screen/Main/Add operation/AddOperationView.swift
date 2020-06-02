@@ -5,6 +5,7 @@ protocol AddOperationViewImplementation: class {
     func setActionsDelegate(_ delegate: AddOperationViewActions)
     func showDefaultAccount(account: Account)
     func showDefaultCategory(category: Category)
+    func showDafaultData()
 
 }
 
@@ -93,5 +94,8 @@ extension AddOperationView: AddOperationViewImplementation {
         addOperationTableView.reloadData()
     }
     
-    
+    func showDafaultData() {
+        tableViewProvider.sum = nil
+        addOperationTableView.reloadData()
+    }
 }

@@ -32,16 +32,22 @@ final class MainCoordinator: BaseCoordirator {
     //MARK: - Create costs module
     private func createCostsNavController() -> UINavigationController {
         let costsNavController = UINavigationController()
+        let itemImage = UIImage(named: "cost")?
+            .scaleTo(CGSize(width: 30,
+                            height: 30))
         costsNavController.tabBarItem = UITabBarItem(title: "Расходы",
-                                                     image: nil,
+                                                     image: itemImage,
                                                      tag: 0)
         return costsNavController
     }
     
     private func createHistoryNavController() -> UINavigationController {
         let operationsNavController = UINavigationController()
+        let itemImage = UIImage(named: "list")?
+        .scaleTo(CGSize(width: 30,
+                        height: 30))
         operationsNavController.tabBarItem = UITabBarItem(title: "Операции",
-                                                          image: nil,
+                                                          image: itemImage,
                                                           tag: 2)
         return operationsNavController
     }
