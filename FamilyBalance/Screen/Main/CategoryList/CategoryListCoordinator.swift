@@ -3,9 +3,6 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-protocol CategoryListener {
-    func setCategory(_ category: Category)
-}
 
 final class CategoryListCoordinator: BaseCoordirator {
     

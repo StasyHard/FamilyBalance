@@ -7,7 +7,7 @@ final class AppCoordinator: BaseCoordirator {
     // MARK: - Properties
     private let window: UIWindow
     private let navController: UINavigationController
-
+    
     private let appRepository: AppRepository
     
     
@@ -26,11 +26,7 @@ final class AppCoordinator: BaseCoordirator {
         window.makeKeyAndVisible()
         parentCoordinator = nil
         //TODO: --------------- в зависимости от наличия токена открывается экран
-        if Keys.TOKEN == "" {
-            showSignIn()
-        } else {
-            showMain()
-        }
+        showMain()
     }
     
     

@@ -11,3 +11,15 @@ protocol Coordinator: AnyObject {
 protocol SignInListener {
     func didSignIn()
 }
+
+protocol CategoryListener {
+    func setCategory(_ category: Category)
+}
+
+protocol AccountListener {
+    func setAccount(_ account: Account)
+}
+
+protocol FiltersListener {
+    func setFilter(_ filter: Filters)
+}

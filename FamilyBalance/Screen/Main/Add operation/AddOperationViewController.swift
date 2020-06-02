@@ -34,21 +34,7 @@ final class AddOperationViewController: UIViewController {
     //MARK: - Private metods
     private func setNavigationUI() {
         navigationItem.title = "Добавить"
-        
-//       let settingsImage = UIImage(named: "settings")?
-//            .scaleTo(CGSize(width: AppSizes.iconHeightAndWidth,
-//                            height: AppSizes.iconHeightAndWidth))
-//        
-//        self.navigationItem.rightBarButtonItem = UIBarButtonItem(
-//            image: settingsImage,
-//            style: .plain,
-//            target: self,
-//            action: #selector(settingsButtonTapped))
     }
-    
-//    @objc private func settingsButtonTapped() {
-//        print("settingsButtonTapped")
-//    }
     
     private func observeViewModel(_ viewModel: AddOperationViewModelObservable) {
         
@@ -65,14 +51,22 @@ final class AddOperationViewController: UIViewController {
         .disposed(by: self.disposeBag)
         
         viewModel.addOperationResponse
-            .bind { response in
+            .bind { [weak self] response in
+                guard let `self` = self else { return }
                 switch response {
                 case .sumIsNil:
-                    self.showAlertWithOneAction(title: "Ошибка", message: "Введите сумму операции", actionTitle: "ОК")
+                    self.showAlertWithOneAction(title: "Ошибка",
+                                                message: "Введите сумму операции",
+                                                actionTitle: "ОК")
                 case .error:
-                    self.showAlertWithOneAction(title: "Ошибка", message: "Сохраните операцию повторно", actionTitle: "ОК")
+                    self.showAlertWithOneAction(title: "Ошибка",
+                                                message: "Сохраните операцию повторно",
+                                                actionTitle: "ОК")
                 case .success:
-                    self.showAlertWithOneAction(title: "Операция сохранена", message: "", actionTitle: "ОК")
+                    self.showAlertWithOneAction(title: "Операция сохранена",
+                                                message: "",
+                                                actionTitle: "ОК")
+                    self.addOperationView?.showDafaultData()
                     
                 }
         }

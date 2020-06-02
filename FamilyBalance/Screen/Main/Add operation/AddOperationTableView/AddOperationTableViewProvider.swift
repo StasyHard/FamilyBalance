@@ -22,7 +22,7 @@ class AddOperationTableViewProvider: NSObject, TableViewProvider {
     var operation: OperationTable = .cost
     var defaultCategory: Category?
     var defaultAccount: Account?
-    private(set) var sum: Double?
+    var sum: Double?
     
     
     //MARK: - TableViewProvider metods
@@ -45,6 +45,8 @@ class AddOperationTableViewProvider: NSObject, TableViewProvider {
                 else { return UITableViewCell() }
             
             cell.sumLabel.text = cellType.rawValue
+            cell.summTextField.text = nil
+            sum = nil
             cell.textFieldDelegate = self
             return cell
         }

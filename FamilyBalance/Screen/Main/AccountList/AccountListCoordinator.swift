@@ -4,11 +4,6 @@ import RxSwift
 import RxCocoa
 
 
-protocol AccountListener {
-    func setAccount(_ account: Account)
-}
-
-
 final class AccountListCoordinator: BaseCoordirator {
     
     //MARK: - Private properties
