@@ -21,5 +21,5 @@ protocol AccountListener {
 }
 
 protocol FiltersListener {
-    func setFilter(_ filter: Filters)
+    func setFilter(_ filter: PeriodFilter)
 }

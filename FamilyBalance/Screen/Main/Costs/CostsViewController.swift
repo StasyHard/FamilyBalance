@@ -35,8 +35,8 @@ class CostsViewController: UIViewController {
         navigationItem.title = "Расходы"
         
         let defaultImage = UIImage(named: "filter")?
-            .scaleTo(CGSize(width: AppSizes.iconHeightAndWidth,
-                            height: AppSizes.iconHeightAndWidth))
+            .scaleTo(CGSize(width: 25,
+                            height: 25))
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: defaultImage,

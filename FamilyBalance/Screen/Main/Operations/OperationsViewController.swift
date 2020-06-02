@@ -33,8 +33,8 @@ class OperationsViewController: UIViewController {
     private func setNavigationUI() {
         navigationItem.title = "Операции"
         let defaultImage = UIImage(named: "filter")?
-            .scaleTo(CGSize(width: AppSizes.iconHeightAndWidth,
-                            height: AppSizes.iconHeightAndWidth))
+            .scaleTo(CGSize(width: 25,
+                            height: 25))
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: defaultImage,

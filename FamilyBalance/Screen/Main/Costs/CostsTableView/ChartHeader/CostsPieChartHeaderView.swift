@@ -57,6 +57,8 @@ class CostsPieChartHeaderView: UITableViewHeaderFooterView, ReusableView {
         let chartDataSet = PieChartDataSet(entries: chartEntries, label: "Категории")
         chartDataSet.drawValuesEnabled = true
         chartDataSet.sliceSpace = 2
+        chartDataSet.selectionShift = 0
+        chartDataSet.valueTextColor = .black
         
         chartDataSet.colors = colors
         
@@ -69,6 +71,8 @@ class CostsPieChartHeaderView: UITableViewHeaderFooterView, ReusableView {
         pFormatter.multiplier = 1
         pFormatter.percentSymbol = "%"
         data.setValueFormatter(DefaultValueFormatter(formatter: pFormatter))
+        
+        pieChartView.animate(xAxisDuration: 0.5, easing: nil)
     }
     
     
@@ -79,13 +83,14 @@ class CostsPieChartHeaderView: UITableViewHeaderFooterView, ReusableView {
     
     private func setupChartSettings() {
         pieChartView.delegate = self
-
+        
+        pieChartView.rotationEnabled = false
         pieChartView.legend.enabled = false
         pieChartView.drawEntryLabelsEnabled = true
         pieChartView.usePercentValuesEnabled = true
-        pieChartView.holeRadiusPercent = 0
-        pieChartView.transparentCircleRadiusPercent = 0
         pieChartView.backgroundColor = AppColors.backgroundColor
+        pieChartView.holeRadiusPercent = 0.4
+        pieChartView.transparentCircleRadiusPercent = 0.5
         
         setNoDataText()
     }

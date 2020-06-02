@@ -2,35 +2,44 @@
 import UIKit
 
 
+fileprivate enum FiltersSection: String, CaseIterable {
+    case period = "Период"
+}
+
+enum PeriodFilter: String, CaseIterable {
+    case today = "Сегодня"
+    case week = "Текущая неделя"
+    case mounth = "Текущий месяц"
+    case year = "Текущий год"
+}
+
+
 class FiltersTableViewProvider: NSObject, TableViewProvider {
     
     //MARK: - Private properties
-    private let sectionsTitles = ["Период"]
-    private let periodCellsType = [Filters.today, .week, .mounth, .year]
+    private var selectedPeriodIndexPath: IndexPath?
     
-    private var selectedCellIndexPath: IndexPath?
-    
-    private let headerHeight: CGFloat = 20.0
+    private let headerHeight: CGFloat = 25.0
     
     
     //MARK: - Open metods
-    
-    func getFilter() -> Filters {
-        var filterItem: Filters
-        filterItem = periodCellsType[selectedCellIndexPath!.row]
+    func getPeriodFilter() -> PeriodFilter {
+        let filterItem = PeriodFilter.allCases[selectedPeriodIndexPath!.row]
         return filterItem
     }
     
-    func setStartFilter(_ filer: Filters) {
-        guard let row = periodCellsType.firstIndex(of: filer)
-            else { return }
-        selectedCellIndexPath = IndexPath(row: row, section: 0)
+    func setStartPeriodFilter(_ filer: PeriodFilter) {
+        guard
+            let row = PeriodFilter.allCases.firstIndex(of: filer),
+            let section = FiltersSection.allCases.firstIndex(of: .period)
+        else { return }
+        selectedPeriodIndexPath = IndexPath(row: row, section: section)
     }
     
     
     //MARK: - TableViewProvider metods
     func numberOfSections(in tableView: UITableView) -> Int {
-        return sectionsTitles.count
+        return FiltersSection.allCases.count
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -38,45 +47,49 @@ class FiltersTableViewProvider: NSObject, TableViewProvider {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        switch section {
-        case 0:
-            return sectionsTitles[section]
-        default:
-            return nil
-        }
+        let sectionTitle = FiltersSection.allCases[section].rawValue
+        return sectionTitle
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let headerView = (view as? UITableViewHeaderFooterView)
+        headerView?.tintColor = .clear
+        headerView?.textLabel?.font.withSize(12)
+        headerView?.textLabel?.textColor = AppColors.detailTextColor
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let section = FiltersSection.allCases[section]
+        
         switch section {
-        case 0:
-            return periodCellsType.count
-        default:
-            return 0
+        case .period :
+            return PeriodFilter.allCases.count
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
+        let section = FiltersSection.allCases[indexPath.section]
         
-        switch indexPath.section {
-        case 0:
-            let title = periodCellsType[indexPath.row]
-            cell.textLabel?.text = title.rawValue
-        default:
-            return cell
+        switch section {
+        case .period:
+            let cellTitle = PeriodFilter.allCases[indexPath.row].rawValue
+            cell.textLabel?.text = cellTitle
         }
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath == selectedCellIndexPath {
+        if indexPath == selectedPeriodIndexPath {
             cell.accessoryType = .checkmark
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath != selectedCellIndexPath {
-            selectedCellIndexPath = indexPath
+        
+        if indexPath != selectedPeriodIndexPath {
+            selectedPeriodIndexPath = indexPath
             tableView.reloadData()
         }
     }

@@ -5,7 +5,7 @@ import RxCocoa
 
 
 protocol OperationsViewModelObservable: class {
-    var filtersTapped: Observable<Filters> { get set }
+    var filtersTapped: Observable<PeriodFilter> { get set }
     var operationsByDays: Observable<[DayOperationsUIModel]> { get set }
     var costsSum: Observable<Double> { get set }
     var incomeSum: Observable<Double> { get set }
@@ -20,20 +20,20 @@ protocol OperationsViewActions: class {
 final class OperationsViewModel: OperationsViewModelObservable {
     
     //MARK: - OperationsViewModelObservable
-    var filtersTapped: Observable<Filters>
+    var filtersTapped: Observable<PeriodFilter>
     var operationsByDays: Observable<[DayOperationsUIModel]>
     var costsSum: Observable<Double>
     var incomeSum: Observable<Double>
     
     
     //MARK: - Private properties
-    private let _filtersTapped = PublishSubject<Filters>()
+    private let _filtersTapped = PublishSubject<PeriodFilter>()
     private let _operationsByDay = PublishSubject<[DayOperationsUIModel]>()
     private let _costsSum = BehaviorSubject<Double>(value: 0.0)
     private let _incomeSum = BehaviorSubject<Double>(value: 0.0)
     
     private let repo: Repository
-    private var filter: Filters = .mounth
+    private var filter: PeriodFilter = .mounth
     
     private let disposeBag = DisposeBag()
     
@@ -51,7 +51,7 @@ final class OperationsViewModel: OperationsViewModelObservable {
     
     //MARK: - Open metods
       //координатор вызывает функцию, когда на экране фильтров была нажата кнопка показать
-      func wasSetFilter(filter: Filters) {
+      func wasSetFilter(filter: PeriodFilter) {
           
           if filter != self.filter {
               self.filter = filter

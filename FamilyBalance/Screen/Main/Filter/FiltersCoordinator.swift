@@ -10,13 +10,13 @@ final class FiltersCoordinator: BaseCoordirator {
     private var navController: UINavigationController
     private var filtersNavController: UINavigationController
     
-    private let startFilter: Filters
+    private let startFilter: PeriodFilter
     
     private let disposeBag = DisposeBag()
     
     
     //MARK: - Init
-    init(navController: UINavigationController, startFilter: Filters) {
+    init(navController: UINavigationController, startFilter: PeriodFilter) {
         self.navController = navController
         self.startFilter = startFilter
         
