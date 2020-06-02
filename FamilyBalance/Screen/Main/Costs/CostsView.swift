@@ -5,10 +5,10 @@ import Charts
 
 protocol CostsViewImplementation: class {
     func setaAtionsDelegate(delegate: CostsViewActions)
-    func setCategories(_ categories: [CategoryUIModel])
-    func setGraphCategories(_ categorise: [CategoryGraphModel])
-    func setIncomeSum(_ sum: Double)
-    func setCostsSum(_ sum: Double)
+    func showCategories(_ categories: [CategoryUIModel])
+    func showGraphCategories(_ categorise: [CategoryGraphModel])
+    func showIncomeSum(_ sum: Double)
+    func showCostsSum(_ sum: Double)
     func showPeriod(_ period: Period)
 }
 
@@ -19,7 +19,6 @@ class CostsView: UIView {
     
     @IBOutlet weak var tableView: UITableView! {
         didSet {
-            tableView.backgroundColor = AppColors.backgroundColor
             registerCells()
             tableView.delegate = tableViewProvider
             tableView.dataSource = tableViewProvider
@@ -29,7 +28,6 @@ class CostsView: UIView {
     
     //MARK: - Private properties
     private var actionsDelegate: CostsViewActions?
-    //TODO: ------------------------------- Подумать где должна быть реализация
     private let tableViewProvider = CostsTableViewProvider()
     
     
@@ -42,13 +40,8 @@ class CostsView: UIView {
         super.init(coder: coder)
     }
     
-    
-    //MARK: - Private metods
-    private func setup() {
-    }
-    
     private func registerCells() {
-        tableView.register(UINib(nibName: "CostCell", bundle: nil), forCellReuseIdentifier: CostCell.reuseIdD)
+        tableView.register(UINib(nibName: "CategoryCell", bundle: nil), forCellReuseIdentifier: CategoryCell.reuseIdD)
         tableView.register(UINib(nibName: "CostsPieChartHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: CostsPieChartHeaderView.reuseIdD)
     }
 }
@@ -63,31 +56,27 @@ extension CostsView: CostsViewImplementation {
     
     func showPeriod(_ period: Period) {
         tableViewProvider.period = period
+        tableView.reloadData()
     }
     
-    func setIncomeSum(_ sum: Double) {
+    func showIncomeSum(_ sum: Double) {
         tableViewProvider.incomeSum = sum
         tableView.reloadData()
     }
     
-    func setCostsSum(_ sum: Double) {
+    func showCostsSum(_ sum: Double) {
         tableViewProvider.costsSum = sum
         tableView.reloadData()
     }
     
-    func setCategories(_ categories: [CategoryUIModel]) {
+    func showCategories(_ categories: [CategoryUIModel]) {
         tableViewProvider.categories = categories
         tableView.reloadData()
     }
     
-    func setGraphCategories(_ categorise: [CategoryGraphModel]) {
+    func showGraphCategories(_ categorise: [CategoryGraphModel]) {
         tableViewProvider.graphCategories = categorise
         tableView.reloadData()
     }
 }
 
-
-
-extension CostsView: UITableViewDelegate {
-    
-}

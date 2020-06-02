@@ -18,6 +18,9 @@
 		56184193246D7FBE006BF368 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56184192246D7FBE006BF368 /* AppColors.swift */; };
 		56184197246D8702006BF368 /* BlueRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56184196246D8702006BF368 /* BlueRoundedButton.swift */; };
 		56184199246D8F10006BF368 /* UIViewController + dismissKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56184198246D8F10006BF368 /* UIViewController + dismissKeyboard.swift */; };
+		561F6405248643ED005EDD87 /* DefaultTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561F6404248643EC005EDD87 /* DefaultTableView.swift */; };
+		561F6407248645AC005EDD87 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561F6406248645AC005EDD87 /* CategoryCell.swift */; };
+		561F6409248645C0005EDD87 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 561F6408248645C0005EDD87 /* CategoryCell.xib */; };
 		56214F51246569C7000CE0BD /* CoordinatorProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56214F50246569C7000CE0BD /* CoordinatorProtocols.swift */; };
 		56444DE424599FDD00BB6BAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56444DE324599FDD00BB6BAE /* AppDelegate.swift */; };
 		56444DE624599FDD00BB6BAE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56444DE524599FDD00BB6BAE /* SceneDelegate.swift */; };
@@ -146,6 +149,9 @@
 		56184192246D7FBE006BF368 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		56184196246D8702006BF368 /* BlueRoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueRoundedButton.swift; sourceTree = "<group>"; };
 		56184198246D8F10006BF368 /* UIViewController + dismissKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + dismissKeyboard.swift"; sourceTree = "<group>"; };
+		561F6404248643EC005EDD87 /* DefaultTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTableView.swift; sourceTree = "<group>"; };
+		561F6406248645AC005EDD87 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		561F6408248645C0005EDD87 /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
 		56214F50246569C7000CE0BD /* CoordinatorProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocols.swift; sourceTree = "<group>"; };
 		56444DE024599FDD00BB6BAE /* FamilyBalance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FamilyBalance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56444DE324599FDD00BB6BAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -340,6 +346,7 @@
 			children = (
 				56184190246D7D1B006BF368 /* AppSizes.swift */,
 				56184192246D7FBE006BF368 /* AppColors.swift */,
+				561F6403248643BB005EDD87 /* TableViews */,
 				56926DC42483ED85007CFE7E /* Cells */,
 				5694064D2476C20D009034FE /* Enums */,
 				56184195246D8692006BF368 /* Buttons */,
@@ -372,6 +379,14 @@
 				56926DA92480FBBA007CFE7E /* UIViewController+showAlert.swift */,
 			);
 			path = UIViewController;
+			sourceTree = "<group>";
+		};
+		561F6403248643BB005EDD87 /* TableViews */ = {
+			isa = PBXGroup;
+			children = (
+				561F6404248643EC005EDD87 /* DefaultTableView.swift */,
+			);
+			path = TableViews;
 			sourceTree = "<group>";
 		};
 		56444DD724599FDD00BB6BAE = {
@@ -444,6 +459,8 @@
 		566AD8FD2475661B00898065 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				5681649F2472CF1C00BAAABF /* CostCell.swift */,
+				568164A02472CF1C00BAAABF /* CostCell.xib */,
 				566AD8FE2475673500898065 /* IncomeAndCostsCell.swift */,
 				566AD8FF2475673500898065 /* IncomeAndCostsCell.xib */,
 			);
@@ -543,8 +560,8 @@
 		5681649C2472CEB700BAAABF /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				5681649F2472CF1C00BAAABF /* CostCell.swift */,
-				568164A02472CF1C00BAAABF /* CostCell.xib */,
+				561F6406248645AC005EDD87 /* CategoryCell.swift */,
+				561F6408248645C0005EDD87 /* CategoryCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -922,6 +939,7 @@
 				56AADA17246C4A9700B2CC8F /* SignUp.storyboard in Resources */,
 				56C5A2A1246430F500CE5602 /* LoadingView.xib in Resources */,
 				56926DA6247EAA30007CFE7E /* AddOperationCell.xib in Resources */,
+				561F6409248645C0005EDD87 /* CategoryCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1048,6 +1066,8 @@
 				56940657247BE964009034FE /* GraphColorConvertable.swift in Sources */,
 				56926D8E247D03A1007CFE7E /* DayOperationsUIModel.swift in Sources */,
 				56926DAA2480FBBA007CFE7E /* UIViewController+showAlert.swift in Sources */,
+				561F6405248643ED005EDD87 /* DefaultTableView.swift in Sources */,
+				561F6407248645AC005EDD87 /* CategoryCell.swift in Sources */,
 				56926DBE248161AB007CFE7E /* AccountListCoordinator.swift in Sources */,
 				5699B553247442B300998BF0 /* FiltersTableViewProvider.swift in Sources */,
 				56926D98247E56A9007CFE7E /* Date+currentWeekMonday.swift in Sources */,
