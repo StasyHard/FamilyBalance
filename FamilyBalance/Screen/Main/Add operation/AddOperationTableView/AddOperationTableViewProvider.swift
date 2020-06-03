@@ -22,11 +22,7 @@ class AddOperationTableViewProvider: NSObject, TableViewProvider {
     var operation: OperationTable = .cost
     var defaultCategory: Category?
     var defaultAccount: Account?
-    var sum: Double? {
-        didSet {
-            print(sum)
-        }
-    }
+    var sum: Double?
     
     
     //MARK: - TableViewProvider metods
@@ -94,7 +90,6 @@ extension AddOperationTableViewProvider: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         let inputText = textField.text ?? ""
-       print(inputText)
         sum = inputText.toDouble()
         if !inputText.isEmpty {
             textField.text = "\(inputText) ₽"

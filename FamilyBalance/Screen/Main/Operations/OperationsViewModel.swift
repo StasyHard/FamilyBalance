@@ -121,7 +121,7 @@ final class OperationsViewModel: OperationsViewModelObservable {
         var operationsByDay = [DayOperationsUIModel]()
         if !operations.isEmpty {
             
-            let groupOperationByDay = Dictionary(grouping: operations) { $0.date }
+            let groupOperationByDay = Dictionary(grouping: operations) { $0.date.stripTime() }
             let sortedDates = groupOperationByDay.keys.sorted { $0 > $1 }
             
             for ind in 0..<sortedDates.count {
@@ -140,16 +140,6 @@ final class OperationsViewModel: OperationsViewModelObservable {
         }
         return operationsByDay
     }
-    
-    //    private func compareDate(date1: Date, date2: Date) -> Bool {
-    //        let order = Calendar.current.compare(date1, to: date2,toGranularity: .day)
-    //        switch order {
-    //        case .orderedSame:
-    //            return true
-    //        default:
-    //            return false
-    //        }
-    //    }
 }
 
 

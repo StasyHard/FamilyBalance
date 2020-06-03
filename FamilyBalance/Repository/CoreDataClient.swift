@@ -15,7 +15,7 @@ class CoreDataClient {
     init() {
         operationsData = [
             Operation(id: 1, sum: 100, date: convertToDate(string: "01.06.2020"), comment: "", account: cash, category: categProduct),
-            Operation(id: 2, sum: 500, date: convertToDate(string: "03.05.2020"), comment: "", account: card, category: categCar),
+            Operation(id: 2, sum: 500, date: convertToDate(string: "02.06.2020"), comment: "", account: card, category: categCar),
             Operation(id: 3, sum: 500, date: convertToDate(string: "20.05.2020"), comment: "", account: card, category: categRazvlechen),
             Operation(id: 4, sum: 500, date: convertToDate(string: "20.05.2020"), comment: "", account: card, category: nil),
             Operation(id: 5, sum: 100, date: convertToDate(string: "20.05.2020"), comment: "", account: cash, category: categRazvlechen),
@@ -40,11 +40,8 @@ class CoreDataClient {
     
     func getOperations(byPeriod period: Period) -> [Operation] {
         var operations: [Operation] = []
-       print( operationsData[0].date)
         operations = operationsData.filter{ operation in
             operation.date >= period.startDate && operation.date <= period.endDate
-        }
-        operations.forEach { print($0.date)
         }
         return operations
     }
