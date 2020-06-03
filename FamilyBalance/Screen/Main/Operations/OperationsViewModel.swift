@@ -34,6 +34,7 @@ final class OperationsViewModel: OperationsViewModelObservable {
     
     private let repo: Repository
     private var filter: PeriodFilter = .mounth
+    private let sumCalculator = SumCalculator()
     
     private let disposeBag = DisposeBag()
     
@@ -69,17 +70,15 @@ final class OperationsViewModel: OperationsViewModelObservable {
                 guard let `self` = self else { return }
                 
                 let income = operations.filter { $0.category == nil }
-                let sumIncome = self.getSum(by: income)
+                let sumIncome = self.sumCalculator.getSum(by: income)
                 self._incomeSum.onNext(sumIncome)
                 
                 let costs = operations.filter { $0.category != nil }
-                let sumCosts = self.getSum(by: costs)
+                let sumCosts = self.sumCalculator.getSum(by: costs)
                 self._costsSum.onNext(sumCosts)
                 
                 let operationsByDay = self.getOperationsByDays(operations: operations)
                 self._operationsByDay.onNext(operationsByDay)
-                
-
             })
             .disposed(by: self.disposeBag)
     }
@@ -107,14 +106,6 @@ final class OperationsViewModel: OperationsViewModelObservable {
                              endDate: endDate)
            }
        }
-    
-    private func getSum(by operations: [Operation]) -> Double {
-        var sum = 0.0
-        if !operations.isEmpty {
-            operations.forEach { sum += $0.sum}
-        }
-        return sum
-    }
     
     //преобразовываем массив операций в ui модель, которая имеет поля: день, сумма операций за день, операции
     private func getOperationsByDays(operations: [Operation]) -> [DayOperationsUIModel] {

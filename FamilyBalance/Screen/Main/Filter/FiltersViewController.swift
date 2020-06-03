@@ -4,7 +4,7 @@ import RxSwift
 import RxCocoa
 
 
-class FiltersViewController: UIViewController {
+final class FiltersViewController: UIViewController {
     
     //MARK: - Open properties
     var viewModel: (FiltersViewModelObservable & FiltersViewActions)?
@@ -27,6 +27,11 @@ class FiltersViewController: UIViewController {
         observeViewModel(viewModel)
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        viewModel?.viewDidDisapper()
+    }
+    
+    //MARK: - Private metods
     private func setNavigationUI() {
         title = "Фильтры"
         

@@ -46,15 +46,17 @@ final class FiltersCoordinator: BaseCoordirator {
         }
         .disposed(by: self.disposeBag)
         
-        viewModel.isClosed
+        viewModel.isCloses
             .bind { [weak self] _ in
-                self?.dismiss()
+                self?.filtersNavController.dismiss(animated: true, completion: nil)
         }
         .disposed(by: self.disposeBag)
-    }
-    
-    private func dismiss() {
-        filtersNavController.dismiss(animated: true, completion: nil)
-        parentCoordinator?.didFinish(coordinator: self)
+        
+        viewModel.isClosed
+            .bind { [weak self] _ in
+                guard let `self` = self else { return }
+                self.parentCoordinator?.didFinish(coordinator: self)
+        }
+        .disposed(by: self.disposeBag)
     }
 }

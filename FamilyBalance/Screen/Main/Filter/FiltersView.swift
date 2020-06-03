@@ -8,7 +8,7 @@ protocol FiltersViewImplementation: class {
 }
 
 
-class FiltersView: UIView {
+final class FiltersView: UIView {
     
     //MARK: - IBOutlet
     @IBOutlet weak var filterTableView: UITableView! {

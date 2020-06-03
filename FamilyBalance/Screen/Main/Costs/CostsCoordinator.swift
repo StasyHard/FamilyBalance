@@ -7,8 +7,8 @@ import RxCocoa
 final class CostsCoordinator: BaseCoordirator {
     
     //MARK: - Private properties
-    private var repo: Repository
     private var navController: UINavigationController
+    private var repo: Repository
     private var viewModel: CostsViewModel?
     
     private let disposeBag = DisposeBag()

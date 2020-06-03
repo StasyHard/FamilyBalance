@@ -40,6 +40,7 @@ final class CostsViewModel: CostsViewModelObservable {
     
     private var repo: Repository?
     private var filter: PeriodFilter = .mounth
+    private let sumCalculator = SumCalculator()
     
     private let disposeBag = DisposeBag()
     
@@ -82,11 +83,11 @@ final class CostsViewModel: CostsViewModelObservable {
                     guard let `self` = self else { return }
                     
                     let income = operations.filter { $0.category == nil }
-                    let sumIncome = self.getSum(by: income)
+                    let sumIncome = self.sumCalculator.getSum(by: income)
                     self._incomeSum.onNext(sumIncome)
                     
                     let costs = operations.filter { $0.category != nil }
-                    let sumCosts = self.getSum(by: costs)
+                    let sumCosts = self.sumCalculator.getSum(by: costs)
                     self._costsSum.onNext(sumCosts)
                     
                     let costsCategories = self.getCategories(by: costs)
@@ -122,21 +123,6 @@ final class CostsViewModel: CostsViewModelObservable {
         }
     }
     
-    private func getSum(by operations: [Operation]) -> Double {
-        var sum = 0.0
-        if !operations.isEmpty {
-            operations.forEach { sum += $0.sum}
-        }
-        return sum
-    }
-    
-    private func getSum(by categories: [CategoryUIModel]) -> Double {
-        var sum = 0.0
-        if !categories.isEmpty {
-            categories.forEach { sum += $0.sum}
-        }
-        return sum
-    }
     
     //получаем категории для таблицы из операций
     private func getCategories(by operations: [Operation]) -> [CategoryUIModel] {
@@ -150,7 +136,7 @@ final class CostsViewModel: CostsViewModelObservable {
                     var result = result
                     let category = resCategory.key!
                     let operationsInCategory = resCategory.value
-                    let sumOperations = getSum(by: operationsInCategory)
+                    let sumOperations = self.sumCalculator.getSum(by: operationsInCategory)
                     
                     result.append(CategoryUIModel(id: category.id,
                                                   name: category.title,
@@ -206,6 +192,14 @@ final class CostsViewModel: CostsViewModelObservable {
         graphCategories.remove(at: index)
         graphCategories.append(elem)
         return graphCategories
+    }
+    
+    private func getSum(by categories: [CategoryUIModel]) -> Double {
+        var sum = 0.0
+        if !categories.isEmpty {
+            categories.forEach { sum += $0.sum}
+        }
+        return sum
     }
 }
 

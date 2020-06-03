@@ -12,10 +12,12 @@ final class AppCoordinator: BaseCoordirator {
     
     
     // MARK: - Init
-    init(window: UIWindow, navController: UINavigationController, appRepository: AppRepository) {
+     init(window: UIWindow, navController: UINavigationController, appRepository: AppRepository) {
         self.window = window
         self.navController = navController
         self.appRepository = appRepository
+        
+        
     }
     
     

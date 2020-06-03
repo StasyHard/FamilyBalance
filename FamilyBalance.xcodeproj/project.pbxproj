@@ -66,6 +66,7 @@
 		5682B80F2473CEA0002E2186 /* CostsPieChartHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5682B80E2473CEA0002E2186 /* CostsPieChartHeaderView.swift */; };
 		5682B8122473CEC1002E2186 /* CostsPieChartHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5682B8112473CEC1002E2186 /* CostsPieChartHeaderView.xib */; };
 		56844C3D24879622006A1490 /* Date+compareWith.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56844C3C24879622006A1490 /* Date+compareWith.swift */; };
+		56844C3F2487C65E006A1490 /* IncomeAndCostsSumCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56844C3E2487C65E006A1490 /* IncomeAndCostsSumCalculator.swift */; };
 		56926D8E247D03A1007CFE7E /* DayOperationsUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56926D8D247D03A1007CFE7E /* DayOperationsUIModel.swift */; };
 		56926D91247D56FC007CFE7E /* OperationsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56926D90247D56FC007CFE7E /* OperationsHeaderView.swift */; };
 		56926D93247D575E007CFE7E /* OperationsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56926D92247D575E007CFE7E /* OperationsHeaderView.xib */; };
@@ -202,6 +203,7 @@
 		5682B80E2473CEA0002E2186 /* CostsPieChartHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostsPieChartHeaderView.swift; sourceTree = "<group>"; };
 		5682B8112473CEC1002E2186 /* CostsPieChartHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CostsPieChartHeaderView.xib; sourceTree = "<group>"; };
 		56844C3C24879622006A1490 /* Date+compareWith.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+compareWith.swift"; sourceTree = "<group>"; };
+		56844C3E2487C65E006A1490 /* IncomeAndCostsSumCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeAndCostsSumCalculator.swift; sourceTree = "<group>"; };
 		56926D8D247D03A1007CFE7E /* DayOperationsUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOperationsUIModel.swift; sourceTree = "<group>"; };
 		56926D90247D56FC007CFE7E /* OperationsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationsHeaderView.swift; sourceTree = "<group>"; };
 		56926D92247D575E007CFE7E /* OperationsHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OperationsHeaderView.xib; sourceTree = "<group>"; };
@@ -491,6 +493,7 @@
 				567086BD2465ABEA00CD2E2A /* Costs.storyboard */,
 				56EB9BB92463FAE6002F815B /* CostsViewController.swift */,
 				567086B42465888000CD2E2A /* CostsViewModel.swift */,
+				56844C3E2487C65E006A1490 /* IncomeAndCostsSumCalculator.swift */,
 				56816485246ED9EF00BAAABF /* CostsView.swift */,
 				567086B72465890200CD2E2A /* CostsCoordinator.swift */,
 				568164A72472E34700BAAABF /* CostsTableView */,
@@ -1045,6 +1048,7 @@
 				56926DA0247E96A3007CFE7E /* SumOperationCell.swift in Sources */,
 				566AD9002475673500898065 /* OperationsRatioCell.swift in Sources */,
 				56926DB82481617D007CFE7E /* AccountListViewController.swift in Sources */,
+				56844C3F2487C65E006A1490 /* IncomeAndCostsSumCalculator.swift in Sources */,
 				568164A42472DF3000BAAABF /* ReusableView.swift in Sources */,
 				56444DEE24599FDD00BB6BAE /* FamilyBalance.xcdatamodeld in Sources */,
 				5673DD6E24602AC50004EB12 /* AppRepository.swift in Sources */,

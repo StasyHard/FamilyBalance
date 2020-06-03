@@ -60,16 +60,4 @@ final class SignInCoordinator: BaseCoordirator {
         handler?.didSignIn()
     }
     
-    // TODO: ----------------------------------------------------- почему не работает???
-    //    private func findListeners(parent: Coordinator) -> SignInListener? {
-    //        if parent is SignInListener {
-    //            let parent = parent as! SignInListener
-    //            return parent
-    //        } else {
-    //            guard let parent = parent.parentCoordinator else { return nil }
-    //            findListener(parent: parent)
-    //            return nil //не должно быть нил
-    //        }
-    //    }
-    
 }
