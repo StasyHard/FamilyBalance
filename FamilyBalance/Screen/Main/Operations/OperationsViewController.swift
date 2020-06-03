@@ -18,7 +18,6 @@ class OperationsViewController: UIViewController {
     //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setNavigationUI()
         
         guard let viewModel = viewModel else { return }
@@ -33,8 +32,8 @@ class OperationsViewController: UIViewController {
     private func setNavigationUI() {
         navigationItem.title = "Операции"
         let defaultImage = UIImage(named: "filter")?
-            .scaleTo(CGSize(width: 25,
-                            height: 25))
+            .scaleTo(CGSize(width: AppSizes.itemImageHeight,
+                            height: AppSizes.itemImageHeight))
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: defaultImage,

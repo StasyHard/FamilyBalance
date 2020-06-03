@@ -45,8 +45,11 @@ class AddOperationTableViewProvider: NSObject, TableViewProvider {
                 else { return UITableViewCell() }
             
             cell.sumLabel.text = cellType.rawValue
-            cell.summTextField.text = nil
-            sum = nil
+            if let sum = sum.map({ return Int(exactly: $0) == nil ? "\($0)" : "\(Int($0))" }) {
+                cell.summTextField.text = "\(sum) ₽"
+            } else {
+                cell.summTextField.text = nil
+            }
             cell.textFieldDelegate = self
             return cell
         }

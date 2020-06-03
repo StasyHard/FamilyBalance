@@ -125,7 +125,6 @@ extension AddOperationViewModel: AddOperationViewActions {
                                        category: nil)
                 operation = income
             }
-            
             repo.addOperation(operation)
                 .subscribe(
                     onSuccess: { [weak self] _ in

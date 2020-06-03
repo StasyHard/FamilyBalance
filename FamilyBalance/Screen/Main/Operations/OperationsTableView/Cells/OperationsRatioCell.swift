@@ -8,9 +8,9 @@
 
 import UIKit
 
-final class IncomeAndCostsCell: UITableViewCell, ReusableView {
+final class OperationsRatioCell: UITableViewCell, ReusableView {
     
-    @IBOutlet weak var incomeToCostsRatioView: CustomProgressView!
+    @IBOutlet weak var ratioProgressView: CustomProgressView!
     @IBOutlet weak var incomeSumLabel: UILabel!
     @IBOutlet weak var costsSumLabel: UILabel!
     

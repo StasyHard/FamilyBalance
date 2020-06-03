@@ -72,7 +72,8 @@ class CostsPieChartHeaderView: UITableViewHeaderFooterView, ReusableView {
         pFormatter.percentSymbol = "%"
         data.setValueFormatter(DefaultValueFormatter(formatter: pFormatter))
         
-        pieChartView.animate(xAxisDuration: 0.5, easing: nil)
+        //pieChartView.animate(xAxisDuration: 0.5, easing: nil)
+        pieChartView.animate(xAxisDuration: 0.5, yAxisDuration: 0.5)
     }
     
     

@@ -14,8 +14,8 @@ class CoreDataClient {
     
     init() {
         operationsData = [
-            Operation(id: 1, sum: 100, date: convertToDate(string: "05.05.2020"), comment: "", account: cash, category: categProduct),
-            Operation(id: 2, sum: 500, date: convertToDate(string: "03.05.2020"), comment: "", account: card, category: categCar),
+            Operation(id: 1, sum: 100, date: convertToDate(string: "01.06.2020"), comment: "", account: cash, category: categProduct),
+            Operation(id: 2, sum: 500, date: convertToDate(string: "02.06.2020"), comment: "", account: card, category: categCar),
             Operation(id: 3, sum: 500, date: convertToDate(string: "20.05.2020"), comment: "", account: card, category: categRazvlechen),
             Operation(id: 4, sum: 500, date: convertToDate(string: "20.05.2020"), comment: "", account: card, category: nil),
             Operation(id: 5, sum: 100, date: convertToDate(string: "20.05.2020"), comment: "", account: cash, category: categRazvlechen),
@@ -31,6 +31,8 @@ class CoreDataClient {
     private func convertToDate(string: String) -> Date {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.yyyy"
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.locale = Locale(identifier: "ru_RU")
         let date = formatter.date(from: string)
         return date!
     }
@@ -39,7 +41,7 @@ class CoreDataClient {
     func getOperations(byPeriod period: Period) -> [Operation] {
         var operations: [Operation] = []
         operations = operationsData.filter{ operation in
-            operation.date > period.startDate && operation.date < period.endDate
+            operation.date >= period.startDate && operation.date <= period.endDate
         }
         return operations
     }

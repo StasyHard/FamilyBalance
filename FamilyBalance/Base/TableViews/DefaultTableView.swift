@@ -18,5 +18,6 @@ class DefaultTableView: UITableView {
     
     private func setupUI() {
         backgroundColor = AppColors.backgroundColor
+        tableFooterView = UIView()
     }
 }

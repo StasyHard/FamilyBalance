@@ -30,7 +30,7 @@ class FiltersViewController: UIViewController {
     private func setNavigationUI() {
         title = "Фильтры"
         
-        let defaultImage = UIImage(named: "close1")?
+        let defaultImage = UIImage(named: "close")?
             .scaleTo(CGSize(width: 15,
                             height: 15))
         
