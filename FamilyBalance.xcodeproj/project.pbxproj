@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		4BEFA0F91B78086FC19BD1F8 /* libPods-FamilyBalance-FamilyBalanceUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31D2517A6F6B548CBD590050 /* libPods-FamilyBalance-FamilyBalanceUITests.a */; };
+		560B69D32488FD68000BF2EB /* Account+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560B69CD2488FD68000BF2EB /* Account+CoreDataClass.swift */; };
+		560B69D42488FD68000BF2EB /* Account+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560B69CE2488FD68000BF2EB /* Account+CoreDataProperties.swift */; };
+		560B69D52488FD68000BF2EB /* Operation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560B69CF2488FD68000BF2EB /* Operation+CoreDataClass.swift */; };
+		560B69D62488FD68000BF2EB /* Operation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560B69D02488FD68000BF2EB /* Operation+CoreDataProperties.swift */; };
+		560B69D72488FD68000BF2EB /* Category+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560B69D12488FD68000BF2EB /* Category+CoreDataClass.swift */; };
+		560B69D82488FD68000BF2EB /* Category+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560B69D22488FD68000BF2EB /* Category+CoreDataProperties.swift */; };
 		56184180246C6261006BF368 /* Operations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5618417F246C6261006BF368 /* Operations.storyboard */; };
 		56184182246C62AC006BF368 /* OperationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56184181246C62AC006BF368 /* OperationsViewController.swift */; };
 		56184184246C637E006BF368 /* OperationsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56184183246C637E006BF368 /* OperationsCoordinator.swift */; };
@@ -139,6 +145,12 @@
 		07EFD6E96F6A8D2351747E70 /* Pods-FamilyBalanceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FamilyBalanceTests.debug.xcconfig"; path = "Target Support Files/Pods-FamilyBalanceTests/Pods-FamilyBalanceTests.debug.xcconfig"; sourceTree = "<group>"; };
 		208D4E0B15A693C18A3339B5 /* Pods-FamilyBalance-FamilyBalanceUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FamilyBalance-FamilyBalanceUITests.debug.xcconfig"; path = "Target Support Files/Pods-FamilyBalance-FamilyBalanceUITests/Pods-FamilyBalance-FamilyBalanceUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		31D2517A6F6B548CBD590050 /* libPods-FamilyBalance-FamilyBalanceUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FamilyBalance-FamilyBalanceUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		560B69CD2488FD68000BF2EB /* Account+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account+CoreDataClass.swift"; sourceTree = "<group>"; };
+		560B69CE2488FD68000BF2EB /* Account+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		560B69CF2488FD68000BF2EB /* Operation+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Operation+CoreDataClass.swift"; sourceTree = "<group>"; };
+		560B69D02488FD68000BF2EB /* Operation+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Operation+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		560B69D12488FD68000BF2EB /* Category+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataClass.swift"; sourceTree = "<group>"; };
+		560B69D22488FD68000BF2EB /* Category+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5618417F246C6261006BF368 /* Operations.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Operations.storyboard; sourceTree = "<group>"; };
 		56184181246C62AC006BF368 /* OperationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationsViewController.swift; sourceTree = "<group>"; };
 		56184183246C637E006BF368 /* OperationsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationsCoordinator.swift; sourceTree = "<group>"; };
@@ -521,6 +533,12 @@
 				56AADA11246C38B100B2CC8F /* CoreDataClient.swift */,
 				567E1E3C246AF9B000C50217 /* FafilyBalanseApiClient.swift */,
 				56444DEC24599FDD00BB6BAE /* FamilyBalance.xcdatamodeld */,
+				560B69CD2488FD68000BF2EB /* Account+CoreDataClass.swift */,
+				560B69CE2488FD68000BF2EB /* Account+CoreDataProperties.swift */,
+				560B69CF2488FD68000BF2EB /* Operation+CoreDataClass.swift */,
+				560B69D02488FD68000BF2EB /* Operation+CoreDataProperties.swift */,
+				560B69D12488FD68000BF2EB /* Category+CoreDataClass.swift */,
+				560B69D22488FD68000BF2EB /* Category+CoreDataProperties.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -1038,6 +1056,8 @@
 				56926DA82480F421007CFE7E /* String+toDouble.swift in Sources */,
 				56AADA1B246C4AD100B2CC8F /* SignUpView.swift in Sources */,
 				56926DAD24814EC5007CFE7E /* CategoryListViewController.swift in Sources */,
+				560B69D52488FD68000BF2EB /* Operation+CoreDataClass.swift in Sources */,
+				560B69D82488FD68000BF2EB /* Category+CoreDataProperties.swift in Sources */,
 				56926DCC24850470007CFE7E /* AccountListTableViewProvider.swift in Sources */,
 				56926D9B247E5718007CFE7E /* Calendar+iso8601.swift in Sources */,
 				56926DA4247EA91E007CFE7E /* AddOperationCell.swift in Sources */,
@@ -1049,6 +1069,7 @@
 				566AD9002475673500898065 /* OperationsRatioCell.swift in Sources */,
 				56926DB82481617D007CFE7E /* AccountListViewController.swift in Sources */,
 				56844C3F2487C65E006A1490 /* SumCalculator.swift in Sources */,
+				560B69D42488FD68000BF2EB /* Account+CoreDataProperties.swift in Sources */,
 				568164A42472DF3000BAAABF /* ReusableView.swift in Sources */,
 				56444DEE24599FDD00BB6BAE /* FamilyBalance.xcdatamodeld in Sources */,
 				5673DD6E24602AC50004EB12 /* AppRepository.swift in Sources */,
@@ -1066,6 +1087,7 @@
 				56926D98247E56A9007CFE7E /* Date+currentWeekMonday.swift in Sources */,
 				568164AA2472E44500BAAABF /* TableViewProvider.swift in Sources */,
 				56816490246EF53500BAAABF /* FiltersView.swift in Sources */,
+				560B69D72488FD68000BF2EB /* Category+CoreDataClass.swift in Sources */,
 				56184193246D7FBE006BF368 /* AppColors.swift in Sources */,
 				56940655247BE201009034FE /* CategoryGraphModel.swift in Sources */,
 				56EB9BBA2463FAE6002F815B /* CostsViewController.swift in Sources */,
@@ -1078,7 +1100,9 @@
 				566AD91024768BB700898065 /* AddOperationTableViewProvider.swift in Sources */,
 				56EB9BC424640E48002F815B /* SignInCoordinator.swift in Sources */,
 				56AADA1D246C4AE900B2CC8F /* SignUpViewModel.swift in Sources */,
+				560B69D32488FD68000BF2EB /* Account+CoreDataClass.swift in Sources */,
 				569406512476CC4C009034FE /* Data.swift in Sources */,
+				560B69D62488FD68000BF2EB /* Operation+CoreDataProperties.swift in Sources */,
 				56844C3D24879622006A1490 /* Date+compareWith.swift in Sources */,
 				56926DB324814EFD007CFE7E /* CategoryListCoordinator.swift in Sources */,
 				56EB9B992461C73F002F815B /* BlueStrokeTextField.swift in Sources */,
