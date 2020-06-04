@@ -58,7 +58,7 @@ extension FiltersViewModel: FiltersViewActions {
     
     func showButtonTapped(filter: PeriodFilter) {
         _isSetFilter.onNext(filter)
-        _isClosed.onNext(())
+        _isCloses.onNext(())
     }
     
     func viewDidDisapper() {

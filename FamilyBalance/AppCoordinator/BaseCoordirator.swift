@@ -45,18 +45,17 @@ extension BaseCoordirator {
         return found
     }
     
-    //     TODO: ----------------------------------------------------- рекурсивная версия проверить правильность
-    func findParentListener<T>(parent: Coordinator?) -> T? {
+    func findListener<T>(parent: Coordinator?) -> T? {
         guard let parent = parent
             else { return nil }
         
         if parent is T {
-            let listener = parent as? T
+            let listener = parent as! T
             return listener
         }
         else {
             let parent = parent.parentCoordinator
-            return findParentListener(parent: parent)
+            return findListener(parent: parent)
         }
     }
 }
