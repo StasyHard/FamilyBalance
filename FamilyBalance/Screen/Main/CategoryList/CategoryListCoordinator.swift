@@ -11,13 +11,13 @@ final class CategoryListCoordinator: BaseCoordirator {
     private var categoryListNavController: UINavigationController
     
     private let repo: Repository
-    private let selectedCategory: Category
+    private let selectedCategory: CategoryModel
     
     private let disposeBag = DisposeBag()
     
     
     //MARK: - Init
-    init(navController: UINavigationController, repo: Repository, selectedCategory: Category) {
+    init(navController: UINavigationController, repo: Repository, selectedCategory: CategoryModel) {
         self.navController = navController
         self.repo = repo
         self.selectedCategory = selectedCategory

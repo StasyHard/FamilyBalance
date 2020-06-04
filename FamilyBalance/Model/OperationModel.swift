@@ -1,11 +1,11 @@
 
 import Foundation
 
-struct Operation {
+struct OperationModel {
     let id: Int
     let sum: Double
     let date: Date
     let comment: String?
-    let account: Account
-    let category: Category?
+    let account: AccountModel
+    let category: CategoryModel?
 }

@@ -10,10 +10,10 @@ enum AddOperationResponse {
 }
 
 protocol AddOperationViewModelObservable: class {
-    var defaultAccount: Observable<Account> { get set }
-    var defaultCatecory: Observable<Category> { get set }
-    var accountDidTapped: Observable<Account> { get set }
-    var categoryDidTapped: Observable<Category> { get set }
+    var defaultAccount: Observable<AccountModel> { get set }
+    var defaultCatecory: Observable<CategoryModel> { get set }
+    var accountDidTapped: Observable<AccountModel> { get set }
+    var categoryDidTapped: Observable<CategoryModel> { get set }
     
     var addOperationResponse: Observable<AddOperationResponse> { get set }
 }
@@ -22,27 +22,27 @@ protocol AddOperationViewModelObservable: class {
 final class AddOperationViewModel: AddOperationViewModelObservable {
     
     //MARK: - AddOperationViewModelObservable
-    var defaultAccount: Observable<Account>
-    var defaultCatecory: Observable<Category>
-    var accountDidTapped: Observable<Account>
-    var categoryDidTapped: Observable<Category>
+    var defaultAccount: Observable<AccountModel>
+    var defaultCatecory: Observable<CategoryModel>
+    var accountDidTapped: Observable<AccountModel>
+    var categoryDidTapped: Observable<CategoryModel>
     var addOperationResponse: Observable<AddOperationResponse>
     
     
     //MARK: - Private properties
-    private let _defaultAccount = PublishSubject<Account>()
-    private let _defaultCatecory = PublishSubject<Category>()
-    private let _categoryDidTapped = PublishSubject<Category>()
-    private let _accountDidTapped = PublishSubject<Account>()
+    private let _defaultAccount = PublishSubject<AccountModel>()
+    private let _defaultCatecory = PublishSubject<CategoryModel>()
+    private let _categoryDidTapped = PublishSubject<CategoryModel>()
+    private let _accountDidTapped = PublishSubject<AccountModel>()
     private let _addOperationResponse = PublishSubject<AddOperationResponse>()
     
     private let repo: Repository
-    private var defСategory: Category? {
+    private var defСategory: CategoryModel? {
         didSet {
             _defaultCatecory.onNext(defСategory!)
         }
     }
-    private var defAccount: Account? {
+    private var defAccount: AccountModel? {
         didSet {
             _defaultAccount.onNext(defAccount!)
         }
@@ -63,11 +63,11 @@ final class AddOperationViewModel: AddOperationViewModelObservable {
     
     
     //MARK: - Open metods
-    func setNewDefaultCategory(_ category: Category) {
+    func setNewDefaultCategory(_ category: CategoryModel) {
         defСategory = category
     }
     
-    func setNewDefaultAccount(_ account: Account) {
+    func setNewDefaultAccount(_ account: AccountModel) {
         defAccount = account
     }
 }
@@ -101,14 +101,14 @@ extension AddOperationViewModel: AddOperationViewActions {
         _categoryDidTapped.onNext(defСategory)
     }
     
-    func saveOperationButtonTapped(sum: Double?, account: Account, category: Category?) {
+    func saveOperationButtonTapped(sum: Double?, account: AccountModel, category: CategoryModel?) {
         if sum == nil {
             _addOperationResponse.onNext(.sumIsNil)
         }
         else {
-            var operation: Operation
+            var operation: OperationModel
             if let category = category {
-                let cost = Operation(id: 2,
+                let cost = OperationModel(id: 2,
                                      sum: sum!,
                                      date: Date().currentDate,
                                      comment: nil,
@@ -117,7 +117,7 @@ extension AddOperationViewModel: AddOperationViewActions {
                 operation = cost
             }
             else {
-                let income = Operation(id: 1,
+                let income = OperationModel(id: 1,
                                        sum: sum!,
                                        date: Date().currentDate,
                                        comment: nil,

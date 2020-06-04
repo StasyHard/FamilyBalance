@@ -4,13 +4,13 @@ import UIKit
 
 protocol AccountListViewImplementation {
     func setActionsDelegate(delegate: AccountListViewActions)
-    func showAccounts(_ accounts: [Account])
-    func setSelectedAccount(_ account: Account)
+    func showAccounts(_ accounts: [AccountModel])
+    func setSelectedAccount(_ account: AccountModel)
 }
 
 protocol AccountListViewActions {
     func viewDidLoad()
-    func wasSelectedAccount(account: Account)
+    func wasSelectedAccount(account: AccountModel)
 }
 
 
@@ -36,12 +36,12 @@ extension AccountListView: AccountListViewImplementation {
         tableViewProvider.actionsDelegate = delegate
     }
     
-    func showAccounts(_ accounts: [Account]) {
+    func showAccounts(_ accounts: [AccountModel]) {
         tableViewProvider.accounts = accounts
         accountListTableView.reloadData()
     }
     
-    func setSelectedAccount(_ account: Account) {
+    func setSelectedAccount(_ account: AccountModel) {
         tableViewProvider.selectedAccount = account
         accountListTableView.reloadData()
     }

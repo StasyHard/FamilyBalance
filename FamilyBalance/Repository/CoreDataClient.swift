@@ -10,21 +10,21 @@ import Foundation
 
 class CoreDataClient {
     
-    var operationsData = [Operation]()
+    var operationsData = [OperationModel]()
     
     init() {
         operationsData = [
-            Operation(id: 1, sum: 100, date: convertToDate(string: "01.06.2020"), comment: "", account: cash, category: categProduct),
-            Operation(id: 2, sum: 500, date: convertToDate(string: "02.06.2020"), comment: "", account: card, category: categCar),
-            Operation(id: 3, sum: 500, date: convertToDate(string: "20.05.2020"), comment: "", account: card, category: categRazvlechen),
-            Operation(id: 4, sum: 500, date: convertToDate(string: "20.05.2020"), comment: "", account: card, category: nil),
-            Operation(id: 5, sum: 100, date: convertToDate(string: "20.05.2020"), comment: "", account: cash, category: categRazvlechen),
-            Operation(id: 6, sum: 500, date: convertToDate(string: "29.05.2020"), comment: "", account: card, category: categChocolad),
-            Operation(id: 7, sum: 500, date: convertToDate(string: "29.04.2020"), comment: "", account: card, category: categTelephone),
-            Operation(id: 8, sum: 700, date: convertToDate(string: "29.04.2020"), comment: "", account: card, category: categKvartira),
-            Operation(id: 9, sum: 200, date: convertToDate(string: "28.04.2020"), comment: "", account: card, category: categZdorovie),
-            Operation(id: 10, sum: 500, date: convertToDate(string: "27.04.2020"), comment: "", account: card, category: nil),
-            Operation(id: 11, sum: 100, date: convertToDate(string: "27.04.2020"), comment: "", account: card, category: categTransp)
+            OperationModel(id: 1, sum: 100, date: convertToDate(string: "01.06.2020"), comment: "", account: cash, category: categProduct),
+            OperationModel(id: 2, sum: 500, date: convertToDate(string: "02.06.2020"), comment: "", account: card, category: categCar),
+            OperationModel(id: 3, sum: 500, date: convertToDate(string: "20.05.2020"), comment: "", account: card, category: categRazvlechen),
+            OperationModel(id: 4, sum: 500, date: convertToDate(string: "20.05.2020"), comment: "", account: card, category: nil),
+            OperationModel(id: 5, sum: 100, date: convertToDate(string: "20.05.2020"), comment: "", account: cash, category: categRazvlechen),
+            OperationModel(id: 6, sum: 500, date: convertToDate(string: "29.05.2020"), comment: "", account: card, category: categChocolad),
+            OperationModel(id: 7, sum: 500, date: convertToDate(string: "29.04.2020"), comment: "", account: card, category: categTelephone),
+            OperationModel(id: 8, sum: 700, date: convertToDate(string: "29.04.2020"), comment: "", account: card, category: categKvartira),
+            OperationModel(id: 9, sum: 200, date: convertToDate(string: "28.04.2020"), comment: "", account: card, category: categZdorovie),
+            OperationModel(id: 10, sum: 500, date: convertToDate(string: "27.04.2020"), comment: "", account: card, category: nil),
+            OperationModel(id: 11, sum: 100, date: convertToDate(string: "27.04.2020"), comment: "", account: card, category: categTransp)
         ]
     }
     
@@ -38,15 +38,15 @@ class CoreDataClient {
     }
 
     
-    func getOperations(byPeriod period: Period) -> [Operation] {
-        var operations: [Operation] = []
+    func getOperations(byPeriod period: PeriodModel) -> [OperationModel] {
+        var operations: [OperationModel] = []
         operations = operationsData.filter{ operation in
             operation.date >= period.startDate && operation.date <= period.endDate
         }
         return operations
     }
     
-    func addOperation(_ operation: Operation) -> Bool {
+    func addOperation(_ operation: OperationModel) -> Bool {
         //будет возвращаться ошибка или успех
         operationsData.append(operation)
         return true

@@ -45,7 +45,7 @@ class AddOperationCoordinator: BaseCoordirator {
         .disposed(by: self.disposeBag)
     }
     
-    private func showCategoryListModule(selectedCategory: Category) {
+    private func showCategoryListModule(selectedCategory: CategoryModel) {
         let categoryListCoordinator = CategoryListCoordinator(navController: navController,
                                                               repo: repo,
                                                               selectedCategory: selectedCategory)
@@ -54,7 +54,7 @@ class AddOperationCoordinator: BaseCoordirator {
            categoryListCoordinator.start()
        }
     
-    private func showAccountListModule(selectedAccount: Account) {
+    private func showAccountListModule(selectedAccount: AccountModel) {
         let accountListCoordinator = AccountListCoordinator(navController: navController,
                                                             repo: repo,
                                                             selectedAccount: selectedAccount)
@@ -68,14 +68,14 @@ class AddOperationCoordinator: BaseCoordirator {
 
 extension AddOperationCoordinator: CategoryListener {
     
-    func setCategory(_ category: Category) {
+    func setCategory(_ category: CategoryModel) {
         viewModel?.setNewDefaultCategory(category)
     }
 }
 
 
 extension AddOperationCoordinator: AccountListener {
-    func setAccount(_ account: Account) {
+    func setAccount(_ account: AccountModel) {
         viewModel?.setNewDefaultAccount(account)
     }
     

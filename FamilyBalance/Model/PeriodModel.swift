@@ -2,7 +2,7 @@
 import Foundation
 
 
-final class Period {
+final class PeriodModel {
     
     let startDate: Date
     let endDate: Date

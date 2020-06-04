@@ -10,7 +10,7 @@ protocol CostsViewModelObservable: class {
     var graphData: Observable<[CategoryGraphModel]> { get set }
     var costsSum: Observable<Double> { get set }
     var incomeSum: Observable<Double> { get set }
-    var period: Observable<Period> { get set }
+    var period: Observable<PeriodModel> { get set }
 }
 
 protocol CostsViewActions: class {
@@ -27,7 +27,7 @@ final class CostsViewModel: CostsViewModelObservable {
     var graphData: Observable<[CategoryGraphModel]>
     var costsSum: Observable<Double>
     var incomeSum: Observable<Double>
-    var period: Observable<Period>
+    var period: Observable<PeriodModel>
     
     
     //MARK: - Private properties
@@ -36,7 +36,7 @@ final class CostsViewModel: CostsViewModelObservable {
     private let _graphData = PublishSubject<[CategoryGraphModel]>()
     private let _costsSum = BehaviorSubject<Double>(value: 0.0)
     private let _incomeSum = BehaviorSubject<Double>(value: 0.0)
-    private let _period = PublishSubject<Period>()
+    private let _period = PublishSubject<PeriodModel>()
     
     private var repo: Repository?
     private var filter: PeriodFilter = .mounth
@@ -100,32 +100,32 @@ final class CostsViewModel: CostsViewModelObservable {
     }
     
     //Преобразовываем filter в period
-    private func getPeriodByFilter() -> Period {
+    private func getPeriodByFilter() -> PeriodModel {
         let endDate = Date().currentDate
         
         switch filter {
         case .mounth:
             let startOfCurrentMonth = Date().startOfCurrentMonth
-            return Period(startDate: startOfCurrentMonth,
+            return PeriodModel(startDate: startOfCurrentMonth,
                           endDate: endDate)
         case .today:
             let startOfCurrentDay = Date().startOfCurrentDay
-            return Period(startDate: startOfCurrentDay,
+            return PeriodModel(startDate: startOfCurrentDay,
                           endDate: endDate)
         case .week:
             let startOfCurrentWeek = Date().startOfCurrentWeek
-            return Period(startDate: startOfCurrentWeek,
+            return PeriodModel(startDate: startOfCurrentWeek,
                           endDate: endDate)
         case .year:
             let startOfCurrentYear = Date().startOfCurrentYear
-            return Period(startDate: startOfCurrentYear,
+            return PeriodModel(startDate: startOfCurrentYear,
                           endDate: endDate)
         }
     }
     
     
     //получаем категории для таблицы из операций
-    private func getCategories(by operations: [Operation]) -> [CategoryUIModel] {
+    private func getCategories(by operations: [OperationModel]) -> [CategoryUIModel] {
         var categories = [CategoryUIModel]()
         if !operations.isEmpty {
             let resCategories = Dictionary(grouping: operations,

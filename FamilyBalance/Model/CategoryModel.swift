@@ -2,12 +2,12 @@
 import Foundation
 
 
-struct Category: Hashable {
+struct CategoryModel: Hashable {
     let id: Int
     let title: String
 }
 
-struct Account: Hashable {
+struct AccountModel: Hashable {
     let id: Int
     let title: String
 }

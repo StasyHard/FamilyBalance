@@ -4,13 +4,13 @@ import UIKit
 
 protocol CategoryListViewImplementation {
     func setActionsDelegate(delegate: CategoryListViewActions)
-    func showCategories(_ categories: [Category])
-    func setSelectedCategory(_ category: Category)
+    func showCategories(_ categories: [CategoryModel])
+    func setSelectedCategory(_ category: CategoryModel)
 }
 
 protocol CategoryListViewActions: class {
     func viewDidLoad()
-    func wasSelectedCategory(category: Category)
+    func wasSelectedCategory(category: CategoryModel)
 }
 
 
@@ -34,12 +34,12 @@ extension CategoryListView: CategoryListViewImplementation {
         tableViewProvider.actionDelegate = delegate
     }
     
-    func showCategories(_ categories: [Category]) {
+    func showCategories(_ categories: [CategoryModel]) {
         tableViewProvider.categories = categories
         categoryListTableView.reloadData()
     }
     
-    func setSelectedCategory(_ category: Category) {
+    func setSelectedCategory(_ category: CategoryModel) {
         tableViewProvider.selectedCategory = category
         categoryListTableView.reloadData()
     }

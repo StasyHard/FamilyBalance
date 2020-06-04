@@ -8,7 +8,7 @@ class CostsTableViewProvider: NSObject, TableViewProvider {
     var categories = [CategoryUIModel]()
     var costsSum: Double = 0.0
     var incomeSum: Double = 0.0
-    var period: Period?
+    var period: PeriodModel?
     
     
     //MARK: - Private properties

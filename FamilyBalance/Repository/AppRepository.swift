@@ -5,13 +5,13 @@ import RxSwift
 protocol Repository {
     //signIn будет в отдельном репозитории
     func signIn(_ loginModel: UserLoginModel) -> Single<String>
-    func getOperations(byPeriod period: Period) -> Observable<[Operation]>
-    func getDefaultAccount() -> Single<Account>
-    func getDefaultCategory() -> Single<Category>
-    func getCategories() -> Observable<[Category]>
-    func getAccounts() -> Observable<[Account]>
+    func getOperations(byPeriod period: PeriodModel) -> Observable<[OperationModel]>
+    func getDefaultAccount() -> Single<AccountModel>
+    func getDefaultCategory() -> Single<CategoryModel>
+    func getCategories() -> Observable<[CategoryModel]>
+    func getAccounts() -> Observable<[AccountModel]>
     
-    func addOperation(_ operation: Operation) -> Single<Void>
+    func addOperation(_ operation: OperationModel) -> Single<Void>
 }
 
 
@@ -38,7 +38,7 @@ final class AppRepository: Repository {
     }
     
     //получить список операций за определенный период
-    func getOperations(byPeriod period: Period) -> Observable<[Operation]> {
+    func getOperations(byPeriod period: PeriodModel) -> Observable<[OperationModel]> {
         return Observable
             .create { [weak self] result in
                 //проверяем есть ли в базе данные за период, если нет запрашиваем у сервера
@@ -51,7 +51,7 @@ final class AppRepository: Repository {
     }
     
     //получить категории расходов
-    func getCategories() -> Observable<[Category]> {
+    func getCategories() -> Observable<[CategoryModel]> {
         return Observable
             .create { result in
                 result.onNext([categProduct, categCar, categTransp, categChocolad, categKvartira, categZdorovie, categTelephone, categRazvlechen])
@@ -61,7 +61,7 @@ final class AppRepository: Repository {
     }
     
     //получить счета
-    func getAccounts() -> Observable<[Account]> {
+    func getAccounts() -> Observable<[AccountModel]> {
         return Observable
             .create { result in
                 result.onNext([cash, card])
@@ -71,7 +71,7 @@ final class AppRepository: Repository {
     }
     
     //получить счета
-    func getDefaultAccount() -> Single<Account> {
+    func getDefaultAccount() -> Single<AccountModel> {
         return Single
             .create { single in
                 
@@ -83,7 +83,7 @@ final class AppRepository: Repository {
     }
     
     //получить дефолтную категорию, для экранов где необходимо сразу добававить дефолтные данные
-    func getDefaultCategory() -> Single<Category> {
+    func getDefaultCategory() -> Single<CategoryModel> {
         return Single
             .create { single in
                 
@@ -95,7 +95,7 @@ final class AppRepository: Repository {
     }
     
     //получить дефолтный счет, для экранов где необходимо сразу добававить дефолтные данные
-    func addOperation(_ operation: Operation) -> Single<Void> {
+    func addOperation(_ operation: OperationModel) -> Single<Void> {
         return Single
             .create { single in
                 

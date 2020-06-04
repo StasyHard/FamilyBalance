@@ -3,8 +3,8 @@ import UIKit
 
 protocol AddOperationViewImplementation: class {
     func setActionsDelegate(_ delegate: AddOperationViewActions)
-    func showDefaultAccount(account: Account)
-    func showDefaultCategory(category: Category)
+    func showDefaultAccount(account: AccountModel)
+    func showDefaultCategory(category: CategoryModel)
     func showDafaultData()
 
 }
@@ -14,7 +14,7 @@ protocol AddOperationViewActions: class {
     func accountButtonTapped()
     func categoryButtonTapped()
     //func DateButtonTapped()
-    func saveOperationButtonTapped(sum: Double?, account: Account, category: Category?) 
+    func saveOperationButtonTapped(sum: Double?, account: AccountModel, category: CategoryModel?) 
 }
 
 
@@ -89,12 +89,12 @@ extension AddOperationView: AddOperationViewImplementation {
         tableViewProvider.actionsDelegate = actionsDelegate
     }
     
-    func showDefaultAccount(account: Account) {
+    func showDefaultAccount(account: AccountModel) {
         tableViewProvider.defaultAccount = account
         addOperationTableView.reloadData()
     }
     
-    func showDefaultCategory(category: Category) {
+    func showDefaultCategory(category: CategoryModel) {
         tableViewProvider.defaultCategory = category
         addOperationTableView.reloadData()
     }

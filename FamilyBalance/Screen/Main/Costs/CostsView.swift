@@ -9,7 +9,7 @@ protocol CostsViewImplementation: class {
     func showGraphCategories(_ categorise: [CategoryGraphModel])
     func showIncomeSum(_ sum: Double)
     func showCostsSum(_ sum: Double)
-    func showPeriod(_ period: Period)
+    func showPeriod(_ period: PeriodModel)
 }
 
 
@@ -54,7 +54,7 @@ extension CostsView: CostsViewImplementation {
         self.actionsDelegate = delegate
     }
     
-    func showPeriod(_ period: Period) {
+    func showPeriod(_ period: PeriodModel) {
         tableViewProvider.period = period
         tableView.reloadData()
     }

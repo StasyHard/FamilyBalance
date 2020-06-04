@@ -5,21 +5,21 @@ import RxCocoa
 
 
 protocol CategoryListViewModelObservable: class {
-    var catecories: Observable<[Category]> { get set }
-    var selectedCategory: Observable<Category> { get set }
+    var catecories: Observable<[CategoryModel]> { get set }
+    var selectedCategory: Observable<CategoryModel> { get set }
 }
 
 
 final class CategoryListViewModel: CategoryListViewModelObservable {
     
     //MARK: - AddOperationViewModelObservable
-    var catecories: Observable<[Category]>
-    var selectedCategory: Observable<Category>
+    var catecories: Observable<[CategoryModel]>
+    var selectedCategory: Observable<CategoryModel>
     
     
         //MARK: - Private properties
-    private let _catecories = PublishSubject<[Category]>()
-    private let _selectedCategory: BehaviorSubject<Category>
+    private let _catecories = PublishSubject<[CategoryModel]>()
+    private let _selectedCategory: BehaviorSubject<CategoryModel>
     
     private let repo: Repository
     
@@ -27,11 +27,11 @@ final class CategoryListViewModel: CategoryListViewModelObservable {
     
     
     //MARK: - Init
-    init(repo: Repository, selectedCategory: Category) {
+    init(repo: Repository, selectedCategory: CategoryModel) {
         self.repo = repo
         
         self.catecories = _catecories
-        _selectedCategory = BehaviorSubject<Category>(value: selectedCategory)
+        _selectedCategory = BehaviorSubject<CategoryModel>(value: selectedCategory)
         self.selectedCategory = _selectedCategory
     }
 }
@@ -49,7 +49,7 @@ extension CategoryListViewModel: CategoryListViewActions {
         .disposed(by: self.disposeBag)
     }
     
-    func wasSelectedCategory(category: Category) {
+    func wasSelectedCategory(category: CategoryModel) {
         _selectedCategory.onNext(category)
     }
 }

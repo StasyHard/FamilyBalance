@@ -14,11 +14,11 @@ protocol SignInListener {
 }
 
 protocol CategoryListener {
-    func setCategory(_ category: Category)
+    func setCategory(_ category: CategoryModel)
 }
 
 protocol AccountListener {
-    func setAccount(_ account: Account)
+    func setAccount(_ account: AccountModel)
 }
 
 protocol FiltersListener {

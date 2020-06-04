@@ -84,31 +84,31 @@ final class OperationsViewModel: OperationsViewModelObservable {
     }
     
     //Преобразовываем filter в period
-       private func getPeriodByFilter() -> Period {
+       private func getPeriodByFilter() -> PeriodModel {
            let endDate = Date().currentDate
            
            switch filter {
            case .mounth:
                let startOfCurrentMonth = Date().startOfCurrentMonth
-               return Period(startDate: startOfCurrentMonth,
+               return PeriodModel(startDate: startOfCurrentMonth,
                              endDate: endDate)
            case .today:
                let startOfCurrentDay = Date().startOfCurrentDay
-               return Period(startDate: startOfCurrentDay,
+               return PeriodModel(startDate: startOfCurrentDay,
                              endDate: endDate)
            case .week:
                let startOfCurrentWeek = Date().startOfCurrentWeek
-               return Period(startDate: startOfCurrentWeek,
+               return PeriodModel(startDate: startOfCurrentWeek,
                              endDate: endDate)
            case .year:
                let startOfCurrentYear = Date().startOfCurrentYear
-               return Period(startDate: startOfCurrentYear,
+               return PeriodModel(startDate: startOfCurrentYear,
                              endDate: endDate)
            }
        }
     
     //преобразовываем массив операций в ui модель, которая имеет поля: день, сумма операций за день, операции
-    private func getOperationsByDays(operations: [Operation]) -> [DayOperationsUIModel] {
+    private func getOperationsByDays(operations: [OperationModel]) -> [DayOperationsUIModel] {
         var operationsByDay = [DayOperationsUIModel]()
         if !operations.isEmpty {
             
