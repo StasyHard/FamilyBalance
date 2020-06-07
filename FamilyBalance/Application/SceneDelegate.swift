@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         
         let navController = UINavigationController()
-        let repository = AppRepository()
+        let repository = OperationsRepository()
         
         let coordinator = AppCoordinator(window: window!,
                                          navController: navController,

@@ -1,5 +1,5 @@
 //
-//  Category+CoreDataProperties.swift
+//  Account+CoreDataProperties.swift
 //  FamilyBalance
 //
 //  Created by Anastasia Reyngardt on 04.06.2020.
@@ -11,22 +11,24 @@ import Foundation
 import CoreData
 
 
-extension Category {
+extension Account {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Category> {
-        return NSFetchRequest<Category>(entityName: "Category")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<Account> {
+        return NSFetchRequest<Account>(entityName: "Account")
     }
 
     @NSManaged public var title: String?
-    @NSManaged public var operations: NSSet?
+    @NSManaged public var operations: Set<Operation>?
 
 }
 
 // MARK: Generated accessors for operations
-extension Category {
+extension Account {
 
     @objc(addOperationsObject:)
-    @NSManaged public func addToOperations(_ value: Operation)
+    func addToOperations(_ operation: Operation) {
+        operation.account = self
+    }
 
     @objc(removeOperationsObject:)
     @NSManaged public func removeFromOperations(_ value: Operation)

@@ -77,6 +77,14 @@ final class CostsViewModel: CostsViewModelObservable {
         let period = getPeriodByFilter()
         _period.onNext(period)
         
+        repo?.getOperationsResult(byPeriod: period)
+            .subscribe(
+                onNext: { operations in
+                print(operations)
+            })
+        .disposed(by: self.disposeBag)
+        
+        
         repo?.getOperations(byPeriod: period)
             .subscribe(
                 onNext: { [weak self] operations in

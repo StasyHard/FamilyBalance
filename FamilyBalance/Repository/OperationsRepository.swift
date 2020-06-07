@@ -1,11 +1,13 @@
 
 import Foundation
 import RxSwift
+import CoreData
 
 protocol Repository {
     //signIn будет в отдельном репозитории
     func signIn(_ loginModel: UserLoginModel) -> Single<String>
     func getOperations(byPeriod period: PeriodModel) -> Observable<[OperationModel]>
+    func getOperationsResult(byPeriod period: PeriodModel) -> Observable<[Operation]>
     func getDefaultAccount() -> Single<AccountModel>
     func getDefaultCategory() -> Single<CategoryModel>
     func getCategories() -> Observable<[CategoryModel]>
@@ -15,10 +17,12 @@ protocol Repository {
 }
 
 
-final class AppRepository: Repository {
+final class OperationsRepository: NSObject, Repository {
     
     private let apiClient = FafilyBalanseApiClient()
-    private let localClient = CoreDataClient()
+    private let localManager = CoreDataManager()
+    
+    private var operations: Observable<[Operation]>?
     
     //signIn будет в отдельном репозитории
     func signIn(_ loginModel: UserLoginModel) -> Single<String> {
@@ -41,13 +45,30 @@ final class AppRepository: Repository {
     func getOperations(byPeriod period: PeriodModel) -> Observable<[OperationModel]> {
         return Observable
             .create { [weak self] result in
-                //проверяем есть ли в базе данные за период, если нет запрашиваем у сервера
-                let operations = self?.localClient.getOperations(byPeriod: period)
+                let operations = self?.localManager.getOperations(byPeriod: period)
+                //let resp = self?.localManager.getOperations(startDate: period.startDate, endDate: period.startDate)
                 result.onNext(operations!)
                 //result.onError()
                 
                 return Disposables.create()
         }
+    }
+    
+    func getOperationsResult(byPeriod period: PeriodModel) -> Observable<[Operation]> {
+        if operations == nil {
+            operations = Observable
+                .create { [weak self] result in
+                    let operationsFRC = self?.localManager.getOperations(startDate: period.startDate, endDate: period.startDate)
+                    print(operationsFRC)
+                    operationsFRC?.delegate = self
+                    
+                    let operations = operationsFRC?.fetchedObjects
+                    print(operations)
+                    //result.onNext((operationsFRC?.fetchedObjects)!)
+                    return Disposables.create()
+            }
+        }
+        return operations!
     }
     
     //получить категории расходов
@@ -99,7 +120,7 @@ final class AppRepository: Repository {
         return Single
             .create { single in
                 
-                if self.localClient.addOperation(operation) {
+                if self.localManager.addOperation(operation) {
                     single(.success(()))
                 }
                 else {
@@ -118,3 +139,11 @@ final class AppRepository: Repository {
 ////Now get like this and use guard so that it will prevent your crash if value is nil.
 //guard let accessTokenValue = default.string(forKey: "accessToken") else {return}
 //print(accessTokenValue)
+
+extension OperationsRepository: NSFetchedResultsControllerDelegate {
+ 
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        //let result = controller.fetchedObjects as? [Operation] ?? []
+        
+    }
+}
