@@ -17,12 +17,29 @@ protocol Repository {
 }
 
 
-final class OperationsRepository: NSObject, Repository {
+final class OperationsRepository: Repository {
     
     private let apiClient = FafilyBalanseApiClient()
-    private let localManager = CoreDataManager()
+    private let localManager = OperationsCoreDataManager()
     
-    private var operations: Observable<[Operation]>?
+    private var operations: Observable<[Operation]>
+    private let _operations = BehaviorSubject<[Operation]>(value: [])
+    
+    init() {
+        self.operations = _operations
+    }
+    
+    //получить счета
+    func getDefaultAccount() -> Single<AccountModel> {
+        return Single
+            .create { single in
+                
+                let account = card
+                single(.success(account))
+                
+                return Disposables.create()
+        }
+    }
     
     //signIn будет в отдельном репозитории
     func signIn(_ loginModel: UserLoginModel) -> Single<String> {
@@ -55,22 +72,14 @@ final class OperationsRepository: NSObject, Repository {
     }
     
     func getOperationsResult(byPeriod period: PeriodModel) -> Observable<[Operation]> {
-        if operations == nil {
-            operations = Observable
-                .create { [weak self] result in
-                    let operationsFRC = self?.localManager.getOperations(startDate: period.startDate, endDate: period.startDate)
-                    print(operationsFRC)
-                    operationsFRC?.delegate = self
-                    
-                    let operations = operationsFRC?.fetchedObjects
-                    print(operations)
-                    //result.onNext((operationsFRC?.fetchedObjects)!)
-                    return Disposables.create()
-            }
+        if let operationsFRC = localManager.getOperations(startDate: period.startDate,
+                                                          endDate: Date()),
+            let operations = operationsFRC.fetchedObjects {
+            _operations.onNext(operations)
+            print(operations)
         }
-        return operations!
+        return self.operations
     }
-    
     //получить категории расходов
     func getCategories() -> Observable<[CategoryModel]> {
         return Observable
@@ -86,18 +95,6 @@ final class OperationsRepository: NSObject, Repository {
         return Observable
             .create { result in
                 result.onNext([cash, card])
-                 
-                return Disposables.create()
-        }
-    }
-    
-    //получить счета
-    func getDefaultAccount() -> Single<AccountModel> {
-        return Single
-            .create { single in
-                
-                let account = card
-                single(.success(account))
                 
                 return Disposables.create()
         }
@@ -127,11 +124,10 @@ final class OperationsRepository: NSObject, Repository {
                     single(.error(NSError()))
                 }
                 
-            return Disposables.create()
+                return Disposables.create()
         }
     }
 }
-
 
 //let default = UserDefaults.standard
 //default.set(accessToken, forKey: "accessToken")
@@ -140,10 +136,3 @@ final class OperationsRepository: NSObject, Repository {
 //guard let accessTokenValue = default.string(forKey: "accessToken") else {return}
 //print(accessTokenValue)
 
-extension OperationsRepository: NSFetchedResultsControllerDelegate {
- 
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        //let result = controller.fetchedObjects as? [Operation] ?? []
-        
-    }
-}

@@ -1,16 +1,9 @@
-//
-//  CoreDataClient.swift
-//  FamilyBalance
-//
-//  Created by Anastasia Reyngardt on 13.05.2020.
-//  Copyright © 2020 GermanyHome. All rights reserved.
-//
 
 import UIKit
 import CoreData
 
 
-class CoreDataManager {
+class OperationsCoreDataManager {
     
     private var container: NSPersistentContainer? = {
         (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
@@ -20,7 +13,7 @@ class CoreDataManager {
     
     
     //MARK: - Open metods
-    func getOperations(startDate: Date, endDate: Date) -> [Operation] {
+    func getOperationsResponse(startDate: Date, endDate: Date) -> [Operation] {
         let sortDesc = [NSSortDescriptor(key: "date", ascending: false)]
         let predicate = NSPredicate(format: "date >= %@ AND date =< %@",
                                     startDate as NSDate,
@@ -44,9 +37,14 @@ class CoreDataManager {
                 request.sortDescriptors = sortDesc
                 let controller = NSFetchedResultsController(fetchRequest: request,
                                                             managedObjectContext: container!.viewContext, sectionNameKeyPath: nil, cacheName: nil)
-                    as? NSFetchedResultsController<Operation>
-                operationsFRC = controller
-                return controller
+                
+                do {
+                    try controller.performFetch()
+                } catch {
+                    print("Fetch failed")
+                }
+                operationsFRC = controller as? NSFetchedResultsController<Operation>
+                return operationsFRC
             }
             return operationsFRC
     }
@@ -173,3 +171,4 @@ class CoreDataManager {
     }
     
 }
+
