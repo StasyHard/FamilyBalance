@@ -6,8 +6,7 @@ import CoreData
 protocol Repository {
     //signIn будет в отдельном репозитории
     func signIn(_ loginModel: UserLoginModel) -> Single<String>
-    func getOperations(byPeriod period: PeriodModel) -> Observable<[OperationModel]>
-    func getOperationsResult(byPeriod period: PeriodModel) -> Observable<[Operation]>
+    func getOperations(byPeriod period: PeriodModel) -> Observable<[Operation]>
     func getDefaultAccount() -> Single<AccountModel>
     func getDefaultCategory() -> Single<CategoryModel>
     func getCategories() -> Observable<[CategoryModel]>
@@ -17,7 +16,7 @@ protocol Repository {
 }
 
 
-final class OperationsRepository: Repository {
+final class OperationsRepository: NSObject, Repository {
     
     private let apiClient = FafilyBalanseApiClient()
     private let localManager = OperationsCoreDataManager()
@@ -25,8 +24,47 @@ final class OperationsRepository: Repository {
     private var operations: Observable<[Operation]>
     private let _operations = BehaviorSubject<[Operation]>(value: [])
     
-    init() {
+    
+    override init() {
         self.operations = _operations
+    }
+    
+    //MARK: - Repository open metods
+    //получить список операций за определенный период
+    func getOperations(byPeriod period: PeriodModel) -> Observable<[Operation]> {
+        if let operationsFRC = localManager.getOperationsData(startDate: period.startDate,
+                                                              endDate: Date()),
+            let operations = operationsFRC.fetchedObjects {
+            _operations.onNext(operations)
+            print(operations)
+        }
+        return self.operations
+    }
+    
+    //получить дефолтный счет, для экранов где необходимо сразу добававить дефолтные данные
+    func addOperation(_ operation: OperationModel) -> Single<Void> {
+        return Single
+            .create { single in
+                
+                if self.localManager.addOperation(operation) {
+                    single(.success(()))
+                }
+                else {
+                    single(.error(NSError()))
+                }
+                
+                return Disposables.create()
+        }
+    }
+    
+    //получить категории расходов
+    func getCategories() -> Observable<[CategoryModel]> {
+        return Observable
+            .create { result in
+                result.onNext([categProduct, categCar, categTransp, categChocolad, categKvartira, categZdorovie, categTelephone, categRazvlechen])
+                
+                return Disposables.create()
+        }
     }
     
     //получить счета
@@ -58,38 +96,6 @@ final class OperationsRepository: Repository {
         }
     }
     
-    //получить список операций за определенный период
-    func getOperations(byPeriod period: PeriodModel) -> Observable<[OperationModel]> {
-        return Observable
-            .create { [weak self] result in
-                let operations = self?.localManager.getOperations(byPeriod: period)
-                //let resp = self?.localManager.getOperations(startDate: period.startDate, endDate: period.startDate)
-                result.onNext(operations!)
-                //result.onError()
-                
-                return Disposables.create()
-        }
-    }
-    
-    func getOperationsResult(byPeriod period: PeriodModel) -> Observable<[Operation]> {
-        if let operationsFRC = localManager.getOperations(startDate: period.startDate,
-                                                          endDate: Date()),
-            let operations = operationsFRC.fetchedObjects {
-            _operations.onNext(operations)
-            print(operations)
-        }
-        return self.operations
-    }
-    //получить категории расходов
-    func getCategories() -> Observable<[CategoryModel]> {
-        return Observable
-            .create { result in
-                result.onNext([categProduct, categCar, categTransp, categChocolad, categKvartira, categZdorovie, categTelephone, categRazvlechen])
-                
-                return Disposables.create()
-        }
-    }
-    
     //получить счета
     func getAccounts() -> Observable<[AccountModel]> {
         return Observable
@@ -111,22 +117,13 @@ final class OperationsRepository: Repository {
                 return Disposables.create()
         }
     }
+}
     
-    //получить дефолтный счет, для экранов где необходимо сразу добававить дефолтные данные
-    func addOperation(_ operation: OperationModel) -> Single<Void> {
-        return Single
-            .create { single in
-                
-                if self.localManager.addOperation(operation) {
-                    single(.success(()))
-                }
-                else {
-                    single(.error(NSError()))
-                }
-                
-                return Disposables.create()
+    extension OperationsRepository: NSFetchedResultsControllerDelegate {
+        
+        func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+            
         }
-    }
 }
 
 //let default = UserDefaults.standard

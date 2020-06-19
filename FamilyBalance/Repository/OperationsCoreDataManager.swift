@@ -13,41 +13,42 @@ class OperationsCoreDataManager {
     
     
     //MARK: - Open metods
-    func getOperationsResponse(startDate: Date, endDate: Date) -> [Operation] {
-        let sortDesc = [NSSortDescriptor(key: "date", ascending: false)]
-        let predicate = NSPredicate(format: "date >= %@ AND date =< %@",
-                                    startDate as NSDate,
-                                    endDate as NSDate)
-        return getData(entityName: Operation.className, predicate: predicate, sortDescriptors: sortDesc)
+    func getOperationsData(startDate: Date, endDate: Date) -> NSFetchedResultsController<Operation>? {
+        if operationsFRC == nil {
+            let sortDesc = NSSortDescriptor(key: "date", ascending: false)
+            let predicate = NSPredicate(format: "date >= %@ AND date =< %@",
+                                        startDate as NSDate,
+                                        endDate as NSDate)
+            
+            let controller = createFRC(entityName: Operation.className,
+                                       sortDesc: [sortDesc],
+                                       predicate: predicate)
+            operationsFRC = controller as? NSFetchedResultsController<Operation>
+            return operationsFRC
+        }
+        return operationsFRC
     }
     
-    //возвращает либо созданный NSFetchedResultsController либо берет уже имеющийся
-    func getOperations(startDate: Date, endDate: Date)
-        -> NSFetchedResultsController<Operation>? {
+    
+    private func createFRC(entityName: String, sortDesc: [NSSortDescriptor], predicate: NSPredicate)
+        -> NSFetchedResultsController<NSFetchRequestResult> {
             
-            if operationsFRC == nil {
-                
-                let sortDesc = [NSSortDescriptor(key: "date", ascending: false)]
-                let predicate = NSPredicate(format: "date >= %@ AND date =< %@",
-                                            startDate as NSDate,
-                                            endDate as NSDate)
-                
-                let request = NSFetchRequest<NSFetchRequestResult>(entityName: Operation.className)
-                request.predicate = predicate
-                request.sortDescriptors = sortDesc
-                let controller = NSFetchedResultsController(fetchRequest: request,
-                                                            managedObjectContext: container!.viewContext, sectionNameKeyPath: nil, cacheName: nil)
-                
-                do {
-                    try controller.performFetch()
-                } catch {
-                    print("Fetch failed")
-                }
-                operationsFRC = controller as? NSFetchedResultsController<Operation>
-                return operationsFRC
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: Operation.className)
+            request.predicate = predicate
+            request.sortDescriptors = sortDesc
+            let controller = NSFetchedResultsController(fetchRequest: request,
+                                                        managedObjectContext: container!.viewContext,
+                                                        sectionNameKeyPath: nil,
+                                                        cacheName: nil)
+            
+            do {
+                try controller.performFetch()
+            } catch {
+                print("Fetch failed")
             }
-            return operationsFRC
+            return controller
     }
+    
     
     func getCategories() -> [Category] {
         return getData(entityName: Category.className)
@@ -125,7 +126,13 @@ class OperationsCoreDataManager {
     
     //----------------------------------------------------------------------------------------
     
-    
+    func getOperationsResponse(startDate: Date, endDate: Date) -> [Operation] {
+        let sortDesc = [NSSortDescriptor(key: "date", ascending: false)]
+        let predicate = NSPredicate(format: "date >= %@ AND date =< %@",
+                                    startDate as NSDate,
+                                    endDate as NSDate)
+        return getData(entityName: Operation.className, predicate: predicate, sortDescriptors: sortDesc)
+    }
     
     
     var operationsData = [OperationModel]()
@@ -156,19 +163,59 @@ class OperationsCoreDataManager {
     }
     
     
-    func getOperations(byPeriod period: PeriodModel) -> [OperationModel] {
-        var operations: [OperationModel] = []
-        operations = operationsData.filter{ operation in
-            operation.date >= period.startDate && operation.date <= period.endDate
-        }
-        return operations
-    }
+//    func getOperations(byPeriod period: PeriodModel) -> [OperationModel] {
+//        var operations: [OperationModel] = []
+//        operations = operationsData.filter{ operation in
+//            operation.date >= period.startDate && operation.date <= period.endDate
+//        }
+//        return operations
+//    }
     
     func addOperation(_ operation: OperationModel) -> Bool {
         //будет возвращаться ошибка или успех
         operationsData.append(operation)
         return true
     }
-    
 }
 
+
+
+//Удалить все из бд
+//let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: Operation.className)
+//let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+//
+//do {
+//    try container?.viewContext.execute(deleteRequest)
+//    try container?.viewContext.save()
+//}
+//catch {
+//    print ("There was an error")
+//}
+
+
+//Добавить операции
+//            let operation1 = Operation(context: container!.viewContext)
+//            operation1.sum = 100
+//            operation1.date = Date()
+//            let operation2 = Operation(context: container!.viewContext)
+//            operation2.sum = 200
+//            operation2.date = Date()
+//            let operation3 = Operation(context: container!.viewContext)
+//            operation3.sum = 300
+//            operation3.date = Date()
+//            let operation4 = Operation(context: container!.viewContext)
+//            operation4.sum = 400
+//            operation4.date = Date()
+//
+//            let account = Account(context: container!.viewContext)
+//            account.title = "Cash"
+//            account.operations = [operation1, operation2, operation3, operation4]
+//            let categ1 = Category(context: container!.viewContext)
+//            categ1.title = "Car"
+//            categ1.addToOperations(operation1)
+//            categ1.addToOperations(operation2)
+//            let categ2 = Category(context: container!.viewContext)
+//            categ2.title = "Food"
+//            categ2.addToOperations(operation3)
+//
+//            container!.viewContext.saveThrows()

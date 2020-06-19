@@ -17,7 +17,7 @@ extension Category {
         return NSFetchRequest<Category>(entityName: "Category")
     }
 
-    @NSManaged public var title: String?
+    @NSManaged public var title: String
     @NSManaged public var operations: Set<Operation>?
 
 }

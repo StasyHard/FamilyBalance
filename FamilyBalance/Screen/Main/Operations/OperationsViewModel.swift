@@ -108,7 +108,7 @@ final class OperationsViewModel: OperationsViewModelObservable {
        }
     
     //преобразовываем массив операций в ui модель, которая имеет поля: день, сумма операций за день, операции
-    private func getOperationsByDays(operations: [OperationModel]) -> [DayOperationsUIModel] {
+    private func getOperationsByDays(operations: [Operation]) -> [DayOperationsUIModel] {
         var operationsByDay = [DayOperationsUIModel]()
         if !operations.isEmpty {
             

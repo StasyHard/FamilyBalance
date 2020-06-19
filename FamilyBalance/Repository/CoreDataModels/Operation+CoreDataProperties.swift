@@ -18,8 +18,8 @@ extension Operation {
     }
 
     @NSManaged public var sum: Double
-    @NSManaged public var date: Date?
+    @NSManaged public var date: Date
     @NSManaged public var category: Category?
-    @NSManaged public var account: Account?
+    @NSManaged public var account: Account
 
 }
