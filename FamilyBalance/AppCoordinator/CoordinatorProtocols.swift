@@ -14,7 +14,7 @@ protocol SignInListener {
 }
 
 protocol CategoryListener {
-    func setCategory(_ category: CategoryModel)
+    func setCategory(_ category: Category)
 }
 
 protocol AccountListener {

@@ -2,6 +2,7 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import CoreData
 
 
 protocol CostsViewModelObservable: class {
@@ -125,8 +126,9 @@ final class CostsViewModel: CostsViewModelObservable {
     
     
     //получаем категории для таблицы из операций
-    private func getCategories(by operations: [OperationModel]) -> [CategoryUIModel] {
+    private func getCategories(by operations: [Operation]) -> [CategoryUIModel] {
         var categories = [CategoryUIModel]()
+        
         if !operations.isEmpty {
             let resCategories = Dictionary(grouping: operations,
                                            by: {$0.category})
@@ -138,8 +140,7 @@ final class CostsViewModel: CostsViewModelObservable {
                     let operationsInCategory = resCategory.value
                     let sumOperations = self.sumCalculator.getSum(by: operationsInCategory)
                     
-                    result.append(CategoryUIModel(id: category.id,
-                                                  name: category.title,
+                    result.append(CategoryUIModel(name: category.title,
                                                   sum: sumOperations))
                     return result
             }

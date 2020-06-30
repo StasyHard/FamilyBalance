@@ -1,11 +1,17 @@
 
 import Foundation
 
-struct OperationModel {
-    let id: Int
+class OperationModel {
+    
     let sum: Double
     let date: Date
-    let comment: String?
     let account: AccountModel
-    let category: CategoryModel?
+    var category: Category?
+    
+    internal init(sum: Double, date: Date, account: AccountModel, category: Category?) {
+        self.sum = sum
+        self.date = date
+        self.account = account
+        self.category = category
+    }
 }

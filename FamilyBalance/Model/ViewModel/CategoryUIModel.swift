@@ -5,14 +5,12 @@ import UIKit
 final class CategoryUIModel: GraphColorConvertable {
     
     //MARK: - Open properties
-    let id: Int
     let name: String
     let sum: Double
     var color: GraphColors
     
     //MARK: - Init
-    init(id: Int, name: String, color: GraphColors = .systemGray, sum: Double) {
-        self.id = id
+    init(name: String, color: GraphColors = .systemGray, sum: Double) {
         self.name = name
         self.color = color
         self.sum = sum

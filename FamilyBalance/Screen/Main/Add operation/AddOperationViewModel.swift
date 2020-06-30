@@ -11,9 +11,9 @@ enum AddOperationResponse {
 
 protocol AddOperationViewModelObservable: class {
     var defaultAccount: Observable<AccountModel> { get set }
-    var defaultCatecory: Observable<CategoryModel> { get set }
+    var defaultCatecory: Observable<Category> { get set }
     var accountDidTapped: Observable<AccountModel> { get set }
-    var categoryDidTapped: Observable<CategoryModel> { get set }
+    var categoryDidTapped: Observable<Category> { get set }
     
     var addOperationResponse: Observable<AddOperationResponse> { get set }
 }
@@ -23,21 +23,21 @@ final class AddOperationViewModel: AddOperationViewModelObservable {
     
     //MARK: - AddOperationViewModelObservable
     var defaultAccount: Observable<AccountModel>
-    var defaultCatecory: Observable<CategoryModel>
+    var defaultCatecory: Observable<Category>
     var accountDidTapped: Observable<AccountModel>
-    var categoryDidTapped: Observable<CategoryModel>
+    var categoryDidTapped: Observable<Category>
     var addOperationResponse: Observable<AddOperationResponse>
     
     
     //MARK: - Private properties
     private let _defaultAccount = PublishSubject<AccountModel>()
-    private let _defaultCatecory = PublishSubject<CategoryModel>()
-    private let _categoryDidTapped = PublishSubject<CategoryModel>()
+    private let _defaultCatecory = PublishSubject<Category>()
+    private let _categoryDidTapped = PublishSubject<Category>()
     private let _accountDidTapped = PublishSubject<AccountModel>()
     private let _addOperationResponse = PublishSubject<AddOperationResponse>()
     
     private let repo: Repository
-    private var defСategory: CategoryModel? {
+    private var defСategory: Category? {
         didSet {
             _defaultCatecory.onNext(defСategory!)
         }
@@ -63,7 +63,7 @@ final class AddOperationViewModel: AddOperationViewModelObservable {
     
     
     //MARK: - Open metods
-    func setNewDefaultCategory(_ category: CategoryModel) {
+    func setNewDefaultCategory(_ category: Category) {
         defСategory = category
     }
     
@@ -101,39 +101,32 @@ extension AddOperationViewModel: AddOperationViewActions {
         _categoryDidTapped.onNext(defСategory)
     }
     
-    func saveOperationButtonTapped(sum: Double?, account: AccountModel, category: CategoryModel?) {
-        if sum == nil {
-            _addOperationResponse.onNext(.sumIsNil)
-        }
-        else {
-            var operation: OperationModel
-            if let category = category {
-                let cost = OperationModel(id: 2,
-                                     sum: sum!,
-                                     date: Date().currentDate,
-                                     comment: nil,
-                                     account: account,
-                                     category: category)
-                operation = cost
-            }
+    func saveOperationButtonTapped(sum: Double?, account: AccountModel, category: Category?) {
+        
+        guard let sum = sum
             else {
-                let income = OperationModel(id: 1,
-                                       sum: sum!,
-                                       date: Date().currentDate,
-                                       comment: nil,
-                                       account: account,
-                                       category: nil)
-                operation = income
-            }
-            repo.addOperation(operation)
-                .subscribe(
-                    onSuccess: { [weak self] _ in
-                        self?._addOperationResponse.onNext(.success)
-                    },
-                    onError: { [weak self] _ in
-                        self?._addOperationResponse.onNext(.error)
-                })
-                .disposed(by: self.disposeBag)
+                _addOperationResponse.onNext(.sumIsNil)
+                return
         }
+        
+        let operation = OperationModel(
+            sum: sum,
+            date: Date().currentDate,
+            account: account,
+            category: nil)
+        
+        if let category = category {
+            operation.category = category
+        }
+
+        repo.saveOperation(operation)
+            .subscribe(
+                onSuccess: { [weak self] _ in
+                    self?._addOperationResponse.onNext(.success)
+                },
+                onError: { [weak self] _ in
+                    self?._addOperationResponse.onNext(.error)
+            })
+            .disposed(by: self.disposeBag)
     }
 }

@@ -45,7 +45,7 @@ class AddOperationCoordinator: BaseCoordirator {
         .disposed(by: self.disposeBag)
     }
     
-    private func showCategoryListModule(selectedCategory: CategoryModel) {
+    private func showCategoryListModule(selectedCategory: Category) {
         let categoryListCoordinator = CategoryListCoordinator(navController: navController,
                                                               repo: repo,
                                                               selectedCategory: selectedCategory)
@@ -68,7 +68,7 @@ class AddOperationCoordinator: BaseCoordirator {
 
 extension AddOperationCoordinator: CategoryListener {
     
-    func setCategory(_ category: CategoryModel) {
+    func setCategory(_ category: Category) {
         viewModel?.setNewDefaultCategory(category)
     }
 }

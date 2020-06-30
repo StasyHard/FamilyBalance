@@ -8,11 +8,11 @@ final class AppCoordinator: BaseCoordirator {
     private let window: UIWindow
     private let navController: UINavigationController
     
-    private let appRepository: AppRepository
+    private let appRepository: OperationsRepository
     
     
     // MARK: - Init
-     init(window: UIWindow, navController: UINavigationController, appRepository: AppRepository) {
+     init(window: UIWindow, navController: UINavigationController, appRepository: OperationsRepository) {
         self.window = window
         self.navController = navController
         self.appRepository = appRepository
