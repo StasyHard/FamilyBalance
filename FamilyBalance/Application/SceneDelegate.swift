@@ -11,7 +11,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    var appRepository: Repository?
+    var operationRepository: Repository?
     var appCoordinator: AppCoordinator?
 
 
@@ -27,7 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let coordinator = AppCoordinator(window: window!,
                                          navController: navController,
                                          appRepository: repository)
-        appRepository = repository
+        operationRepository = repository
         appCoordinator = coordinator
         appCoordinator?.start()
     }

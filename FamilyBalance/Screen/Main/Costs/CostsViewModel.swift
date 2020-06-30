@@ -128,12 +128,11 @@ final class CostsViewModel: CostsViewModelObservable {
     //получаем категории для таблицы из операций
     private func getCategories(by operations: [Operation]) -> [CategoryUIModel] {
         var categories = [CategoryUIModel]()
+        
         if !operations.isEmpty {
             let resCategories = Dictionary(grouping: operations,
                                            by: {$0.category})
-            resCategories.forEach {
-                print($0.key?.title)
-            }
+            
             categories = resCategories
                 .reduce([]) { (result, resCategory) -> [CategoryUIModel] in
                     var result = result

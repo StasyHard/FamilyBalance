@@ -4,8 +4,8 @@ import UIKit
 
 class CategoryListTableViewProvider: NSObject, TableViewProvider {
     
-    var categories = [CategoryModel]()
-    var selectedCategory: CategoryModel?
+    var categories = [Category]()
+    var selectedCategory: Category?
     
     var actionDelegate: CategoryListViewActions?
     

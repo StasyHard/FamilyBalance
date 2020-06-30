@@ -30,6 +30,7 @@
 		561F6407248645AC005EDD87 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561F6406248645AC005EDD87 /* CategoryCell.swift */; };
 		561F6409248645C0005EDD87 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 561F6408248645C0005EDD87 /* CategoryCell.xib */; };
 		56214F51246569C7000CE0BD /* CoordinatorProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56214F50246569C7000CE0BD /* CoordinatorProtocols.swift */; };
+		562B5EEF249CEB1F0018D614 /* UIApplication+isFirstLaunch().swift in Sources */ = {isa = PBXBuildFile; fileRef = 562B5EEE249CEB1F0018D614 /* UIApplication+isFirstLaunch().swift */; };
 		56444DE424599FDD00BB6BAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56444DE324599FDD00BB6BAE /* AppDelegate.swift */; };
 		56444DE624599FDD00BB6BAE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56444DE524599FDD00BB6BAE /* SceneDelegate.swift */; };
 		56444DE824599FDD00BB6BAE /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56444DE724599FDD00BB6BAE /* SignInViewController.swift */; };
@@ -169,6 +170,7 @@
 		561F6406248645AC005EDD87 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		561F6408248645C0005EDD87 /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
 		56214F50246569C7000CE0BD /* CoordinatorProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocols.swift; sourceTree = "<group>"; };
+		562B5EEE249CEB1F0018D614 /* UIApplication+isFirstLaunch().swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+isFirstLaunch().swift"; sourceTree = "<group>"; };
 		56444DE024599FDD00BB6BAE /* FamilyBalance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FamilyBalance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56444DE324599FDD00BB6BAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56444DE524599FDD00BB6BAE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -432,6 +434,14 @@
 				561F6404248643EC005EDD87 /* DefaultTableView.swift */,
 			);
 			path = TableViews;
+			sourceTree = "<group>";
+		};
+		562B5EED249CEAFD0018D614 /* UIApplication */ = {
+			isa = PBXGroup;
+			children = (
+				562B5EEE249CEB1F0018D614 /* UIApplication+isFirstLaunch().swift */,
+			);
+			path = UIApplication;
 			sourceTree = "<group>";
 		};
 		56444DD724599FDD00BB6BAE = {
@@ -792,6 +802,7 @@
 			isa = PBXGroup;
 			children = (
 				568164A32472DF3000BAAABF /* ReusableView.swift */,
+				562B5EED249CEAFD0018D614 /* UIApplication */,
 				560B69DE24894DA3000BF2EB /* NSObject */,
 				560B69DD24893BA1000BF2EB /* CoreData */,
 				56926D99247E56F6007CFE7E /* Calendar */,
@@ -1151,6 +1162,7 @@
 				566AD90C2476728200898065 /* AddOperationViewModel.swift in Sources */,
 				56C5A2A32464696900CE5602 /* MainCoordinator.swift in Sources */,
 				56AADA14246C3BFB00B2CC8F /* BaseCoordirator.swift in Sources */,
+				562B5EEF249CEB1F0018D614 /* UIApplication+isFirstLaunch().swift in Sources */,
 				56184186246C6527006BF368 /* OperationsView.swift in Sources */,
 				56816488246EE0CE00BAAABF /* UIImage + scaleTo.swift in Sources */,
 				5681648E246EF50300BAAABF /* FiltersViewController.swift in Sources */,

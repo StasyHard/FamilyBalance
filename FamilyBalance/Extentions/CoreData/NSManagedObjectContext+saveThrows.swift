@@ -5,15 +5,18 @@ import CoreData
 
 extension NSManagedObjectContext {
     
-    func saveThrows() {
+    func saveThrows() -> Result<Void, Error> {
         if self.hasChanges{
             do {
                 try save()
+                return .success(())
             } catch {
                 //добавить обработку ошибок
                 let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+                print(nserror.localizedDescription)
+                return .failure(nserror)
             }
         }
+        return .failure(NSError())
     }
 }
