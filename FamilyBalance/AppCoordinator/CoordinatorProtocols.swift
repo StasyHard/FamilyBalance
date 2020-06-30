@@ -18,7 +18,7 @@ protocol CategoryListener {
 }
 
 protocol AccountListener {
-    func setAccount(_ account: AccountModel)
+    func setAccount(_ account: Account)
 }
 
 protocol FiltersListener {

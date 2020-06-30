@@ -10,9 +10,9 @@ enum AddOperationResponse {
 }
 
 protocol AddOperationViewModelObservable: class {
-    var defaultAccount: Observable<AccountModel> { get set }
+    var defaultAccount: Observable<Account> { get set }
     var defaultCatecory: Observable<Category> { get set }
-    var accountDidTapped: Observable<AccountModel> { get set }
+    var accountDidTapped: Observable<Account> { get set }
     var categoryDidTapped: Observable<Category> { get set }
     
     var addOperationResponse: Observable<AddOperationResponse> { get set }
@@ -22,18 +22,18 @@ protocol AddOperationViewModelObservable: class {
 final class AddOperationViewModel: AddOperationViewModelObservable {
     
     //MARK: - AddOperationViewModelObservable
-    var defaultAccount: Observable<AccountModel>
+    var defaultAccount: Observable<Account>
     var defaultCatecory: Observable<Category>
-    var accountDidTapped: Observable<AccountModel>
+    var accountDidTapped: Observable<Account>
     var categoryDidTapped: Observable<Category>
     var addOperationResponse: Observable<AddOperationResponse>
     
     
     //MARK: - Private properties
-    private let _defaultAccount = PublishSubject<AccountModel>()
+    private let _defaultAccount = PublishSubject<Account>()
     private let _defaultCatecory = PublishSubject<Category>()
     private let _categoryDidTapped = PublishSubject<Category>()
-    private let _accountDidTapped = PublishSubject<AccountModel>()
+    private let _accountDidTapped = PublishSubject<Account>()
     private let _addOperationResponse = PublishSubject<AddOperationResponse>()
     
     private let repo: Repository
@@ -42,7 +42,7 @@ final class AddOperationViewModel: AddOperationViewModelObservable {
             _defaultCatecory.onNext(defСategory!)
         }
     }
-    private var defAccount: AccountModel? {
+    private var defAccount: Account? {
         didSet {
             _defaultAccount.onNext(defAccount!)
         }
@@ -67,7 +67,7 @@ final class AddOperationViewModel: AddOperationViewModelObservable {
         defСategory = category
     }
     
-    func setNewDefaultAccount(_ account: AccountModel) {
+    func setNewDefaultAccount(_ account: Account) {
         defAccount = account
     }
 }
@@ -101,7 +101,7 @@ extension AddOperationViewModel: AddOperationViewActions {
         _categoryDidTapped.onNext(defСategory)
     }
     
-    func saveOperationButtonTapped(sum: Double?, account: AccountModel, category: Category?) {
+    func saveOperationButtonTapped(sum: Double?, account: Account, category: Category?) {
         
         guard let sum = sum
             else {

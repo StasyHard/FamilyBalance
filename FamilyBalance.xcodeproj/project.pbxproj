@@ -64,7 +64,6 @@
 		56816490246EF53500BAAABF /* FiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5681648F246EF53500BAAABF /* FiltersView.swift */; };
 		56816492246EF54500BAAABF /* FiltersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56816491246EF54500BAAABF /* FiltersViewModel.swift */; };
 		56816494246EF55E00BAAABF /* FiltersCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56816493246EF55E00BAAABF /* FiltersCoordinator.swift */; };
-		568164962472AFF200BAAABF /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568164952472AFF200BAAABF /* CategoryModel.swift */; };
 		568164982472B0F100BAAABF /* OperationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568164972472B0F100BAAABF /* OperationModel.swift */; };
 		5681649B2472B23C00BAAABF /* CategoryUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5681649A2472B23C00BAAABF /* CategoryUIModel.swift */; };
 		568164A12472CF1C00BAAABF /* CostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5681649F2472CF1C00BAAABF /* CostCell.swift */; };
@@ -101,7 +100,6 @@
 		56926DCC24850470007CFE7E /* AccountListTableViewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56926DCB24850470007CFE7E /* AccountListTableViewProvider.swift */; };
 		56926DCE24850673007CFE7E /* CategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56926DCD24850673007CFE7E /* CategoryListView.swift */; };
 		56926DD024850729007CFE7E /* CategoryListTableViewProviderNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56926DCF24850729007CFE7E /* CategoryListTableViewProviderNew.swift */; };
-		569406512476CC4C009034FE /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569406502476CC4C009034FE /* Data.swift */; };
 		569406532477DDBE009034FE /* GraphColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569406522477DDBE009034FE /* GraphColors.swift */; };
 		56940655247BE201009034FE /* CategoryGraphModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56940654247BE201009034FE /* CategoryGraphModel.swift */; };
 		56940657247BE964009034FE /* GraphColorConvertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56940656247BE964009034FE /* GraphColorConvertable.swift */; };
@@ -210,7 +208,6 @@
 		5681648F246EF53500BAAABF /* FiltersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersView.swift; sourceTree = "<group>"; };
 		56816491246EF54500BAAABF /* FiltersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersViewModel.swift; sourceTree = "<group>"; };
 		56816493246EF55E00BAAABF /* FiltersCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersCoordinator.swift; sourceTree = "<group>"; };
-		568164952472AFF200BAAABF /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
 		568164972472B0F100BAAABF /* OperationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationModel.swift; sourceTree = "<group>"; };
 		5681649A2472B23C00BAAABF /* CategoryUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryUIModel.swift; sourceTree = "<group>"; };
 		5681649F2472CF1C00BAAABF /* CostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostCell.swift; sourceTree = "<group>"; };
@@ -247,7 +244,6 @@
 		56926DCB24850470007CFE7E /* AccountListTableViewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListTableViewProvider.swift; sourceTree = "<group>"; };
 		56926DCD24850673007CFE7E /* CategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListView.swift; sourceTree = "<group>"; };
 		56926DCF24850729007CFE7E /* CategoryListTableViewProviderNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListTableViewProviderNew.swift; sourceTree = "<group>"; };
-		569406502476CC4C009034FE /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		569406522477DDBE009034FE /* GraphColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphColors.swift; sourceTree = "<group>"; };
 		56940654247BE201009034FE /* CategoryGraphModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryGraphModel.swift; sourceTree = "<group>"; };
 		56940656247BE964009034FE /* GraphColorConvertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphColorConvertable.swift; sourceTree = "<group>"; };
@@ -571,7 +567,6 @@
 		567E1E39246AC2E000C50217 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				569406502476CC4C009034FE /* Data.swift */,
 				5673DD6D24602AC50004EB12 /* OperationsRepository.swift */,
 				56AADA11246C38B100B2CC8F /* OperationsCoreDataManager.swift */,
 				567E1E3C246AF9B000C50217 /* FafilyBalanseApiClient.swift */,
@@ -791,7 +786,6 @@
 			children = (
 				568164992472B21400BAAABF /* ViewModel */,
 				5673755E245D8CB300DD02FB /* UserLoginModel.swift */,
-				568164952472AFF200BAAABF /* CategoryModel.swift */,
 				568164972472B0F100BAAABF /* OperationModel.swift */,
 				56926D9C247E75DB007CFE7E /* PeriodModel.swift */,
 			);
@@ -1144,7 +1138,6 @@
 				56EB9BC424640E48002F815B /* SignInCoordinator.swift in Sources */,
 				56AADA1D246C4AE900B2CC8F /* SignUpViewModel.swift in Sources */,
 				560B69D32488FD68000BF2EB /* Account.swift in Sources */,
-				569406512476CC4C009034FE /* Data.swift in Sources */,
 				560B69D62488FD68000BF2EB /* Operation+CoreDataProperties.swift in Sources */,
 				56844C3D24879622006A1490 /* Date+compareWith.swift in Sources */,
 				56926DB324814EFD007CFE7E /* CategoryListCoordinator.swift in Sources */,
@@ -1177,7 +1170,6 @@
 				56184197246D8702006BF368 /* BlueRoundedButton.swift in Sources */,
 				56926DD024850729007CFE7E /* CategoryListTableViewProviderNew.swift in Sources */,
 				5699B5562475628200998BF0 /* OperationsTableViewProvider.swift in Sources */,
-				568164962472AFF200BAAABF /* CategoryModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

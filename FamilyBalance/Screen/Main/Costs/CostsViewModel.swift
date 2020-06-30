@@ -78,7 +78,9 @@ final class CostsViewModel: CostsViewModelObservable {
         let period = getPeriodByFilter()
         _period.onNext(period)
         
-        repo?.getOperations(byPeriod: period)
+        let result = repo!.getOperations(byPeriod: getPeriodByFilter())
+        
+         result.0
             .subscribe(
                 onNext: { [weak self] operations in
                     guard let `self` = self else { return }

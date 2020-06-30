@@ -21,7 +21,7 @@ class AddOperationTableViewProvider: NSObject, TableViewProvider {
     
     var operation: OperationTable = .cost
     var defaultCategory: Category?
-    var defaultAccount: AccountModel?
+    var defaultAccount: Account?
     var sum: Double?
     
     

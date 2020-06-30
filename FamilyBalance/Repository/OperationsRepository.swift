@@ -6,11 +6,11 @@ import CoreData
 protocol Repository {
     //signIn будет в отдельном репозитории
     func signIn(_ loginModel: UserLoginModel) -> Single<String>
-    func getOperations(byPeriod period: PeriodModel) -> Observable<[Operation]>
-    func getDefaultAccount() -> Single<AccountModel>
+    func getOperations(byPeriod period: PeriodModel) -> (Observable<[Operation]>, Date)
+    func getDefaultAccount() -> Single<Account>
     func getDefaultCategory() -> Single<Category>
     func getCategories() -> Observable<[Category]>
-    func getAccounts() -> Observable<[AccountModel]>
+    func getAccounts() -> Observable<[Account]>
     
     func saveOperation(_ operation: OperationModel) -> Single<Void>
 }
@@ -36,16 +36,17 @@ final class OperationsRepository: NSObject, Repository {
     
     //MARK: - Repository open metods
     //получить список операций за определенный период
-    func getOperations(byPeriod period: PeriodModel) -> Observable<[Operation]> {
+    func getOperations(byPeriod period: PeriodModel) -> (Observable<[Operation]>, Date) {
         
         localManager.getOperationsFRC() { [unowned self] frc in
             
             if let operations = frc.fetchedObjects {
+                print(period.startDate)
                 let result = operations.filter { $0.date >= period.startDate }
                 self._operations.onNext(result)
             }
         }
-        return self.operations
+        return (self.operations, period.startDate)
     }
     
     //получить дефолтный счет, для экранов где необходимо сразу добававить дефолтные данные
@@ -69,31 +70,28 @@ final class OperationsRepository: NSObject, Repository {
     func getCategories() -> Observable<[Category]> {
         return Observable
             .create { [weak self] single in
-                if let `self` = self {
-                    self.localManager.getCategories { single.onNext($0) }
-                }
+                    self?.localManager.getCategories { single.onNext($0) }
                 return Disposables.create()
         }
     }
     
     //получить счета
-    func getAccounts() -> Observable<[AccountModel]> {
+    func getAccounts() -> Observable<[Account]> {
         return Observable
-            .create { result in
-                result.onNext([cash, card])
+            .create { [weak self] single in
+                self?.localManager.getAccounts { single.onNext($0) }
                 
                 return Disposables.create()
         }
     }
     
     //получить счета
-    func getDefaultAccount() -> Single<AccountModel> {
+    func getDefaultAccount() -> Single<Account> {
         return Single
-            .create { single in
-                
-                let account = card
-                single(.success(account))
-                
+            .create { [weak self] single in
+                self?.localManager.getAccounts {
+                    single(.success($0[0]))
+                }
                 return Disposables.create()
         }
     }
@@ -101,8 +99,8 @@ final class OperationsRepository: NSObject, Repository {
     //получить дефолтную категорию, для экранов где необходимо сразу добававить дефолтные данные
     func getDefaultCategory() -> Single<Category> {
         return Single
-            .create { single in
-                self.localManager.getCategories {
+            .create { [weak self] single in
+                self?.localManager.getCategories {
                     single(.success($0[0]))
                 }
                 return Disposables.create()

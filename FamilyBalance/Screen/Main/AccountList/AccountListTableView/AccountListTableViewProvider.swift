@@ -5,8 +5,8 @@ import UIKit
 class AccountListTableViewProvider: NSObject, TableViewProvider {
     
     //MARK: - Open metods
-    var accounts = [AccountModel]()
-    var selectedAccount: AccountModel?
+    var accounts = [Account]()
+    var selectedAccount: Account?
     
     var actionsDelegate: AccountListViewActions?
     

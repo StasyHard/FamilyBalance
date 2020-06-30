@@ -54,7 +54,7 @@ class AddOperationCoordinator: BaseCoordirator {
            categoryListCoordinator.start()
        }
     
-    private func showAccountListModule(selectedAccount: AccountModel) {
+    private func showAccountListModule(selectedAccount: Account) {
         let accountListCoordinator = AccountListCoordinator(navController: navController,
                                                             repo: repo,
                                                             selectedAccount: selectedAccount)
@@ -75,7 +75,7 @@ extension AddOperationCoordinator: CategoryListener {
 
 
 extension AddOperationCoordinator: AccountListener {
-    func setAccount(_ account: AccountModel) {
+    func setAccount(_ account: Account) {
         viewModel?.setNewDefaultAccount(account)
     }
     

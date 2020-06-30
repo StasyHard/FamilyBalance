@@ -65,22 +65,38 @@ final class OperationsViewModel: OperationsViewModelObservable {
     //MARK: - Private metods
     //получаем операции и преобразовываем их в необходимые данные: массив операций сортированный по дням, общая сумма доходов, общая сумма расходов
     private func getData() {
-        repo.getOperations(byPeriod: getPeriodByFilter())
+        let result = repo.getOperations(byPeriod: getPeriodByFilter())
+        
+        result.0
             .subscribe(onNext: { [weak self] operations in
-                guard let `self` = self else { return }
-                
-                let income = operations.filter { $0.category == nil }
-                let sumIncome = self.sumCalculator.getSum(by: income)
-                self._incomeSum.onNext(sumIncome)
-                
-                let costs = operations.filter { $0.category != nil }
-                let sumCosts = self.sumCalculator.getSum(by: costs)
-                self._costsSum.onNext(sumCosts)
-                
-                let operationsByDay = self.getOperationsByDays(operations: operations)
-                self._operationsByDay.onNext(operationsByDay)
-            })
-            .disposed(by: self.disposeBag)
+            guard let `self` = self else { return }
+            
+            let income = operations.filter { $0.category == nil }
+            let sumIncome = self.sumCalculator.getSum(by: income)
+            self._incomeSum.onNext(sumIncome)
+            
+            let costs = operations.filter { $0.category != nil }
+            let sumCosts = self.sumCalculator.getSum(by: costs)
+            self._costsSum.onNext(sumCosts)
+            
+            let operationsByDay = self.getOperationsByDays(operations: operations)
+            self._operationsByDay.onNext(operationsByDay)
+        })
+        .disposed(by: self.disposeBag)
+        
+        
+        switch result.1 {
+        case Date().startOfCurrentMonth:
+            filter = .mounth
+        case Date().startOfCurrentDay:
+            filter = .today
+        case Date().startOfCurrentWeek:
+            filter = .week
+        case Date().startOfCurrentYear:
+            filter = .year
+        default:
+            break
+        }
     }
     
     //Преобразовываем filter в period
