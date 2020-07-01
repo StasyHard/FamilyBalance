@@ -4,9 +4,10 @@ import RxSwift
 import CoreData
 
 protocol Repository {
-    //signIn будет в отдельном репозитории
+    //TODO: signIn будет в отдельном репозитории
     func signIn(_ loginModel: UserLoginModel) -> Single<String>
-    func getOperations(byPeriod period: PeriodModel) -> (Observable<[Operation]>, Date)
+    
+    func getOperations() -> Observable<[Operation]>
     func getDefaultAccount() -> Single<Account>
     func getDefaultCategory() -> Single<Category>
     func getCategories() -> Observable<[Category]>
@@ -18,8 +19,8 @@ protocol Repository {
 
 final class OperationsRepository: NSObject, Repository {
     
-    private let apiClient = FafilyBalanseApiClient()
-    private let localManager = OperationsCoreDataManager()
+    private let apiClient: FafilyBalanseApiClient
+    private let localManager: OperationsCoreDataManager
     
     private var operations: Observable<[Operation]>
     private let _operations = BehaviorSubject<[Operation]>(value: [])
@@ -27,26 +28,25 @@ final class OperationsRepository: NSObject, Repository {
     
     override init() {
         self.operations = _operations
+        self.apiClient = FafilyBalanseApiClient()
+        self.localManager = OperationsCoreDataManager()
         
-        let first = UIApplication.isFirstLaunch()
-        if first {
+        if UIApplication.checkIfFirstLaunch() {
             localManager.setDefoltData()
         }
     }
     
     //MARK: - Repository open metods
-    //получить список операций за определенный период
-    func getOperations(byPeriod period: PeriodModel) -> (Observable<[Operation]>, Date) {
+    //получить список операций за период от стартовой даты
+    func getOperations() -> Observable<[Operation]> {
         
         localManager.getOperationsFRC() { [unowned self] frc in
             
             if let operations = frc.fetchedObjects {
-                print(period.startDate)
-                let result = operations.filter { $0.date >= period.startDate }
-                self._operations.onNext(result)
+                self._operations.onNext(operations)
             }
         }
-        return (self.operations, period.startDate)
+        return self.operations
     }
     
     //получить дефолтный счет, для экранов где необходимо сразу добававить дефолтные данные
@@ -107,7 +107,7 @@ final class OperationsRepository: NSObject, Repository {
         }
     }
     
-    //signIn будет в отдельном репозитории
+    //TODO: signIn будет в отдельном репозитории
     func signIn(_ loginModel: UserLoginModel) -> Single<String> {
         return Single
             .create { [weak self] single in

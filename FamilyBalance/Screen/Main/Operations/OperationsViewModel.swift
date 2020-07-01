@@ -51,77 +51,63 @@ final class OperationsViewModel: OperationsViewModelObservable {
     
     
     //MARK: - Open metods
-      //координатор вызывает функцию, когда на экране фильтров была нажата кнопка показать
-      func wasSetFilter(filter: PeriodFilter) {
-          
-          if filter != self.filter {
-              self.filter = filter
-              
-              getData()
-          }
-      }
+    //координатор вызывает функцию, когда на экране фильтров была нажата кнопка показать
+    func wasSetFilter(filter: PeriodFilter) {
+        
+        if filter != self.filter {
+            self.filter = filter
+            
+            getData()
+        }
+    }
     
     
     //MARK: - Private metods
     //получаем операции и преобразовываем их в необходимые данные: массив операций сортированный по дням, общая сумма доходов, общая сумма расходов
     private func getData() {
-        let result = repo.getOperations(byPeriod: getPeriodByFilter())
-        
-        result.0
+        repo.getOperations()
             .subscribe(onNext: { [weak self] operations in
-            guard let `self` = self else { return }
-            
-            let income = operations.filter { $0.category == nil }
-            let sumIncome = self.sumCalculator.getSum(by: income)
-            self._incomeSum.onNext(sumIncome)
-            
-            let costs = operations.filter { $0.category != nil }
-            let sumCosts = self.sumCalculator.getSum(by: costs)
-            self._costsSum.onNext(sumCosts)
-            
-            let operationsByDay = self.getOperationsByDays(operations: operations)
-            self._operationsByDay.onNext(operationsByDay)
-        })
-        .disposed(by: self.disposeBag)
-        
-        
-        switch result.1 {
-        case Date().startOfCurrentMonth:
-            filter = .mounth
-        case Date().startOfCurrentDay:
-            filter = .today
-        case Date().startOfCurrentWeek:
-            filter = .week
-        case Date().startOfCurrentYear:
-            filter = .year
-        default:
-            break
-        }
+                guard let `self` = self else { return }
+                
+                let filteredOperations = operations.filter { $0.date >= self.getPeriodByFilter().startDate }
+                
+                let income = filteredOperations.filter { $0.category == nil }
+                let sumIncome = self.sumCalculator.getSum(by: income)
+                self._incomeSum.onNext(sumIncome)
+                
+                let costs = filteredOperations.filter { $0.category != nil }
+                let sumCosts = self.sumCalculator.getSum(by: costs)
+                self._costsSum.onNext(sumCosts)
+                
+                let operationsByDay = self.getOperationsByDays(operations: filteredOperations)
+                self._operationsByDay.onNext(operationsByDay)
+            })
+            .disposed(by: self.disposeBag)
     }
     
     //Преобразовываем filter в period
-       private func getPeriodByFilter() -> PeriodModel {
-           let endDate = Date().currentDate
-           
-           switch filter {
-           case .mounth:
-               let startOfCurrentMonth = Date().startOfCurrentMonth
-               return PeriodModel(startDate: startOfCurrentMonth,
-                             endDate: endDate)
-           case .today:
-               let startOfCurrentDay = Date().startOfCurrentDay
-               return PeriodModel(startDate: startOfCurrentDay,
-                             endDate: endDate)
-           case .week:
-               let startOfCurrentWeek = Date().startOfCurrentWeek
-               return PeriodModel(startDate: startOfCurrentWeek,
-                             endDate: endDate)
-           case .year:
-               let startOfCurrentYear = Date().startOfCurrentYear
-               return PeriodModel(startDate: startOfCurrentYear,
-                             endDate: endDate)
-           }
-       }
+    private func getPeriodByFilter() -> PeriodModel {
+        let endDate = Date().currentDate
+        
+        switch filter {
+        case .mounth:
+            let startOfCurrentMonth = Date().startOfCurrentMonth
+            return PeriodModel(startDate: startOfCurrentMonth,
+                               endDate: endDate)
+        case .today:
+            let startOfCurrentDay = Date().startOfCurrentDay
+            return PeriodModel(startDate: startOfCurrentDay,
+                               endDate: endDate)
+        case .week:
+            let startOfCurrentWeek = Date().startOfCurrentWeek
+            return PeriodModel(startDate: startOfCurrentWeek,
+                               endDate: endDate)
+        case .year:
+            let startOfCurrentYear = Date().startOfCurrentYear
+            return PeriodModel(startDate: startOfCurrentYear,
+                               endDate: endDate)
+        }
+    }
     
     //преобразовываем массив операций в ui модель, которая имеет поля: день, сумма операций за день, операции
     private func getOperationsByDays(operations: [Operation]) -> [DayOperationsUIModel] {

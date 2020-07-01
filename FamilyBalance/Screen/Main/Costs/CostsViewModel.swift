@@ -65,7 +65,6 @@ final class CostsViewModel: CostsViewModelObservable {
         
         if filter != self.filter {
             self.filter = filter
-            
             getData()
         }
     }
@@ -78,18 +77,18 @@ final class CostsViewModel: CostsViewModelObservable {
         let period = getPeriodByFilter()
         _period.onNext(period)
         
-        let result = repo!.getOperations(byPeriod: getPeriodByFilter())
-        
-         result.0
+        repo!.getOperations()
             .subscribe(
                 onNext: { [weak self] operations in
                     guard let `self` = self else { return }
                     
-                    let income = operations.filter { $0.category == nil }
+                    let filteredperations = operations.filter { $0.date >= period.startDate }
+                    
+                    let income = filteredperations.filter { $0.category == nil }
                     let sumIncome = self.sumCalculator.getSum(by: income)
                     self._incomeSum.onNext(sumIncome)
                     
-                    let costs = operations.filter { $0.category != nil }
+                    let costs = filteredperations.filter { $0.category != nil }
                     let sumCosts = self.sumCalculator.getSum(by: costs)
                     self._costsSum.onNext(sumCosts)
                     
