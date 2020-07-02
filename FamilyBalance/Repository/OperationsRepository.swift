@@ -39,7 +39,7 @@ final class OperationsRepository: NSObject, OperationsRepositoryImpl {
     //MARK: - Repository open metods
     //получить список операций
     func getOperations() -> Observable<[Operation]> {
-        localManager.getOperationsFRC() { [unowned self] operations in
+        localManager.getOperations() { [unowned self] operations in
             self._operations.onNext(operations)
         }
         return self.operations

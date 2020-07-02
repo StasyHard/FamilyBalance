@@ -7,13 +7,13 @@ protocol OperationsCoreDataManagerImpl {
     func setDefoltData()
     func saveOperation(_ operation: OperationModel, completion: @escaping ((Result<Void, Error>) -> Void))
     
-    func getOperationsFRC(completion: @escaping ([Operation]) -> Void)
+    func getOperations(completion: @escaping ([Operation]) -> Void)
     func getCategories(completion: @escaping ([Category]) -> Void)
     func getAccounts(completion: @escaping ([Account]) -> Void)
 }
 
 
-class OperationsCoreDataManager: NSObject, OperationsCoreDataManagerImpl {
+final class OperationsCoreDataManager: NSObject, OperationsCoreDataManagerImpl {
     
     //MARK: - Private properties
     private var container: NSPersistentContainer? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
@@ -45,7 +45,7 @@ class OperationsCoreDataManager: NSObject, OperationsCoreDataManagerImpl {
         }
     }
     
-    func getOperationsFRC(completion: @escaping ([Operation]) -> Void) {
+    func getOperations(completion: @escaping ([Operation]) -> Void) {
         self.getOperationsCompletion = completion
         
         if operationsFRC == nil {

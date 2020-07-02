@@ -69,44 +69,21 @@ final class OperationsViewModel: OperationsViewModelObservable {
             .subscribe(onNext: { [weak self] operations in
                 guard let `self` = self else { return }
                 
-                let filteredOperations = operations.filter { $0.date >= self.getPeriodByFilter().startDate }
+                let startDate = FilterConverter.getPeriodByFilter(self.filter).startDate
+                let filteredOperations = operations.filter { $0.date >= startDate }
                 
                 let income = filteredOperations.filter { $0.category == nil }
-                let sumIncome = self.sumCalculator.getSum(by: income)
+                let sumIncome = SumCalculator.getSum(by: income)
                 self._incomeSum.onNext(sumIncome)
                 
                 let costs = filteredOperations.filter { $0.category != nil }
-                let sumCosts = self.sumCalculator.getSum(by: costs)
+                let sumCosts = SumCalculator.getSum(by: costs)
                 self._costsSum.onNext(sumCosts)
                 
                 let operationsByDay = self.getOperationsByDays(operations: filteredOperations)
                 self._operationsByDay.onNext(operationsByDay)
             })
             .disposed(by: self.disposeBag)
-    }
-    
-    //Преобразовываем filter в period
-    private func getPeriodByFilter() -> PeriodModel {
-        let endDate = Date().currentDate
-        
-        switch filter {
-        case .mounth:
-            let startOfCurrentMonth = Date().startOfCurrentMonth
-            return PeriodModel(startDate: startOfCurrentMonth,
-                               endDate: endDate)
-        case .today:
-            let startOfCurrentDay = Date().startOfCurrentDay
-            return PeriodModel(startDate: startOfCurrentDay,
-                               endDate: endDate)
-        case .week:
-            let startOfCurrentWeek = Date().startOfCurrentWeek
-            return PeriodModel(startDate: startOfCurrentWeek,
-                               endDate: endDate)
-        case .year:
-            let startOfCurrentYear = Date().startOfCurrentYear
-            return PeriodModel(startDate: startOfCurrentYear,
-                               endDate: endDate)
-        }
     }
     
     //преобразовываем массив операций в ui модель, которая имеет поля: день, сумма операций за день, операции

@@ -3,20 +3,17 @@ import Foundation
 
 
 final class SumCalculator {
-    
-    func getSum(by operations: [OperationModel]) -> Double {
-         var sum = 0.0
-         if !operations.isEmpty {
-             operations.forEach { sum += $0.sum}
-         }
-         return sum
+        
+   static func getSum(by operations: [Operation]) -> Double {
+        return operations
+            .map { $0.sum }
+            .reduce(0, +)
      }
     
-    func getSum(by operations: [Operation]) -> Double {
-         var sum = 0.0
-         if !operations.isEmpty {
-             operations.forEach { sum += $0.sum}
-         }
-         return sum
-     }
+    static func getSum(by categories: [CategoryUIModel]) -> Double {
+       return categories
+        .map { $0.sum }
+        .reduce(0, +)
+        
+    }
 }
