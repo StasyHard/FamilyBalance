@@ -4,9 +4,9 @@ import UIKit
 final class MainCoordinator: BaseCoordirator {
     
     private let navController: UINavigationController
-    private let repo: Repository
+    private let repo: OperationsRepositoryImpl
     
-    init(navController: UINavigationController, repo: Repository) {
+    init(navController: UINavigationController, repo: OperationsRepositoryImpl) {
         self.navController = navController
         self.repo = repo
     }

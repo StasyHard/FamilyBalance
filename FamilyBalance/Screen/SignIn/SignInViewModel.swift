@@ -31,13 +31,13 @@ final class SignInViewModel: SignInViewModelObservable {
     private let _didSignIn = PublishSubject<Void>()
     private let _signUpTapped = PublishSubject<Void>()
     
-    private let repository: Repository
+    private let repository: OperationsRepositoryImpl
     
     private let disposeBag = DisposeBag()
     
     
     //MARK: - Init
-    init(repo: Repository) {
+    init(repo: OperationsRepositoryImpl) {
         self.repository = repo
         
         isSignInActive = _isSignInActive
@@ -58,21 +58,21 @@ extension SignInViewModel: SignInViewActions {
         
         if email.isEmpty || password.isEmpty { return }
         
-        let loginModel = UserLoginModel(email: email, password: password)
-        repository.signIn(loginModel)
-            .subscribe(
-                onSuccess: { [weak self] token in
-                    print(token)
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                        self?._didSignIn.onNext(())
-                    }
-                    //self?.didSignIn.onNext(())
-                },
-                onError: { error in
-                    print(error)
-                    _ = error
-            })
-            .disposed(by: self.disposeBag)
+//        let loginModel = UserLoginModel(email: email, password: password)
+//        repository.signIn(loginModel)
+//            .subscribe(
+//                onSuccess: { [weak self] token in
+//                    print(token)
+//                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+//                        self?._didSignIn.onNext(())
+//                    }
+//                    //self?.didSignIn.onNext(())
+//                },
+//                onError: { error in
+//                    print(error)
+//                    _ = error
+//            })
+//            .disposed(by: self.disposeBag)
     }
     
     func signUpDidTapped() {

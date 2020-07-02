@@ -3,8 +3,19 @@ import UIKit
 import CoreData
 
 
-class OperationsCoreDataManager: NSObject {
+protocol OperationsCoreDataManagerImpl {
+    func setDefoltData()
+    func saveOperation(_ operation: OperationModel, completion: @escaping ((Result<Void, Error>) -> Void))
     
+    func getOperations(completion: @escaping ([Operation]) -> Void)
+    func getCategories(completion: @escaping ([Category]) -> Void)
+    func getAccounts(completion: @escaping ([Account]) -> Void)
+}
+
+
+final class OperationsCoreDataManager: NSObject, OperationsCoreDataManagerImpl {
+    
+    //MARK: - Private properties
     private var container: NSPersistentContainer? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
     
     private var operationsFRC: NSFetchedResultsController<Operation>? {
@@ -13,12 +24,12 @@ class OperationsCoreDataManager: NSObject {
         }
     }
     
-    private var getOperationsCompletion: ((NSFetchedResultsController<Operation>) -> Void)?
+    private var getOperationsCompletion: (([Operation]) -> Void)?
     
     
-    //MARK: - Open metods
+    //MARK: - OperationsCoreDataManagerImpl
     func setDefoltData() {
-    
+        
         guard let context = container?.viewContext
             else { return }
         
@@ -34,8 +45,7 @@ class OperationsCoreDataManager: NSObject {
         }
     }
     
-    func getOperationsFRC(completion: @escaping (NSFetchedResultsController<Operation>) -> Void)
-    {
+    func getOperations(completion: @escaping ([Operation]) -> Void) {
         self.getOperationsCompletion = completion
         
         if operationsFRC == nil {
@@ -47,7 +57,11 @@ class OperationsCoreDataManager: NSObject {
             )
             operationsFRC = controller as? NSFetchedResultsController<Operation>
         }
-        getOperationsCompletion!(operationsFRC!)
+        
+        if let frc = operationsFRC,
+            let operations = frc.fetchedObjects {
+            getOperationsCompletion?(operations)
+        }
     }
     
     func getCategories(completion: @escaping ([Category]) -> Void) {
@@ -70,12 +84,14 @@ class OperationsCoreDataManager: NSObject {
         newOperation.sum = operation.sum
         newOperation.date = operation.date
         
-        if let updateAccount = self.getAccount(byTitle: operation.account.title) {
-            updateAccount.addToOperations(newOperation)
-        }
-        if let category = operation.category,
-            let updateCategory = self.getCategory(byTitle: category.title) {
-            updateCategory.addToOperations(newOperation)
+        let predicate = NSPredicate(format: "title = %@", operation.account.title)
+        let accounts: [Account] = getData(entityName: Account.className, predicate: predicate)
+        accounts[0].addToOperations(newOperation)
+        
+        if let category = operation.category {
+            let predicate = NSPredicate(format: "title = %@", category.title)
+            let categories: [Category] = getData(entityName: Category.className, predicate: predicate)
+            categories[0].addToOperations(newOperation)
         }
         
         let result = context.saveThrows()
@@ -90,36 +106,6 @@ class OperationsCoreDataManager: NSObject {
     
     
     //MARK: - Private metods
-    private func createDefoltData(context: NSManagedObjectContext) {
-        let cash = Account(context: context)
-        cash.title = "Наличные"
-        let card = Account(context: context)
-        card.title = "Карта"
-        
-        let products = Category(context: context)
-        products.title = "Продукты питания"
-        let cafe = Category(context: context)
-        cafe.title = "Кафе и рестораны"
-        let entertainment = Category(context: context)
-        entertainment.title = "Развлечения"
-        let phone = Category(context: context)
-        phone.title = "Телефон"
-        let transport = Category(context: context)
-        transport.title = "Авто и транспорт"
-        let housing = Category(context: context)
-        housing.title = "Жилье"
-        let clothes = Category(context: context)
-        clothes.title = "Одежда и обувь"
-        let gadgets = Category(context: context)
-        gadgets.title = "Гаджеты"
-        let forceMajeure = Category(context: context)
-        forceMajeure.title = "Форсмажор"
-        let hasty = Category(context: context)
-        hasty.title = "Необдуманные траты"
-        let remain = Category(context: context)
-        remain.title = "Остальное"
-    }
-    
     private func createFRC(entityName: String, sortDesc: [NSSortDescriptor])
         -> NSFetchedResultsController<NSFetchRequestResult> {
             
@@ -158,38 +144,44 @@ class OperationsCoreDataManager: NSObject {
         }
     }
     
-    private func getAccount(byTitle title: String) -> Account? {
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: Account.className)
-        request.predicate = NSPredicate(format: "title = %@", title)
-        do {
-            if let result = try container?.viewContext.fetch(request) as? [Account] {
-                return result.first
-            }
-            else { return nil }
-        } catch {
-            return nil
-        }
-    }
-    
-    private func getCategory(byTitle title: String) -> Category? {
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: Category.className)
-        request.predicate = NSPredicate(format: "title = %@", title)
-        do {
-            if let result = try container?.viewContext.fetch(request) as? [Category] {
-                return result[0]
-            }
-            else { return nil }
-        } catch {
-            return nil
-        }
+    private func createDefoltData(context: NSManagedObjectContext) {
+        let cash = Account(context: context)
+        cash.title = "Наличные"
+        let card = Account(context: context)
+        card.title = "Карта"
+        
+        let products = Category(context: context)
+        products.title = "Продукты питания"
+        let cafe = Category(context: context)
+        cafe.title = "Кафе и рестораны"
+        let entertainment = Category(context: context)
+        entertainment.title = "Развлечения"
+        let phone = Category(context: context)
+        phone.title = "Телефон"
+        let transport = Category(context: context)
+        transport.title = "Авто и транспорт"
+        let housing = Category(context: context)
+        housing.title = "Жилье"
+        let clothes = Category(context: context)
+        clothes.title = "Одежда и обувь"
+        let gadgets = Category(context: context)
+        gadgets.title = "Гаджеты"
+        let forceMajeure = Category(context: context)
+        forceMajeure.title = "Форсмажор"
+        let hasty = Category(context: context)
+        hasty.title = "Необдуманные траты"
+        let remain = Category(context: context)
+        remain.title = "Остальное"
     }
 }
 
 
 extension OperationsCoreDataManager: NSFetchedResultsControllerDelegate {
-        
+    
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-            getOperationsCompletion!(operationsFRC!)
+        guard let operations = controller.fetchedObjects as? [Operation]
+            else { return }
+        getOperationsCompletion?(operations)
     }
 }
 

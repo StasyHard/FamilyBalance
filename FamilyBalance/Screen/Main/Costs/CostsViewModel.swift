@@ -2,7 +2,7 @@
 import Foundation
 import RxSwift
 import RxCocoa
-import CoreData
+//import CoreData
 
 
 protocol CostsViewModelObservable: class {
@@ -39,15 +39,14 @@ final class CostsViewModel: CostsViewModelObservable {
     private let _incomeSum = BehaviorSubject<Double>(value: 0.0)
     private let _period = PublishSubject<PeriodModel>()
     
-    private var repo: Repository?
+    private var repo: OperationsRepositoryImpl?
     private var filter: PeriodFilter = .mounth
-    private let sumCalculator = SumCalculator()
     
     private let disposeBag = DisposeBag()
     
     
     //MARK: - Init
-    init(repo: Repository) {
+    init(repo: OperationsRepositoryImpl) {
         filtersTapped = _filtersTapped
         categoryData = _categoryData
         incomeSum = _incomeSum
@@ -74,7 +73,7 @@ final class CostsViewModel: CostsViewModelObservable {
     //получаем массив операций за запрошенный период и иреобразуем в необходимые для вью данные
     //общая сумма доходов, общая сумма расходов, категории для таблицы, категории для графика
     private func getData() {
-        let period = getPeriodByFilter()
+        let period = FilterConverter.getPeriodByFilter(filter)
         _period.onNext(period)
         
         repo!.getOperations()
@@ -85,11 +84,11 @@ final class CostsViewModel: CostsViewModelObservable {
                     let filteredperations = operations.filter { $0.date >= period.startDate }
                     
                     let income = filteredperations.filter { $0.category == nil }
-                    let sumIncome = self.sumCalculator.getSum(by: income)
+                    let sumIncome = SumCalculator.getSum(by: income)
                     self._incomeSum.onNext(sumIncome)
                     
                     let costs = filteredperations.filter { $0.category != nil }
-                    let sumCosts = self.sumCalculator.getSum(by: costs)
+                    let sumCosts = SumCalculator.getSum(by: costs)
                     self._costsSum.onNext(sumCosts)
                     
                     let costsCategories = self.getCategories(by: costs)
@@ -100,31 +99,6 @@ final class CostsViewModel: CostsViewModelObservable {
             })
             .disposed(by: self.disposeBag)
     }
-    
-    //Преобразовываем filter в period
-    private func getPeriodByFilter() -> PeriodModel {
-        let endDate = Date().currentDate
-        
-        switch filter {
-        case .mounth:
-            let startOfCurrentMonth = Date().startOfCurrentMonth
-            return PeriodModel(startDate: startOfCurrentMonth,
-                          endDate: endDate)
-        case .today:
-            let startOfCurrentDay = Date().startOfCurrentDay
-            return PeriodModel(startDate: startOfCurrentDay,
-                          endDate: endDate)
-        case .week:
-            let startOfCurrentWeek = Date().startOfCurrentWeek
-            return PeriodModel(startDate: startOfCurrentWeek,
-                          endDate: endDate)
-        case .year:
-            let startOfCurrentYear = Date().startOfCurrentYear
-            return PeriodModel(startDate: startOfCurrentYear,
-                          endDate: endDate)
-        }
-    }
-    
     
     //получаем категории для таблицы из операций
     private func getCategories(by operations: [Operation]) -> [CategoryUIModel] {
@@ -139,7 +113,7 @@ final class CostsViewModel: CostsViewModelObservable {
                     var result = result
                     let category = resCategory.key!
                     let operationsInCategory = resCategory.value
-                    let sumOperations = self.sumCalculator.getSum(by: operationsInCategory)
+                    let sumOperations = SumCalculator.getSum(by: operationsInCategory)
                     
                     result.append(CategoryUIModel(name: category.title,
                                                   sum: sumOperations))
@@ -178,7 +152,7 @@ final class CostsViewModel: CostsViewModelObservable {
                     var result = result
                     let color = categories.key
                     let categoriesOneColor = categories.value
-                    let sumCategories = getSum(by: categoriesOneColor)
+                    let sumCategories = SumCalculator.getSum(by: categoriesOneColor)
                     
                     result.append(CategoryGraphModel(color: color,
                                                      sum: sumCategories))
@@ -194,14 +168,6 @@ final class CostsViewModel: CostsViewModelObservable {
         graphCategories.remove(at: index)
         graphCategories.append(elem)
         return graphCategories
-    }
-    
-    private func getSum(by categories: [CategoryUIModel]) -> Double {
-        var sum = 0.0
-        if !categories.isEmpty {
-            categories.forEach { sum += $0.sum}
-        }
-        return sum
     }
 }
 

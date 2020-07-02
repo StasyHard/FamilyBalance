@@ -13,11 +13,11 @@ protocol SignUpViewControllerActions: class {
 
 class SignUpViewModel: SignUpViewModelObservable {
     
-    private let repository: Repository
+    private let repository: OperationsRepositoryImpl
     
     
     //MARK: - Init
-       init(repo: Repository) {
+       init(repo: OperationsRepositoryImpl) {
            self.repository = repo
        }
     
