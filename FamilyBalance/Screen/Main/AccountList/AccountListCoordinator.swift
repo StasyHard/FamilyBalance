@@ -10,14 +10,14 @@ final class AccountListCoordinator: BaseCoordirator {
     private var navController: UINavigationController
     private var accountListNavController: UINavigationController
     
-    private let repo: Repository
+    private let repo: OperationsRepositoryImpl
     private var selectedAccount: Account
     
     private let disposeBag = DisposeBag()
     
     
     //MARK: - Init
-    init(navController: UINavigationController, repo: Repository, selectedAccount: Account) {
+    init(navController: UINavigationController, repo: OperationsRepositoryImpl, selectedAccount: Account) {
         self.navController = navController
         self.repo = repo
         self.selectedAccount = selectedAccount

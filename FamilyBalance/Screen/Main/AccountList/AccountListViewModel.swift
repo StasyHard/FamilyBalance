@@ -21,12 +21,12 @@ final class AccountListViewModel: AccountListViewModelObservable {
     private let _selectedAccount: BehaviorSubject<Account>
     private var _accounts = PublishSubject<[Account]>()
     
-    private let repo: Repository
+    private let repo: OperationsRepositoryImpl
     
     private let disposeBag = DisposeBag()
     
     //MARK: - Init
-    init(repo: Repository, selectedAccount: Account) {
+    init(repo: OperationsRepositoryImpl, selectedAccount: Account) {
         self.repo = repo
         
         _selectedAccount = BehaviorSubject<Account>(value: selectedAccount)

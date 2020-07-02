@@ -353,13 +353,6 @@
 			path = Operations;
 			sourceTree = "<group>";
 		};
-		56184189246C6DE0006BF368 /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Profile;
-			sourceTree = "<group>";
-		};
 		5618418A246D491F006BF368 /* UIColor */ = {
 			isa = PBXGroup;
 			children = (
@@ -831,7 +824,6 @@
 				566AD904247671A800898065 /* Add operation */,
 				56926DB624815F20007CFE7E /* AccountList */,
 				56926DAB24814E50007CFE7E /* CategoryList */,
-				56184189246C6DE0006BF368 /* Profile */,
 			);
 			path = Main;
 			sourceTree = "<group>";

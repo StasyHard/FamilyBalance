@@ -21,13 +21,13 @@ final class CategoryListViewModel: CategoryListViewModelObservable {
     private let _catecories = PublishSubject<[Category]>()
     private let _selectedCategory: BehaviorSubject<Category>
     
-    private let repo: Repository
+    private let repo: OperationsRepositoryImpl
     
     private let disposeBag = DisposeBag()
     
     
     //MARK: - Init
-    init(repo: Repository, selectedCategory: Category) {
+    init(repo: OperationsRepositoryImpl, selectedCategory: Category) {
         self.repo = repo
         
         self.catecories = _catecories

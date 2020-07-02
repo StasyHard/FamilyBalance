@@ -6,12 +6,12 @@ import RxCocoa
 final class SignUpCoordinator: BaseCoordirator {
     
     private let navController: UINavigationController
-    private let repo: Repository
+    private let repo: OperationsRepositoryImpl
     
     private let disposeBag = DisposeBag()
 
     //MARK: - Init
-    init(navController: UINavigationController, repo: Repository) {
+    init(navController: UINavigationController, repo: OperationsRepositoryImpl) {
         self.navController = navController
         self.repo = repo
     }

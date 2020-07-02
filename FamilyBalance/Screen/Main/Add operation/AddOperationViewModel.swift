@@ -36,7 +36,7 @@ final class AddOperationViewModel: AddOperationViewModelObservable {
     private let _accountDidTapped = PublishSubject<Account>()
     private let _addOperationResponse = PublishSubject<AddOperationResponse>()
     
-    private let repo: Repository
+    private let repo: OperationsRepositoryImpl
     private var defСategory: Category? {
         didSet {
             _defaultCatecory.onNext(defСategory!)
@@ -52,7 +52,7 @@ final class AddOperationViewModel: AddOperationViewModelObservable {
     
     
     //MARK: - Init
-    init(repo: Repository) {
+    init(repo: OperationsRepositoryImpl) {
         self.repo = repo
         defaultAccount = _defaultAccount
         defaultCatecory = _defaultCatecory

@@ -8,14 +8,14 @@ final class CostsCoordinator: BaseCoordirator {
     
     //MARK: - Private properties
     private var navController: UINavigationController
-    private var repo: Repository
+    private var repo: OperationsRepositoryImpl
     private var viewModel: CostsViewModel?
     
     private let disposeBag = DisposeBag()
     
     
     //MARK: - Init
-    init(navController: UINavigationController, repo: Repository) {
+    init(navController: UINavigationController, repo: OperationsRepositoryImpl) {
         self.navController = navController
         self.repo = repo
     }

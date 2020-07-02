@@ -32,7 +32,7 @@ final class OperationsViewModel: OperationsViewModelObservable {
     private let _costsSum = BehaviorSubject<Double>(value: 0.0)
     private let _incomeSum = BehaviorSubject<Double>(value: 0.0)
     
-    private let repo: Repository
+    private let repo: OperationsRepositoryImpl
     private var filter: PeriodFilter = .mounth
     private let sumCalculator = SumCalculator()
     
@@ -40,7 +40,7 @@ final class OperationsViewModel: OperationsViewModelObservable {
     
     
     //MARK: - Init
-    init(repo: Repository) {
+    init(repo: OperationsRepositoryImpl) {
         operationsByDays = _operationsByDay
         costsSum = _costsSum
         incomeSum = _incomeSum

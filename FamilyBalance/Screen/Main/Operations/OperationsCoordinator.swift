@@ -9,12 +9,12 @@ final class OperationsCoordinator: BaseCoordirator {
     //MARK: - Private properties
     private var navController: UINavigationController
     
-    private let repo: Repository
+    private let repo: OperationsRepositoryImpl
     private var viewModel: OperationsViewModel?
     
     private let disposeBag = DisposeBag()
     
-    init(navController: UINavigationController, repo: Repository) {
+    init(navController: UINavigationController, repo: OperationsRepositoryImpl) {
         self.navController = navController
         self.repo = repo
     }

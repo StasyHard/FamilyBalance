@@ -3,9 +3,9 @@ import Foundation
 import RxSwift
 import CoreData
 
-protocol Repository {
+protocol OperationsRepositoryImpl {
     //TODO: signIn будет в отдельном репозитории
-    func signIn(_ loginModel: UserLoginModel) -> Single<String>
+    //func signIn(_ loginModel: UserLoginModel) -> Single<String>
     
     func getOperations() -> Observable<[Operation]>
     func getDefaultAccount() -> Single<Account>
@@ -17,10 +17,10 @@ protocol Repository {
 }
 
 
-final class OperationsRepository: NSObject, Repository {
+final class OperationsRepository: NSObject, OperationsRepositoryImpl {
     
-    private let apiClient: FafilyBalanseApiClient
-    private let localManager: OperationsCoreDataManager
+    //private let apiClient: FafilyBalanseApiClient
+    private let localManager: OperationsCoreDataManagerImpl
     
     private var operations: Observable<[Operation]>
     private let _operations = BehaviorSubject<[Operation]>(value: [])
@@ -28,7 +28,7 @@ final class OperationsRepository: NSObject, Repository {
     
     override init() {
         self.operations = _operations
-        self.apiClient = FafilyBalanseApiClient()
+        //self.apiClient = FafilyBalanseApiClient()
         self.localManager = OperationsCoreDataManager()
         
         if UIApplication.checkIfFirstLaunch() {
@@ -37,24 +37,20 @@ final class OperationsRepository: NSObject, Repository {
     }
     
     //MARK: - Repository open metods
-    //получить список операций за период от стартовой даты
+    //получить список операций
     func getOperations() -> Observable<[Operation]> {
-        
-        localManager.getOperationsFRC() { [unowned self] frc in
-            
-            if let operations = frc.fetchedObjects {
-                self._operations.onNext(operations)
-            }
+        localManager.getOperationsFRC() { [unowned self] operations in
+            self._operations.onNext(operations)
         }
         return self.operations
     }
     
-    //получить дефолтный счет, для экранов где необходимо сразу добававить дефолтные данные
+    //Сохранить операцию
     func saveOperation(_ operation: OperationModel) -> Single<Void> {
         return Single
-            .create { [weak self] single in
+            .create { [unowned self] single in
                 
-                self?.localManager.saveOperation(operation) { result in
+                self.localManager.saveOperation(operation) { result in
                     switch result {
                     case .success():
                         single(.success(()))
@@ -69,8 +65,8 @@ final class OperationsRepository: NSObject, Repository {
     //получить категории расходов
     func getCategories() -> Observable<[Category]> {
         return Observable
-            .create { [weak self] single in
-                    self?.localManager.getCategories { single.onNext($0) }
+            .create { [unowned self] single in
+                self.localManager.getCategories { single.onNext($0) }
                 return Disposables.create()
         }
     }
@@ -78,18 +74,18 @@ final class OperationsRepository: NSObject, Repository {
     //получить счета
     func getAccounts() -> Observable<[Account]> {
         return Observable
-            .create { [weak self] single in
-                self?.localManager.getAccounts { single.onNext($0) }
+            .create { [unowned self] single in
+                self.localManager.getAccounts { single.onNext($0) }
                 
                 return Disposables.create()
         }
     }
     
-    //получить счета
+    //получить дефолтный счет, для экранов где необходимо сразу добававить дефолтные данные
     func getDefaultAccount() -> Single<Account> {
         return Single
-            .create { [weak self] single in
-                self?.localManager.getAccounts {
+            .create { [unowned self] single in
+                self.localManager.getAccounts {
                     single(.success($0[0]))
                 }
                 return Disposables.create()
@@ -99,8 +95,8 @@ final class OperationsRepository: NSObject, Repository {
     //получить дефолтную категорию, для экранов где необходимо сразу добававить дефолтные данные
     func getDefaultCategory() -> Single<Category> {
         return Single
-            .create { [weak self] single in
-                self?.localManager.getCategories {
+            .create { [unowned self] single in
+                self.localManager.getCategories {
                     single(.success($0[0]))
                 }
                 return Disposables.create()
@@ -108,34 +104,19 @@ final class OperationsRepository: NSObject, Repository {
     }
     
     //TODO: signIn будет в отдельном репозитории
-    func signIn(_ loginModel: UserLoginModel) -> Single<String> {
-        return Single
-            .create { [weak self] single in
-                
-                self?.apiClient.signIn(user: loginModel) { response in
-                    if let token = response {
-                        single(.success(token))
-                    } else {
-                        let error = NSError()
-                        single(.error(error))
-                    }
-                }
-                return Disposables.create()
-        }
-    }
+//    func signIn(_ loginModel: UserLoginModel) -> Single<String> {
+//        return Single
+//            .create { [weak self] single in
+//                
+//                self?.apiClient.signIn(user: loginModel) { response in
+//                    if let token = response {
+//                        single(.success(token))
+//                    } else {
+//                        let error = NSError()
+//                        single(.error(error))
+//                    }
+//                }
+//                return Disposables.create()
+//        }
+//    }
 }
-
-extension OperationsRepository: NSFetchedResultsControllerDelegate {
-    
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        
-    }
-}
-
-//let default = UserDefaults.standard
-//default.set(accessToken, forKey: "accessToken")
-//default.synchronized()
-////Now get like this and use guard so that it will prevent your crash if value is nil.
-//guard let accessTokenValue = default.string(forKey: "accessToken") else {return}
-//print(accessTokenValue)
-
